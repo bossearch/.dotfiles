@@ -1,0 +1,213 @@
+{
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+    },
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+    }
+  },
+
+  "group/task": {
+    "orientation": "inherit",
+    "modules": [
+      "cpu",
+      "memory"
+    ]
+  },
+
+  "group/monitor": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/ddcutil",
+      "wireplumber",
+      "network"
+    ]
+  },
+
+  "group/utility": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/wvkbd",
+      "custom/hyprpicker",
+      "custom/wiz"
+    ]
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    // "format": "<span font='12'>{}</span>",//
+    "max-length": 60,
+    "separate-outputs": true,
+    "rewrite": {
+    "(.*) — Mozilla Firefox": "🌎 $1",
+    "(.*) - alacritty": "> [$1]",
+    }
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": "<span color='#bf616a'>  </span>{:%H:%M:%S}",
+    "format-alt": "<span color='#bf616a'>  </span>{:%a-%d-%b-%d}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": " {}%",
+    "max-length": 10,
+    "on-click": "kitty btop",
+  },
+
+  "memory": {
+    "interval": 30,
+    "format":" {used}/{total}GiB",
+    "format-alt": " {}%",
+    "max-length": 15,
+  },
+
+  "backlight": {
+    "device": "DP-3",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+  },
+
+  "custom/ddcutil": {
+    // I don't even want to know why this works.
+    // Change it to the following for your custom icons,
+    // current format is a hack for Material Symbols to display normally:
+    "format": " {icon}{percentage}% ",
+    "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "], 
+    "return-type": "json",    
+    "exec": "ddcutil --bus 8 getvcp 10 | grep -oP 'current.*?=\\s*\\K[0-9]+' | { read x; echo '{\"percentage\":'${x}'}'; }",
+    "on-scroll-up": "ddcutil --noverify --bus 8 setvcp 10 + 10",
+    "on-scroll-down": "ddcutil --noverify --bus 8 setvcp 10 - 10",
+    "on-click": "ddcutil --noverify --bus 8 setvcp 10 0",
+    "on-click-right": "ddcutil --noverify --bus 8 setvcp 10 100",
+    "interval": 1,
+    "tooltip": false,
+  },
+
+  "network": {
+    "format-wifi": "󰖩 {signalStrength}%",
+    "format-ethernet": " wired",
+    "format-disconnected": "󰖪 ",
+    "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
+    "format-disconnected": "Disconnected  ",
+    "tooltip": false,
+  },
+
+  "wireplumber": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "  {volume}%",
+    "format-bluetooth-muted": " ",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol",
+    "tooltip": false,
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "adapter": "ADP0",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "max-length": 20,
+    "format": "{icon} {capacity}%",
+    "format-warning": "{icon} {capacity}%",
+    "format-critical": "{icon} {capacity}%",
+    "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-full": "  {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "],
+  },
+
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar  --location samarinda",
+    "return-type": "json"
+  },
+
+  "custom/spotify": {
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-double-click-right": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+  },
+
+  "custom/power-menu": {
+    "format": " <span color='#6a92d7'>⏻</span>",
+    "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh",
+    "tooltip": false,
+  },
+
+  "custom/launcher": {
+    "format": " <span color='#6a92d7'>󰣇</span>",
+    "on-click": "rofi -show drun",
+    "tooltip": false,
+  },
+
+  "custom/wvkbd": {
+    "format": " <span color='#c8d2e0'> </span>",
+    "on-click": "bash ~/.config/waybar/scripts/wvkbd.sh",
+    "tooltip": false,
+  },
+
+  "custom/hyprpicker": {
+    "format": " <span color='#c8d2e0'></span>",
+    "on-click": "hyprpicker -a",
+    "tooltip": false,
+  },
+
+  "custom/wiz": {
+    //"format": " {icon}{percentage}% ",//
+    "format": " {icon} ",
+    "format-icons": ["󰌶", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
+    "return-type": "json",
+    "exec": "python3 ~/.config/waybar/scripts/lamp-control/get_brightness.py | { read x; echo '{\"percentage\":'${x}'}'; }",
+    "on-scroll-up": "sh ~/.config/waybar/scripts/lamp-control/increase_brightness.sh",
+    "on-scroll-down": "sh ~/.config/waybar/scripts/lamp-control/decrease_brightness.sh",
+    "on-click": "sh ~/.config/waybar/scripts/lamp-control/turn_on.sh",
+    "on-click-right": "sh ~/.config/waybar/scripts/lamp-control/turn_off.sh",
+    "on-click-middle": "sh ~/.config/waybar/scripts/lamp-control/toggle_temp.sh",
+    "interval": 1,
+    "tooltip": false,
+  },
+}

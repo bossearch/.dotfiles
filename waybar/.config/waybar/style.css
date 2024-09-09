@@ -63,6 +63,7 @@ window#waybar {
 
 #window {
   color: #c8d2e0;
+  font-size: 12px;
 }  
 #workspaces {
   border-radius: 9.5px;

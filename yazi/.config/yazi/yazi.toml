@@ -8,7 +8,7 @@ edit = [
 	{ run = "nvim %*",   block = true, for = "windows" },
 ]
 play = [
-	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+	{ run = 'vlc "$@"', orphan = true, for = "unix" },
 	{ run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" }
 ]
 open = [
@@ -19,15 +19,15 @@ extract = [
 	{ run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
 ]
 
-[[plugin.prepend_fetchers]]
-id   = "git"
-name = "*"
-run  = "git"
-
-[[plugin.prepend_fetchers]]
-id   = "git"
-name = "*/"
-run  = "git"
+#[[plugin.prepend_fetchers]]
+#id   = "git"
+#name = "*"
+#run  = "git"
+#
+#[[plugin.prepend_fetchers]]
+#id   = "git"
+#name = "*/"
+#run  = "git"
 
 [plugin]
 prepend_previewers = [
