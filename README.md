@@ -1,17 +1,23 @@
-clone this repo to your home directory
+## Bosse's dotfiles
 
-```
-git clone https://github.com/bossearch/.dotfiles.git
+This repo uses [stow](https://www.gnu.org/software/stow/) to manage the symlinks, but you don't **have** to, you can also just individually symlink the contents of each directory directly into your home.
+
+If you want to use stow, clone this repository to your home directory and do
+
+```shell
+cd ~/.dotfiles
+stow --restow */
 ```
 
-I use `stow` to manage the dotfiles, `cd` to `.dotfiles` and use these command to copy all config files.
+or use these command to symlink a specific application config file, for example is neovim.
 
-```
-stow */
+```shell
+stow --restow nvim
 ```
 
-or use these command to copy a specific application config file, example for neovim.
+stow will automatically symlink the contents of each "package" into the parent directory from where it is invoked (i.e. your home directory), that's why it is important to clone this repository directly into your home directory. If you cloned the repository somewhere else, you can use the `--target` parameter.
 
-```
-stow neovim
+```shell
+cd ~/path/to/dotfiles
+stow --target=$HOME --restow */
 ```
