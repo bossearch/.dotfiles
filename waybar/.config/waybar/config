@@ -9,24 +9,23 @@
   "spacing": 5, // Gaps between modules (4px)
 
   "modules-left": [
-    "custom/launcher", 
-    "group/task", 
-    "custom/weather", 
+    "custom/launcher",
+    "group/task",
+    "custom/weather",
     "hyprland/workspaces"
   ],
 
   "modules-center": [
-    "hyprland/window", 
-    "custom/spotify"
+    "hyprland/window",
   ],
 
   "modules-right": [
-    "tray", 
-    "group/utility", 
-    "group/monitor", 
-    "backlight", 
-    "battery", 
-    "clock", 
+    "group/customtray",
+    "group/utility",
+    "group/monitor",
+    "backlight",
+    "battery",
+    "clock",
     "custom/power-menu"
   ],
   "include": "~/.config/waybar/modules",

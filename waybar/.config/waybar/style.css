@@ -1,13 +1,12 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: JetBrainsMono Nerd Font;
-  font-size: 17px;
+  font-size: 16px;
   border-radius: 10px;
 }
 
 window#waybar {
   background-color: rgba(26, 27, 38, 0.8);
-
 }
 
 
@@ -63,7 +62,7 @@ window#waybar {
 
 #window {
   color: #c8d2e0;
-  font-size: 12px;
+
 }  
 #workspaces {
   border-radius: 9.5px;
@@ -76,7 +75,8 @@ window#waybar {
   border-radius: 9.5px;
 }
 #utility,
-#task {
+#customtray,
+#spotify {
   background-color: rgba(22, 22, 30, 0.8);
   border-radius: 9.5px;
 }
@@ -92,14 +92,14 @@ window#waybar {
 
 #custom-power-menu {
   border-radius: 9.5px;
-  padding: 0 13 0 0px;
+  padding: 0px 13px 0px 0px;
   background-color: rgba(22, 22, 30, 0.8);
 }
 
 #custom-launcher {
   color: #6a92d7;
   border-radius: 9.5px;
-  padding: 0 14 0 0px;
+  padding: 0px 14px 0px 0px;
   background-color: rgba(22, 22, 30, 0.8);
 }
 

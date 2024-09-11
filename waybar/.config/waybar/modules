@@ -50,12 +50,38 @@
       "custom/wiz"
     ]
   },
+  "group/customtray": {
+    "orientation": "inherit",
+    "modules": [
+      "group/spotify",
+      "tray"
+    ]
+  },
+
+  "group/spotify": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": true
+    },
+    "modules": [
+      //"custom/spotify-icon",//
+      "custom/spotify-metadata",
+      "custom/spotify-prev",
+      "custom/spotify-play",
+      "custom/spotify-next"
+    ],
+  },
 
   "hyprland/window": {
-    "format": "{}",
-    // "format": "<span font='12'>{}</span>",//
-    "max-length": 60,
+    //"format": "{}",//
+    "format": "<span font='12'>{}</span>",
+    "max-length": 120,
     "separate-outputs": true,
+    "icon": true,
+    "icon-size": 16,
+    "on-click": "hyprctl dispatch killactive",
+    //"on-click": "sh ~/.config/waybar/scripts/kill-window.sh",//
     "rewrite": {
     "(.*) — Mozilla Firefox": "🌎 $1",
     "(.*) - alacritty": "> [$1]",
@@ -119,7 +145,8 @@
   },
 
   "wireplumber": {
-    "format": "{icon}  {volume}%",
+    "max-volume": 150,
+    "format": "{icon} {volume}%",
     "format-bluetooth": "  {volume}%",
     "format-bluetooth-muted": " ",
     "format-muted": "󰖁",
@@ -130,7 +157,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": ["", "", " "]
     },
     "on-click": "pavucontrol",
     "tooltip": false,
@@ -163,13 +190,41 @@
     "return-type": "json"
   },
 
-  "custom/spotify": {
-    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
-    "format": "{}  ",
+  "custom/spotify-icon": {
+    "format": "  ",
+    "tooltip": false,
+  },
+
+  "custom/spotify-metadata": {
+    "format": "  ",
+    "max-length": 60,
+    "interval": 5,
     "return-type": "json",
-    "on-click": "playerctl play-pause",
-    "on-double-click-right": "playerctl next",
-    "on-scroll-down": "playerctl previous",
+    "exec": "~/.config/waybar/scripts/spotify/metadata.sh",
+    "on-click-right": "killall spotify",
+  },
+
+  "custom/spotify-prev": {
+    "format": " 󰒮",
+    "on-click": "playerctl -p spotify previous",
+    "tooltip": false,
+  },
+
+  "custom/spotify-play": {
+    "format": " {} ",
+    //"format": "  ",//
+    //"format-alt": "  ",//
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/spotify/play-pause.sh",
+    "on-click": "~/.config/waybar/scripts/spotify/controls.sh",
+    "tooltip": false,
+  },
+
+  "custom/spotify-next": {
+    "format": "󰒭 ",
+    "on-click": "playerctl -p spotify next",
+    "tooltip": false,
   },
 
   "custom/power-menu": {
@@ -209,5 +264,32 @@
     "on-click-middle": "sh ~/.config/waybar/scripts/lamp-control/toggle_temp.sh",
     "interval": 1,
     "tooltip": false,
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 2,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
   },
 }
