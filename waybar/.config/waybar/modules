@@ -37,7 +37,7 @@
     "orientation": "inherit",
     "modules": [
       "custom/ddcutil",
-      "wireplumber",
+      "pulseaudio",
       "network"
     ]
   },
@@ -45,14 +45,17 @@
   "group/utility": {
     "orientation": "inherit",
     "modules": [
+      "group/screenshot",
       "custom/wvkbd",
       "custom/hyprpicker",
       "custom/wiz"
     ]
   },
+
   "group/customtray": {
     "orientation": "inherit",
     "modules": [
+      "custom/stoprec",
       "group/spotify",
       "tray"
     ]
@@ -73,6 +76,20 @@
     ],
   },
 
+  "group/screenshot": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "custom/ssmonitor",
+      "custom/sswindow",
+      "custom/ssarea",
+      "custom/ocr"
+    ],
+  },
+
   "hyprland/window": {
     //"format": "{}",//
     "format": "<span font='12'>{}</span>",
@@ -81,7 +98,6 @@
     "icon": true,
     "icon-size": 16,
     "on-click": "hyprctl dispatch killactive",
-    //"on-click": "sh ~/.config/waybar/scripts/kill-window.sh",//
     "rewrite": {
     "(.*) — Mozilla Firefox": "🌎 $1",
     "(.*) - alacritty": "> [$1]",
@@ -103,7 +119,7 @@
     "interval": 10,
     "format": " {}%",
     "max-length": 10,
-    "on-click": "kitty btop",
+    "on-click": "alacritty -t btop -e btop",
   },
 
   "memory": {
@@ -137,29 +153,27 @@
 
   "network": {
     "format-wifi": "󰖩 {signalStrength}%",
-    "format-ethernet": " wired",
+    "format-ethernet": "",
     "format-disconnected": "󰖪 ",
-    "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
+    "on-click": "alacritty -t nmtui -e nmtui",
     "format-disconnected": "Disconnected  ",
     "tooltip": false,
   },
 
-  "wireplumber": {
-    "max-volume": 150,
-    "format": "{icon} {volume}%",
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-muted": " ",
+    "format-source": "",
+    "format-source-muted": " ",
     "format-bluetooth": "  {volume}%",
     "format-bluetooth-muted": " ",
-    "format-muted": "󰖁",
+    "max-volume": 150,
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": ["", "", " "]
     },
     "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-middle": "~/.config/waybar/scripts/toggle-mic.sh",
     "tooltip": false,
   },
 
@@ -201,7 +215,7 @@
     "interval": 5,
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/spotify/metadata.sh",
-    "on-click-right": "killall spotify",
+    "on-click": "killall spotify",
   },
 
   "custom/spotify-prev": {
@@ -257,12 +271,47 @@
     "format-icons": ["󰌶", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
     "return-type": "json",
     "exec": "python3 ~/.config/waybar/scripts/lamp-control/get_brightness.py | { read x; echo '{\"percentage\":'${x}'}'; }",
-    "on-scroll-up": "sh ~/.config/waybar/scripts/lamp-control/increase_brightness.sh",
-    "on-scroll-down": "sh ~/.config/waybar/scripts/lamp-control/decrease_brightness.sh",
-    "on-click": "sh ~/.config/waybar/scripts/lamp-control/turn_on.sh",
-    "on-click-right": "sh ~/.config/waybar/scripts/lamp-control/turn_off.sh",
-    "on-click-middle": "sh ~/.config/waybar/scripts/lamp-control/toggle_temp.sh",
+    "on-scroll-up": "~/.config/waybar/scripts/lamp-control/increase_brightness.sh",
+    "on-scroll-down": "~/.config/waybar/scripts/lamp-control/decrease_brightness.sh",
+    "on-click": "~/.config/waybar/scripts/lamp-control/turn_on.sh",
+    "on-click-right": "~/.config/waybar/scripts/lamp-control/turn_off.sh",
+    "on-click-middle": "~/.config/waybar/scripts/lamp-control/toggle_temp.sh",
     "interval": 1,
+    "tooltip": false,
+  },
+
+  "custom/ssmonitor": {
+    "format": " 󰹑 ",
+    "on-click": "~/.config/waybar/scripts/screenshot/ssmonitor.sh",
+    "on-click-right": "~/.config/waybar/scripts/screenrecord/recmonitor.sh",
+    "tooltip": false,
+  },
+
+  "custom/sswindow": {
+    "format": "  ",
+    "on-click": "~/.config/waybar/scripts/screenshot/sswindow.sh",
+    "on-click-right": "~/.config/waybar/scripts/screenrecord/recwindow.sh",
+    "tooltip": false,
+  },
+
+  "custom/ssarea": {
+    "format": "  ",
+    "on-click": "~/.config/waybar/scripts/screenshot/ssarea.sh",
+    "on-click-right": "~/.config/waybar/scripts/screenrecord/recarea.sh",
+    "tooltip": false,
+  },
+
+  "custom/stoprec": {
+    "format": " {} ",
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/screenrecord/checkrec.sh",
+    "on-click": "~/.config/waybar/scripts/screenrecord/stoprec.sh",
+
+  },
+  "custom/ocr": {
+    "format": " 󱄽 ",
+    "on-click": "~/.config/waybar/scripts/screenshot/ocr.sh",
     "tooltip": false,
   },
 

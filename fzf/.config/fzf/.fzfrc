@@ -2,12 +2,11 @@
 --height=~30
 --border=rounded
 --info=inline-right
---preview='~/.config/fzf/fzf-preview.sh {}'
 --prompt="❯ "
 --color=fg:#c0caf5
 --color=fg+:#B1BAE4
 --color=bg:#1a1b26
---color=bg+:#262626
+--color=bg+:#16161e
 --color=hl:#92BE67
 --color=hl+:#93d84e
 --color=info:#7296E6

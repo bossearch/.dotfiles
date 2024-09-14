@@ -3,7 +3,7 @@
 file="$1"
 
 if [ -d "$file" ]; then
-  eza -1 --color=always "$file"
+  eza -1 --tree --level=2 --all --icons=always --color=always "$file"
 elif [ -f "$file" ]; then
   bat --color=always "$file"
 else

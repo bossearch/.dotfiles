@@ -1,15 +1,13 @@
 # fzf
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/.fzfrc
-export FZF_CTRL_R_OPTS="--preview-window hidden"
-#export FZF_ALT_C_OPTS="--layout reverse"
-#export FZF_COMPLETION_OPTS='--layout reverse --height=40%'
-#export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
+export FZF_{CTRL_T,ALT_C}_OPTS="--preview='~/.config/fzf/fzf-preview.sh {}'"
 alias editfzf="nvim ~/.config/fzf/.fzfrc"
 
 # fzf extras #
 source ~/.config/fzf/extra/historylist
 source ~/.config/fzf/extra/processes
+source ~/.config/fzf/extra/findinfile
 # Check if on Arch Linux
 if [ -f /etc/arch-release ]; then
   # Check if fzf is installed
@@ -24,6 +22,9 @@ fi
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# thefuck
+eval $(thefuck --alias wtf)
 
 # environment variables
 export GPG_TTY=$TTY
@@ -87,7 +88,7 @@ autoload -U compinit && compinit
 # fzf-tab
 zstyle ':fzf-tab:*' fzf-flags --height=~40
 zstyle ':fzf-tab:complete:*' fzf-preview \
-'[[ -d $realpath ]] && eza -1 --color=always $realpath || \
+'[[ -d $realpath ]] && eza -1 --tree --level=2 --all --icons=always --color=always $realpath || \
 ([[ -f $realpath ]] && bat --color=always $realpath || \
 echo "Cannot preview")'
 setopt glob_dots
@@ -99,8 +100,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 #_comp_options+=(globdots)
 
 # zsh-auto-notiy
-export AUTO_NOTIFY_THRESHOLD=3 # Set threshold to 30 seconds
-export AUTO_NOTIFY_IGNORE=("fzf" "yy" "yazi" "man" "nvim" "tmux")
+export AUTO_NOTIFY_THRESHOLD=30 # Set threshold to 30 seconds
+export AUTO_NOTIFY_IGNORE=("fkill" "fif" "fzf" "yy" "yazi" "man" "nvim" "tmux" "tm")
 
 # bat-theme
 export BAT_THEME="tokyonight_night"
@@ -141,7 +142,8 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 # Aliases
-alias ls='ls --color'
+#alias ls='ls --color'
+alias ls="eza --color=always --long --git --no-filesize --no-user --icons=always --no-time"
 alias pac='sudo pacman'
 alias par='paru'
 alias execzsh="source ~/.config/zsh/.zshrc"
@@ -179,4 +181,29 @@ preexec_functions+=(preexec)
 
 # remove highlighted '%' symbol on zsh
 PROMPT_EOL_MARK=""
+
+# separator line
+# Initialize a flag to track first terminal launch
+FIRST_PROMPT=true
+
+# Function to print the grey separator line
+#separator_line() {
+#  # Only show the separator if this isn't the first prompt
+#  if [[ "$FIRST_PROMPT" == false ]]; then
+#    local cols=$(tput cols)   # Get the width of the terminal
+#    local line=$(printf "%0.s -" $(seq 1 $((cols / 2))))
+#    
+#    # Set grey color using ANSI escape codes
+#    local grey='\033[38;5;8m'
+#    local reset='\033[0m'
+#    
+#    # Print the grey line
+#    echo -e "${grey}${line}${reset}"
+#  fi
+#  
+#  # Disable the flag after the first prompt
+#  FIRST_PROMPT=false
+#}
+#
+#precmd_functions+=(separator_line)
 #add-zsh-hook precmd bottom_prompt
