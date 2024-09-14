@@ -23,8 +23,8 @@
     "group/customtray",
     "group/utility",
     "group/monitor",
-    "backlight",
-    "battery",
+    //"backlight",//
+    //"battery",//
     "clock",
     "custom/power-menu"
   ],
