@@ -110,8 +110,8 @@
 
   "clock": {
     "interval": 1,
-    "format": "<span color='#bf616a'>  </span>{:%H:%M:%S}",
-    "format-alt": "<span color='#bf616a'>  </span>{:%a-%d-%b-%d}",
+    "format": "<span color='#f7768e'>  </span>{:%H:%M:%S}",
+    "format-alt": "<span color='#f7768e'>  </span>{:%a-%d-%b-%d}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
   },
 
@@ -242,25 +242,25 @@
   },
 
   "custom/power-menu": {
-    "format": " <span color='#6a92d7'>⏻</span>",
+    "format": " ⏻",
     "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh",
     "tooltip": false,
   },
 
   "custom/launcher": {
-    "format": " <span color='#6a92d7'>󰣇</span>",
+    "format": " 󰣇",
     "on-click": "rofi -show drun",
     "tooltip": false,
   },
 
   "custom/wvkbd": {
-    "format": " <span color='#c8d2e0'> </span>",
+    "format": "  ",
     "on-click": "bash ~/.config/waybar/scripts/wvkbd.sh",
     "tooltip": false,
   },
 
   "custom/hyprpicker": {
-    "format": " <span color='#c8d2e0'></span>",
+    "format": " ",
     "on-click": "hyprpicker -a",
     "tooltip": false,
   },

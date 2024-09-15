@@ -16,8 +16,8 @@ source $CURRENT_DIR/themes.sh
 
 ACCENT_COLOR="${THEME[blue]}"
 SECONDARY_COLOR="${THEME[background]}"
-BG_COLOR="${THEME[background]}"
-BG_BAR="${THEME[background]}"
+BG_COLOR="${THEME[truebg]}"
+BG_BAR="${THEME[truebg]}"
 TIME_COLOR="${THEME[black]}"
 
 if [[ $1 =~ ^[[:digit:]]+$ ]]; then
