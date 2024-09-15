@@ -7,3 +7,8 @@ function in() {
 function re() {
     paru -Qq | fzf -q "$1" -m --preview 'paru -Qi {1}' | xargs -ro paru -Rns
 }
+
+# Search packages and open upstream url
+function se() {
+    paru -Slq | fzf -q "$1" -m --preview 'paru -Si {1}' --bind "enter:execute(echo {1} | paru -Si {1} | grep -oP '(https?://\S+)' | xargs firefox)"
+}
