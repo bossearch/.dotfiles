@@ -22,8 +22,6 @@ while IFS= read -r file; do
 
     # Extract the command from the Exec line in the .desktop file
     extract=$(grep '^Exec=' "$full_path" | tail -1 | sed 's/^Exec=//' | sed 's/%.*//')
-    echo "selected: $(basename "$full_path")"
-    echo "extracted: $extract"
 
     # Run the command
     echo "$extract" | xargs -r -I {} sh -c 'nohup {} >/dev/null 2>&1 & disown'
