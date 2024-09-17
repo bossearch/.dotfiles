@@ -26,7 +26,7 @@
     //"backlight",//
     //"battery",//
     "clock",
-    "custom/power-menu"
+    "group/power"
   ],
-  "include": "~/.config/waybar/modules",
+  "include": "~/.config/waybar/modules.jsonc",
 }

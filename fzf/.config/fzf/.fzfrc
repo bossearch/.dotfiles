@@ -3,6 +3,8 @@
 --border=rounded
 --info=inline-right
 --prompt="❯ "
+--highlight-line
+--preview-window=bottom
 --color=fg:#c0caf5
 --color=fg+:#B1BAE4
 --color=bg:#1a1b26
@@ -22,3 +24,4 @@
 --color=label:#aeaeae
 --color=query:#B1BAE4
 --color=preview-border:#CEA265
+--color=preview-scrollbar:#CEA265
