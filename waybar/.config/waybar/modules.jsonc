@@ -223,7 +223,7 @@
   },
 
   "custom/spotify-metadata": {
-    "format": "  ",
+    "format": "󰓇",
     "max-length": 60,
     "interval": 5,
     "return-type": "json",
@@ -249,7 +249,7 @@
   },
 
   "custom/spotify-next": {
-    "format": "󰒭 ",
+    "format": "󰒭",
     "on-click": "playerctl -p spotify next",
     "tooltip": false,
   },
@@ -327,7 +327,7 @@
   },
 
   "custom/stoprec": {
-    "format": " {} ",
+    "format": " {}",
     "interval": 1,
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/screenrecord/checkrec.sh",

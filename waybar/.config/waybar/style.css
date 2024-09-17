@@ -63,9 +63,15 @@ window#waybar {
 }
 
 #customtray { /*group for spotify and tray*/
-  color: #cccccc;
   background-color: rgba(22, 22, 30, 0.8);
-  border-radius: 10px;
+}
+#custom-stoprec {
+  color: #ffffff;
+  padding: 0px 4px 0px 0px;
+}
+#custom-spotify-metadata {
+  color: #ffffff;
+  padding: 0px 4px 0px 10px;
 }
 #tray {
   background-color: rgba(22, 22, 30, 0.8);

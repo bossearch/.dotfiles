@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Find the PID of wl-screenrec
 pid=$(pgrep wl-screenrec)

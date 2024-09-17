@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Get the microphone source ID
 MIC_SOURCE=$(pactl list short sources | grep -m 1 input | awk '{print $1}')
