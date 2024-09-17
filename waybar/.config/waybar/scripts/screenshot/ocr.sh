@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Dependencies: tesseract-ocr imagemagick wl-clipboard grim slurp
 
 die() {

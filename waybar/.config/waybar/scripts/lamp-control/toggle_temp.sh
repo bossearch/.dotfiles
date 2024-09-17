@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 lamp_ip="192.168.18.14"
 port=38899
