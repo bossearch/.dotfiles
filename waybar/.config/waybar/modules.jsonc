@@ -90,6 +90,19 @@
     ],
   },
 
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/shutdown",
+      "custom/lock",
+      "custom/reboot"
+    ],
+  },
+
   "hyprland/window": {
     //"format": "{}",//
     "format": "<span font='12'>{}</span>",
@@ -241,9 +254,21 @@
     "tooltip": false,
   },
 
-  "custom/power-menu": {
-    "format": " ⏻",
-    "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh",
+  "custom/shutdown": {
+    "format": " ⏻ ",
+    "on-click": "systemctl poweroff",
+    "tooltip": false,
+  },
+
+  "custom/reboot": {
+    "format": " ",
+    "on-click": "systemctl reboot",
+    "tooltip": false,
+  },
+ 
+  "custom/lock": {
+    "format": "   ",
+    "on-click": "hyprlock",
     "tooltip": false,
   },
 

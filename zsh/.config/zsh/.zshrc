@@ -5,9 +5,8 @@ export FZF_{CTRL_T,ALT_C}_OPTS="--preview='~/.config/fzf/fzf-preview.sh {}'"
 alias editfzf="nvim ~/.config/fzf/.fzfrc"
 
 # fzf extras #
-source ~/.config/fzf/extra/historylist
-source ~/.config/fzf/extra/processes
-source ~/.config/fzf/extra/findinfile
+source ~/.config/fzf/extra/other
+#export MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'"
 # Check if on Arch Linux
 if [ -f /etc/arch-release ]; then
   # Check if fzf is installed

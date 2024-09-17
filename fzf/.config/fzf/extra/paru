@@ -10,5 +10,11 @@ function re() {
 
 # Search packages and open upstream url
 function se() {
-    paru -Slq | fzf -q "$1" -m --preview 'paru -Si {1}' --bind "enter:execute(echo {1} | paru -Si {1} | grep -oP '(https?://\S+)' | xargs firefox)"
+    paru -Slq | fzf -q "$1" -m --preview 'paru -Si {1}' \
+    --bind "enter:execute(echo {1} | paru -Si {1} | grep -oP '(https?://\S+)' | xargs firefox)"
+}
+
+# Check available update
+function up() {
+    paru -Qu | fzf -q "$1" -m --preview 'paru -Si {1}' | awk '{print $1}' | xargs -ro paru -S
 }
