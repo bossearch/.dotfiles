@@ -3,24 +3,25 @@
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 
 # Path to Hyprpaper config file
-CONFIG_FILE="$HOME/.config/hypr/hyprpaper.conf"
+HYPRPAPER_FILE="$HOME/.config/hypr/hyprpaper.conf"
+
+# Path to Hyprpaper config file
+HYPRLOCK_FILE="$HOME/.config/hypr/hyprlock.conf"
 
 # Select a random wallpaper
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
-#echo $WALLPAPER
+
 # Monitor to apply wallpaper to (replace DP-3 with your actual display name)
 MONITOR="DP-3"
 
 # Modify the config file to set the random wallpaper
-sed -i "s|^wallpaper = $MONITOR, .*|wallpaper = $MONITOR, $WALLPAPER|" "$CONFIG_FILE"
-#echo "Updated wallpaper line in config."
-# Preload the wallpaper as well if necessary
-sed -i "s|^preload = .*|preload = $WALLPAPER|" "$CONFIG_FILE"
-#echo "Updated preload line in config."
+sed -i "s|^wallpaper = $MONITOR, .*|wallpaper = $MONITOR, $WALLPAPER|" "$HYPRPAPER_FILE"
 
-# Check the contents of the config file after running sed
-#echo "Config file after changes:"
-#cat "$CONFIG_FILE"
+# Preload the wallpaper as well if necessary
+sed -i "s|^preload = .*|preload = $WALLPAPER|" "$HYPRPAPER_FILE"
+
+# Change hyprlock background to be same like hyprpaper wallpaper
+sed -i '/background/,/}/ s|^\( *path *= *\).*|\1'" $WALLPAPER"'|' "$HYPRLOCK_FILE"
 
 # Reload Hyprpaper to apply the changes
 hyprpaper
