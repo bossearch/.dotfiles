@@ -20,7 +20,7 @@ if [ -z "$title" ] || [ -z "$x" ] || [ -z "$y" ] || [ -z "$width" ] || [ -z "$he
 fi
 
 # Take a screenshot of the focused window using grim
-grim -g "${x},${y} ${width}x${height}" - | wl-copy && wl-paste >~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png
+grim -g "${x},${y} ${width}x${height}" - | wl-copy && wl-paste >~/Pictures/Screenshots/$title-$(date +%F_%T).png
 
 # Send a notification
 dunstify "Screenshot of $title taken" -t 2000

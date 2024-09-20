@@ -3,9 +3,6 @@
 # Ensure the screenshots directory exists
 mkdir -p ~/Videos//Screenrecords
 
-# Define the filename with the current date and time
-filename=~/Videos/Screenrecords/Screenrecord-$(date +%F_%T).mp4
-
 # Define tooltip file location
 tooltip=~/.config/waybar/scripts/screenrecord/tooltip
 
@@ -16,6 +13,9 @@ x=$(echo "$window" | jq '.at[0]')
 y=$(echo "$window" | jq '.at[1]')
 width=$(echo "$window" | jq '.size[0]')
 height=$(echo "$window" | jq '.size[1]')
+
+# Define the filename with the current date and time
+filename=~/Videos/Screenrecords/$title-$(date +%F_%T).mp4
 
 # Check if valid data is retrieved
 if [ -z "$title" ] || [ -z "$x" ] || [ -z "$y" ] || [ -z "$width" ] || [ -z "$height" ]; then

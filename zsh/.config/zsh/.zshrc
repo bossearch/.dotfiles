@@ -106,7 +106,7 @@ export AUTO_NOTIFY_IGNORE=("fkill" "fif" "fzf" "yy" "yazi" "man" "nvim" "tmux" "
 export BAT_THEME="tokyonight_night"
 
 # Keybindings
-bindkey -v
+bindkey -e
 #bindkey -M vicmd "^I" fzf
 #bindkey '^I' fzf --tmux top
 bindkey '^[[A' history-substring-search-up

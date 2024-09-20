@@ -29,6 +29,9 @@
     "orientation": "inherit",
     "modules": [
       "cpu",
+      "temperature",
+      "custom/gpu",
+      "temperature#gpu",
       "memory"
     ]
   },
@@ -37,6 +40,7 @@
     "orientation": "inherit",
     "modules": [
       "custom/ddcutil",
+      "custom/hyprshade",
       "pulseaudio",
       "network"
     ]
@@ -47,6 +51,7 @@
     "modules": [
       "group/screenshot",
       "custom/wvkbd",
+      "custom/magnifier",
       "custom/hyprpicker",
       "custom/wiz"
     ]
@@ -68,7 +73,6 @@
       "transition-left-to-right": true
     },
     "modules": [
-      //"custom/spotify-icon",//
       "custom/spotify-metadata",
       "custom/spotify-prev",
       "custom/spotify-play",
@@ -123,21 +127,45 @@
 
   "clock": {
     "interval": 1,
-    "format": "<span color='#f7768e'>  </span>{:%H:%M:%S}",
-    "format-alt": "<span color='#f7768e'>  </span>{:%a-%d-%b-%d}",
+    "format": "<span color='#f7768e'> </span>{:%H:%M:%S}",
+    "format-alt": "<span color='#f7768e'> </span>{:%a-%d-%b-%d}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
   },
 
   "cpu": {
     "interval": 10,
     "format": " {}%",
-    "max-length": 10,
+    "max-length": 7,
     "on-click": "alacritty -t btop -e btop",
   },
 
+  "temperature": {
+    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+    "input-filename": "temp1_input",
+    "interval": 10,
+    "format": "{temperatureC}°C",
+    "on-click": "alacritty -t btop -e btop",
+  },
+
+  "custom/gpu": {
+    "exec": "cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
+    "interval": 10,
+    "format": " {}%",
+    "max-length": 5,
+    "on-click": "alacritty -t btop -e btop",
+  },
+
+  "temperature#gpu": {
+    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:00.0/0000:03:00.0/hwmon/",
+    "input-filename": "temp1_input",
+    "interval": 10,
+    "format": "{temperatureC}°C",
+    "on-click": "alacritty -t btop -e btop",
+  },
   "memory": {
-    "interval": 30,
-    "format":" {used}/{total}GiB",
+    "interval": 10,
+    //"format-alt":" {used}/{total}GiB",
+    "format":" {used}GiB",
     "format-alt": " {}%",
     "max-length": 15,
   },
@@ -164,6 +192,13 @@
     "tooltip": false,
   },
 
+  "custom/hyprshade": {
+    "format": "  ",
+    "format-alt": "  ",
+    "on-click": "hyprshade toggle blue-light-filter",
+    "tooltip": false,
+  },
+
   "network": {
     "format-wifi": "󰖩 {signalStrength}%",
     "format-ethernet": "",
@@ -175,7 +210,7 @@
 
   "pulseaudio": {
     "format": "{icon} {volume}% {format_source}",
-    "format-muted": " ",
+    "format-muted": "  {format_source}",
     "format-source": "",
     "format-source-muted": " ",
     "format-bluetooth": "  {volume}%",
@@ -217,11 +252,6 @@
     "return-type": "json"
   },
 
-  "custom/spotify-icon": {
-    "format": "  ",
-    "tooltip": false,
-  },
-
   "custom/spotify-metadata": {
     "format": "󰓇",
     "max-length": 60,
@@ -238,13 +268,9 @@
   },
 
   "custom/spotify-play": {
-    "format": " {} ",
-    //"format": "  ",//
-    //"format-alt": "  ",//
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/spotify/play-pause.sh",
-    "on-click": "~/.config/waybar/scripts/spotify/controls.sh",
+    "format": "  ",
+    "format-alt": "  ",
+    "on-click": "playerctl -p spotify play-pause",
     "tooltip": false,
   },
 
@@ -279,20 +305,26 @@
   },
 
   "custom/wvkbd": {
-    "format": "  ",
+    "format": " ",
     "on-click": "bash ~/.config/waybar/scripts/wvkbd.sh",
     "tooltip": false,
   },
 
+  "custom/magnifier": {
+    "format": " 󱈅 ",
+    "on-click": "hyprmag -r 5000 -s 2",
+    "tooltip": false,
+  },
+
   "custom/hyprpicker": {
-    "format": " ",
+    "format": "",
     "on-click": "hyprpicker -a",
     "tooltip": false,
   },
 
   "custom/wiz": {
     //"format": " {icon}{percentage}% ",//
-    "format": " {icon} ",
+    "format": "{icon} ",
     "format-icons": ["󰌶", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
     "return-type": "json",
     "exec": "python3 ~/.config/waybar/scripts/lamp-control/get_brightness.py | { read x; echo '{\"percentage\":'${x}'}'; }",
