@@ -26,6 +26,9 @@ fi
 # Define the geometry string for wl-screenrec
 geometry="${x},${y} ${width}x${height}"
 
+# Create or update tooltip file for checkrec.sh
+echo "Screenrecording on $title" >$tooltip
+
 # Notify the user that the recording is about to start
 dunstify "Screenrecording on $title will start in 3 seconds " -t 2500
 
@@ -34,9 +37,6 @@ sleep 3
 
 # Start recording the active window
 wl-screenrec --audio --low-power=off --no-damage -g "$geometry" -f "$filename"
-
-# Create or update tooltip file for checkrec.sh
-echo "Screenrecording on $title" >$tooltip
 
 # When the script finishes (e.g., with CTRL+C), notify the user
 trap 'dunstify "Screenrecord saved to $filename" -t 3000' EXIT
