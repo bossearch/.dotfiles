@@ -15,24 +15,18 @@ def send_request(data):
         except socket.timeout:
             return "No response"
 
-def get_brightness():
+def get_temperature():
     request = json.dumps({"method": "getPilot"})
     response = send_request(request)
-    
+
     try:
         result = json.loads(response).get("result")
-        
-        # Check if the lamp is off
-        if result.get("state") == False:
-            return 0  # Lamp is off, return 0% brightness
+        return result.get("temp", 2700)  # Default to 2700 if not available
 
-        # Return the dimming level if the lamp is on
-        return result.get("dimming", 0)
-        
     except json.JSONDecodeError:
         return "Failed to decode JSON response"
 
 if __name__ == "__main__":
-    brightness = get_brightness()
-    print(brightness)
+    temp = get_temperature()
+    print(temp)
 

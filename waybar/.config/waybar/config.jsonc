@@ -9,7 +9,7 @@
   "spacing": 5, // Gaps between modules (4px)
 
   "modules-left": [
-    "custom/launcher",
+    "group/launcher",
     "group/task",
     "custom/weather",
     "hyprland/workspaces"
@@ -26,7 +26,7 @@
     //"backlight",//
     //"battery",//
     "clock",
-    "group/power"
+    "custom/notification"
   ],
   "include": "~/.config/waybar/modules.jsonc",
 }

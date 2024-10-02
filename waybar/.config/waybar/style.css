@@ -9,11 +9,24 @@ window#waybar {
   border-radius: 10px;
 }
 
-#custom-launcher {
-  color: #7dcfff;
+#launcher { /*group for launcher*/
+  color: #414868;
   background-color: rgba(22, 22, 30, 0.8);
   border-radius: 10px;
-  padding: 0px 14px 0px 0px;
+  padding: 0px 3px 0px 0px;
+}
+#custom-launcher {
+  color: #7dcfff;
+  padding: 0px 10px 0px 10px;
+}
+#custom-lock {
+  padding: 0 10px;
+}
+#custom-shutdown {
+  padding: 0px 9px 0px 10px;
+}
+#custom-reboot {
+  padding: 0 10px;
 }
 
 #task { /*group for cpu, gpu and memory*/
@@ -21,7 +34,6 @@ window#waybar {
   border-radius: 10px;
   padding: 0 5px;
 }
-
 #cpu,
 #temperature {
   color: #f7768e;
@@ -32,7 +44,6 @@ window#waybar {
   color: #e0af68;
   padding: 0 5px;
 }
-
 #memory {
   color: #9ece6a;
   padding: 0 5px;
@@ -71,19 +82,28 @@ window#waybar {
 }
 
 #customtray { /*group for spotify and tray*/
+  color: #ffffff;
   background-color: rgba(22, 22, 30, 0.8);
 }
+#privacy {
+  padding: 0px 0px 0px 10px;
+}
 #custom-stoprec {
-  color: #ffffff;
   padding: 0px 4px 0px 0px;
 }
 #custom-spotify-metadata {
-  color: #ffffff;
   padding: 0px 4px 0px 10px;
 }
 #tray {
   background-color: rgba(22, 22, 30, 0.8);
   padding: 0 10px;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #9ece6a;
 }
 
 #utility { /*group for screenshot,wvkbd,hyprpicker, and wiz*/
@@ -101,19 +121,28 @@ window#waybar {
   padding: 0px 0px 0px 8px;
 }
 
-#monitor { /*group for ddcutil, pulseaudio, and network*/
+#monitor { /*group for ddcutil, pulseaudio, and internet*/
   background-color: rgba(22, 22, 30, 0.8);
   color: #7aa2f7;
   border-radius: 10px;
 }
 
+#internet { /*group for network and custom-tor*/
+  background-color: rgba(22, 22, 30, 0.8);
+}
 #network {
   color: #bb9af7;
-  background-color: rgba(22, 22, 30, 0.8);
   padding: 0 10px;
 }
 #network.disconnected {
   color: #f53c3c;
+}
+#custom-tor {
+  color: #414868;
+  padding: 0px 6px 0px 10px;
+}
+#custom-tor.active {
+  color: #bb9af7;
 }
 
 #clock {
@@ -122,8 +151,9 @@ window#waybar {
   border-radius: 10px;
   padding: 0 10px;
 }
-#power { /*group for power*/
-  color: #414868;
+
+#custom-notification {
+  color: #c0caf5;
   background-color: rgba(22, 22, 30, 0.8);
   border-radius: 10px;
   padding: 0px 3px 0px 0px;

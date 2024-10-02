@@ -100,7 +100,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # zsh-auto-notiy
 export AUTO_NOTIFY_THRESHOLD=30 # Set threshold to 30 seconds
-export AUTO_NOTIFY_IGNORE=("fkill" "fif" "fzf" "yy" "yazi" "man" "nvim" "tmux" "tm")
+export AUTO_NOTIFY_IGNORE=("nyaa" "fman" "fh" "fkill" "fif" "fzf" "yy" "yazi" "man" "nvim" "tmux" "tm")
 
 # bat-theme
 export BAT_THEME="tokyonight_night"

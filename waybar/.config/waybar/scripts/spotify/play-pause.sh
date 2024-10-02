@@ -7,13 +7,11 @@ if [[ -z $status ]]; then
 fi
 
 if [[ $status == "Playing" ]]; then
-  echo "{\"class\": \"playing\", \"text\": \"\", \"tooltip\": \"$album\"}"
-  pkill -RTMIN+5 waybar
-  exit
+  playerctl -p spotify pause
+  pkill -SIGRTMIN+9 waybar
 fi
 
 if [[ $status == "Paused" ]]; then
-  echo "{\"class\": \"paused\", \"text\": \"\", \"tooltip\": \"$album\"}"
-  pkill -RTMIN+5 waybar
-  exit
+  playerctl -p spotify play
+  pkill -SIGRTMIN+9 waybar
 fi

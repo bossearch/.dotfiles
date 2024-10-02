@@ -30,10 +30,8 @@ geometry="${x},${y} ${width}x${height}"
 echo "Screenrecording on $title" >$tooltip
 
 # Notify the user that the recording is about to start
-dunstify "Screenrecording on $title will start in 3 seconds " -t 2500
-
-# Wait for 2 seconds before starting the recording
-sleep 3
+dunstify -a screenrecord "Screenrecording on $title will start in 3 seconds " -t 2500
+sleep 2
 
 # Start recording the active window
 wl-screenrec --audio --low-power=off --no-damage -g "$geometry" -f "$filename"
