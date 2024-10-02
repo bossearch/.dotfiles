@@ -1,7 +1,7 @@
 # zsh; needs setopt re_match_pcre. You can, of course, adapt it to your own shell easily.
 tmuxkill () {
   local sessions
-  sessions="$(tmux ls|fzf --exit-0 --multi)"  || return $?
+  sessions="$(tmux ls|fzf --exit-0 --multi --bind 'j:down,k:up,space:accept')"  || return $?
   local i
   for i in "${(f@)sessions}"
   do
@@ -20,7 +20,8 @@ tm() {
   if [ $1 ]; then
     tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
   fi
-  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --height 100% --exit-0) \
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --height 100% --exit-0 \
+  --bind 'j:down,k:up,space:accept') \
   &&  tmux $change -t "$session" || echo "No sessions found."
 }
 

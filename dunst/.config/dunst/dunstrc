@@ -30,7 +30,7 @@ format = "<b>%s</b>\n%b"
 alignment = left
 show_age_threshold = 60
 word_wrap = true
-ignore_newline = true
+ignore_newline = false
 stack_duplicates = true
 hide_duplicate_count = false
 show_indicators = true
@@ -55,22 +55,26 @@ ignore_dbusclose = true
 ellipsize = middle
 
 [urgency_low]
-  timeout = 2
-  background = "#16161e"
-  foreground = "#c0caf5"
-  frame_color = "#c0caf5"
+timeout = 2
+background = "#1a1b26"
+foreground = "#c0caf5"
+frame_color = "#c0caf5"
+script = ~/.config/dunst/dunstsound.sh
 
 [urgency_normal]
-  timeout = 2
-  background = "#1a1b26"
-  foreground = "#c0caf5"
-  frame_color = "#c0caf5"
+timeout = 3
+background = "#16161e"
+foreground = "#c0caf5"
+frame_color = "#c0caf5"
+script = ~/.config/dunst/dunstsound.sh
 
 [urgency_critical]
-  timeout = 2
-  background = "#292e42"
-  foreground = "#db4b4b"
-  frame_color = "#db4b4b"
+timeout = 4
+background = "#292e42"
+foreground = "#db4b4b"
+frame_color = "#db4b4b"
+script = ~/.config/dunst/dunstsound.sh
+#script = ~/.config/dunst/sonar.sh
 
 [fullscreen_show_critical]
 msg_urgency = critical
@@ -95,5 +99,4 @@ format = "<span size='x-large' weight='bold'>%s</span>\n<span font_desc='Cooper 
 [NetworkManager Applet]
 appname= "NetworkManager Applet"
 new_icon="network-wireless"
-
 # vim:filetype=dosini

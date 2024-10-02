@@ -11,18 +11,16 @@ fi
 # waybar to update it's css.
 if [[ $status == "Playing" ]]; then
   playerctl -p spotify pause
-  sleep .1
   # trigger the monitor to resync all
   # spotify elements
-  pkill -RTMIN+4 waybar
+  pkill -SIGRTMIN+11 waybar
   exit
 fi
 
 if [[ $status == "Paused" ]]; then
   playerctl -p spotify play
-  sleep .1
   # trigger the monitor to resync all
   # spotify elements
-  pkill -RTMIN+4 waybar
+  pkill -SIGRTMIN+11 waybar
   exit
 fi

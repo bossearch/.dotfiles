@@ -13,4 +13,4 @@ geometry=$(slurp)
 grim -g "$geometry" - | wl-copy && wl-paste >$filename
 
 # Notify the user that the Screenshot has done
-dunstify "Screenshot of Area: $geometry taken" -t 3000
+dunstify -a screenshot "Screenshot of Area: $geometry taken" -t 3000

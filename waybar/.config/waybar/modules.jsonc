@@ -42,8 +42,20 @@
       "custom/ddcutil",
       "custom/hyprshade",
       "pulseaudio",
-      "network"
+      "group/internet"
     ]
+  },
+
+  "group/internet": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "network",
+      "custom/tor"
+    ],
   },
 
   "group/utility": {
@@ -60,6 +72,7 @@
   "group/customtray": {
     "orientation": "inherit",
     "modules": [
+      //"privacy",
       "custom/stoprec",
       "group/spotify",
       "tray"
@@ -94,31 +107,27 @@
     ],
   },
 
-  "group/power": {
+  "group/launcher": {
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 500,
-      "transition-left-to-right": false
+      "transition-right-to-left": false
     },
     "modules": [
-      "custom/shutdown",
+      "custom/launcher",
       "custom/lock",
+      "custom/shutdown",
       "custom/reboot"
     ],
   },
 
   "hyprland/window": {
-    //"format": "{}",//
-    "format": "<span font='12'>{}</span>",
+    "format": "{}",
     "max-length": 120,
     "separate-outputs": true,
     "icon": true,
     "icon-size": 16,
     "on-click": "hyprctl dispatch killactive",
-    "rewrite": {
-    "(.*) — Mozilla Firefox": "🌎 $1",
-    "(.*) - alacritty": "> [$1]",
-    }
   },
 
   "tray": {
@@ -133,32 +142,32 @@
   },
 
   "cpu": {
-    "interval": 10,
-    "format": " {}%",
-    "max-length": 7,
+    "interval": 5,
+    "format": " {usage}%",
+    "max-length": 15,
     "on-click": "alacritty -t btop -e btop",
   },
 
   "temperature": {
     "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
     "input-filename": "temp1_input",
-    "interval": 10,
+    "interval": 5,
     "format": "{temperatureC}°C",
     "on-click": "alacritty -t btop -e btop",
   },
 
   "custom/gpu": {
     "exec": "cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
-    "interval": 10,
+    "interval": 5,
     "format": " {}%",
-    "max-length": 5,
+    "max-length": 15,
     "on-click": "alacritty -t btop -e btop",
   },
 
   "temperature#gpu": {
     "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:00.0/0000:03:00.0/hwmon/",
     "input-filename": "temp1_input",
-    "interval": 10,
+    "interval": 5,
     "format": "{temperatureC}°C",
     "on-click": "alacritty -t btop -e btop",
   },
@@ -245,10 +254,10 @@
   },
 
   "custom/weather": {
-    "format": "{}°",
+    "format": "{}",
     "tooltip": true,
     "interval": 3600,
-    "exec": "wttrbar  --location samarinda",
+    "exec": "wttrbar  --location samarinda --custom-indicator '{ICON} {FeelsLikeC}°'",
     "return-type": "json"
   },
 
@@ -268,9 +277,12 @@
   },
 
   "custom/spotify-play": {
-    "format": "  ",
-    "format-alt": "  ",
-    "on-click": "playerctl -p spotify play-pause",
+    "format": " {} ",
+    //"format-alt": "  ",
+    "exec": "~/.config/waybar/scripts/spotify/status.sh",
+    "on-click": "~/.config/waybar/scripts/spotify/play-pause.sh",
+    "return-type": "json",
+    "signal": 9,
     "tooltip": false,
   },
 
@@ -281,26 +293,26 @@
   },
 
   "custom/shutdown": {
-    "format": " ⏻ ",
-    "on-click": "systemctl poweroff",
+    "format": "",
+    "on-click": "systemctl poweroff --quiet --no-warn",
     "tooltip": false,
   },
 
   "custom/reboot": {
-    "format": " ",
-    "on-click": "systemctl reboot",
+    "format": "",
+    "on-click": "systemctl reboot --quiet --no-warn",
     "tooltip": false,
   },
- 
+
   "custom/lock": {
-    "format": "   ",
+    "format": "",
     "on-click": "hyprlock",
     "tooltip": false,
   },
 
   "custom/launcher": {
-    "format": " 󰣇",
-    "on-click": "rofi -show drun",
+    "format": "󰣇",
+    "on-click": "alacritty -t neofetch --hold -e fastfetch",
     "tooltip": false,
   },
 
@@ -327,12 +339,12 @@
     "format": "{icon} ",
     "format-icons": ["󰌶", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
     "return-type": "json",
-    "exec": "python3 ~/.config/waybar/scripts/lamp-control/get_brightness.py | { read x; echo '{\"percentage\":'${x}'}'; }",
-    "on-scroll-up": "~/.config/waybar/scripts/lamp-control/increase_brightness.sh",
-    "on-scroll-down": "~/.config/waybar/scripts/lamp-control/decrease_brightness.sh",
-    "on-click": "~/.config/waybar/scripts/lamp-control/turn_on.sh",
-    "on-click-right": "~/.config/waybar/scripts/lamp-control/turn_off.sh",
-    "on-click-middle": "~/.config/waybar/scripts/lamp-control/toggle_temp.sh",
+    "exec": "python3 ~/.config/waybar/scripts/lamp-control/get-brightness.py | { read x; echo '{\"percentage\":'${x}'}'; }",
+    "on-scroll-up": "~/.config/waybar/scripts/lamp-control/increase-brightness.sh",
+    "on-scroll-down": "~/.config/waybar/scripts/lamp-control/decrease-brightness.sh",
+    "on-click": "~/.config/waybar/scripts/lamp-control/turn-on.sh",
+    "on-click-right": "~/.config/waybar/scripts/lamp-control/turn-off.sh",
+    "on-click-middle": "~/.config/waybar/scripts/lamp-control/toggle-temp.sh",
     "interval": 1,
     "tooltip": false,
   },
@@ -366,36 +378,51 @@
     "on-click": "~/.config/waybar/scripts/screenrecord/stoprec.sh",
 
   },
+
   "custom/ocr": {
     "format": " 󱄽 ",
     "on-click": "~/.config/waybar/scripts/screenshot/ocr.sh",
     "tooltip": false,
   },
 
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 2,
-    "consume-icons": {
-      "on": " "
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
+  "custom/notification": {
+    "format": " {} ",
+    "exec": "cat ~/.config/waybar/scripts/dunst/notification-icon",
+    "on-click": "~/.config/waybar/scripts/dunst/dunsticon.sh",
+    //"interval": 10,
+    "signal": 10,
+    "tooltip": false
+  },
+
+  "custom/tor": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/tor/tor-status.sh",
+    "on-click": "~/.config/waybar/scripts/tor/tor-toggle.sh",
+    "return-type": "json",
+    "signal": 11,
+    "tooltip": false
+  },
+
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
   },
 }

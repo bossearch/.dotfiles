@@ -4,7 +4,7 @@ lamp_ip="192.168.18.14"
 port=38899
 
 # Get the current temperature from the Python script
-current_temp=$(python3 ~/.config/waybar/scripts/lamp-control/get_temp.py)
+current_temp=$(python3 ~/.config/waybar/scripts/lamp-control/get-temp.py)
 
 # Check if the current temperature is valid and toggle accordingly
 if [ "$current_temp" -eq 4200 ] 2>/dev/null; then
