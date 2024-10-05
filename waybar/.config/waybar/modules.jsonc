@@ -294,13 +294,13 @@
 
   "custom/shutdown": {
     "format": "",
-    "on-click": "systemctl poweroff --quiet --no-warn",
+    "on-click": "systemctl --quiet --no-warn poweroff",
     "tooltip": false,
   },
 
   "custom/reboot": {
     "format": "",
-    "on-click": "systemctl reboot --quiet --no-warn",
+    "on-click": "systemctl --quiet --no-warn reboot",
     "tooltip": false,
   },
 
@@ -312,13 +312,13 @@
 
   "custom/launcher": {
     "format": "󰣇",
-    "on-click": "alacritty -t neofetch --hold -e fastfetch",
+    "on-click": "~/.config/waybar/scripts/launcher.sh",
     "tooltip": false,
   },
 
   "custom/wvkbd": {
     "format": " ",
-    "on-click": "bash ~/.config/waybar/scripts/wvkbd.sh",
+    "on-click": "~/.config/waybar/scripts/wvkbd.sh",
     "tooltip": false,
   },
 

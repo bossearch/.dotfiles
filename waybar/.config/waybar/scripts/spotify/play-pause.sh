@@ -2,10 +2,6 @@
 
 status=$(playerctl -p spotify status)
 
-if [[ -z $status ]]; then
-  exit
-fi
-
 if [[ $status == "Playing" ]]; then
   playerctl -p spotify pause
   pkill -SIGRTMIN+9 waybar
