@@ -1,0 +1,3 @@
+start=373.898084
+volume=76.000000
+vf=@svp:vapoursynth=file=%49%/home/bosse/.local/share/SVP4/scripts/b51a31ed.py:buffered-frames=4:concurrent-frames=13
