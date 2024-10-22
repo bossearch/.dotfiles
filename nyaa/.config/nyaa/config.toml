@@ -1,5 +1,5 @@
 theme = "Tokyo Night"
-default_source = "TorrentGalaxy"
+default_source = "SukebeiNyaa"
 download_client = "Transmission"
 timeout = 30
 scroll_padding = 3
@@ -58,7 +58,6 @@ leechers = true
 downloads = true
 
 [source.torrentgalaxy]
-#base_url = "https://torrentgalaxy.mx/"
 base_url = "https://tgx.sb/"
 default_sort = "Date"
 default_sort_dir = "Desc"

@@ -1,0 +1,519 @@
+{
+  "defaultHandlersVersion": {},
+  "mimeTypes": {
+    "image/webp":{
+      "action":0,
+      "extensions":["webp"]
+    },
+    "text/xml":{
+      "action":0,
+      "extensions":["xml","xsd","rng","xsl","xbl"]
+    },
+    "image/avif":{
+      "action":0,
+      "extensions":["avif","hif"]
+    },
+    "application/winhlp": {
+      "action": 0,
+      "extensions": ["hlp"]
+    },
+    "application/x-netcdf": {
+      "action": 0,
+      "extensions": ["cdf", "nc"]
+    },
+    "application/hta": {
+      "action": 0,
+      "extensions": ["hta"]
+    },
+    "application/x-msmoney": {
+      "action": 0,
+      "extensions": ["mny"]
+    },
+    "text/x-setext": {
+      "action": 0,
+      "extensions": ["etx"]
+    },
+    "application/x-troff-ms": {
+      "action": 0,
+      "extensions": ["ms"]
+    },
+    "application/x-troff-me": {
+      "action": 0,
+      "extensions": ["me"]
+    },
+    "application/x-pkcs7-certificates": {
+      "action": 0,
+      "extensions": ["p7b", "spc"]
+    },
+    "application/set-registration-initiation": {
+      "action": 0,
+      "extensions": ["setreg"]
+    },
+    "application/octet-stream": {
+      "action": 0,
+      "extensions": ["*", "bin", "class", "dms", "exe", "lha", "lzh"]
+    },
+    "application/x-pkcs12": {
+      "action": 0,
+      "extensions": ["p12", "pfx"]
+    },
+    "application/olescript": {
+      "action": 0,
+      "extensions": ["axs"]
+    },
+    "application/x-x509-ca-cert": {
+      "action": 0,
+      "extensions": ["cer", "crt", "der"]
+    },
+    "application/futuresplash": {
+      "action": 0,
+      "extensions": ["spl"]
+    },
+    "application/x-tar": {
+      "action": 0,
+      "extensions": ["tar"]
+    },
+    "application/x-iphone": {
+      "action": 0,
+      "extensions": ["iii"]
+    },
+    "application/x-compressed": {
+      "action": 0,
+      "extensions": ["tgz"]
+    },
+    "audio/x-mpegurl": {
+      "action": 0,
+      "extensions": ["m3u"]
+    },
+    "image/bmp": {
+      "action": 0,
+      "extensions": ["bmp"]
+    },
+    "application/zip": {
+      "action": 0,
+      "extensions": ["zip"]
+    },
+    "video/x-ms-asf": {
+      "action": 0,
+      "extensions": ["asf", "asr", "asx"]
+    },
+    "application/x-msclip": {
+      "action": 0,
+      "extensions": ["clp"]
+    },
+    "application/pics-rules": {
+      "action": 0,
+      "extensions": ["prf"]
+    },
+    "video/x-sgi-movie": {
+      "action": 0,
+      "extensions": ["movie"]
+    },
+    "audio/mid": {
+      "action": 0,
+      "extensions": ["mid", "rmi"]
+    },
+    "video/x-la-asf": {
+      "action": 0,
+      "extensions": ["lsf", "lsx"]
+    },
+    "application/x-mscardfile": {
+      "action": 0,
+      "extensions": ["crd"]
+    },
+    "application/x-latex": {
+      "action": 0,
+      "extensions": ["latex"]
+    },
+    "application/vnd.ms-powerpoint": {
+      "action": 0,
+      "extensions": ["pot", "pps", "ppt"]
+    },
+    "audio/mpeg": {
+      "action": 0,
+      "extensions": ["mp3"]
+    },
+    "application/x-msaccess": {
+      "action": 0,
+      "extensions": ["mdb"]
+    },
+    "video/mpeg": {
+      "action": 0,
+      "extensions": ["mp2", "mpa", "mpe", "mpeg", "mpg", "mpv2"]
+    },
+    "image/jpeg": {
+      "action": 0,
+      "extensions": ["jpe", "jpeg", "jpg"]
+    },
+    "application/x-texinfo": {
+      "action": 0,
+      "extensions": ["texi", "texinfo"]
+    },
+    "application/ynd.ms-pkipko": {
+      "action": 0,
+      "extensions": ["pko"]
+    },
+    "video/mp4": {
+      "action": 0,
+      "extensions": ["mp4"]
+    },
+    "image/ief": {
+      "action": 0,
+      "extensions": ["ief"]
+    },
+    "application/vnd.ms-project": {
+      "action": 0,
+      "extensions": ["mpp"]
+    },
+    "application/vnd.ms-pkicertstore": {
+      "action": 0,
+      "extensions": ["sst"]
+    },
+    "image/x-portable-bitmap": {
+      "action": 0,
+      "extensions": ["pbm"]
+    },
+    "application/x-csh": {
+      "action": 0,
+      "extensions": ["csh"]
+    },
+    "application/x-mspublisher": {
+      "action": 0,
+      "extensions": ["pub"]
+    },
+    "application/x-msmediaview": {
+      "action": 0,
+      "extensions": ["m13", "m14", "mvb"]
+    },
+    "application/x-sv4crc": {
+      "action": 0,
+      "extensions": ["sv4crc"]
+    },
+    "application/internet-property-stream": {
+      "action": 0,
+      "extensions": ["acx"]
+    },
+    "application/x-stuffit": {
+      "action": 0,
+      "extensions": ["sit"]
+    },
+    "text/iuls": {
+      "action": 0,
+      "extensions": ["uls"]
+    },
+    "text/x-vcard": {
+      "action": 0,
+      "extensions": ["vcf"]
+    },
+    "application/vnd.ms-pkiseccat": {
+      "action": 0,
+      "extensions": ["cat"]
+    },
+    "image/svg+xml": {
+      "action": 0,
+      "extensions": ["svg","svgz"]
+    },
+    "application/x-hdf": {
+      "action": 0,
+      "extensions": ["hdf"]
+    },
+    "application/x-cdf": {
+      "action": 0,
+      "extensions": ["cdf"]
+    },
+    "text/x-component": {
+      "action": 0,
+      "extensions": ["htc"]
+    },
+    "image/x-rgb": {
+      "action": 0,
+      "extensions": ["rgb"]
+    },
+    "application/pkix-crl": {
+      "action": 0,
+      "extensions": ["crl"]
+    },
+    "application/x-dvi": {
+      "action": 0,
+      "extensions": ["dvi"]
+    },
+    "application/x-gtar": {
+      "action": 0,
+      "extensions": ["gtar"]
+    },
+    "application/x-javascript": {
+      "action": 0,
+      "extensions": ["js"]
+    },
+    "image/x-icon": {
+      "action": 0,
+      "extensions": ["ico"]
+    },
+    "application/x-msschedule": {
+      "action": 0,
+      "extensions": ["scd"]
+    },
+    "audio/x-aiff": {
+      "action": 0,
+      "extensions": ["aif", "aifc", "aiff"]
+    },
+    "video/quicktime": {
+      "action": 0,
+      "extensions": ["mov", "qt"]
+    },
+    "text/tab-separated-values": {
+      "action": 0,
+      "extensions": ["tsv"]
+    },
+    "application/x-wais-source": {
+      "action": 0,
+      "extensions": ["src"]
+    },
+    "application/envoy": {
+      "action": 0,
+      "extensions": ["evy"]
+    },
+    "application/vnd.ms-outlook": {
+      "action": 0,
+      "extensions": ["msg"]
+    },
+    "application/x-pkcs7-signature": {
+      "action": 0,
+      "extensions": ["p7s"]
+    },
+    "application/x-ustar": {
+      "action": 0,
+      "extensions": ["ustar"]
+    },
+    "audio/basic": {
+      "action": 0,
+      "extensions": ["au", "snd"]
+    },
+    "image/cis-cod": {
+      "action": 0,
+      "extensions": ["cod"]
+    },
+    "application/x-sv4cpio": {
+      "action": 0,
+      "extensions": ["sv4cpio"]
+    },
+    "text/plain": {
+      "action": 0,
+      "extensions": ["bas", "c", "h", "txt"]
+    },
+    "application/x-cpio": {
+      "action": 0,
+      "extensions": ["cpio"]
+    },
+    "application/x-msdownload": {
+      "action": 0,
+      "extensions": ["dll"]
+    },
+    "video/x-msvideo": {
+      "action": 0,
+      "extensions": ["avi"]
+    },
+    "application/x-director": {
+      "action": 0,
+      "extensions": ["dcr", "dir", "dxr"]
+    },
+    "image/tiff": {
+      "action": 0,
+      "extensions": ["tif", "tiff"]
+    },
+    "text/webviewhtml": {
+      "action": 0,
+      "extensions": ["htt"]
+    },
+    "audio/x-pn-realaudio": {
+      "action": 0,
+      "extensions": ["ra", "ram"]
+    },
+    "application/vnd.ms-works": {
+      "action": 0,
+      "extensions": ["wcm", "wdb", "wks", "wps"]
+    },
+    "image/pipeg": {
+      "action": 0,
+      "extensions": ["jfif"]
+    },
+    "application/x-internet-signup": {
+      "action": 0,
+      "extensions": ["ins", "isp"]
+    },
+    "application/set-payment-initiation": {
+      "action": 0,
+      "extensions": ["setpay"]
+    },
+    "application/x-troff": {
+      "action": 0,
+      "extensions": ["roff", "t", "tr"]
+    },
+    "application/msword": {
+      "action": 0,
+      "extensions": ["doc", "dot"]
+    },
+    "image/x-xwindowdump": {
+      "action": 0,
+      "extensions": ["xwd"]
+    },
+    "application/x-msterminal": {
+      "action": 0,
+      "extensions": ["trm"]
+    },
+    "text/html": {
+      "action": 0,
+      "extensions": ["htm", "html", "stm"]
+    },
+    "application/vnd.ms-excel": {
+      "action": 0,
+      "extensions": ["xla", "xlc", "xlm", "xls", "xlt", "xlw"]
+    },
+    "text/scriptlet": {
+      "action": 0,
+      "extensions": ["sct"]
+    },
+    "application/pdf": {
+      "action": 0,
+      "extensions": ["pdf"]
+    },
+    "image/x-cmx": {
+      "action": 0,
+      "extensions": ["cmx"]
+    },
+    "image/x-portable-pixmap": {
+      "action": 0,
+      "extensions": ["ppm"]
+    },
+    "application/vnd.ms-pkistl": {
+      "action": 0,
+      "extensions": ["stl"]
+    },
+    "image/x-portable-graymap": {
+      "action": 0,
+      "extensions": ["pgm"]
+    },
+    "application/fractals": {
+      "action": 0,
+      "extensions": ["fif"]
+    },
+    "application/x-tex": {
+      "action": 0,
+      "extensions": ["tex"]
+    },
+    "application/x-mswrite": {
+      "action": 0,
+      "extensions": ["wri"]
+    },
+    "application/x-troff-man": {
+      "action": 0,
+      "extensions": ["man"]
+    },
+    "text/h323": {
+      "action": 0,
+      "extensions": ["323"]
+    },
+    "application/rtf": {
+      "action": 0,
+      "extensions": ["rtf"]
+    },
+    "image/x-xpixmap": {
+      "action": 0,
+      "extensions": ["xpm"]
+    },
+    "application/x-compress": {
+      "action": 0,
+      "extensions": ["z"]
+    },
+    "application/x-tcl": {
+      "action": 0,
+      "extensions": ["tcl"]
+    },
+    "application/postscript": {
+      "action": 0,
+      "extensions": ["ai", "eps"]
+    },
+    "application/x-shar": {
+      "action": 0,
+      "extensions": ["shar"]
+    },
+    "image/x-portable-anymap": {
+      "action": 0,
+      "extensions": ["pnm"]
+    },
+    "text/css": {
+      "action": 0,
+      "extensions": ["css"]
+    },
+    "image/x-xbitmap": {
+      "action": 0,
+      "extensions": ["xbm"]
+    },
+    "application/mac-binhex40": {
+      "action": 0,
+      "extensions": ["hqx"]
+    },
+    "text/richtext": {
+      "action": 0,
+      "extensions": ["rtx"]
+    },
+    "application/x-shockwave-flash": {
+      "action": 0,
+      "extensions": ["swf"]
+    },
+    "application/x-sh": {
+      "action": 0,
+      "extensions": ["sh"]
+    },
+    "application/x-msmetafile": {
+      "action": 0,
+      "extensions": ["wmf"]
+    },
+    "application/x-pkcs7-mime": {
+      "action": 0,
+      "extensions": ["p7c", "p7m"]
+    },
+    "audio/x-wav": {
+      "action": 0,
+      "extensions": ["wav"]
+    },
+    "application/x-pkcs7-certreqresp": {
+      "action": 0,
+      "extensions": ["p7r"]
+    },
+    "application/pkcs10": {
+      "action": 0,
+      "extensions": ["p10"]
+    },
+    "application/x-perfmon": {
+      "action": 0,
+      "extensions": ["pma", "pmc", "pml", "pmr", "pmw"]
+    },
+    "image/x-cmu-raster": {
+      "action": 0,
+      "extensions": ["ras"]
+    },
+    "application/x-bcpio": {
+      "action": 0,
+      "extensions": ["bcpio"]
+    },
+    "application/x-gzip": {
+      "action": 0,
+      "extensions": ["gz"]
+    },
+    "image/gif": {
+      "action": 0,
+      "extensions": ["gif"]
+    },
+    "application/oda": {
+      "action": 0,
+      "extensions": ["oda"]
+    }
+  },
+  "schemes": {
+    "magnet": {
+      "action": 4
+    }
+  },
+  "isDownloadsImprovementsAlreadyMigrated": false
+}
