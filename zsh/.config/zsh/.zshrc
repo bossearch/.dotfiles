@@ -148,6 +148,7 @@ alias par='paru'
 alias execzsh="source ~/.config/zsh/.zshrc"
 alias editzsh="nvim ~/.config/zsh/.zshrc"
 alias cat=bat
+#alias sy='sudo -E yazi'
 
 # yazi
 function yy() {
@@ -157,6 +158,15 @@ function yy() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+function sy() {
+  local tmp="/tmp/yazi-cwd.XXXXXX"
+  sudo -E yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  sudo rm -f -- "$tmp"
 }
 
 # Function to set dynamic title alacritty

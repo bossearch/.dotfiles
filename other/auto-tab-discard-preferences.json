@@ -12,9 +12,9 @@
     "./plugins/youtube/core.js": false,
     "audio": true,
     "battery": false,
-    "click": "click.popup",
+    "click": "click.discard-tab",
     "faqs": false,
-    "favicon": false,
+    "favicon": true,
     "favicon-delay": 500,
     "force.hostnames": [],
     "form": true,
@@ -29,18 +29,18 @@
     "memory-value": 60,
     "mode": "time-based",
     "notification.permission": false,
-    "number": 6,
+    "number": 1,
     "online": false,
     "page.context": false,
     "paused": true,
     "period": 600,
-    "pinned": false,
-    "prepends": "💤",
+    "pinned": true,
+    "prepends": "",
     "simultaneous-jobs": 10,
     "startup-pinned": false,
     "startup-release-pinned": false,
-    "startup-unpinned": false,
-    "tab.context": true,
+    "startup-unpinned": true,
+    "tab.context": false,
     "trash.period": 24,
     "trash.unloaded": false,
     "trash.whitelist-url": [],
@@ -48,6 +48,6 @@
     "whitelist-url": []
   },
   "localStorage": {
-    "click": "popup"
+    "click": "discard-tab"
   }
 }
