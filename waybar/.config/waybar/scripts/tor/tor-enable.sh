@@ -4,7 +4,7 @@
 mv /etc/iptables/iptables.rules /etc/iptables/iptables.rules.bak
 
 # Copy the custom iptables rules for Torification
-cp /home/bosse/obsidian-vault/05\ -\ Permanent/tor-iptables.md /etc/iptables/iptables.rules
+cp /home/bosse/Documents/obsidian-vault/05\ -\ Permanent/tor-iptables.md /etc/iptables/iptables.rules
 
 # Reload the iptables services to apply the restored rules
 systemctl restart iptables
