@@ -14,7 +14,7 @@ shell_cmd = "sh -c"
 [client.transmission]
 base_url = "http://localhost:9091/transmission/rpc"
 username = "bosse"
-password_file = "/home/bosse/obsidian-vault/05 - Permanent/transmission-password.md"
+password_file = "/home/bosse/Documents/obsidian-vault/05 - Permanent/transmission-password.md"
 use_magnet = true
 paused = false
 peer_limit = 100
