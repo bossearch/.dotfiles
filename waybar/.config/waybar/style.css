@@ -74,7 +74,7 @@ window#waybar {
 #workspaces button.active {
   background: alpha(@active, 0.4);
   color: #cccccc;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 #window {

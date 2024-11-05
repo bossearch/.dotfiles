@@ -297,13 +297,13 @@
 
   "custom/shutdown": {
     "format": "",
-    "on-click": "systemctl --quiet --no-warn poweroff",
+    "on-click": "~/.config/waybar/scripts/shutdown.sh",
     "tooltip": false,
   },
 
   "custom/reboot": {
     "format": "",
-    "on-click": "systemctl --quiet --no-warn reboot",
+    "on-click": "~/.config/waybar/scripts/reboot.sh",
     "tooltip": false,
   },
 
