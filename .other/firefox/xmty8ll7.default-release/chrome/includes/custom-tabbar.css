@@ -1,0 +1,78 @@
+:root {
+  /* Show X button on tab bar option */
+  --show-tab-close-button: none;
+  --show-tab-close-button-hover: -moz-inline-block;
+
+  /* Container tabs indicator */
+  --container-tabs-indicator-margin: 10px; /*higher is smaller*/
+
+
+  /*  Amount of Glow to add to the container indicator, Setting it to 0 disables the Glow */
+  --uc-identity-glow: 0 1px 10px 1px;
+
+  /* Adaptive tab width option */
+  /*
+  --uc-active-tab-width: clamp(100px, 30vw, 200px);
+  --uc-inactive-tab-width: clamp(50px, 20vw, 80px);
+  */
+}
+
+/* Show X button on tab bar */
+.tabbrowser-tab:not([pinned]) .tab-close-button { display: var(--show-tab-close-button) !important; }
+.tabbrowser-tab:not([pinned]):hover .tab-close-button { display: var(--show-tab-close-button-hover) !important }
+
+/* Container tabs indicator */
+.tabbrowser-tab[usercontextid]
+  > .tab-stack
+  > .tab-background
+  > .tab-context-line {
+    margin: -1px var(--container-tabs-indicator-margin) 0 var(--container-tabs-indicator-margin) !important;
+    height: 1px !important;
+    box-shadow: var(--uc-identity-glow) var(--identity-tab-color) !important;
+}
+
+/* Adaptive tab width */
+/*
+.tabbrowser-tab[selected][fadein]:not([pinned]) { max-width: var(--uc-active-tab-width) !important; }
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) { max-width: var(--uc-inactive-tab-width) !important; }
+*/
+
+/* Remove gap after pinned tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+  > #tabbrowser-arrowscrollbox
+  > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) { margin-inline-start: 0 !important; }
+
+/* Remove outline and box-shadow on tab backgrounds */
+.tabbrowser-tab .tab-background {
+  outline: none !important;
+  /* box-shadow: none !important;
+  */
+}
+
+/* multi tab selection */
+#tabbrowser-tabs:not([noshadowfortests]) .tabbrowser-tab:is([multiselected])
+  > .tab-stack
+  > .tab-background:-moz-lwtheme { outline-color: var(--toolbarseparator-color) !important; }
+
+/* Remove the secondary Tab Label */
+.tab-secondary-label { display: none !important; }
+
+/* Makes the speaker icon to always appear if the tab is playing (not only on hover) */
+.tab-icon-image,
+.tab-throbber{ opacity: 1 !important; }
+
+.tab-icon-overlay:not([crashed]){
+  z-index: 1;
+  opacity: 1 !important;
+  stroke: var(--tab-icon-overlay-stroke, black) !important;
+  fill: var(--tab-icon-overlay-fill, white) !important;
+  fill-opacity: 1 !important;
+}
+.tab-icon-overlay:not([crashed]):hover{
+  background-color: var(--tab-icon-overlay-stroke, black) !important;
+  border-radius: 10px !important;
+}
+
+.tabbrowser-tab:not([pinned]):is([soundplaying], [muted], [activemedia-blocked]) .tab-icon-image {
+  opacity: 0 !important;
+}

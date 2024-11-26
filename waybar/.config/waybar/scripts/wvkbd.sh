@@ -2,4 +2,4 @@
 
 # Get the PID of wvkbd
 
-pkill wvkbd-mobintl || wvkbd-mobintl -L 200
+pkill wvkbd-mobintl || wvkbd-mobintl -L 360

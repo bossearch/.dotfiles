@@ -6,7 +6,7 @@
 --
 table.unpack = table.unpack or unpack
 utils = require("mp.utils")
-limit = 24
+limit = 41
 
 function get_focus_using_xdotool()
 	return utils.subprocess({
@@ -26,8 +26,8 @@ function search_youtube()
 	local url_select = invoke_zenity({
 		"--entry",
 		"--title=Search Youtube",
-		"--window-icon=mpv",
 		"--text=Enter Search Text:",
+		"--width=500",
 	})
 	if url_select.status ~= 0 then
 		return
@@ -36,6 +36,7 @@ function search_youtube()
 	for filename in string.gmatch(url_select.stdout, "[^\n]+") do
 		mp.commandv("loadfile", "ytdl://ytsearch" .. limit .. ":" .. filename, "replace")
 	end
+	mp.command("script-message playlist-view-toggle")
 end
 
 mp.add_key_binding("CTRL+SHIFT+s", "search_youtube", search_youtube)

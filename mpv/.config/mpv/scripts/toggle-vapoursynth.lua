@@ -88,10 +88,10 @@ local function toggle_vapoursynth()
 			"30fps",
 			false,
 			false,
-			"Disable Vapoursynth",
+			"Enable Vapoursynth",
 			"script-binding toggle_vapoursynth/toggle_vapoursynth"
 		)
-	elseif fps >= 60 and not first_load then
+	elseif fps > 30 and not first_load then
 		mp.command("no-osd vf remove vapoursynth=~~/filters/mvtools.vpy")
 		update_button_icon(
 			"30fps",
@@ -101,7 +101,7 @@ local function toggle_vapoursynth()
 			"script-binding toggle_vapoursynth/toggle_vapoursynth"
 		)
 		save_vapoursynth_status(false)
-	elseif fps < 60 and not first_load then
+	elseif fps <= 30 and not first_load then
 		mp.command("no-osd vf set vapoursynth=~~/filters/mvtools.vpy")
 		update_button_icon(
 			"60fps",
@@ -118,10 +118,10 @@ local function periodic_vapoursynth_check()
 	local fps = get_current_fps()
 	local vapoursynth_enabled = load_vapoursynth_status()
 
-	if fps >= 60 and not vapoursynth_enabled then
+	if fps > 30 and not vapoursynth_enabled then
 		mp.command("no-osd vf remove vapoursynth=~~/filters/mvtools.vpy")
 		mp.msg.info("Vapoursynth filter removed due to high FPS.")
-	elseif fps < 60 and vapoursynth_enabled then
+	elseif fps <= 30 and vapoursynth_enabled then
 		mp.command("no-osd vf set vapoursynth=~~/filters/mvtools.vpy")
 		mp.msg.info("Vapoursynth filter added due to low FPS.")
 	end
@@ -152,9 +152,13 @@ local function modify_watch_later_files()
 		end
 		file:close()
 
-		-- Remove the second line if it exists
-		if #lines >= 2 then
-			table.remove(lines, 2)
+		-- Create a new table to keep only the first and fourth lines
+		local new_lines = {}
+		if #lines >= 1 then
+			table.insert(new_lines, lines[1]) -- Keep the first line
+		end
+		if #lines >= 4 then
+			table.insert(new_lines, lines[4]) -- Keep the fourth line
 		end
 
 		-- Write back the modified content
@@ -164,7 +168,7 @@ local function modify_watch_later_files()
 			goto continue
 		end
 
-		for _, line in ipairs(lines) do
+		for _, line in ipairs(new_lines) do
 			file:write(line .. "\n")
 		end
 		file:close()
@@ -174,9 +178,10 @@ local function modify_watch_later_files()
 end
 
 local function on_shutdown()
+	modify_watch_later_files()
 	save_first_load_status(true) -- Save the updated state to file
 	save_vapoursynth_status(false)
-	modify_watch_later_files()
+	--os.execute("~/.config/mpv/script-opts/cleanvapoursynth.sh")
 end
 
 mp.register_event("shutdown", on_shutdown)
