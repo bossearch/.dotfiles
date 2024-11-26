@@ -1,0 +1,36 @@
+* {
+  --animation-speed: 0.1s;
+  --button-corner-rounding: 30px;
+  /* tab container */
+  --urlbar-container-height: 40px !important;
+  /* urlbar box size */
+  --urlbar-min-height: 30px !important;
+  --urlbar-height: 30px !important;
+  /* toolbar height */
+  --urlbar-toolbar-height: 38px !important;
+  --moz-hidden-unscrollable: scroll !important;
+  --toolbarbutton-border-radius: 3px !important;
+  --tabs-border-color: transparent;
+}
+
+/* hide urlbar */
+#nav-bar:not([customizing]) {
+  margin-top: -40px;
+  opacity: 0;
+  transition: opacity, ease 0.05s !important;
+}
+
+/* show urlbar when needed or hovered */
+#nav-bar:hover,
+#nav-bar:focus-within,
+#urlbar[focused='true'],
+#identity-box[open='true'],
+#titlebar:hover + #nav-bar:not([customizing]),
+#toolbar-menubar:not([inactive='true']) ~ #nav-bar:not([customizing]) {
+  margin-top: 0px;
+  opacity: 1;
+}
+
+#urlbar-search-mode-indicator {
+    display: none !important;
+}

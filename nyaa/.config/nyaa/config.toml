@@ -1,5 +1,5 @@
 theme = "Tokyo Night"
-default_source = "SukebeiNyaa"
+default_source = "Nyaa"
 download_client = "Transmission"
 timeout = 30
 scroll_padding = 3

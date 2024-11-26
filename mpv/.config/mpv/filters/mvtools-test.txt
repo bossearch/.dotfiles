@@ -1,0 +1,44 @@
+# vim: set ft=python:
+Your VapourSynth script for motion interpolation using MVTools seems well-structured, but there are several factors that can lead to differences in results when compared to SVP (Smooth Video Project). Here are a few suggestions and considerations that might help you achieve results closer to SVP:
+1. Parameters Tuning
+* Block Size: The blksize parameter in your core.mv.Analyse calls is set to 32. Depending on the content of the video, you might want to experiment with smaller or larger block sizes (e.g., 16 or 64) to see if it improves quality.
+* Search Method: The search parameter can also be adjusted. You might want to try different search methods (e.g., search=2 for a faster search or search=1 for a more exhaustive search).
+* DCT: The dct parameter can be experimented with as well. The value 5is a good starting point, but testing with other values might yield better results.
+2. Motion Vector Settings
+* Pel: The pel parameter in core.mv.Super is currently set to 2, which is typically a good choice, but you can try 1 for faster processing or 3 for potentially better results at the cost of performance.
+* Sharpness: The sharp parameter is set to 0. Increasing this value can help with preserving details in the motion vectors.
+3. Frame Interpolation Method
+* FlowFPS Settings: You are using mask=1in core.mv.FlowFPS, which uses motion masks. You might want to experiment with mask=0 to see if it yields better results for your specific video.
+* Motion Blur: If you want to replicate SVP's smoothness, consider adding motion blur to the interpolated frames. You can use core.std.Blur or similar functions to achieve this.
+4. Post-Processing
+* After performing the motion interpolation, you can apply additional filters to enhance the visual quality of the output. Consider using denoising, sharpening, or other enhancement filters.
+5. Frame Rate Handling
+* Ensure that the frame rate handling is consistent with how SVP operates. SVP often uses a specific frame rate for interpolation. Make sure that your dst_fps is set correctly and matches the intended playback rate.
+
+import vapoursynth as vs
+core = vs.core
+
+clip = video_in
+dst_fps = display_fps
+
+# Cap the destination frame rate
+dst_fps = min(dst_fps, 60)
+
+src_fps_num = int(container_fps * 1e8)
+src_fps_den = int(1e8)
+dst_fps_num = int(dst_fps * 1e4)
+dst_fps_den = int(1e4)
+
+clip = core.std.AssumeFPS(clip, fpsnum=src_fps_num, fpsden=src_fps_den)
+super = core.mv.Super(clip, pel=2, sharp=1, rfilter=2)  # Adjust sharpness
+mvfw = core.mv.Analyse(super, blksize=32, isb=False, search=3, dct=5)
+mvbw = core.mv.Analyse(super, blksize=32, isb=True, search=3, dct=5)
+
+# Experiment with mask settings
+clip = core.mv.FlowFPS(clip, super, mvbw, mvfw, num=dst_fps_num, den=dst_fps_den, mask=1)
+
+# Optional: Add motion blur
+# clip = core.std.Blur(clip, 0, 1)  # Adjust the parameters as needed
+
+clip.set_output()
+
