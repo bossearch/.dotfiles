@@ -1,12 +1,12 @@
 {
   "height": 32, // Waybar height (to be removed for auto height)
   "layer": "top", // Waybar at top layer
-  "margin-top": 6,
-  "margin-left": 10,
-  "margin-bottom": 0,
-  "margin-right": 10,
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-bottom": -3,
+  "margin-right": 8,
   "fixef-center": true,
-  "spacing": 5, // Gaps between modules (4px)
+  "spacing": 4, // Gaps between modules (4px)
 
   "modules-left": [
     "group/launcher",
