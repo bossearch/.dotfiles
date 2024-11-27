@@ -1,18 +1,18 @@
 * {
   font-family: CommitMono Nerd Font; 
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 window#waybar {
   background-color: rgba(26, 27, 38, 0.8);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #launcher { /*group for launcher*/
   color: #414868;
   background-color: rgba(22, 22, 30, 0.8);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0px 3px 0px 0px;
 }
 #custom-launcher {
@@ -31,7 +31,7 @@ window#waybar {
 
 #task { /*group for cpu, gpu and memory*/
   background-color: rgba(22, 22, 30, 0.8);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0 5px;
 }
 #cpu,
@@ -56,7 +56,7 @@ window#waybar {
 }
 
 #workspaces {
-  border-radius: 10px;
+  border-radius: 8px;
   background-color: rgba(22, 22, 30, 0.8);
 }
 
@@ -74,7 +74,7 @@ window#waybar {
 #workspaces button.active {
   background: alpha(@active, 0.4);
   color: #cccccc;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #window {
@@ -109,7 +109,7 @@ window#waybar {
 #utility { /*group for screenshot,wvkbd,hyprpicker, and wiz*/
   background-color: rgba(22, 22, 30, 0.8);
   color: #c0caf5;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 #custom-wvkbd {
   padding: 0px 0px 0px 6px;
@@ -124,7 +124,7 @@ window#waybar {
 #monitor { /*group for ddcutil, pulseaudio, and internet*/
   background-color: rgba(22, 22, 30, 0.8);
   color: #7aa2f7;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #internet { /*group for network and custom-tor*/
@@ -148,14 +148,14 @@ window#waybar {
 #clock {
   color: #c0caf5;
   background-color: rgba(22, 22, 30, 0.8);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0 10px;
 }
 
 #custom-notification {
   color: #c0caf5;
   background-color: rgba(22, 22, 30, 0.8);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0px 3px 0px 0px;
 }
 /*
@@ -180,7 +180,7 @@ window#waybar {
 /*
 #monitor {
   background-color: rgba(22, 22, 30, 0.8);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #pulseaudio {

@@ -1,5 +1,8 @@
 @import url(includes/custom-button.css);
-@import url(includes/custom-compact.css);
 @import url(includes/custom-others.css);
+@import url(includes/custom-compact-alt.css);
+@import url(includes/custom-compact.css);
+@import url(includes/custom-tabbar-alt.css);
 @import url(includes/custom-tabbar.css);
+@import url(includes/custom-urlbar-alt.css);
 @import url(includes/custom-urlbar.css);

@@ -1,4 +1,0 @@
-Repo: core
-Name: cracklib
-Arch: x86_64
-URL: https://archlinux.org/packages/core/x86_64/cracklib

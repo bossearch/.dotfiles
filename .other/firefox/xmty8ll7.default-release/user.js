@@ -207,6 +207,11 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
+
+user_pref("userchrome.custom-compact-alt", false);
+user_pref("userchrome.custom-tabbar-alt", false);
+user_pref("userchrome.custom-urlbar-alt", false);
+
 user_pref("browser.engagement.home-button.has-removed", true);
 user_pref("browser.engagement.home-button.has-used", true);
 user_pref("browser.safebrowsing.downloads.enabled", false);

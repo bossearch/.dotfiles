@@ -1,36 +1,106 @@
-* {
-  --animation-speed: 0.1s;
-  --button-corner-rounding: 30px;
-  /* tab container */
-  --urlbar-container-height: 40px !important;
-  /* urlbar box size */
-  --urlbar-min-height: 30px !important;
-  --urlbar-height: 30px !important;
-  /* toolbar height */
-  --urlbar-toolbar-height: 38px !important;
-  --moz-hidden-unscrollable: scroll !important;
-  --toolbarbutton-border-radius: 3px !important;
-  --tabs-border-color: transparent;
-}
+@media (-moz-bool-pref: "userchrome.custom-urlbar-alt") {
+  /* Hide the nav bar and URL bar when not focused */
+  #nav-bar {
+    margin-top: -40px;
+    opacity: 0; /* Make the nav bar invisible */
+    pointer-events: none; /* Disable interactions when hidden */
+    transition: opacity 0.2s ease-in-out; /* Smooth transition */
+  }
 
-/* hide urlbar */
-#nav-bar:not([customizing]) {
-  margin-top: -40px;
-  opacity: 0;
-  transition: opacity, ease 0.05s !important;
-}
+  /* Show the nav bar and URL bar when focused */
+  #nav-bar:focus-within,
+  #urlbar:focus-within,
+  :root[inFullscreen="true"]:hover #nav-bar {
+    margin-top: 0px;
+    opacity: 1 !important; /* Fully visible */
+    pointer-events: auto !important; /* Enable interactions */
+  }
 
-/* show urlbar when needed or hovered */
-#nav-bar:hover,
-#nav-bar:focus-within,
-#urlbar[focused='true'],
-#identity-box[open='true'],
-#titlebar:hover + #nav-bar:not([customizing]),
-#toolbar-menubar:not([inactive='true']) ~ #nav-bar:not([customizing]) {
-  margin-top: 0px;
-  opacity: 1;
-}
+  /* Ensure visibility when customizing the toolbar */
+  :root[customizing] #nav-bar {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
 
-#urlbar-search-mode-indicator {
-    display: none !important;
+  /* Adjust for fullscreen mode */
+  :root[inFullscreen="true"] #nav-bar {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  :root[inFullscreen="true"]:hover #nav-bar {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/click_selected_tab_to_focus_urlbar.css made available under Mozilla Public License v. 2.0
+  See the above repository for updates as well as full license text. */
+
+  /* Clicking selected tab selects focuses urlbar */
+  /* Selected tab cannot be normally clicked (right-,middle- or left-clicked) EXCEPT from the tab icon */
+
+  /* Clicking selected pinned tab doesn't focus urlbar by default since I expect you might not want to change pinned tab address - see below */
+
+
+  /* Make selected tab unclickable so click goes to the capture box, obviously it can't be clicked at all anymore */
+  /* remove the :not([pinned]) bit to make clicking pinned tab AROUND the tab-icon focus urlbar*/
+
+  .tabbrowser-tab:not([pinned])[selected]{ pointer-events: none }
+
+  :root{
+    --uc-window-control-width: 138px;
+    --uc-buttons-width: 116px;
+    --uc-window-drag-space-width: 40px;
+    --uc-menubar-height: 0px;
+  }
+  @media (-moz-platform: windows),
+        (-moz-platform: linux){
+    :root:is([sizemode="maximized"],[sizemode="fullscreen"]){
+      --uc-window-drag-space-width: 0px;
+    }
+    #toolbar-menubar[autohide="false"] ~ #nav-bar,
+    #titlebar:has(> [autohide="false"]) + #nav-bar{
+      --uc-window-drag-space-width: 0px;
+      --uc-menubar-height: 28px;
+    }
+  }
+  /* Add back pointer-events to several elements so UI remains usable */
+  /* The selected tab can be clicked normally from the icon */
+  #TabsToolbar toolbarbutton,
+  #TabsToolbar toolbaritem,
+  .tabbrowser-tab,
+  .tab-close-button,
+  .tab-icon-stack{
+    pointer-events: auto
+  }
+  /* Invisible capture box behind tabs*/
+  :root:not([customizing]) .urlbar-input-container::before{
+    position: fixed;
+    display: block;
+    left: 0;
+    top: var(--uc-menubar-height);
+    width: var(--uc-buttons-width);
+    height: calc(var(--tab-min-height) + 2*var(--tab-block-margin));
+    content: "";
+    pointer-events: auto;
+  }
+  :root[tabsintitlebar]:not([customizing]) .urlbar-input-container::before{
+    left: var(--uc-window-drag-space-width);
+    width: calc(100vw - var(--uc-window-control-width) - var(--uc-buttons-width) - 2 * var(--uc-window-drag-space-width));
+  }
+  .urlbar-input-container:focus-within::before{ display: none !important; }
+
+  /* Make tabs appear over the invisible box */
+  :root:not([customizing]) #TabsToolbar-customization-target{
+    position: relative;
+    z-index: 1;
+    pointer-events: none
+  }
+  :root[tabsintitlebar] .browser-titlebar,
+  #titlebar{
+    opacity: 1 !important;
+    will-change: unset !important;
+    transition: none !important;
+  }
 }
