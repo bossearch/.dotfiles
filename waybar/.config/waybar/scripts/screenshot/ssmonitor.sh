@@ -13,4 +13,4 @@ filename=~/Pictures/Screenshots/$output-$(date +%F_%T).png
 grim - | wl-copy && wl-paste >$filename
 
 # Notify the user that the screenshot has done
-dunstify -a screenshot "Screenshot of Monitor: $output taken" -t 3000
+notify-send -a screenshot "Screenshot of Monitor: $output taken" -t 3000

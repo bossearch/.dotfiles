@@ -35,8 +35,8 @@ if [ -z "$res" ] || echo "$res" | grep -q '"translations":'; then
 
   # Show the translated text in a notification
   echo "$translated_text" | wl-copy
-  notify-send -a "deepl-translate" "Translation" "Done"
+  notify-send -a "deepl-translate" "Terjemahan" "Selesai"
 else
-  notify-send -a "deepl-translate" "Error" "Translation failed." -u critical
+  notify-send -a "deepl-translate" "Eror" "Terjemahan Gagal." -u critical
   exit 1
 fi

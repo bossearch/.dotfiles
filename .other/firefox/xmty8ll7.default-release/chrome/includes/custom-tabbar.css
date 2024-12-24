@@ -62,6 +62,7 @@
   .tab-icon-image,
   .tab-throbber{ opacity: 1 !important; }
 
+  /*
   .tab-icon-overlay:not([crashed]){
     z-index: 1;
     opacity: 1 !important;
@@ -73,6 +74,7 @@
     background-color: var(--tab-icon-overlay-stroke, black) !important;
     border-radius: 10px !important;
   }
+  */
 
   .tabbrowser-tab:not([pinned]):is([soundplaying], [muted], [activemedia-blocked]) .tab-icon-image {
     opacity: 0 !important;

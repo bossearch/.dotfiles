@@ -15,15 +15,11 @@ See the above repository for updates as well as full license text. */
 #sidebar-header::before{
   visibility: visible;
   content: "";
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  background-color: inherit;
-  border: 1px solid var(--chrome-content-separator-color);
-  border-top: none;
-  height: 8px;
-  width: 14px;
-  margin-top: -9px;
-  margin-inline-start: -4px;
+  margin-top: -27px;
+  margin-inline-start: -8px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(to top left, transparent 0%, transparent 50%, #27a1b9 50%, #27a1b9 100%);
 }
 #sidebar-switcher-target.active{
   pointer-events: none;

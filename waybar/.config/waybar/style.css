@@ -81,7 +81,7 @@ window#waybar {
   color: #c0caf5;
 }
 
-#customtray { /*group for spotify and tray*/
+#customtray { /*group for stoprec and tray*/
   color: #ffffff;
   background-color: rgba(22, 22, 30, 0.8);
 }
@@ -90,9 +90,6 @@ window#waybar {
 }
 #custom-stoprec {
   padding: 0px 4px 0px 0px;
-}
-#custom-spotify-metadata {
-  padding: 0px 4px 0px 10px;
 }
 #tray {
   background-color: rgba(22, 22, 30, 0.8);
@@ -106,12 +103,12 @@ window#waybar {
   background-color: #9ece6a;
 }
 
-#utility { /*group for screenshot,wvkbd,hyprpicker, and wiz*/
+#utility { /*group for screenshot, virtualkeyboard,hyprpicker, and wiz*/
   background-color: rgba(22, 22, 30, 0.8);
   color: #c0caf5;
   border-radius: 8px;
 }
-#custom-wvkbd {
+#custom-virtualkeyboard {
   padding: 0px 0px 0px 6px;
 }
 #custom-hyprpicker {

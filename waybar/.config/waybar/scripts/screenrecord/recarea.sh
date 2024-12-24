@@ -22,8 +22,8 @@ fi
 echo "Screenrecording on Area: $geometry" >$tooltip
 
 # Notify the user that the recording has started
-dunstify -a screenrecord "Screenrecording on Area: $geometry will start in 3 seconds" -t 2500
-sleep 2
+notify-send -a screenrecord "Screenrecording on Area: $geometry will start in 3 seconds" -t 2500
+sleep 3
 
 # Start recording the entire monitor
 wl-screenrec --audio --low-power=off --no-damage -g "$geometry" -f "$filename"
