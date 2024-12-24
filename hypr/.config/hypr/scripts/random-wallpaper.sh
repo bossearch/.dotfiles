@@ -21,7 +21,7 @@ sed -i "s|^wallpaper = $MONITOR, .*|wallpaper = $MONITOR, $WALLPAPER|" "$HYPRPAP
 sed -i "s|^preload = .*|preload = $WALLPAPER|" "$HYPRPAPER_FILE"
 
 # Change hyprlock background to be same like hyprpaper wallpaper
-sed -i '/background/,/}/ s|^\( *path *= *\).*|\1'" $WALLPAPER"'|' "$HYPRLOCK_FILE"
+sed -i '/background/,/}/ s|^\( *path *= *\).*|\1'"$WALLPAPER"'|' "$HYPRLOCK_FILE"
 
 # Reload Hyprpaper to apply the changes
 hyprpaper

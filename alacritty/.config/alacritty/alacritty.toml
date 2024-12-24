@@ -25,3 +25,6 @@ bold_italic.family = "CommitMono Nerd Font"
 offset.x = 0
 offset.y = 0
 size = 12
+
+[cursor]
+style = "beam"

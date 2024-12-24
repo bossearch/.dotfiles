@@ -212,16 +212,33 @@ user_pref("userchrome.custom-compact-alt", false);
 user_pref("userchrome.custom-tabbar-alt", false);
 user_pref("userchrome.custom-urlbar-alt", false);
 
+// trim url
+user_pref("browser.urlbar.trimHttps", true);
+user_pref("browser.urlbar.trimURLs", true);
+// disable new sidebar
+user_pref("sidebar.revamp", false);
+// show profile management in hamburger menu
+user_pref("browser.profiles.enabled", true);
+// show compact mode
+user_pref("browser.compactmode.show", true);
+// uidensity -> compact
+user_pref("browser.uidensity", 1);
+
+//dev
+//user_pref("xpinstall.signatures.required", false);
+user_pref("devtools.chrome.enabled", false);
+user_pref("devtools.debugger.remote-enabled", false);
+
 user_pref("browser.engagement.home-button.has-removed", true);
 user_pref("browser.engagement.home-button.has-used", true);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
-user_pref("browser.startup.homepage", "https://bossearch.github.io/startpage/");
+user_pref("browser.startup.homepage", "https://bossearch.github.io/tab/");
 user_pref("browser.startup.page", 3);
+user_pref("browser.tabs.hoverPreview.enabled"), false);
 user_pref("browser.tabs.hoverPreview.showThumbnails", false);
 user_pref("browser.toolbars.bookmarks.visibility", "never");
-//user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"stop-reload-button\",\"forward-button\",\"urlbar-container\",\"save-to-pocket-button\",\"downloads-button\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
 user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
 user_pref("browser.urlbar.placeholderName.private", "DuckDuckGo");
 user_pref("browser.urlbar.shortcuts.bookmarks", false);
@@ -234,7 +251,7 @@ user_pref("browser.warnOnQuitShortcut", false);
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
-user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", false);
+user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
 user_pref("network.cookie.cookieBehavior.optInPartitioning", true);
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
 user_pref("privacy.annotate_channels.strict_list.enabled", true);

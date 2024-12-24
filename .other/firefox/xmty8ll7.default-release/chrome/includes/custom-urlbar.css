@@ -9,7 +9,9 @@
     --uc-autohide-toolbar-delay: 1ms;
     --uc-autohide-toolbar-duration: 200ms;
   }
+  /*
   :root[uidensity="compact"]{ --uc-navbar-transform: -34px }
+  */
 
   #navigator-toolbox > div{ display: contents; }
   :root[sessionrestored] :where(#nav-bar,#PersonalToolbar,#tab-notification-deck,.global-notificationbox){

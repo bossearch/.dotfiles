@@ -23,4 +23,4 @@ fi
 grim -g "${x},${y} ${width}x${height}" - | wl-copy && wl-paste >~/Pictures/Screenshots/$title-$(date +%F_%T).png
 
 # Send a notification
-dunstify -a screenshot "Screenshot of $title taken" -t 2000
+notify-send -a screenshot "Screenshot of $title taken" -t 2000

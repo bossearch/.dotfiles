@@ -23,12 +23,12 @@ tmux set -g message-style "bg=${THEME[blue]},fg=${THEME[background]}"
 tmux set -g message-command-style "fg=${THEME[white]},bg=${THEME[black]}"
 
 tmux set -g pane-border-style "fg=${THEME[bblack]}"
-tmux set -g pane-active-border-style "fg=${THEME[blue]}"
+tmux set -g pane-active-border-style "fg=${THEME[ghturquoise]}"
 tmux set -g pane-border-status off
 
 tmux set -g status-style bg="${THEME[truebg]}"
 
-tmux set -g popup-border-style "fg=${THEME[blue]}"
+tmux set -g popup-border-style "fg=${THEME[ghturquoise]}"
 
 TMUX_VARS="$(tmux show -g)"
 

@@ -16,8 +16,8 @@ tooltip=~/.config/waybar/scripts/screenrecord/tooltip
 echo "Screenrecording on Monitor: $output" >$tooltip
 
 # Notify the user that the recording has started
-dunstify -a screenrecord "Screenrecording on Monitor: $output will start in 3 seconds" -t 2500
-sleep 2
+notify-send -a screenrecord "Screenrecording on Monitor: $output will start in 3 seconds" -t 2500
+sleep 3
 
 # Start recording the entire monitor
 wl-screenrec --audio --low-power=off --no-damage -o "$output" -f "$filename"

@@ -40,7 +40,7 @@
     "orientation": "inherit",
     "modules": [
       "custom/ddcutil",
-      "custom/hyprshade",
+      "custom/hyprsunset",
       "pulseaudio",
       "group/internet"
     ]
@@ -62,7 +62,7 @@
     "orientation": "inherit",
     "modules": [
       "group/screenshot",
-      "custom/wvkbd",
+      "custom/virtualkeyboard",
       "custom/magnifier",
       "custom/hyprpicker",
       "custom/wiz"
@@ -74,23 +74,8 @@
     "modules": [
       //"privacy",
       "custom/stoprec",
-      "group/spotify",
       "tray"
     ]
-  },
-
-  "group/spotify": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "transition-left-to-right": true
-    },
-    "modules": [
-      "custom/spotify-metadata",
-      "custom/spotify-prev",
-      "custom/spotify-play",
-      "custom/spotify-next"
-    ],
   },
 
   "group/screenshot": {
@@ -186,30 +171,26 @@
   },
 
   "custom/ddcutil": {
-    // I don't even want to know why this works.
-    // Change it to the following for your custom icons,
-    // current format is a hack for Material Symbols to display normally:
     "format": " {icon}{percentage}% ",
     "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+    "exec": "~/.config/waybar/scripts/ddcutil.sh",
     "return-type": "json",
-    "exec": "ddcutil --bus 8 getvcp 10 | grep -oP 'current.*?=\\s*\\K[0-9]+' | { read x; echo '{\"percentage\":'${x}'}'; }",
-    "on-scroll-up": "ddcutil --noverify --bus 8 setvcp 10 + 10 ; pkill -SIGRTMIN+7 waybar",
-    "on-scroll-down": "ddcutil --noverify --bus 8 setvcp 10 - 10 ; pkill -SIGRTMIN+7 waybar",
-    "on-click-right": "ddcutil --noverify --bus 8 setvcp 10 0 ; pkill -SIGRTMIN+7 waybar",
-    "on-click": "ddcutil --noverify --bus 8 setvcp 10 100 ; pkill -SIGRTMIN+7 waybar",
-    "signal": 7,
-    "smooth-scrolling-threshold": 5,
-    //"interval": 1,
+    "on-scroll-up": "echo '+' > /tmp/waybar-ddc-module-rx",
+    "on-scroll-down": "echo '-' > /tmp/waybar-ddc-module-rx",
+    "on-click": "echo 'max' > /tmp/waybar-ddc-module-rx",
+    "on-click-right": "echo 'min' > /tmp/waybar-ddc-module-rx",
     "tooltip": false,
   },
 
-  "custom/hyprshade": {
-    "format": "  ",
-    "format-alt": "  ",
-    "on-click": "hyprshade toggle blue-light-filter",
-    "tooltip": false,
+  "custom/hyprsunset": {
+    "format": "{}",
+    "exec": "cat ~/.config/waybar/scripts/hyprsunset/hyprsunset-icon",
+    "on-click": "~/.config/waybar/scripts/hyprsunset/hyprsunset.sh",
+    "on-scroll-up": "~/.config/waybar/scripts/hyprsunset/scroll-up.sh",
+    "on-scroll-down": "~/.config/waybar/scripts/hyprsunset/scroll-down.sh",
+    "signal": 12,
+    "tooltip": false
   },
-
   "network": {
     "format-wifi": "󰖩 {signalStrength}%",
     "format-ethernet": "",
@@ -263,38 +244,6 @@
     "return-type": "json"
   },
 
-  "custom/spotify-metadata": {
-    "format": "󰓇",
-    "max-length": 60,
-    "interval": 5,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/spotify/metadata.sh",
-    "signal": 8,
-    "on-click": "killall spotify",
-  },
-
-  "custom/spotify-prev": {
-    "format": " 󰒮",
-    "on-click": "playerctl -p spotify previous && pkill -SIGRTMIN+8 waybar",
-    "tooltip": false,
-  },
-
-  "custom/spotify-play": {
-    "format": " {} ",
-    //"format-alt": "  ",
-    "exec": "~/.config/waybar/scripts/spotify/status.sh",
-    "on-click": "~/.config/waybar/scripts/spotify/play-pause.sh",
-    "return-type": "json",
-    "signal": 9,
-    "tooltip": false,
-  },
-
-  "custom/spotify-next": {
-    "format": "󰒭",
-    "on-click": "playerctl -p spotify next && pkill -SIGRTMIN+8 waybar",
-    "tooltip": false,
-  },
-
   "custom/shutdown": {
     "format": "",
     "on-click": "~/.config/waybar/scripts/shutdown.sh",
@@ -315,13 +264,15 @@
 
   "custom/launcher": {
     "format": "󰣇",
-    "on-click": "~/.config/waybar/scripts/launcher.sh",
+    "on-click": "~/.config/waybar/scripts/launcher/launcher-left.sh",
+    "on-click-right": "~/.config/waybar/scripts/launcher/launcher-right.sh",
     "tooltip": false,
   },
 
-  "custom/wvkbd": {
+  "custom/virtualkeyboard": {
     "format": " ",
-    "on-click": "~/.config/waybar/scripts/wvkbd.sh",
+    "on-click": "~/.config/waybar/scripts/virtualkeyboard.sh",
+    "on-click-right": "pgrep sysboard | xargs kill && notify-send 'Virtual Keyboard' 'Off'",
     "tooltip": false,
   },
 
