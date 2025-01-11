@@ -1,0 +1,32 @@
+general {
+    # Lock only if both Spotify and Firefox are paused
+    lock_cmd = pidof hyprlock || (playerctl -p spotify status | grep -q "Playing" || playerctl -p firefox status | grep -q "Playing" || hyprlock)
+    before_sleep_cmd = loginctl lock-session
+    after_sleep_cmd = hyprctl dispatch dpms on
+}
+
+# Screenlock
+listener {
+    # HYPRLOCK TIMEOUT
+    timeout = 600
+    # HYPRLOCK ONTIMEOUT: Lock only if both Spotify and Firefox are paused
+    on-timeout = (playerctl -p spotify status | grep -q "Playing" || playerctl -p firefox status | grep -q "Playing" || loginctl lock-session)
+}
+
+# DPMS (Display Power Management Signaling)
+listener {
+    # DPMS TIMEOUT
+    timeout = 1800
+    # DPMS ONTIMEOUT: Turn off display only if both Spotify and Firefox are paused
+    on-timeout = (playerctl -p spotify status | grep -q "Playing" || playerctl -p firefox status | grep -q "Playing" || hyprctl dispatch dpms off)
+    # DPMS ONRESUME: Turn on display when resuming from suspend
+    on-resume = hyprctl dispatch dpms on
+}
+
+# Suspend
+listener {
+    # SUSPEND TIMEOUT
+    timeout = 3600
+    # SUSPEND ONTIMEOUT: Suspend only if both Spotify and Firefox are paused
+    on-timeout = (playerctl -p spotify status | grep -q "Playing" || playerctl -p firefox status | grep -q "Playing" || systemctl suspend)
+}

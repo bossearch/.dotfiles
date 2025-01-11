@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Location of your emoji list
-EMOJI_FILE=~/.config/fzf/extra/emoji.txt
+EMOJI_FILE=~/.config/fzf/extra/assets/emoji.txt
 
 # Use fzf to select an emoji from the list
 selected=$(cat "$EMOJI_FILE" | fzf -m --layout=default --border=none --highlight-line --info=inline-right --prompt="❯ " \
@@ -13,9 +13,4 @@ emoji=$(echo "$selected" | awk '{print $1}')
 echo -n "$emoji" | wl-copy # Use xclip if you're on X11
 
 # Insert the emoji using wtype
-#wtype "$emoji"
-#sleep 0.2
-echo "$emoji" | xargs -r -I {} sh -c 'nohup wtype "{}" >/dev/null 2>&1 & disown'
-
-# Notify the user
-#notify-send "Emoji Picker" "Copied $emoji to clipboard"
+#echo "$emoji" | xargs -r -I {} sh -c 'nohup wtype "{}" >/dev/null 2>&1 & disown'
