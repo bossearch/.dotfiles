@@ -1,7 +1,7 @@
-mp.add_key_binding("L", "end", function()
-	local duration = mp.get_property("duration")
-	if duration then
-		mp.commandv("seek", duration, "absolute")
-		mp.set_property("pause", "no")
-	end
+mp.add_key_binding("b", "end", function()
+  -- Path to the bash script
+  local script_path = "/home/bosse/.config/mpv/script-opts/end.sh"
+
+  -- Execute the bash script
+  local result = os.execute(script_path)
 end)

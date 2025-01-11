@@ -2,6 +2,9 @@
 [manager]
 show_hidden = true
 
+[preview]
+wrap = "yes"
+
 [opener]
 edit = [
 	{ run = 'nvim "$@"', block = true, for = "unix" },
@@ -21,8 +24,8 @@ extract = [
 
 [plugin]
 prepend_previewers = [
-	{ mime = "{image,audio,video}/*", run = "mediainfo"},
-	{ mime = "application/x-subrip", run = "mediainfo"},
+  #  { mime = "{image,audio,video}/*",       run = "mediainfo"},
+  { mime = "application/x-subrip",        run = "mediainfo"},
 	{ mime = "application/*zip",            run = "ouch" },
 	{ mime = "application/x-tar",           run = "ouch" },
 	{ mime = "application/x-bzip2",         run = "ouch" },

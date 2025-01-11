@@ -25,6 +25,17 @@
     }
   },
 
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 120,
+    //"separate-outputs": true,
+    "icon": true,
+    "icon-size": 16,
+    "on-click": "~/.config/hypr/scripts/quit.sh",
+    "on-scroll-up" : "hyprctl dispatch togglespecialworkspace gamespace",
+    "on-scroll-down" : "hyprctl dispatch togglespecialworkspace scratchpad",
+  },
+
   "group/task": {
     "orientation": "inherit",
     "modules": [
@@ -106,24 +117,33 @@
     ],
   },
 
-  "hyprland/window": {
-    "format": "{}",
-    "max-length": 120,
-    "separate-outputs": true,
-    "icon": true,
-    "icon-size": 16,
-    "on-click": "hyprctl dispatch killactive",
-  },
-
   "tray": {
     "spacing": 10
   },
 
-  "clock": {
-    "interval": 1,
-    "format": "<span color='#f7768e'> </span>{:%H:%M:%S}",
-    "format-alt": "<span color='#f7768e'> </span>{:%a %d/%b/%y}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+  "custom/launcher": {
+    "format": "󰣇",
+    "on-click": "~/.config/waybar/scripts/launcher/launcher-left.sh",
+    "on-click-right": "~/.config/waybar/scripts/launcher/launcher-right.sh",
+    "tooltip": false,
+  },
+
+  "custom/lock": {
+    "format": "",
+    "on-click": "hyprlock",
+    "tooltip": false,
+  },
+
+  "custom/shutdown": {
+    "format": "",
+    "on-click": "~/.config/waybar/scripts/shutdown.sh",
+    "tooltip": false,
+  },
+
+  "custom/reboot": {
+    "format": "",
+    "on-click": "~/.config/waybar/scripts/reboot.sh",
+    "tooltip": false,
   },
 
   "cpu": {
@@ -157,7 +177,7 @@
     "on-click": "alacritty -t btop -e btop",
   },
   "memory": {
-    "interval": 10,
+    "interval": 5,
     //"format-alt":" {used}/{total}GiB",
     "format":" {used}GiB",
     "format-alt": " {}%",
@@ -239,40 +259,16 @@
   "custom/weather": {
     "format": "{}",
     "tooltip": true,
+    //"tooltip-format": "\n<span color='#ff00ff'>{}</span>",
     "interval": 3600,
     "exec": "wttrbar  --location samarinda --custom-indicator '{ICON} {FeelsLikeC}°'",
     "return-type": "json"
   },
 
-  "custom/shutdown": {
-    "format": "",
-    "on-click": "~/.config/waybar/scripts/shutdown.sh",
-    "tooltip": false,
-  },
-
-  "custom/reboot": {
-    "format": "",
-    "on-click": "~/.config/waybar/scripts/reboot.sh",
-    "tooltip": false,
-  },
-
-  "custom/lock": {
-    "format": "",
-    "on-click": "hyprlock",
-    "tooltip": false,
-  },
-
-  "custom/launcher": {
-    "format": "󰣇",
-    "on-click": "~/.config/waybar/scripts/launcher/launcher-left.sh",
-    "on-click-right": "~/.config/waybar/scripts/launcher/launcher-right.sh",
-    "tooltip": false,
-  },
-
   "custom/virtualkeyboard": {
     "format": " ",
     "on-click": "~/.config/waybar/scripts/virtualkeyboard.sh",
-    "on-click-right": "pgrep sysboard | xargs kill && notify-send 'Virtual Keyboard' 'Off'",
+    "on-click-right": "pgrep sysboard | xargs kill && notify-send 'Virtual Keyboard' 'Off' -i keyboard",
     "tooltip": false,
   },
 
@@ -342,21 +338,46 @@
     "tooltip": false,
   },
 
-  "custom/notification": {
-    "format": " {} ",
-    "exec": "cat ~/.config/waybar/scripts/dunst/notification-icon",
-    "on-click": "~/.config/waybar/scripts/dunst/dunsticon.sh",
-    //"interval": 10,
-    "signal": 10,
-    "tooltip": false
-  },
-
   "custom/tor": {
     "format": "{}",
     "exec": "~/.config/waybar/scripts/tor/tor-status.sh",
     "on-click": "~/.config/waybar/scripts/tor/tor-toggle.sh",
     "return-type": "json",
     "signal": 11,
+    "tooltip": false
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": "<span color='#f7768e'> </span>{:%H:%M:%S}",
+    "format-alt": "<span color='#f7768e'> </span>{:%a %d/%b/%y}",
+    "tooltip-format": "\n<span size='12pt'>{calendar}</span>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "format": {
+        "months":     "<span color='#e0af68'>{}</span>",
+        "days":       "<span color='#c0caf5'>{}</span>",
+        "weeks":      "<span color='#7aa2f7'>W{}</span>",
+        "weekdays":   "<span color='#9ece6a'>{}</span>",
+        "today":      "<span color='#f7768e'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    },
+    "smooth-scrolling-threshold": 5,
+  },
+
+  "custom/notification": {
+    "format": " {} ",
+    "exec": "cat ~/.config/waybar/scripts/dunst/notification-icon",
+    "on-click": "~/.config/waybar/scripts/dunst/dunsticon.sh",
+    //"interval": 10,
+    "signal": 10,
     "tooltip": false
   },
 

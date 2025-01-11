@@ -1,0 +1,29 @@
+*filter
+
+# Default policies
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+
+# Allow loopback traffic
+-A INPUT -i lo -j ACCEPT
+
+# Allow established and related connections
+-A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+# Allow SSH (22/tcp) with rate limiting
+-A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m limit --limit 3/min --limit-burst 3 -j ACCEPT
+-A INPUT -p tcp --dport 22 -j DROP
+
+# Allow HTTP (80/tcp) and HTTPS (443/tcp)
+-A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+# Allow Localsend (53317/tcp)
+-A INPUT -p tcp --dport 53317 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+# Allow Waydroid
+-A INPUT -p tcp --dport 67 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp --dport 53 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+COMMIT

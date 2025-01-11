@@ -22,7 +22,7 @@ download_dir = "/home/bosse/Videos/"
 bandwidth_priority = "Low"
 
 [source.nyaa]
-base_url = "https://nyaa.land/"
+base_url = "https://nyaa.si/"
 default_sort = "Date"
 default_sort_dir = "Desc"
 default_filter = "NoFilter"

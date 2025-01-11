@@ -4,7 +4,7 @@ foreground = "#1a1b26"
 monitor = 0
 follow = mouse
 width = (0,600)
-height = 350
+height = (0,350)
 progress_bar = true
 progress_bar_height = 25
 progress_bar_frame_width = 3
@@ -25,7 +25,7 @@ font = JetBrains Mono Nerd Font 13
 line_height = 2
 markup = full
 origin = "top-right"
-offset = "10x10"
+offset = (10,10)
 format = "<b>%s</b>\n%b"
 alignment = left
 show_age_threshold = 60
@@ -74,11 +74,18 @@ background = "#292e42"
 foreground = "#db4b4b"
 frame_color = "#db4b4b"
 script = ~/.config/dunst/dunstsound.sh
-#script = ~/.config/dunst/sonar.sh
 
 [fullscreen_show_critical]
 msg_urgency = critical
 fullscreen = pushback
+
+[zsh]
+appname = zsh
+new_icon = /usr/share/icons/Papirus/48x48/apps/Alacritty.svg
+
+[nchat]
+appname = nchat
+new_icon = /usr/share/icons/Papirus/16x16/panel/google-chat-badge.svg
 
 [mpd]
 appname = "mpd"

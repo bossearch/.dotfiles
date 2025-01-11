@@ -19,26 +19,6 @@ fi
 if command -v tmux >/dev/null 2>&1; then
   source ~/.config/fzf/extra/tmux
 fi
-#  sleep 0.05
-#  TERM_TITLE=$(hyprctl activewindow | awk -F': ' '/title: / {print $2}')
-#  # Check if the title is "magic"
-#  if [ "$TERM_TITLE" = "scratchpad" ]; then
-#    # Do nothing explicitly
-#    :
-#  else
-#    if ! tmux has-session 2>/dev/null; then
-#      # Start a new tmux session
-#      tm 0
-#    else
-#      if tmux list-sessions -F '#{session_attached}' | grep -q '^1$'; then
-#        # Do nothing explicitly
-#        :
-#      else
-#        tmux attach-session
-#      fi
-#    fi
-#  fi
-#fi
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
@@ -91,16 +71,12 @@ function plugin-load {
 
 # list of github repos of plugins
 repos=(
-#	skywind3000/z.lua
-#	romkatv/zsh-defer
   Aloxaf/fzf-tab
 	zsh-users/zsh-autosuggestions
 	zsh-users/zsh-completions
 	zsh-users/zsh-history-substring-search
 	zdharma-continuum/fast-syntax-highlighting
 	MichaelAquilina/zsh-auto-notify
-#	softmoth/zsh-vim-mode
-#	kazhala/dotbare
 )
 plugin-load $repos
 autoload -U compinit && compinit
@@ -112,8 +88,6 @@ zstyle ':fzf-tab:complete:*' fzf-preview \
 ([[ -f $realpath ]] && bat --color=always $realpath || \
 echo "Cannot preview")'
 setopt glob_dots
-# z.lua
-#eval "$(lua ~/.config/zsh/.zlua --init zsh)"
 
 # zsh-completions
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -210,30 +184,7 @@ precmd_functions+=(precmd)
 preexec_functions+=(preexec)
 
 # remove highlighted '%' symbol on zsh
-PROMPT_EOL_MARK=""
+#PROMPT_EOL_MARK=""
 
-# separator line
 # Initialize a flag to track first terminal launch
-FIRST_PROMPT=true
-
-# Function to print the grey separator line
-#separator_line() {
-#  # Only show the separator if this isn't the first prompt
-#  if [[ "$FIRST_PROMPT" == false ]]; then
-#    local cols=$(tput cols)   # Get the width of the terminal
-#    local line=$(printf "%0.s -" $(seq 1 $((cols / 2))))
-#    
-#    # Set grey color using ANSI escape codes
-#    local grey='\033[38;5;8m'
-#    local reset='\033[0m'
-#    
-#    # Print the grey line
-#    echo -e "${grey}${line}${reset}"
-#  fi
-#  
-#  # Disable the flag after the first prompt
-#  FIRST_PROMPT=false
-#}
-#
-#precmd_functions+=(separator_line)
-#add-zsh-hook precmd bottom_prompt
+#FIRST_PROMPT=true

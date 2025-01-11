@@ -2,10 +2,17 @@
 on = ["C"]
 run = "plugin ouch --args=zip"
 desc = "Compress with ouch"
+
 [[manager.prepend_keymap]]
 on   = "l"
-run  = "plugin --sync smart-enter"
+run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
+
+[[manager.prepend_keymap]]
+on   = "p"
+run  = "plugin smart-paste"
+desc = "Paste into the hovered directory or CWD"
+
 [[manager.prepend_keymap]]
 on   = [ "c", "m" ]
 run  = "plugin chmod"
