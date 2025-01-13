@@ -9,12 +9,12 @@ if true then return {} end
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  -- add gruvbox
-  { "folke/tokyonight.nvim" },
 
-  -- Configure LazyVim to load gruvbox
+  -- add gruvbox
   {
-    "LazyVim/LazyVim",
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
     opts = {
       colorscheme = "tokyonight-night",
     },

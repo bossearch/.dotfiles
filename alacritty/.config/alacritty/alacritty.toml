@@ -2,6 +2,8 @@ import = [
   "~/.config/alacritty/tokyonight.toml",
 ]
 
+live_config_reload = true
+
 [env]
 TERM = "xterm-256color"
 
@@ -9,7 +11,7 @@ TERM = "xterm-256color"
 decorations = "None"
 padding.x = 0
 padding.y = 0
-#dynamic_padding = true
+dynamic_padding = true
 dynamic_title = true
 option_as_alt = "Both"
 
@@ -26,6 +28,14 @@ bold_italic.family = "CommitMono Nerd Font"
 offset.x = 0
 offset.y = 0
 size = 12
+builtin_box_drawing = true 
 
 [cursor]
 style = "beam"
+
+[keyboard]
+bindings = [
+{ key = "+", mods = "Control", action = "IncreaseFontSize" },
+{ key = "-", mods = "Control", action = "DecreaseFontSize" },
+{ key = "=", mods = "Control", action = "ResetFontSize" },
+]

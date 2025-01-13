@@ -25,7 +25,7 @@ fkill() {
 
 # using ripgrep combined with preview
 # find-in-file - usage: fif <searchTerm>
-fif() {
+fg() {
   if [ ! "$#" -gt 0 ]; then
     echo "Need a string to search for!"
     return 1
