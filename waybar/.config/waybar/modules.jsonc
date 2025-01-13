@@ -32,6 +32,7 @@
     "icon": true,
     "icon-size": 16,
     "on-click": "~/.config/hypr/scripts/quit.sh",
+    "on-click-middle": "hyprctl dispatch togglespecialworkspace anonymous",
     "on-scroll-up" : "hyprctl dispatch togglespecialworkspace gamespace",
     "on-scroll-down" : "hyprctl dispatch togglespecialworkspace scratchpad",
   },
