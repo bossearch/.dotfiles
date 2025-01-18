@@ -2,8 +2,8 @@
 
 # Output file for the app names and Exec commands
 output_file="drun.txt"
-#rm "$output_file"
-#touch "$output_file"
+rm "$output_file"
+touch "$output_file"
 
 # List of apps to exclude (add full .desktop filenames here)
 exclude_apps=(
@@ -90,6 +90,7 @@ custom_execs=(
   'timeshift-gtk:pkexec env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" GTK_THEME=Tokyonight-Dark timeshift-launcher'
   "mpv:mpv --player-operation-mode=pseudo-gui --input-ipc-server=/tmp/mpv-socket"
   "spotify:spotify"
+  "alacritty:alacritty -e bash -c '~/.config/hypr/scripts/assets/alacritty.sh; exec zsh'"
   # Add more custom Exec mappings here
 )
 

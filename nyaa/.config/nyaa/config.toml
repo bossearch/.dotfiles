@@ -18,7 +18,7 @@ password_file = "/home/bosse/Documents/obsidian-vault/05 - Permanent/transmissio
 use_magnet = true
 paused = false
 peer_limit = 100
-download_dir = "/home/bosse/Videos/"
+download_dir = "/home/bosse/Videos/Anime/"
 bandwidth_priority = "Low"
 
 [source.nyaa]
@@ -40,7 +40,7 @@ leechers = true
 downloads = true
 
 [source.sukebei]
-base_url = "https://fap.iss.one/"
+base_url = "https://sukebei.nyaa.si/"
 default_sort = "Date"
 default_sort_dir = "Desc"
 default_filter = "NoFilter"
