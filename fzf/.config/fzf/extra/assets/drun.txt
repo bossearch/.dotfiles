@@ -1,7 +1,7 @@
 nchat|alacritty -t nchat -e nchat 
 timeshift-gtk|pkexec env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" GTK_THEME=Tokyonight-Dark timeshift-launcher
 nvim|alacritty -e nvim 
-alacritty|alacritty
+alacritty|alacritty -e bash -c '~/.config/hypr/scripts/assets/alacritty.sh; exec zsh'
 blueman-adapters|blueman-adapters
 blueman-manager|blueman-manager
 firefox|/usr/lib/firefox/firefox --ProfileManager
@@ -17,6 +17,6 @@ nautilus|nautilus --new-window
 pavucontrol|pavucontrol
 shotcut|shotcut 
 qt6ct|qt6ct
-spotify|spotify --uri=%U
+spotify|spotify
 transmission-gtk|transmission-gtk --minimized
 vesktop|vesktop 
