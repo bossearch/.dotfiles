@@ -133,7 +133,7 @@ vim.keymap.set({ "n", "t" }, "<space><CR>", function()
   require("snacks").terminal.toggle(nil, { win = { height = 0.5 } })
 end, { desc = "Floating Terminal with Command" })
 -- floating terminal
-vim.keymap.set("n", "<leader>f<CR>", function()
+vim.keymap.set({ "n", "t" }, "<leader>f<CR>", function()
   require("snacks").terminal.open("zsh", {
     win = {
       width = 0.5, -- Width of the terminal
