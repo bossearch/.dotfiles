@@ -1,3 +1,4 @@
+-- TODO: add more setup for which-key
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
@@ -7,8 +8,5 @@ return {
   end,
   opts = {
     preset = "helix",
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
   },
 }

@@ -1,10 +1,10 @@
 @import url(includes/custom-button.css);
 @import url(includes/custom-colors.css);
 @import url(includes/custom-others.css);
-@import url(includes/custom-compact-alt.css);
+/*@import url(includes/custom-compact-alt.css);*/
 @import url(includes/custom-compact.css);
-@import url(includes/custom-tabbar-alt.css);
+/*@import url(includes/custom-tabbar-alt.css);*/
 @import url(includes/custom-tabbar.css);
 /* need fix, before hide url bar and only show then clicking the active tab or using ctrl+l */
-@import url(includes/custom-urlbar-alt.css);
+/*@import url(includes/custom-urlbar-alt.css);*/
 @import url(includes/custom-urlbar.css);

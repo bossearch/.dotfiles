@@ -1,3 +1,4 @@
+-- TODO: fix keymaps setting for gitsigns
 return {
   "lewis6991/gitsigns.nvim",
   config = function()

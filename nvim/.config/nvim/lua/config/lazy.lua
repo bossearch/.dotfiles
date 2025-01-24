@@ -38,5 +38,3 @@ require("lazy").setup({
     notify = false,
   },
 })
-require("config.keymaps")
-require("config.options")
