@@ -222,7 +222,9 @@ user_pref("browser.profiles.enabled", true);
 // show compact mode
 user_pref("browser.compactmode.show", true);
 // uidensity -> compact
-user_pref("browser.uidensity", 1);
+//user_pref("browser.uidensity", 1);
+// disable sync data login
+user_pref( "identity.fxaccounts.enabled", false );
 
 //dev
 //user_pref("xpinstall.signatures.required", false);

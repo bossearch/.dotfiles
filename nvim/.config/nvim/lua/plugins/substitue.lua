@@ -1,3 +1,4 @@
+-- TODO: find a way to move key settings to keymaps.lua
 return {
   "gbprod/substitute.nvim",
   event = { "BufReadPre", "BufNewFile" },

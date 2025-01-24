@@ -78,7 +78,7 @@
       "custom/magnifier",
       "custom/hyprpicker",
       "custom/wiz"
-    ]
+    ],
   },
 
   "group/customtray": {
@@ -137,13 +137,13 @@
 
   "custom/shutdown": {
     "format": "",
-    "on-click": "~/.config/waybar/scripts/shutdown.sh",
+    "on-click": "~/.config/waybar/scripts/utility/shutdown.sh",
     "tooltip": false,
   },
 
   "custom/reboot": {
     "format": "",
-    "on-click": "~/.config/waybar/scripts/reboot.sh",
+    "on-click": "~/.config/waybar/scripts/utility/reboot.sh",
     "tooltip": false,
   },
 
@@ -194,7 +194,7 @@
   "custom/ddcutil": {
     "format": " {icon}{percentage}% ",
     "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
-    "exec": "~/.config/waybar/scripts/ddcutil.sh",
+    "exec": "~/.config/waybar/scripts/utility/ddcutil.sh",
     "return-type": "json",
     "on-scroll-up": "echo '+' > /tmp/waybar-ddc-module-rx",
     "on-scroll-down": "echo '-' > /tmp/waybar-ddc-module-rx",
@@ -230,12 +230,14 @@
     "format-bluetooth-muted": " ",
     "max-volume": 150,
     "format-icons": {
-      "default": ["", "", " "]
+      "alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo": "",
+      "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra3": ["", "", " "]
     },
     "on-click": "pavucontrol",
-    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-middle": "~/.config/waybar/scripts/toggle-mic.sh",
+    "on-click-right": "~/.config/waybar/scripts/utility/cycle-output.sh",
+    "on-click-middle": "~/.config/waybar/scripts/utility/toggle-mic.sh",
     "tooltip": false,
+    "signal": 13,
   },
 
   "battery": {
@@ -260,7 +262,6 @@
   "custom/weather": {
     "format": "{}",
     "tooltip": true,
-    //"tooltip-format": "\n<span color='#ff00ff'>{}</span>",
     "interval": 3600,
     "exec": "wttrbar  --location samarinda --custom-indicator '{ICON} {FeelsLikeC}°'",
     "return-type": "json"
@@ -268,7 +269,7 @@
 
   "custom/virtualkeyboard": {
     "format": " ",
-    "on-click": "~/.config/waybar/scripts/virtualkeyboard.sh",
+    "on-click": "~/.config/waybar/scripts/utility/virtualkeyboard.sh",
     "on-click-right": "pgrep sysboard | xargs kill && notify-send 'Virtual Keyboard' 'Off' -i keyboard",
     "tooltip": false,
   },
@@ -377,7 +378,6 @@
     "format": " {} ",
     "exec": "cat ~/.config/waybar/scripts/dunst/notification-icon",
     "on-click": "~/.config/waybar/scripts/dunst/dunsticon.sh",
-    //"interval": 10,
     "signal": 10,
     "tooltip": false
   },
