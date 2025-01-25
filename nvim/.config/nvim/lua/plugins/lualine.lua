@@ -8,20 +8,11 @@ return {
   },
   config = function()
     function _G.root_dir()
-      local icon = "󱉭" -- Fixed icon for the root directory
-      local fg = "#7aa2f7" -- Fixed color for the icon
-      local bg = "#16161e"
-
-      -- Define the highlight for the icon (foreground color only, no background)
-      vim.api.nvim_set_hl(0, "RootDirIcon", { fg = fg, bg = bg })
-
-      -- Return the formatted string with the icon and root folder name
-      return function()
-        local cwd = vim.fn.getcwd()
-        local folder_name = vim.fn.fnamemodify(cwd, ":t") -- Get the folder name
-        return "%#RootDirIcon#" .. icon .. " %#None#" .. folder_name
-      end
+      local cwd = vim.fn.getcwd()
+      local folder_name = vim.fn.fnamemodify(cwd, ":t") -- Get the folder name
+      return "%#None#" .. folder_name
     end
+
     function _G.lsp_status()
       -- Get the current buffer
       local current_buf = vim.api.nvim_get_current_buf()
@@ -42,12 +33,9 @@ return {
     require("lualine").setup({
       options = {
         theme = "auto",
-        globalstatus = false, -- Enable global statusline
+        globalstatus = true, -- Enable global statusline
         disabled_filetypes = { statusline = { "dashboard", "alpha" } },
-        -- section_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
-        -- component_separators = { left = "╱", right = "│" },
         component_separators = { left = "│", right = "│" },
       },
       inactive_sections = {
@@ -62,7 +50,8 @@ return {
         lualine_a = { "mode" }, -- Current mode (e.g., NORMAL, INSERT)
         lualine_b = { "branch" }, -- Git branch name
         lualine_c = {
-          _G.root_dir(),
+          -- _G.root_dir(),
+          { _G.root_dir, icon = "󰝰", color = { fg = "#7aa2f7", bg = "#16161e" } },
           {
             "buffers",
             show_filename_only = false,

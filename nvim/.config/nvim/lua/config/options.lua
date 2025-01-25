@@ -52,7 +52,7 @@ opt.splitright = true -- Put new windows right of current
 opt.tabstop = 2 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.timeout = true
-opt.timeoutlen = 300 -- Lower than default (1000) to quickly trigger which-key
+opt.timeoutlen = 0 -- Lower than default (1000) to quickly trigger which-key
 opt.undofile = true
 opt.undolevels = 10000
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode opt.wildmode = "longest:full,full" -- Command-line completion mode

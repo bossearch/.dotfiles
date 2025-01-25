@@ -28,7 +28,7 @@ bold_italic.family = "CommitMono Nerd Font"
 offset.x = 0
 offset.y = 0
 size = 12
-builtin_box_drawing = true 
+builtin_box_drawing = true
 
 [cursor]
 style = "beam"

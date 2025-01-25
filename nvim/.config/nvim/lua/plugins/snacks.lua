@@ -1,13 +1,8 @@
--- TODO: find a way to move key settings to keymaps.lua
 return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    -- bigfile = { enabled = true },
     dashboard = {
       enabled = true,
       sections = {
@@ -56,42 +51,5 @@ return {
     statuscolumn = { enabled = true },
     words = { enabled = true },
     zen = { enabled = true },
-  },
-  keys = {
-    {
-      "<leader>wm",
-      function()
-        Snacks.zen.zoom()
-      end,
-      desc = "Toggle Window Zoom",
-    },
-    {
-      "<leader>tz",
-      function()
-        Snacks.zen()
-      end,
-      desc = "Toggle Zen Mode",
-    },
-    {
-      "<leader>lg",
-      function()
-        Snacks.lazygit()
-      end,
-      desc = "Open lazygit",
-    },
-    {
-      "<leader>n",
-      function()
-        Snacks.notifier.show_history()
-      end,
-      desc = "Notification History",
-    },
-    {
-      "<leader>nq",
-      function()
-        Snacks.notifier.hide()
-      end,
-      desc = "Dismiss All Notifications",
-    },
   },
 }

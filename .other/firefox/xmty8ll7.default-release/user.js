@@ -221,8 +221,10 @@ user_pref("sidebar.revamp", false);
 user_pref("browser.profiles.enabled", true);
 // show compact mode
 user_pref("browser.compactmode.show", true);
-// uidensity -> compact
-//user_pref("browser.uidensity", 1);
+user_pref("browser.uidensity", 0);
+//0: Compact UI (elements are packed closer together).
+//1: Default UI (standard spacing).
+//2: Spacious UI (elements are more spread out).
 // disable sync data login
 user_pref( "identity.fxaccounts.enabled", false );
 

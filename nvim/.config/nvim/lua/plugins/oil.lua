@@ -1,4 +1,3 @@
--- TODO: find a way to move key settings to keymaps.lua
 return {
   "stevearc/oil.nvim",
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
@@ -19,7 +18,6 @@ return {
       return "" -- Return an empty string for floating windows
     end
 
-    local detail = false
     local oil = require("oil")
     oil.setup({
       default_file_explorer = true,
@@ -57,40 +55,6 @@ return {
           foldmethod = "indent", -- Use indentation for folding
         },
       },
-      keymaps = {
-        ["d/"] = {
-          desc = "Toggle file detail view",
-          callback = function()
-            detail = not detail
-            if detail then
-              oil.set_columns({ "icon", "permissions", "size", "mtime" })
-            else
-              oil.set_columns({ "icon" })
-            end
-          end,
-        },
-      },
     })
-
-    -- Set global variable when <leader>/ is pressed to indicate oil is opened in a new buffer
-    vim.keymap.set("n", "<leader>/", function()
-      vim.g.oil_open_in_buffer = true
-      oil.open()
-    end, { desc = "Open parent directory with oil" })
-
-    -- For floating window, make sure the global variable is not set
-    vim.keymap.set("n", "<leader>f/", function()
-      vim.g.oil_open_in_buffer = false
-      oil.toggle_float()
-    end, { desc = "Open parent directory with oil float" })
-
-    -- vim.api.nvim_create_autocmd("User", {
-    --   pattern = "OilEnter", -- Trigger on entering oil file explorer
-    --   callback = vim.schedule_wrap(function(args)
-    --     if vim.api.nvim_get_current_buf() == args.data.buf and oil.get_cursor_entry() then
-    --       oil.open_preview() -- Open preview window if a file is selected
-    --     end
-    --   end),
-    -- })
   end,
 }
