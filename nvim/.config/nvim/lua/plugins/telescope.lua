@@ -24,5 +24,12 @@ return {
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
     require("plugins.extras.multigrep").setup()
+    require("telescope").setup({
+      pickers = {
+        find_files = {
+          follow = true,
+        },
+      },
+    })
   end,
 }

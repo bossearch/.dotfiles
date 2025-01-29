@@ -27,6 +27,7 @@ exclude_apps=(
   "waydroid.com.aurora.store"
   "waydroid.com.google.android.gms"
   "waydroid.com.mobile.legends"
+  "waydroid.com.mobilechess.gp"
   "waydroid.cu.axel.smartdock"
   "waydroid.io.github.huskydg.magisk"
   "waydroid.io.github.sds100.keymapper"
@@ -71,6 +72,9 @@ exclude_apps=(
   "org.kde.xwaylandvideobridge"
   "yazi"
   "org.gnome.Zenity"
+  "user-dirs-update-gtk"
+  "remote-viewer"
+  "vim"
   # Add more apps here that you want to exclude
 )
 

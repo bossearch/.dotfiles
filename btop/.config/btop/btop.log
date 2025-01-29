@@ -462,3 +462,7 @@ btop++ needs an interactive shell to run.
 2025/01/24 (17:44:00) | ===> btop++ v.1.3.2
 2025/01/24 (17:44:00) | WARNING: ROCm SMI: Failed to get maximum GPU temperature, defaulting to 110°C
 2025/01/24 (17:44:00) | WARNING: ROCm SMI: Failed to get PCIe throughput
+
+2025/01/27 (19:39:38) | ===> btop++ v.1.3.2
+2025/01/27 (19:39:38) | WARNING: ROCm SMI: Failed to get maximum GPU temperature, defaulting to 110°C
+2025/01/27 (19:39:38) | WARNING: ROCm SMI: Failed to get PCIe throughput

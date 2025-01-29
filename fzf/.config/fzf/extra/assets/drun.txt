@@ -20,3 +20,4 @@ qt6ct|qt6ct
 spotify|spotify
 transmission-gtk|transmission-gtk --minimized
 vesktop|vesktop 
+virt-manager|virt-manager

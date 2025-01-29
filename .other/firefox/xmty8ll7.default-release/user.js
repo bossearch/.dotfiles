@@ -1,5 +1,5 @@
 /****************************************************************************
- * SECTION: FASTFOX                                                         *
+* SECTION: FASTFOX                                                         *
 ****************************************************************************/
 /** GENERAL ***/
 user_pref("content.notify.interval", 100000);
@@ -22,7 +22,7 @@ user_pref("image.mem.decode_bytes_at_a_time", 32768);
 
 /** NETWORK ***/
 user_pref("network.http.max-connections", 1800);
-user_pref("network.http.max-persistent-connections-per-server", 10);
+uer_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheExpiration", 3600);
@@ -221,9 +221,9 @@ user_pref("sidebar.revamp", false);
 user_pref("browser.profiles.enabled", true);
 // show compact mode
 user_pref("browser.compactmode.show", true);
-user_pref("browser.uidensity", 0);
-//0: Compact UI (elements are packed closer together).
-//1: Default UI (standard spacing).
+user_pref("browser.uidensity", 1);
+//0: Default UI (standard spacing).
+//1: Compact UI (elements are packed closer together).
 //2: Spacious UI (elements are more spread out).
 // disable sync data login
 user_pref( "identity.fxaccounts.enabled", false );
