@@ -54,13 +54,13 @@
   };
 
   home.file.".config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "./../../configs/nvim/";
-    recursive = true;
+    source = ./../../configs/nvim;
+    # recursive = true;
   };
 
   home.file.".config/hypr" = {
-    source = config.lib.file.mkOutOfStoreSymlink "./../../configs/hypr/";
-    recursive = true;
+    source = ./../../configs/hypr;
+    # recursive = true;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
