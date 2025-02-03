@@ -54,12 +54,12 @@
   };
 
   home.file.".config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/bosse/.dotfiles/configs/nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "./../../configs/nvim/";
     recursive = true;
   };
 
   home.file.".config/hypr" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/bosse/.dotfiles/configs/hypr";
+    source = config.lib.file.mkOutOfStoreSymlink "./../../configs/hypr/";
     recursive = true;
   };
   # Home Manager can also manage your environment variables through
