@@ -107,7 +107,7 @@
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
-    alacritty = pkgs.callPackage /../../modules/custompkgs/alacritty.nix {};
+    alacritty = pkgs.callPackage ./../../modules/custompkgs/alacritty.nix {};
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
