@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the class of the currently focused window
 focused_class=$(hyprctl activewindow | awk '/class:/ {print $2}')
