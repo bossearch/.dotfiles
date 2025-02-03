@@ -13,14 +13,14 @@
   ];
 
   # enable sharing client home dir with host
-  systemd.mounts = [
-    {
-      what = "VM_Host";
-      where = "/home/bosse";
-      type = "virtiofs";
-      wantedBy = ["multi-user.target"];
-    }
-  ];
+  # systemd.mounts = [
+  #   {
+  #     what = "VM_Host";
+  #     where = "/home/bosse";
+  #     type = "virtiofs";
+  #     wantedBy = ["multi-user.target"];
+  #   }
+  # ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
