@@ -23,13 +23,23 @@
   # ];
 
   # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
+  boot.loader.systemd-boot.enable = true;
+  # boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
-
+  # boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
+  
+# Extra Module Options
+  drivers.amdgpu.enable = true;
+  drivers.intel.enable = false;
+  drivers.nvidia.enable = false;
+  drivers.nvidia-prime = {
+    enable = false;
+    intelBusID = "";
+    nvidiaBusID = "";
+  };
   networking.hostName = "vm"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
