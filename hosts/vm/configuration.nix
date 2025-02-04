@@ -28,7 +28,7 @@
   # boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
   # boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
 
@@ -95,10 +95,10 @@
   };
   hardware = {
     graphics.enable = true;
-    opengl.extraPackages = with pkgs; [
+    graphics.extraPackages = with pkgs; [
       rocmPackages.clr.icd
       libva
-		  libva-utils
+      libva-utils
     ];
   };
 
