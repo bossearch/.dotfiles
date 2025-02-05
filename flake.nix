@@ -18,19 +18,19 @@
   in {
     # Define configurations for each host
     nixosConfigurations = {
-      # desktop = lib.nixosSystem {
-      #   inherit system;
-      #   modules = [
-      #     ./hosts/desktop/configuration.nix # Load system config
-      #     home-manager.nixosModules.home-manager # Enable Home Manager as a NixOS module
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.users.bosse = import ./hosts/desktop/home.nix; # User config
-      #     }
-      #   ];
-      # };
-      #
+      desktop = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/desktop/configuration.nix # Load system config
+          home-manager.nixosModules.home-manager # Enable Home Manager as a NixOS module
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.bosse = import ./hosts/desktop/home.nix; # User config
+          }
+        ];
+      };
+
       # laptop = lib.nixosSystem {
       #   inherit system;
       #   modules = [

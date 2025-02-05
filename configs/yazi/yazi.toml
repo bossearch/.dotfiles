@@ -1,0 +1,35 @@
+# yazi.toml
+[manager]
+show_hidden = true
+
+[preview]
+wrap = "yes"
+
+[opener]
+edit = [
+	{ run = 'nvim "$@"', block = true, for = "unix" },
+	{ run = "nvim %*",   block = true, for = "windows" },
+]
+play = [
+	{ run = 'mpv --player-operation-mode=pseudo-gui --input-ipc-server=/tmp/mpv-socket "$@"', orphan = true, for = "unix" },
+	{ run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" }
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+extract = [
+	{ run = 'ouch d -y "%*"', desc = "Extract here with ouch", for = "windows" },
+	{ run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
+]
+
+[plugin]
+prepend_previewers = [
+  #  { mime = "{image,audio,video}/*",       run = "mediainfo"},
+  { mime = "application/x-subrip",        run = "mediainfo"},
+	{ mime = "application/*zip",            run = "ouch" },
+	{ mime = "application/x-tar",           run = "ouch" },
+	{ mime = "application/x-bzip2",         run = "ouch" },
+	{ mime = "application/x-7z-compressed", run = "ouch" },
+	{ mime = "application/x-rar",           run = "ouch" },
+	{ mime = "application/x-xz",            run = "ouch" },
+]
