@@ -44,7 +44,7 @@ fi
 eval "$(zoxide init --cmd cd zsh)"
 
 # Thefuck initialization
-eval $(thefuck --alias wtf)
+# eval $(thefuck --alias wtf)
 
 # ----------------------------
 # Shell Prompt and Theme

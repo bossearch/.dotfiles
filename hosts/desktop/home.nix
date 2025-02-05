@@ -30,7 +30,7 @@
   home.packages = [
     # Adds the 'hello' command to your environment. It prints a friendly
     # "Hello, world!" when run.
-    pkgs.hello
+    # pkgs.hello
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -69,6 +69,9 @@
     source = ./../../configs/hypr;
   };
 
+  home.file.".config/alacritty" = {
+    source = ./../../configs/alacritty;
+  };
   #home.file.".config/yazi" = {
   #  source = ./../../configs/yazi;
   #};
@@ -98,7 +101,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
-    SHELL = "${pkgs.zsh}/bin/zsh";
+    # SHELL = "${pkgs.zsh}/bin/zsh";
   };
 
 }

@@ -1,3 +1,4 @@
+[general]
 import = [
   "~/.config/alacritty/tokyonight.toml",
 ]
@@ -16,10 +17,10 @@ dynamic_title = true
 option_as_alt = "Both"
 
 [font]
-normal.family = "CommitMono Nerd Font"
-bold.family = "CommitMono Nerd Font"
-italic.family = "CommitMono Nerd Font"
-bold_italic.family = "CommitMono Nerd Font"
+# normal.family = "CommitMono Nerd Font"
+# bold.family = "CommitMono Nerd Font"
+# italic.family = "CommitMono Nerd Font"
+# bold_italic.family = "CommitMono Nerd Font"
 
 #normal.family = "Hack Nerd Font"
 #bold.family = "Hack Nerd Font"

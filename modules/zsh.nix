@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
-  programs.zsh = {
-    enable = true;
-  };
-
   home.packages = [ pkgs.zsh ];
 
   home.file.".config/zsh/.zshrc" = {
