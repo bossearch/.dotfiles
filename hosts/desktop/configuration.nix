@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     # /etc/nixos/hardware-configuration.nix
     ./hardware-configuration.nix
+    ./../../modules/system/doh.nix
   ];
 
   # Use the GRUB 2 boot loader.

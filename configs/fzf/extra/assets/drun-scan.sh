@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Output file for the app names and Exec commands
 output_file="drun.txt"

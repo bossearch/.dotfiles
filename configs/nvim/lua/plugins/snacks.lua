@@ -41,7 +41,7 @@ return {
         },
       },
     },
-    indent = { enabled = false },
+    indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
     lazygit = { enabled = true, configure = true },

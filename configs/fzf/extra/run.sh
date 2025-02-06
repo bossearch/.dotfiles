@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # List all executables from PATH
 executables=$(find -L $(echo $PATH | tr ':' ' ') -type f -executable -printf "%f\n" | sort -u)

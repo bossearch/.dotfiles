@@ -1,4 +1,4 @@
-{config, pkgs, lib, ... }: 
+{config, pkgs, lib, ... }:
 {
   wayland.windowManager.hyprland = {
     # Whether to enable Hyprland wayland compositor
@@ -7,12 +7,10 @@
     package = pkgs.hyprland;
     # Whether to enable XWayland
     xwayland.enable = true;
-
-    # Optional
-    # Whether to enable hyprland-session.target on hyprland startup
-    # systemd.enable = true;
-    # settings = {};
+    settings = { };
   };
+
+  services.hypridle.enable = true;
 
   home.packages = with pkgs; [
     hyprpaper
@@ -22,6 +20,7 @@
     hyprpicker
     cliphist
     wl-clipboard
+    zenity
   ];
 
   # home.activation.copyAlacritty = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

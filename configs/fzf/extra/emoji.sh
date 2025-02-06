@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Location of your emoji list
 EMOJI_FILE=~/.config/fzf/extra/assets/emoji.txt

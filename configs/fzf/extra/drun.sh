@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Read the app names and Exec commands from the saved txt file
 apps_list=$(cat $HOME/.config/fzf/extra/assets/drun.txt)

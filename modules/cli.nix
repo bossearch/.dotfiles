@@ -22,6 +22,7 @@
     ouch
     lazygit
     unzip
+    imagemagick
   ] ++ (with inputs.nixpkgs-unstable.legacyPackages.x86_64-linux; [
     yazi
   ]);
