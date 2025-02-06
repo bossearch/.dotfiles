@@ -3,7 +3,9 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "bosse";
@@ -15,7 +17,13 @@
   imports = [
     ./../../modules/cli.nix
     ./../../modules/zsh.nix
-
+    ./../../modules/nvim.nix
+    ./../../modules/term.nix
+    ./../../modules/tmux.nix
+    ./../../modules/ui.nix
+    ./../../modules/waybar.nix
+    ./../../modules/hyprland.nix
+    ./../../modules/wallpaper.nix
   ];
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -62,28 +70,11 @@
     # '';
   };
 
-  home.file.".config/nvim" = {
-    source = ./../../configs/nvim;
-  };
+  # home.file.".config/hypr" = {
+  #   source = ./../../configs/hypr;
+  # };
 
-  home.file.".config/hypr" = {
-    source = ./../../configs/hypr;
-  };
 
-  home.file.".config/alacritty" = {
-    source = ./../../configs/alacritty;
-  };
-  #home.file.".config/yazi" = {
-  #  source = ./../../configs/yazi;
-  #};
-
-  #home.file.".config/zsh/.zshrc" = {
-  #  source = ./../../configs/zsh/.zshrc;
-  #};
-
-  #home.file.".zshenv" = {
-  #  source = ./../../configs/zsh/.zshenv;
-  #};
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell

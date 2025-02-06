@@ -22,6 +22,11 @@ option_as_alt = "Both"
 # italic.family = "CommitMono Nerd Font"
 # bold_italic.family = "CommitMono Nerd Font"
 
+normal.family = "MesloLGSNerdFont"
+bold.family = "MesloLGSNerdFont"
+italic.family = "MesloLGSNerdFont"
+bold_italic.family = "MesloLGSNerdFont"
+#
 #normal.family = "Hack Nerd Font"
 #bold.family = "Hack Nerd Font"
 #italic.family = "Hack Nerd Font"

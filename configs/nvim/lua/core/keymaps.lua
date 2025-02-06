@@ -127,9 +127,16 @@ set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 set(
   "n",
   "<leader>fn",
-  "<cmd>Telescope find_files cwd=" .. vim.fn.stdpath("config") .. "<cr>",
+  "<cmd>Telescope find_files cwd=~/.dotfiles/configs/nvim<cr>",
   { desc = "Fuzzy find files in config directory" }
 )
+
+-- set(
+--   "n",
+--   "<leader>fn",
+--   "<cmd>Telescope find_files cwd=" .. vim.fn.stdpath("config") .. "<cr>",
+--   { desc = "Fuzzy find files in config directory" }
+-- )
 set("n", "<space>fb", "<cmd>Telescope buffers<cr>", { desc = "Find available buffers" })
 
 -- LSPCONFIG

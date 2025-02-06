@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Path to wallpapers directory
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 

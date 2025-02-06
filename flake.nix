@@ -17,6 +17,7 @@
   }@inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux"; # Change this if you're using ARM (e.g., a Raspberry Pi)
+
   in {
     # Define configurations for each host
     nixosConfigurations = {
