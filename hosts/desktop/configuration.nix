@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 {
   config,
   lib,
@@ -8,13 +5,12 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
-    # /etc/nixos/hardware-configuration.nix
     ./hardware-configuration.nix
     ./../../modules/system/doh.nix
     ./../../modules/system/font.nix
     ./../../modules/system/firewall.nix
     ./../../modules/system/waydroid.nix
+    ./../../modules/system/virtualization.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -74,7 +70,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bosse = {
     isNormalUser = true;
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "networkmanager" "audio" "vidoe" "libvirtd"]; # Enable ‘sudo’ for the user.
     #   packages = with pkgs; [
     #     tree
     #   ];
@@ -150,12 +146,6 @@ programs.neovim = {
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
