@@ -27,17 +27,6 @@
       name = "Papirus-Dark";  # Set Papirus Dark (or "Papirus" for light version)
       package = pkgs.papirus-icon-theme;
     };
-    # gtk3.extraConfig = {
-    #   Settings = ''
-    #     gtk-application-prefer-dark-theme=1
-    #   '';
-    # };
-    #
-    # gtk4.extraConfig = {
-    #   Settings = ''
-    #     gtk-application-prefer-dark-theme=1
-    #   '';
-    # };
   };
 
   qt = {

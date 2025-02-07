@@ -77,7 +77,6 @@
     #   ];
   };
 
-  programs.firefox.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -85,6 +84,24 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    alacritty
+  ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    alacritty = pkgs.callPackage ./../../modules/custompkgs/alacritty.nix {};
+  };
+
   hardware = {
     graphics.enable = true;
     graphics.extraPackages = with pkgs; [
@@ -93,31 +110,7 @@
       libva-utils
     ];
   };
-hardware.i2c.enable = true;
-
-programs.neovim = {
-  enable = true;
-  defaultEditor = true;
-};
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    alacritty
-    # cliphist
-    # wl-clipboard
-    # hyprpaper
-    # hyprlock
-    # hypridle
-    # hyprsunset
-  ];
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    alacritty = pkgs.callPackage ./../../modules/custompkgs/alacritty.nix {};
-  };
+  hardware.i2c.enable = true;
   # Bluetooth
   hardware = {
   	bluetooth = {

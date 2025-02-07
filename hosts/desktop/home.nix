@@ -23,6 +23,7 @@
     ./../../modules/tmux.nix
     ./../../modules/theme.nix
     ./../../modules/waybar.nix
+    ./../../modules/firefox.nix
     ./../../modules/hyprland.nix
     ./../../modules/wallpaper.nix
   ];

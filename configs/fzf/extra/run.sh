@@ -15,6 +15,6 @@ while IFS= read -r command; do
   if [ -n "$command" ]; then
 
     # Run the selected command
-    echo "$command" | xargs -r -I {} sh -c 'nohup {} >/dev/null 2>&1 & disown'
+    echo "$command" | xargs -r -I {} bash -c 'nohup {} >/dev/null 2>&1 & disown'
   fi
 done <<< "$selected"
