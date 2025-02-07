@@ -39,10 +39,13 @@
     source = ./../configs/yazi;
   };
 
+  # home.file.".config/fastfetch" = {
+  #   source = ./../configs/fastfetch;
+  # };
   home.file.".config/fastfetch" = {
-    source = ./../configs/fastfetch;
+    source = config.lib.file.mkOutOfStoreSymlink "/home/bosse/.dotfiles/configs/fastfetch";
+    recursive = true;
   };
-
   home.file.".config/btop" = {
     source = ./../configs/btop;
   };

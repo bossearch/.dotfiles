@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #!/bin/bash
 
 # Get the directory of the current script

@@ -14,4 +14,7 @@
     emoji = [ "noto-fonts-color-emoji" ];
     };
   };
+  home.file."/etc/fonts/conf.d/75-noto-color-emoji.conf" = {
+    source = ./../configs/75-noto-color-emoji.conf;
+  };
 }

@@ -1,11 +1,6 @@
-{ config, pkgs, mkMutableSymlink, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  home.file.".config/alacritty" = {
-    source = ./../configs/alacritty;
-  };
-
-  home.file.".config/tmux" = {
-    source = ./../configs/tmux;
-  };
+  home.file.".config/alacritty/alacritty.toml".source = ./../configs/alacritty/alacritty.toml;
+  home.file.".config/alacritty/tokyonight.toml".source = ./../configs/alacritty/tokyonight.toml;
 }
