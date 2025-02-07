@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DUNST_ICON_FILE="$HOME/.config/waybar/scripts/dunst/notification-icon"
 DUNST_VOLUME_FILE="$HOME/.config/dunst/volume"

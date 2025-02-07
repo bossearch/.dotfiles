@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the word from Wayland clipboard
 word=$(wl-paste -p)

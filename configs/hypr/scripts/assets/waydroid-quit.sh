@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 set -e
 mv /etc/iptables/iptables.rules.bak /etc/iptables/iptables.rules
 systemctl restart iptables

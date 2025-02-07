@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Ensure the screenshots directory exists
 mkdir -p ~/Videos//Screenrecords

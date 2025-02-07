@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 MPV_SOCKET="/tmp/mpv-socket"
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # File to store the current icon state
 ICON_FILE="$HOME/.config/waybar/scripts/dunst/notification-icon"

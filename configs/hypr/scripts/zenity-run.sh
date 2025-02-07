@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Show a dialog to choose an application
 choice=$(zenity --list --title="App Selector" \

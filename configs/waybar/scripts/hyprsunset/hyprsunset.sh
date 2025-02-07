@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # File to store the current state
 ICON_FILE="$HOME/.config/waybar/scripts/hyprsunset/hyprsunset-icon"

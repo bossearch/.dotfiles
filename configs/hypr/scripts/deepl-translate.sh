@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define your DeepL API key
 API_KEY=$(cat /home/bosse/Documents/obsidian-vault/05\ -\ Permanent/deepl-api.md)

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if systemctl is-active --quiet tor; then
   pkexec ~/.config/waybar/scripts/tor/tor-disable.sh

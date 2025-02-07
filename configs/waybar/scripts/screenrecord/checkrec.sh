@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Path to the icon file
 icon_file="$HOME/.config/waybar/scripts/screenrecord/icon"

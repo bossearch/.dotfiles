@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # File to store the actual (incremented) temperature
 TEMP_SCROLL="$HOME/.config/waybar/scripts/hyprsunset/temp-scroll"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Restore the original iptables rules from the backup
 mv /etc/iptables/iptables.rules /etc/iptables/iptables.rules.bak

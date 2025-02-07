@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # IP address of the lamp
 lamp_ip="192.168.18.14"

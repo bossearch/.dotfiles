@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Check if tmux is installed
 if command -v tmux >/dev/null 2>&1; then
   source ~/.config/fzf/extra/tmux
