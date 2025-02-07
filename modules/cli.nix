@@ -45,6 +45,11 @@
     recursive = true;
   };
 
+  home.file.".config/lazygit" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/lazygit";
+    recursive = true;
+  };
+
   home.file.".config/bat" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/bat";
     recursive = true;
