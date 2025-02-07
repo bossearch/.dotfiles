@@ -15,6 +15,7 @@
   programs.home-manager.enable = true;
   
   imports = [
+    ./../../modules/git.nix
     ./../../modules/cli.nix
     ./../../modules/zsh.nix
     ./../../modules/nvim.nix

@@ -179,10 +179,9 @@
   },
   "memory": {
     "interval": 5,
-    //"format-alt":" {used}/{total}GiB",
     "format":" {used}GiB",
-    "format-alt": " {}%",
     "max-length": 15,
+    "on-click": "alacritty -t btop -e btop",
   },
 
   "backlight": {

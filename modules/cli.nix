@@ -45,13 +45,12 @@
     recursive = true;
   };
 
-  home.file.".config/btop" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/btop";
-    recursive = true;
-  };
-
   home.file.".config/bat" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/bat";
     recursive = true;
+  };
+
+  home.file.".config/btop/btop.conf" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/btop/btop.conf";
   };
 }
