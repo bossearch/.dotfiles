@@ -10,7 +10,7 @@ HYPRSUNSET_TEMP_SCROLL="$HOME/.config/waybar/scripts/hyprsunset/temp-scroll"
 GAMEMODE_FILE="$HOME/.cache/gamemode"
 
 echo "󰂞" >"$DUNST_ICON_FILE"
-echo "65536" >"$DUNST_VOLUME_FILE"
+echo "1" >"$DUNST_VOLUME_FILE"
 
 echo "  " >"$HYPRSUNSET_ICON_FILE"
 echo "6500" | tee "$HYPRSUNSET_TEMP_FILE" "$HYPRSUNSET_TEMP_SCROLL"

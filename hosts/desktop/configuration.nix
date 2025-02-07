@@ -11,6 +11,7 @@
     ./../../modules/system/firewall.nix
     ./../../modules/system/waydroid.nix
     ./../../modules/system/virtualization.nix
+    ./../../modules/system/security.nix
   ];
 
   # Use the GRUB 2 boot loader.
