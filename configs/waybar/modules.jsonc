@@ -214,7 +214,7 @@
   },
   "network": {
     "format-wifi": "󰖩 {signalStrength}%",
-    "format-ethernet": "",
+    "format-ethernet": " ",
     "format-disconnected": "󰖪 ",
     "on-click": "alacritty -t nmtui -e nmtui",
     "format-disconnected": "Disconnected  ",

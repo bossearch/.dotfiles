@@ -20,7 +20,7 @@
     ./../../modules/nvim.nix
     ./../../modules/term.nix
     ./../../modules/tmux.nix
-    ./../../modules/font.nix
+    # ./../../modules/font.nix
     ./../../modules/theme.nix
     ./../../modules/waybar.nix
     ./../../modules/hyprland.nix

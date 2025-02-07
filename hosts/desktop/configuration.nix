@@ -12,6 +12,7 @@
     # /etc/nixos/hardware-configuration.nix
     ./hardware-configuration.nix
     ./../../modules/system/doh.nix
+    ./../../modules/system/font.nix
   ];
 
   # Use the GRUB 2 boot loader.
