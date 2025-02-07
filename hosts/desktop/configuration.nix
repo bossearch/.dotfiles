@@ -13,6 +13,7 @@
     ./hardware-configuration.nix
     ./../../modules/system/doh.nix
     ./../../modules/system/font.nix
+    ./../../modules/system/firewall.nix
   ];
 
   # Use the GRUB 2 boot loader.
