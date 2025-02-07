@@ -14,6 +14,7 @@
     ./../../modules/system/doh.nix
     ./../../modules/system/font.nix
     ./../../modules/system/firewall.nix
+    ./../../modules/system/waydroid.nix
   ];
 
   # Use the GRUB 2 boot loader.
