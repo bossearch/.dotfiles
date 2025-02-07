@@ -1,6 +1,6 @@
 /****************************************************************************
-* SECTION: FASTFOX                                                         *
-****************************************************************************/
+ * SECTION: FASTFOX                                                         *
+ ****************************************************************************/
 /** GENERAL ***/
 user_pref("content.notify.interval", 100000);
 
@@ -22,7 +22,7 @@ user_pref("image.mem.decode_bytes_at_a_time", 32768);
 
 /** NETWORK ***/
 user_pref("network.http.max-connections", 1800);
-uer_pref("network.http.max-persistent-connections-per-server", 10);
+user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheExpiration", 3600);
@@ -41,7 +41,7 @@ user_pref("dom.enable_web_task_scheduling", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
-****************************************************************************/
+ ****************************************************************************/
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
@@ -147,7 +147,7 @@ user_pref("network.connectivity-service.enabled", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
-****************************************************************************/
+ ****************************************************************************/
 /** MOZILLA UI ***/
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
@@ -203,7 +203,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
-****************************************************************************/
+ ****************************************************************************/
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
@@ -226,14 +226,13 @@ user_pref("browser.uidensity", 1);
 //1: Compact UI (elements are packed closer together).
 //2: Spacious UI (elements are more spread out).
 // disable sync data login
-user_pref( "identity.fxaccounts.enabled", false );
+user_pref("identity.fxaccounts.enabled", false);
 
 // theme & toolbar
 user_pref("browser.theme.content-theme", 0);
 user_pref("browser.theme.toolbar-theme", 0);
 user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
-user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"stop-reload-button\",\"forward-button\",\"urlbar-container\",\"save-to-pocket-button\",\"downloads-button\",\"fxa-toolbar-menu-button\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"alltabs-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\"]},\"seen\":[\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}");
-
+user_pref("browser.uiCustomization.state",'{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","stop-reload-button","forward-button","urlbar-container","save-to-pocket-button","downloads-button","fxa-toolbar-menu-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","alltabs-button"],"vertical-tabs":[],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","toolbar-menubar","TabsToolbar"],"currentVersion":20,"newElementCount":4}');
 user_pref("devtools.chrome.enabled", false);
 user_pref("devtools.debugger.remote-enabled", false);
 
@@ -244,7 +243,7 @@ user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 user_pref("browser.startup.homepage", "https://bossearch.github.io/tab/");
 user_pref("browser.startup.page", 3);
-user_pref("browser.tabs.hoverPreview.enabled"), false);
+user_pref("browser.tabs.hoverPreview.enabled", false);
 user_pref("browser.tabs.hoverPreview.showThumbnails", false);
 user_pref("browser.toolbars.bookmarks.visibility", "never");
 user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
@@ -261,7 +260,10 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
 user_pref("network.cookie.cookieBehavior.optInPartitioning", true);
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
+user_pref(
+  "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation",
+  true,
+);
 user_pref("privacy.annotate_channels.strict_list.enabled", true);
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("privacy.fingerprintingProtection", true);
@@ -273,8 +275,14 @@ user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.userContext.enabled", false);
 user_pref("signon.rememberSignons", false);
-user_pref("toolkit.telemetry.cachedClientID", "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0");
-user_pref("toolkit.telemetry.cachedProfileGroupID", "decafdec-afde-cafd-ecaf-decafdecafde");
+user_pref(
+  "toolkit.telemetry.cachedClientID",
+  "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0",
+);
+user_pref(
+  "toolkit.telemetry.cachedProfileGroupID",
+  "decafdec-afde-cafd-ecaf-decafdecafde",
+);
 
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] Pocket > Sponsored Stories
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
@@ -284,7 +292,10 @@ user_pref("browser.vpn_promo.enabled", false);
 user_pref("media.webspeech.synth.dont_notify_on_error", true);
 user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
 user_pref("toolkit.telemetry.shutdownPingSender.enabledFirstsession", false);
-user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+user_pref(
+  "geo.provider.network.url",
+  "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%",
+);
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
@@ -294,7 +305,7 @@ user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
-****************************************************************************/
+ ****************************************************************************/
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling overrides below this line:
 user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
@@ -312,4 +323,4 @@ user_pref("mousewheel.default.delta_multiplier_y", 250); // 250-400; adjust this
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
-****************************************************************************/
+ ****************************************************************************/

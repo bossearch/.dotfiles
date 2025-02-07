@@ -18,6 +18,7 @@
     cliphist
     wl-clipboard
     zenity
+    xdg-desktop-portal-hyprland
   ];
 
   services.hypridle.enable = true;
