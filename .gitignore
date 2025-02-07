@@ -1,5 +1,0 @@
-zsh/.config/zsh/plugins/**
-.zsh_history
-configs/tmux/plugins/**
-!configs/tmux/plugins/tpm/
-!configs/tmux/plugins/tpm/**
