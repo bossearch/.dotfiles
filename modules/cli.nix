@@ -1,6 +1,5 @@
 { config, pkgs, inputs, ... }:
 {
-  # Install CLI tools system-wide
   home.packages = with pkgs; [
     git
     curl
@@ -28,29 +27,31 @@
   ]);
 
   home.file.".config/ohmypost.toml" = {
-    source = ./../configs/ohmypost.toml;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/ohmypost.toml";
   };
 
   home.file.".config/fzf" = {
-    source = ./../configs/fzf;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/fzf";
+    recursive = true;
   };
 
   home.file.".config/yazi" = {
-    source = ./../configs/yazi;
-  };
-
-  # home.file.".config/fastfetch" = {
-  #   source = ./../configs/fastfetch;
-  # };
-  home.file.".config/fastfetch" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/bosse/.dotfiles/configs/fastfetch";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/yazi";
     recursive = true;
   };
+
+  home.file.".config/fastfetch" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/fastfetch";
+    recursive = true;
+  };
+
   home.file.".config/btop" = {
-    source = ./../configs/btop;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/btop";
+    recursive = true;
   };
 
   home.file.".config/bat" = {
-    source = ./../configs/bat;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/bat";
+    recursive = true;
   };
 }

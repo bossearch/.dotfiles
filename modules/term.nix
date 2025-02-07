@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
-
 {
-  home.file.".config/alacritty/alacritty.toml".source = ./../configs/alacritty/alacritty.toml;
-  home.file.".config/alacritty/tokyonight.toml".source = ./../configs/alacritty/tokyonight.toml;
+  home.file.".config/alacritty" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/alacritty";
+    recursive = true;
+  };
 }

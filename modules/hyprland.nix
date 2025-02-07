@@ -23,12 +23,8 @@
     zenity
   ];
 
-  # home.activation.copyAlacritty = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  #   rm -rf ~/.config/hypr
-  #   cp -r ${./../configs/hypr} ~/.config/hypr
-  # '';
-
-  home.file.".config/hypr" = {
-    source = ./../configs/hypr;
-  };
+  # home.file.".config/hypr" = {
+  #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr";
+  #   recursive = true;
+  # };
 }

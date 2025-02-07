@@ -14,7 +14,7 @@ window#waybar {
   color: #414868;
   background-color: rgba(22, 22, 30, 0.8);
   border-radius: 8px;
-  padding: 0px 3px 0px 0px;
+  padding: 0px 5px 0px 0px;
 }
 #custom-launcher {
   color: #7dcfff;

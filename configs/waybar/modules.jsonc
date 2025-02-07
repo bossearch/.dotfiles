@@ -123,7 +123,7 @@
   },
 
   "custom/launcher": {
-    "format": "󰣇",
+    "format": "",
     "on-click": "~/.config/waybar/scripts/launcher/launcher-left.sh",
     "on-click-right": "~/.config/waybar/scripts/launcher/launcher-right.sh",
     "tooltip": false,
@@ -181,7 +181,7 @@
     "interval": 5,
     //"format-alt":" {used}/{total}GiB",
     "format":" {used}GiB",
-    "format-alt": " {}%",
+    "format-alt": " {}%",
     "max-length": 15,
   },
 
