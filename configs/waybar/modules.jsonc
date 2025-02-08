@@ -204,7 +204,7 @@
 
   "custom/hyprsunset": {
     "format": "{}",
-    "exec": "cat ~/.config/waybar/scripts/hyprsunset/hyprsunset-icon",
+    "exec": "cat ~/.cache/bosse/hyprsunset-icon",
     "on-click": "~/.config/waybar/scripts/hyprsunset/hyprsunset.sh",
     "on-scroll-up": "~/.config/waybar/scripts/hyprsunset/scroll-up.sh",
     "on-scroll-down": "~/.config/waybar/scripts/hyprsunset/scroll-down.sh",
@@ -330,7 +330,6 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/screenrecord/checkrec.sh",
     "on-click": "~/.config/waybar/scripts/screenrecord/stoprec.sh",
-
   },
 
   "custom/ocr": {

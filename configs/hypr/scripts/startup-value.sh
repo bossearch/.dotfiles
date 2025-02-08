@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
+mkdir -p "$HOME/.cache/bosse"
 
-DUNST_ICON_FILE="$HOME/.config/waybar/scripts/dunst/notification-icon"
-DUNST_VOLUME_FILE="$HOME/.config/dunst/volume"
-
-HYPRSUNSET_ICON_FILE="$HOME/.config/waybar/scripts/hyprsunset/hyprsunset-icon"
-HYPRSUNSET_TEMP_FILE="$HOME/.config/waybar/scripts/hyprsunset/temperature"
-HYPRSUNSET_TEMP_SCROLL="$HOME/.config/waybar/scripts/hyprsunset/temp-scroll"
-
-GAMEMODE_FILE="$HOME/.cache/gamemode"
-
-echo "󰂞" >"$DUNST_ICON_FILE"
+DUNST_VOLUME_FILE="$HOME/.cache/bosse/volume"
 echo "1" >"$DUNST_VOLUME_FILE"
 
+DUNST_ICON_FILE="$HOME/.cache/bosse/notification-icon"
+echo "󰂞" >"$DUNST_ICON_FILE"
+
+HYPRSUNSET_ICON_FILE="$HOME/.cache/bosse/hyprsunset-icon"
 echo "  " >"$HYPRSUNSET_ICON_FILE"
+HYPRSUNSET_TEMP_FILE="$HOME/.cache/bosse/temperature"
+HYPRSUNSET_TEMP_SCROLL="$HOME/.cache/bosse/temp-scroll"
 echo "6500" | tee "$HYPRSUNSET_TEMP_FILE" "$HYPRSUNSET_TEMP_SCROLL"
 
+GAMEMODE_FILE="$HOME/.cache/bosse/gamemode"
 if [ -f "$GAMEMODE_FILE" ]; then
   rm "$GAMEMODE_FILE"
 fi
+
+
+

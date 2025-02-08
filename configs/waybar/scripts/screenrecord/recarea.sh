@@ -4,29 +4,29 @@
 mkdir -p ~/Videos//Screenrecords
 
 # Define the filename with the current date and time
-filename=~/Videos/Screenrecords/Area-$(date +%F_%T).mp4
+FILENAME="$HOME/Videos/Screenrecords/Area-$(date +%F_%T).mp4"
 
 # Define tooltip file location
-tooltip=~/.config/waybar/scripts/screenrecord/tooltip
+SCREENRECORD_TOOLTIP="$HOME/.cache/bosse/screenrecord-tooltip"
 
 # Use slurp to select an area
-geometry=$(slurp)
+GEOMETRY=$(slurp)
 
 # Check if a valid area was selected
-if [ -z "$geometry" ]; then
+if [ -z "$GEOMETRY" ]; then
   echo "Error: No area selected."
   exit 1
 fi
 
 # Create or update tooltip file for checkrec.sh
-echo "Screenrecording on Area: $geometry" >$tooltip
+echo "Screenrecording on Area: $GEOMETRY" > "$SCREENRECORD_TOOLTIP"
 
 # Notify the user that the recording has started
-notify-send -a screenrecord "Screenrecording on Area: $geometry will start in 3 seconds" -t 2500
+notify-send -a screenrecord "Screenrecording on Area: $GEOMETRY will start in 3 seconds" -t 2500
 sleep 3
 
 # Start recording the entire monitor
-wl-screenrec --audio --low-power=off --no-damage -g "$geometry" -f "$filename"
+wl-screenrec --audio --low-power=off --no-damage -g "$GEOMETRY" -f "$FILENAME"
 
 # When the script finishes (e.g., with CTRL+C), notify the user
 trap 'dunstify "Screenrecord saved to $filename" -t 3000' EXIT

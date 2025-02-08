@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # File to store the current state
-ICON_FILE="$HOME/.config/waybar/scripts/hyprsunset/hyprsunset-icon"
-TEMP_FILE="$HOME/.config/waybar/scripts/hyprsunset/temperature"
-TEMP_SCROLL="$HOME/.config/waybar/scripts/hyprsunset/temp-scroll"
+ICON_FILE="$HOME/.cache/bosse/hyprsunset-icon"
+TEMP_FILE="$HOME/.cache/bosse/temperature"
+TEMP_SCROLL="$HOME/.cache/bosse/temp-scroll"
 
 # Read the current state
 CURRENT_TEMP=$(cat "$TEMP_FILE")

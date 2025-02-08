@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # File to store the current icon state
-ICON_FILE="$HOME/.config/waybar/scripts/dunst/notification-icon"
-VOLUME_FILE="$HOME/.config/dunst/volume"
+ICON_FILE="$HOME/.cache/bosse/notification-icon"
+VOLUME_FILE="$HOME/.cache/bosse/volume"
 
 # Read the current icon from the file
 CURRENT_ICON=$(cat "$ICON_FILE")

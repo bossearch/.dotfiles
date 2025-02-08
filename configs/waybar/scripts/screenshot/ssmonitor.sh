@@ -4,13 +4,13 @@
 mkdir -p ~/Pictures/Screenshots
 
 # Get the name of the monitor/output using hyprctl (default to the first monitor)
-output=$(hyprctl -j monitors | jq -r '.[0].name')
+OUTPUT=$(hyprctl -j monitors | jq -r '.[0].name')
 
 # Define the filename with the current date and time
-filename=~/Pictures/Screenshots/$output-$(date +%F_%T).png
+FILENAME="$HOME/Pictures/Screenshots/$OUTPUT-$(date +%F_%T).png"
 
 # Start screenshot the entire monitor
-grim - | wl-copy && wl-paste >$filename
+grim - | wl-copy && wl-paste > $FILENAME
 
 # Notify the user that the screenshot has done
-notify-send -a screenshot "Screenshot of Monitor: $output taken" -t 3000
+notify-send -a screenshot "Screenshot of Monitor: $OUTPUT Taken" -t 3000

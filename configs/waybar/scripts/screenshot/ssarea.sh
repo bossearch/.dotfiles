@@ -4,13 +4,13 @@
 mkdir -p ~/Pictures/Screenshots
 
 # Define the filename with the current date and time
-filename=~/Pictures/Screenshots/Area-$(date +%F_%T).png
+FILENAME="$HOME/Pictures/Screenshots/Area-$(date +%F_%T).png"
 
 # Use slurp to select an area
-geometry=$(slurp)
+GEOMETRY=$(slurp)
 
 # Start screenshot the area
-grim -g "$geometry" - | wl-copy && wl-paste >$filename
+grim -g "$GEOMETRY" - | wl-copy && wl-paste > $FILENAME
 
 # Notify the user that the Screenshot has done
-notify-send -a screenshot "Screenshot of Area: $geometry taken" -t 3000
+notify-send -a screenshot "Screenshot of Area: $GEOMETRY Taken" -t 3000

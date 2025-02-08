@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # File to store the actual (incremented) temperature
-TEMP_SCROLL="$HOME/.config/waybar/scripts/hyprsunset/temp-scroll"
+TEMP_SCROLL="$HOME/.cache/bosse/temp-scroll"
 
 # Read the actual (incremented) temperature from the file
 temp_scroll_value=$(cat "$TEMP_SCROLL")

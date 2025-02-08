@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VOLUME_FILE="$HOME/.config/dunst/volume"
+VOLUME_FILE="$HOME/.cache/bosse/volume"
 CURRENT_VOLUME=$(cat "$VOLUME_FILE")
 
 if [ "$DUNST_URGENCY" = "CRITICAL" ]; then
