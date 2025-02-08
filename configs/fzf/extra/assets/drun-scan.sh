@@ -99,9 +99,15 @@ custom_execs=(
 )
 
 # List all .desktop files from standard and Flatpak directories
+# applications=$(ls /usr/share/applications/*.desktop \
+#   ~/.local/share/applications/*.desktop \
+#   /var/lib/flatpak/app/*/current/active/export/share/applications/*.desktop \
+#   2>/dev/null)
+
 applications=$(ls /usr/share/applications/*.desktop \
   ~/.local/share/applications/*.desktop \
-  /var/lib/flatpak/app/*/current/active/export/share/applications/*.desktop \
+  /run/current-system/sw/share/applications/*.desktop \
+  /etc/profiles/per-user/$USER/share/applications/*.desktop \
   2>/dev/null)
 
 # Process each .desktop file to get name and Exec command

@@ -1,23 +1,9 @@
-nchat|alacritty -t nchat -e nchat 
-timeshift-gtk|pkexec env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" GTK_THEME=Tokyonight-Dark timeshift-launcher
-nvim|alacritty -e nvim 
+firefox|firefox --ProfileManager
+pavucontrol|pavucontrol
+vesktop|vesktop 
 alacritty|alacritty -e bash -c '~/.config/hypr/scripts/assets/alacritty.sh; exec zsh'
 blueman-adapters|blueman-adapters
 blueman-manager|blueman-manager
-firefox|/usr/lib/firefox/firefox --ProfileManager
-gparted|/usr/bin/gparted 
-kvantummanager|kvantummanager
-localsend|localsend 
-mpv|mpv --player-operation-mode=pseudo-gui --input-ipc-server=/tmp/mpv-socket
-nwg-look|nwg-look
-obsidian|/usr/bin/obsidian 
-cryptomator|/usr/bin/cryptomator
-baobab|baobab 
-nautilus|nautilus --new-window
-pavucontrol|pavucontrol
-shotcut|shotcut 
-qt6ct|qt6ct
-spotify|spotify
-transmission-gtk|transmission-gtk --minimized
-vesktop|vesktop 
+nixos-manual|nixos-help
 virt-manager|virt-manager
+xdg-desktop-portal-gtk|/nix/store/n86fjlhgnpky9smbb177fvv5pcb75491-xdg-desktop-portal-gtk-1.15.1/libexec/xdg-desktop-portal-gtk
