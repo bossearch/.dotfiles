@@ -6,9 +6,9 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/system/doh.nix
     ./../../modules/system/font.nix
     ./../../modules/system/firewall.nix
+    ./../../modules/system/network.nix
     ./../../modules/system/waydroid.nix
     ./../../modules/system/virtualization.nix
     ./../../modules/system/security.nix
