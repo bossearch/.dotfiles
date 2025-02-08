@@ -1,3 +1,4 @@
+nchat|alacritty -t nchat -e nchat
 firefox|firefox --ProfileManager
 pavucontrol|pavucontrol
 vesktop|vesktop 

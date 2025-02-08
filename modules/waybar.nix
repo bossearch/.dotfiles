@@ -7,13 +7,12 @@
     wttrbar
     ddcutil
     pavucontrol
-    wvkbd
     socat
     grim
     slurp
     wl-screenrec
     tesseract
-  ];
+  ] ++ [ (pkgs.callPackage ./custompkgs/sysboard.nix { }) ];
 
   home.file.".config/waybar" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/waybar";

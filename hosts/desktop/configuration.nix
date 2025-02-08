@@ -95,12 +95,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    alacritty
+    # alacritty
   ];
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    alacritty = pkgs.callPackage ./../../modules/custompkgs/alacritty.nix {};
-  };
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   alacritty = pkgs.callPackage ./../../modules/custompkgs/alacritty.nix {};
+  # };
 
   hardware = {
     graphics.enable = true;
