@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
-# Get the current mute state
-MUTE_STATE=$(wpctl get-volume @DEFAULT_SOURCE@ | awk '{print $3}')
+# Get the microphone source ID
+MIC_SOURCE=$(pactl list short sources | grep -m 1 input | awk '{print $1}')
+
+# Get the current mute state (0 for unmuted, 1 for muted)
+MUTE_STATE=$(pactl get-source-mute $MIC_SOURCE | awk '{print $2}')
 
 # Toggle the mute state
-if [ "$MUTE_STATE" = "[MUTED]" ]; then
-  wpctl set-mute @DEFAULT_SOURCE@ 0
+if [ "$MUTE_STATE" = "yes" ]; then
+  pactl set-source-mute $MIC_SOURCE 0
   notify-send "Microphone Unmuted"
 else
-  wpctl set-mute @DEFAULT_SOURCE@ 1
+  pactl set-source-mute $MIC_SOURCE 1
   notify-send "Microphone Muted"
 fi

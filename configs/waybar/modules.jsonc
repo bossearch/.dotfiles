@@ -225,11 +225,9 @@
     "format-muted": "  {format_source}",
     "format-source": "",
     "format-source-muted": " ",
-    "format-bluetooth": "  {volume}%",
-    "format-bluetooth-muted": " ",
     "max-volume": 150,
     "format-icons": {
-      "alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo": "",
+      "alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo": "󰋍",
       "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra3": ["", "", " "]
     },
     "on-click": "pavucontrol",
@@ -374,7 +372,7 @@
 
   "custom/notification": {
     "format": " {} ",
-    "exec": "cat ~/.config/waybar/scripts/dunst/notification-icon",
+    "exec": "cat ~/.cache/bosse/notification-icon",
     "on-click": "~/.config/waybar/scripts/dunst/dunsticon.sh",
     "signal": 10,
     "tooltip": false

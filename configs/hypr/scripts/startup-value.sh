@@ -2,7 +2,7 @@
 mkdir -p "$HOME/.cache/bosse"
 
 DUNST_VOLUME_FILE="$HOME/.cache/bosse/volume"
-echo "1" >"$DUNST_VOLUME_FILE"
+echo "65536" >"$DUNST_VOLUME_FILE"
 
 DUNST_ICON_FILE="$HOME/.cache/bosse/notification-icon"
 echo "󰂞" >"$DUNST_ICON_FILE"

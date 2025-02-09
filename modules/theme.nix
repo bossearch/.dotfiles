@@ -4,6 +4,7 @@
     dconf
     papirus-icon-theme
     tokyonight-gtk-theme
+    libsForQt5.qtstyleplugin-kvantum
   ];
   home.pointerCursor = {
     name = "Adwaita";
@@ -32,10 +33,12 @@
   qt = {
     enable = true;
     platformTheme.name = "gtk";
-    style = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyonight-gtk-theme;
-    };
+    style.name = "kvantum";
+  };
+
+  home.file.".config/Kvantum" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/Kvantum";
+    recursive = true;
   };
 
   home.sessionVariables = {

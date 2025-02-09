@@ -21,7 +21,7 @@ case $CURRENT_ICON in
   NEW_ICON="󰂞"
   dunstctl close-all
   dunstctl set-paused false
-  echo "1" >"$VOLUME_FILE"
+  echo "65536" >"$VOLUME_FILE"
   ;;
 esac
 
