@@ -43,12 +43,3 @@ fg() {
     nvim "$selected_file"
   fi
 }
-
-# manpages
-fman() {
-    man -k . | fzf -q "$1" --prompt='man> ' \
-    --preview $'echo {} | tr -d \'()\' | awk \'{print $1}\' | xargs -r man | 
-    col -bx | bat -l man -p --paging always --color always' | \
-    tr -d '()' | awk '{print $1}' | xargs -r sh -c 'man "$0" | 
-    col -bx | bat -l man -p --paging always'
-}
