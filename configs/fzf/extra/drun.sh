@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Read the app names and Exec commands from the saved txt file
-apps_list=$(cat "$HOME/.config/fzf/extra/assets/drun.txt")
+apps_list=$(cat "$HOME/.cache/bosse/drun.txt")
 
 # Use fzf to list app names and select multiple
 selected=$(

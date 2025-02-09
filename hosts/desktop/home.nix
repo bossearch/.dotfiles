@@ -21,10 +21,11 @@
     ./../../modules/nvim.nix
     ./../../modules/term.nix
     ./../../modules/tmux.nix
-    ./../../modules/vesktop.nix
     ./../../modules/nchat.nix
     ./../../modules/theme.nix
     ./../../modules/waybar.nix
+    ./../../modules/spotify.nix
+    ./../../modules/vesktop.nix
     ./../../modules/firefox.nix
     ./../../modules/hyprland.nix
     ./../../modules/wallpaper.nix

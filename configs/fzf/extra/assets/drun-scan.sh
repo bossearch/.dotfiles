@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Output file for the app names and Exec commands
-output_file="drun.txt"
+output_file="$HOME/.cache/bosse/drun.txt"
 rm "$output_file"
 touch "$output_file"
 
