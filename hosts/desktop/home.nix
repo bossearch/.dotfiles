@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 {
@@ -12,29 +13,33 @@
   programs.home-manager.enable = true;
   
   imports = [
-    ./../../modules/git.nix
-    ./../../modules/cli.nix
-    ./../../modules/qmk.nix
-    ./../../modules/mpv.nix
-    ./../../modules/zsh.nix
-    ./../../modules/nyaa.nix
-    ./../../modules/nvim.nix
-    ./../../modules/term.nix
-    ./../../modules/tmux.nix
-    ./../../modules/nchat.nix
-    ./../../modules/theme.nix
-    ./../../modules/waybar.nix
-    ./../../modules/spotify.nix
-    ./../../modules/vesktop.nix
-    ./../../modules/firefox.nix
-    ./../../modules/hyprland.nix
-    ./../../modules/wallpaper.nix
+    ./../../modules/user/cli.nix
+    ./../../modules/user/firefox.nix
+    ./../../modules/user/git.nix
+    ./../../modules/user/hyprland.nix
+    ./../../modules/user/mpv.nix
+    ./../../modules/user/nchat.nix
+    ./../../modules/user/nvim.nix
+    ./../../modules/user/nyaa.nix
+    ./../../modules/user/qmk.nix
+    ./../../modules/user/spotify.nix
+    ./../../modules/user/term.nix
+    ./../../modules/user/theme.nix
+    ./../../modules/user/tmux.nix
+    ./../../modules/user/vesktop.nix
+    ./../../modules/user/wallpaper.nix
+    ./../../modules/user/waybar.nix
+    ./../../modules/user/zsh.nix
   ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.packages = with pkgs; [
+    sushi
+    nautilus
+  ];
 
+  home.activation.drunScan = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    ${config.home.homeDirectory}/.config/fzf/extra/drun-scan.sh
+  '';
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.

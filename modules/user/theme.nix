@@ -4,7 +4,6 @@
     dconf
     papirus-icon-theme
     tokyonight-gtk-theme
-    libsForQt5.qtstyleplugin-kvantum
   ];
   home.pointerCursor = {
     name = "Adwaita";

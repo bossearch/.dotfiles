@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
-    (pkgs.callPackage ./custompkgs/alacritty.nix {})
+    (pkgs.callPackage ./../custompkgs/alacritty.nix {})
   ];
 
   home.file.".config/alacritty" = {

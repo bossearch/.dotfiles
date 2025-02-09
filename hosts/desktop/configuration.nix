@@ -6,24 +6,18 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/system/font.nix
+    ./../../modules/system/boot.nix
+    ./../../modules/system/environtment.nix
     ./../../modules/system/firewall.nix
-    ./../../modules/system/sound.nix
+    ./../../modules/system/font.nix
+    ./../../modules/system/hardware.nix
+    ./../../modules/system/locale.nix
     ./../../modules/system/network.nix
-    ./../../modules/system/waydroid.nix
-    ./../../modules/system/virtualization.nix
     ./../../modules/system/security.nix
+    ./../../modules/system/sound.nix
+    ./../../modules/system/virtualization.nix
+    ./../../modules/system/waydroid.nix
   ];
-
-  # Use the GRUB 2 boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  # boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
 
   networking = {
     hostName = "desktop";
@@ -32,15 +26,6 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Singapore";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #  font = "Lat2-Terminus16";
-  #  keyMap = "us";
-  #  useXkbConfig = true; # use xkb.options in tty.
-  # };
-
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -52,50 +37,22 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bosse = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "audio" "vidoe" "libvirtd"];
+    extraGroups = ["wheel" "networkmanager" "audio" "video" "libvirtd"];
   };
 
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  hardware = {
-    graphics.enable = true;
-    graphics.enable32Bit = true;
-    graphics.extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-      libva
-      libva-utils
-      mesa
-      mesa.drivers
-      vulkan-loader
-      libva
-      libva-utils
-      vaapiVdpau
-      libvdpau-va-gl
-      amdvlk
-    ];
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-          Experimental = true;
-        };
-      };
-    };
-    i2c.enable = true;
+  services = {
+    blueman.enable = true;
+    gvfs.enable = true;
+    udisks2.enable = true;
   };
-
-  services.blueman.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

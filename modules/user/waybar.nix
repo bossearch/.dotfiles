@@ -12,7 +12,7 @@
     slurp
     wl-screenrec
     tesseract
-  ] ++ [ (pkgs.callPackage ./custompkgs/sysboard.nix { }) ];
+  ] ++ [ (pkgs.callPackage ./../custompkgs/sysboard.nix { }) ];
 
   home.file.".config/waybar" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/waybar";

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Location of your emoji list
-EMOJI_FILE=~/.config/fzf/extra/assets/emoji.txt
+EMOJI_FILE=~/.config/fzf/extra/emoji.txt
 
 # Use fzf to select an emoji from the list
 selected=$(cat "$EMOJI_FILE" | fzf -m --layout=default --border=none --highlight-line --info=inline-right --prompt="❯ " \
