@@ -17,6 +17,7 @@
   imports = [
     ./../../modules/git.nix
     ./../../modules/cli.nix
+    ./../../modules/qmk.nix
     ./../../modules/zsh.nix
     ./../../modules/nyaa.nix
     ./../../modules/nvim.nix
