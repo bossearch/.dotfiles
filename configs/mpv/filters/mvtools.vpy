@@ -2,6 +2,8 @@
 
 import vapoursynth as vs
 core = vs.core
+core.std.LoadPlugin("/nix/store/1q5cg1vim5krr7q5d7z3brwcr9m7b9q9-vapoursynth-mvtools-24/lib/vapoursynth/libmvtools.so")
+
 clip = video_in
 dst_fps = display_fps
 while (dst_fps > 60):

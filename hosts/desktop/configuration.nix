@@ -79,11 +79,6 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   # List packages installed in system profile. To search, run:
@@ -98,12 +93,22 @@
 
   hardware = {
     graphics.enable = true;
+    graphics.enable32Bit = true;
     graphics.extraPackages = with pkgs; [
       rocmPackages.clr.icd
       libva
       libva-utils
+      mesa
+      mesa.drivers
+      vulkan-loader
+      libva
+      libva-utils
+      vaapiVdpau
+      libvdpau-va-gl
+      amdvlk
     ];
   };
+
   hardware.i2c.enable = true;
   # Bluetooth
   hardware = {

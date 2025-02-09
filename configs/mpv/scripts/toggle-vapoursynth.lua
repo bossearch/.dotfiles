@@ -1,7 +1,7 @@
 local mp = require("mp")
 local utils = require("mp.utils")
-local first_load_status_file = "/home/bosse/.config/mpv/script-opts/first_load_status.txt"
-local vapoursynth_status_file = "/home/bosse/.config/mpv/script-opts/vapoursynth-status.txt"
+local first_load_status_file = "/home/bosse/.cache/bosse/first-load-status.txt"
+local vapoursynth_status_file = "/home/bosse/.cache/bosse/vapoursynth-status.txt"
 local check_interval = 5 -- Interval to check FPS, in seconds
 
 -- Function to load the first_load state from file

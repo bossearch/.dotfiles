@@ -124,7 +124,7 @@ mp.register_event("end-file", function()
   subtitle_check_timer:kill()
 end)
 
-local first_load_status_file = "/home/bosse/.config/mpv/script-opts/first_load_status.txt"
+local first_load_status_file = "/home/bosse/.cache/bosse/first-load-status.txt"
 local function load_first_load_status()
   local file = io.open(first_load_status_file, "r")
   if file then
