@@ -18,6 +18,7 @@
     ./../../modules/git.nix
     ./../../modules/cli.nix
     ./../../modules/zsh.nix
+    ./../../modules/nyaa.nix
     ./../../modules/nvim.nix
     ./../../modules/term.nix
     ./../../modules/tmux.nix

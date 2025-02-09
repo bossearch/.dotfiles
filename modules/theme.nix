@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    dconf  # Required for GTK settings
+    dconf
     papirus-icon-theme
     tokyonight-gtk-theme
   ];
   home.pointerCursor = {
-    name = "Adwaita";  # Adwaita cursor theme
+    name = "Adwaita";
     package = pkgs.adwaita-icon-theme;
     size = 24;
   };
@@ -24,22 +24,22 @@
       package = pkgs.adwaita-icon-theme;
     };
     iconTheme = {
-      name = "Papirus-Dark";  # Set Papirus Dark (or "Papirus" for light version)
+      name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
   };
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";  # Make Qt follow GTK theme
+    platformTheme.name = "gtk";
     style = {
-      name = "tokyonight";  # Qt theme to match GTK
+      name = "Tokyonight-Dark";
       package = pkgs.tokyonight-gtk-theme;
     };
   };
 
   home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "gtk2";  # Makes Qt use the GTK theme
+    QT_QPA_PLATFORMTHEME = "gtk2";
     XCURSOR_THEME = "Adwaita";
     XCURSOR_SIZE = "24";
   };

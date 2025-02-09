@@ -12,7 +12,7 @@
     enable = true;
 
     enabledExtensions = with spicePkgs.extensions; [
-      adblock
+      adblockify
     ];
     # enabledCustomApps = with spicePkgs.apps; [
     #   newReleases

@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ./../../modules/system/font.nix
     ./../../modules/system/firewall.nix
+    ./../../modules/system/sound.nix
     ./../../modules/system/network.nix
     ./../../modules/system/waydroid.nix
     ./../../modules/system/virtualization.nix
@@ -57,13 +58,6 @@
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
