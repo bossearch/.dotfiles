@@ -5,7 +5,7 @@
   ];
 
   home.packages = with pkgs; [
-    transmission-gtk
+    transmission_4-gtk
   ];
 
   programs.nyaa = {
