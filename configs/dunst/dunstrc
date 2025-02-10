@@ -82,11 +82,11 @@ fullscreen = pushback
 
 [zsh]
 appname = zsh
-new_icon = /usr/share/icons/Papirus/48x48/apps/Alacritty.svg
+new_icon = ~/.local/share/icons/Papirus/48x48/apps/Alacritty.svg
 
 [nchat]
 appname = nchat
-new_icon = /usr/share/icons/Papirus/16x16/panel/google-chat-badge.svg
+new_icon = ~/.local/share/icons/Papirus/16x16/panel/google-chat-badge.svg
 
 [mpd]
 appname = "mpd"

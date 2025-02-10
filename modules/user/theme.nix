@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+let
+  papirusPath = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
+  iconSymlink = "${config.home.homeDirectory}/.local/share/icons/Papirus";
+in
 {
   home.packages = with pkgs; [
     dconf
@@ -45,4 +49,11 @@
     XCURSOR_THEME = "Adwaita";
     XCURSOR_SIZE = "24";
   };
+
+  home.activation.linkPapirusIcons = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if [ -d "${papirusPath}" ] && [ ! -e "${iconSymlink}" ]; then
+      mkdir -p ${config.home.homeDirectory}/.local/share/icons
+      ln -sf ${papirusPath} ${iconSymlink}
+    fi
+  '';
 }
