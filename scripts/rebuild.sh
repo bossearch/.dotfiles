@@ -64,7 +64,7 @@ fi
 echo "NixOS Rebuilding for host: $HOSTNAME (mode: $REBUILD_CMD)"
 
 # Option to see log or not (thanks @JustCoderDev)
-if sudo nixos-rebuild "$REBUILD_CMD" --flake ".#$HOSTNAME" &>.nixos-switch.log; then
+if sudo nixos-rebuild "$REBUILD_CMD" --flake ".#$HOSTNAME" &>.nixos.log; then
     notify-send -e "NixOS Rebuild ($REBUILD_CMD)" "Done" --icon=software-update-available
 else
     notify-send -e "NixOS Rebuild ($REBUILD_CMD)" "Error" --icon=software-update-urgent --urgency=critical
@@ -72,10 +72,10 @@ else
     git reset -q
 
     echo ""
-    cat .nixos-switch.log | grep --color error
+    cat .nixos.log | grep --color error
 
     if read -p "Open log? (y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-        cat .nixos-switch.log
+        nvim .nixos.log
     fi
 
     popd > /dev/null
