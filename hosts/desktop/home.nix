@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  inputs,
   lib,
   ...
 }:
@@ -18,6 +17,7 @@
     ./../../modules/user/git.nix
     ./../../modules/user/hyprland.nix
     ./../../modules/user/mpv.nix
+    ./../../modules/user/nautilus.nix
     ./../../modules/user/nchat.nix
     ./../../modules/user/nvim.nix
     ./../../modules/user/nyaa.nix
@@ -30,11 +30,6 @@
     ./../../modules/user/wallpaper.nix
     ./../../modules/user/waybar.nix
     ./../../modules/user/zsh.nix
-  ];
-
-  home.packages = with pkgs; [
-    sushi
-    nautilus
   ];
 
   home.activation.drunScan = lib.hm.dag.entryAfter ["writeBoundary"] ''
