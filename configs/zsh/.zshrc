@@ -63,6 +63,7 @@ alias c="clear"
 alias cat=bat
 alias cat-og='\cat'
 alias ..="cd .."
+alias rb="~/.dotfiles/scripts/rebuild.sh"
 
 # ----------------------------
 # Keybindings

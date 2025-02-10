@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 current_workspace=$(hyprctl activewindow | grep "workspace: " | sed -E 's/.*workspace: .*\((.*)\)/\1/')
-game_on="/usr/share/icons/Papirus/32x32/status/state_running.svg"
-game_off="/usr/share/icons/Papirus/32x32/status/state_paused.svg"
+game_on="/home/bosse/.local/share/icons/Papirus/32x32/status/state_running.svg"
+game_off="/home/bosse/.local/share/icons/Papirus/32x32/status/state_paused.svg"
 
 if [ -f ~/.cache/gamemode ]; then
   hyprctl --batch "\

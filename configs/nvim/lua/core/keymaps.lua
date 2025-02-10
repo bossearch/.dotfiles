@@ -254,9 +254,9 @@ set("n", "ss", substitute.line, { desc = "Substitute line" })
 set("n", "S", substitute.eol, { desc = "Substitute to end of line" })
 set("x", "s", substitute.visual, { desc = "Substitute in visual mode" })
 
--- VIM-TMUX-NAVIGATOR
-set("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>")
-set("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>")
-set("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>")
-set("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>")
-set("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>")
+-- vim-tmux-navigator
+set({ "n", "i" }, "<c-h>", "<cmd>tmuxnavigateleft<cr>")
+set({ "n", "i" }, "<c-j>", "<cmd>tmuxnavigatedown<cr>")
+set({ "n", "i" }, "<c-k>", "<cmd>TmuxNavigateUp<cr>")
+set({ "n", "i" }, "<c-l>", "<cmd>TmuxNavigateRight<cr>")
+set({ "n", "i" }, "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>")
