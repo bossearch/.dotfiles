@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
+  # NOTE: hardware.enableAllFirmware if using laptop
   hardware = {
+    cpu.amd.updateMicrocode = true;
     graphics.enable = true;
     graphics.enable32Bit = true;
     graphics.extraPackages = with pkgs; [

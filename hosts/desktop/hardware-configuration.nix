@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "i2c-dev" ];
+  boot.initrd.availableKernelModules = [ "ahci" "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelParams = [ "quiet" "loglevel=0" "systemd.show_status=false" ];
   boot.kernelModules = [ "kvm-amd" ];
