@@ -3,14 +3,13 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   home.username = "bosse";
   home.homeDirectory = "/home/bosse";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
+
   imports = [
     ./../../modules/user/cli.nix
     ./../../modules/user/firefox.nix

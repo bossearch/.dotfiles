@@ -24,10 +24,9 @@
     nixpkgs-unstable,
     home-manager,
     ...
-  }@inputs: let
+  } @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux"; # Change this if you're using ARM (e.g., a Raspberry Pi)
-
   in {
     # Define configurations for each host
     nixosConfigurations = {
@@ -39,7 +38,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.bosse = import ./hosts/desktop/home.nix; # User config
           }
         ];

@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   # NOTE: hardware.enableAllFirmware if using laptop
   hardware = {
     cpu.amd.updateMicrocode = true;

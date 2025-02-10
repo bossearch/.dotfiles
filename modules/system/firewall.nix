@@ -1,5 +1,8 @@
-{ config, pkgs, ... }: 
 {
+  config,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     nixos-firewall-tool
   ];
@@ -11,7 +14,7 @@
     rejectPackets = true;
 
     # Allowed services
-    allowedTCPPorts = [ 80 443 53317 ]; # HTTP, HTTPS, and Localsend
+    allowedTCPPorts = [80 443 53317]; # HTTP, HTTPS, and Localsend
 
     # SSH with rate limiting (equivalent to iptables rules)
     extraCommands = ''

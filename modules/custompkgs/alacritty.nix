@@ -4,7 +4,6 @@
   fetchFromGitHub,
   rustPlatform,
   nixosTests,
-
   cmake,
   installShellFiles,
   makeWrapper,
@@ -12,7 +11,6 @@
   pkg-config,
   python3,
   scdoc,
-
   expat,
   fontconfig,
   freetype,
@@ -21,10 +19,8 @@
   wayland,
   libsixel,
   xdg-utils,
-
   nix-update-script,
-}:
-let
+}: let
   rpathLibs =
     [
       expat
@@ -38,55 +34,54 @@ let
       libsixel
     ];
 in
-rustPlatform.buildRustPackage rec {
-  pname = "alacritty";
-  version = "0.15.0";
+  rustPlatform.buildRustPackage rec {
+    pname = "alacritty";
+    version = "0.15.0";
 
-  src = fetchFromGitHub {
-    owner = "ayosec";
-    repo = "alacritty";
-    tag = "v${version}-graphics";
-    hash = "sha256-vDpmjlH2UBsRf2JkyN79gWESIEIfqe+RTGWrzJW+yXM=";
-  };
+    src = fetchFromGitHub {
+      owner = "ayosec";
+      repo = "alacritty";
+      tag = "v${version}-graphics";
+      hash = "sha256-vDpmjlH2UBsRf2JkyN79gWESIEIfqe+RTGWrzJW+yXM=";
+    };
 
-  cargoHash = "sha256-0H3xAZPm8STktXfyOfIi4XLfeua+blZQmppi4Zdq9G0=";
+    cargoHash = "sha256-0H3xAZPm8STktXfyOfIi4XLfeua+blZQmppi4Zdq9G0=";
 
-  nativeBuildInputs = [
-    cmake
-    installShellFiles
-    makeWrapper
-    ncurses
-    pkg-config
-    python3
-    scdoc
-  ];
+    nativeBuildInputs = [
+      cmake
+      installShellFiles
+      makeWrapper
+      ncurses
+      pkg-config
+      python3
+      scdoc
+    ];
 
-  buildInputs = rpathLibs;
+    buildInputs = rpathLibs;
 
-  outputs = [
-    "out"
-    "terminfo"
-  ];
+    outputs = [
+      "out"
+      "terminfo"
+    ];
 
-  buildFlags = [ "--no-default-features" "--features=wayland" ];
+    buildFlags = ["--no-default-features" "--features=wayland"];
 
-  postPatch = lib.optionalString stdenv.hostPlatform.isLinux ''
-    substituteInPlace alacritty/src/config/ui_config.rs \
-      --replace xdg-open ${xdg-utils}/bin/xdg-open
-  '';
+    postPatch = lib.optionalString stdenv.hostPlatform.isLinux ''
+      substituteInPlace alacritty/src/config/ui_config.rs \
+        --replace xdg-open ${xdg-utils}/bin/xdg-open
+    '';
 
-  checkFlags = [ "--skip=term::test::mock_term" ]; # broken on aarch64
+    checkFlags = ["--skip=term::test::mock_term"]; # broken on aarch64
 
-  postInstall =
-    (
-      if stdenv.hostPlatform.isDarwin then
-        ''
+    postInstall =
+      (
+        if stdenv.hostPlatform.isDarwin
+        then ''
           mkdir $out/Applications
           cp -r extra/osx/Alacritty.app $out/Applications
           ln -s $out/bin $out/Applications/Alacritty.app/Contents/MacOS
         ''
-      else
-        ''
+        else ''
           install -D extra/linux/Alacritty.desktop -t $out/share/applications/
           install -D extra/linux/org.alacritty.Alacritty.appdata.xml -t $out/share/appdata/
           install -D extra/logo/compat/alacritty-term.svg $out/share/icons/hicolor/scalable/apps/Alacritty.svg
@@ -98,43 +93,43 @@ rustPlatform.buildRustPackage rec {
 
           patchelf --add-rpath "${lib.makeLibraryPath rpathLibs}" $out/bin/alacritty
         ''
-    )
-    + ''
-      installShellCompletion --zsh extra/completions/_alacritty
-      installShellCompletion --bash extra/completions/alacritty.bash
-      installShellCompletion --fish extra/completions/alacritty.fish
+      )
+      + ''
+        installShellCompletion --zsh extra/completions/_alacritty
+        installShellCompletion --bash extra/completions/alacritty.bash
+        installShellCompletion --fish extra/completions/alacritty.fish
 
-      install -dm 755 "$out/share/man/man1"
-      install -dm 755 "$out/share/man/man5"
+        install -dm 755 "$out/share/man/man1"
+        install -dm 755 "$out/share/man/man5"
 
-      scdoc < extra/man/alacritty.1.scd | gzip -c > $out/share/man/man1/alacritty.1.gz
-      scdoc < extra/man/alacritty-msg.1.scd | gzip -c > $out/share/man/man1/alacritty-msg.1.gz
-      scdoc < extra/man/alacritty.5.scd | gzip -c > $out/share/man/man5/alacritty.5.gz
-      scdoc < extra/man/alacritty-bindings.5.scd | gzip -c > $out/share/man/man5/alacritty-bindings.5.gz
+        scdoc < extra/man/alacritty.1.scd | gzip -c > $out/share/man/man1/alacritty.1.gz
+        scdoc < extra/man/alacritty-msg.1.scd | gzip -c > $out/share/man/man1/alacritty-msg.1.gz
+        scdoc < extra/man/alacritty.5.scd | gzip -c > $out/share/man/man5/alacritty.5.gz
+        scdoc < extra/man/alacritty-bindings.5.scd | gzip -c > $out/share/man/man5/alacritty-bindings.5.gz
 
-      install -dm 755 "$terminfo/share/terminfo/a/"
-      tic -xe alacritty,alacritty-direct -o "$terminfo/share/terminfo" extra/alacritty.info
-      mkdir -p $out/nix-support
-      echo "$terminfo" >> $out/nix-support/propagated-user-env-packages
-    '';
+        install -dm 755 "$terminfo/share/terminfo/a/"
+        tic -xe alacritty,alacritty-direct -o "$terminfo/share/terminfo" extra/alacritty.info
+        mkdir -p $out/nix-support
+        echo "$terminfo" >> $out/nix-support/propagated-user-env-packages
+      '';
 
-  dontPatchELF = true;
+    dontPatchELF = true;
 
-  passthru = {
-    tests.test = nixosTests.terminal-emulators.alacritty;
-    updateScript = nix-update-script { };
-  };
+    passthru = {
+      tests.test = nixosTests.terminal-emulators.alacritty;
+      updateScript = nix-update-script {};
+    };
 
-  meta = with lib; {
-    description = "Cross-platform, GPU-accelerated terminal emulator";
-    homepage = "https://github.com/alacritty/alacritty";
-    license = licenses.asl20;
-    mainProgram = "alacritty";
-    maintainers = with maintainers; [
-      Br1ght0ne
-      rvdp
-    ];
-    platforms = platforms.unix;
-    changelog = "https://github.com/alacritty/alacritty/blob/v${version}/CHANGELOG.md";
-  };
-}
+    meta = with lib; {
+      description = "Cross-platform, GPU-accelerated terminal emulator";
+      homepage = "https://github.com/alacritty/alacritty";
+      license = licenses.asl20;
+      mainProgram = "alacritty";
+      maintainers = with maintainers; [
+        Br1ght0ne
+        rvdp
+      ];
+      platforms = platforms.unix;
+      changelog = "https://github.com/alacritty/alacritty/blob/v${version}/CHANGELOG.md";
+    };
+  }

@@ -73,6 +73,7 @@ else
 
     echo ""
     cat .nixos.log | grep --color error
+    echo ""
 
     if read -p "Open log? (y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
         nvim .nixos.log

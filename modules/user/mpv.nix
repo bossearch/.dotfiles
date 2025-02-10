@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   my-mpv-unwrapped = pkgs.mpv-unwrapped.override {
     vapoursynthSupport = true;
   };
-in
-{
+in {
   home.packages = with pkgs; [
     vapoursynth-mvtools
     yt-dlp
@@ -15,7 +17,10 @@ in
     package = pkgs.mpv.override {
       mpv = my-mpv-unwrapped;
       extraMakeWrapperArgs = [
-        "--prefix" "LUA_PATH" ";" "${pkgs.lua52Packages.dkjson}/share/lua/5.2/?.lua"
+        "--prefix"
+        "LUA_PATH"
+        ";"
+        "${pkgs.lua52Packages.dkjson}/share/lua/5.2/?.lua"
       ];
     };
   };

@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   networking = {
-
-    nameservers = [ "127.0.0.1" "::1" ];
+    nameservers = ["127.0.0.1" "::1"];
     # If using dhcpcd:
     dhcpcd.extraConfig = "nohook resolv.conf";
     # If using NetworkManager:
@@ -48,8 +50,8 @@
         cache_file = "/var/cache/dnscrypt-proxy/relays.md";
         minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
       };
-      listen_addresses = [ "127.0.0.1:53" "[::1]:53" ];
-      server_names = [ "cloudflare-security-ipv4" "cloudflare-security-ipv6" ];
+      listen_addresses = ["127.0.0.1:53" "[::1]:53"];
+      server_names = ["cloudflare-security-ipv4" "cloudflare-security-ipv6"];
       static = {
         cloudflare-security-ipv4 = {
           stamp = "sdns://AgMAAAAAAAAABzEuMC4wLjIABzEuMC4wLjIKL2Rucy1xdWVyeQ";

@@ -70,7 +70,7 @@
     pulse.enable = true;
     wireplumber.enable = true;
     alsa.enable = true;
-    alsa.support32Bit = true;    
+    alsa.support32Bit = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -86,7 +86,7 @@
   };
 
   services.qemuGuest.enable = true;
-  services.spice-vdagentd.enable = true;  # enable copy and paste between host and guest
+  services.spice-vdagentd.enable = true; # enable copy and paste between host and guest
 
   programs.firefox.enable = true;
   programs.hyprland = {

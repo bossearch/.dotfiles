@@ -1,5 +1,13 @@
-{ lib, stdenv, fetchFromGitHub, gtkmm4, gtk4-layer-shell, pkg-config, wrapGAppsHook4, wayland-scanner }:
-
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  gtkmm4,
+  gtk4-layer-shell,
+  pkg-config,
+  wrapGAppsHook4,
+  wayland-scanner,
+}:
 stdenv.mkDerivation (finalAttrs: {
   pname = "sysboard";
   version = "9.9.9";
@@ -18,8 +26,8 @@ stdenv.mkDerivation (finalAttrs: {
     substituteInPlace src/window.cpp \
       --replace-fail /usr/share/sys64/board/style.css $out/share/sys64/board/style.css
   '';
-  nativeBuildInputs = [ pkg-config wayland-scanner wrapGAppsHook4 ];
-  buildInputs = [ gtkmm4 gtk4-layer-shell ];
+  nativeBuildInputs = [pkg-config wayland-scanner wrapGAppsHook4];
+  buildInputs = [gtkmm4 gtk4-layer-shell];
 
   configurePhase = ''
     runHook preConfigure
@@ -42,6 +50,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/System64fumo/sysboard";
     license = licenses.wtfpl;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ ];
+    maintainers = with maintainers; [];
   };
 })

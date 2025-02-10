@@ -1,11 +1,15 @@
-{config, pkgs, lib, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
     settings = {
-      monitor = [ "DP-3, 2560x1440@165, 0x0, 1" ];
+      monitor = ["DP-3, 2560x1440@165, 0x0, 1"];
     };
     extraConfig = ''
       # AUTOSTART

@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     tmux
   ];
@@ -11,4 +14,3 @@
     recursive = true;
   };
 }
-
