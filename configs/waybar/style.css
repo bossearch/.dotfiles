@@ -129,23 +129,13 @@ window#waybar {
   border-radius: 8px;
 }
 
-#internet {
-  /*group for network and custom-tor*/
-  background-color: rgba(22, 22, 30, 0.8);
-}
 #network {
+  background-color: rgba(22, 22, 30, 0.8);
   color: #bb9af7;
   padding: 0 10px;
 }
 #network.disconnected {
   color: #f53c3c;
-}
-#custom-tor {
-  color: #414868;
-  padding: 0px 6px 0px 10px;
-}
-#custom-tor.active {
-  color: #bb9af7;
 }
 
 #clock {
@@ -159,19 +149,8 @@ window#waybar {
   color: #c0caf5;
   background-color: rgba(22, 22, 30, 0.8);
   border-radius: 8px;
-  padding: 0px 3px 0px 0px;
+  padding: 0px 4.5px 0px 0px;
 }
-/*
-#shutdown {
-  padding: 0 10px;
-}
-#reboot {
-  padding: 0 10px;
-}
-#lock {
-  padding: 0 10px;
-}
-*/
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
 }
@@ -181,25 +160,8 @@ window#waybar {
 }
 
 /*
-#monitor {
-  background-color: rgba(22, 22, 30, 0.8);
-  border-radius: 8px;
-}
-
-#pulseaudio {
-  color: #7aa2f7;
-}
-
-#custom-ddcutil {
-  color: #7aa2f7;
-}
 #backlight {
   color: #8fbcbb;
-}
-
-
-#clock {
-  color: #c0caf5;
 }
 
 #battery {
@@ -228,52 +190,7 @@ window#waybar {
   animation-direction: alternate;
 }
 
-label:focus {
-  background-color: #000000;
-}
-
 #disk {
   background-color: #964b00;
 }
-
-#bluetooth {
-  color: #707d9d;
-}
-
-#bluetooth.disconnected {
-  color: #f53c3c;
-}
-
-#network {
-  color: #bb9af7;
-}
-
-#network.disconnected {
-  color: #f53c3c;
-}
-
-#temperature {
-  background-color: #f0932b;
-}
-
-#temperature.critical {
-  background-color: #eb4d4b;
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-  background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #2d3436;
 }*/

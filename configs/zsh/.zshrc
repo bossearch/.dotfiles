@@ -51,11 +51,17 @@ zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 # Aliases
 # ----------------------------
 
-alias ls="eza --color=always --long --git --no-filesize --no-user --icons=always --no-time"
+alias ls="eza --color=always"
+alias la="eza -a --color=always"
+alias ll="eza -al --color=always --no-filesize --no-time"
+alias lll="eza -aloh --color=always --long"
+alias mv="mv -i"
+alias rm="rm -i"
 alias editzsh="nvim ~/.config/zsh/.zshrc"
 alias v="nvim"
 alias c="clear"
 alias cat=bat
+alias cat-og='\cat'
 alias ..="cd .."
 
 # ----------------------------
@@ -65,8 +71,8 @@ alias ..="cd .."
 # Keybindings
 bindkey -v
 bindkey "^?" backward-delete-char
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # Vi mode cursor indicator
 export KEYTIMEOUT=1

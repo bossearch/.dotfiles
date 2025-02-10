@@ -54,20 +54,8 @@
       "custom/ddcutil",
       "custom/hyprsunset",
       "pulseaudio",
-      "group/internet"
+      "network"
     ]
-  },
-
-  "group/internet": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "network",
-      "custom/tor"
-    ],
   },
 
   "group/utility": {
@@ -84,7 +72,7 @@
   "group/customtray": {
     "orientation": "inherit",
     "modules": [
-      //"privacy",
+      "privacy",
       "custom/stoprec",
       "tray"
     ]
@@ -119,7 +107,31 @@
   },
 
   "tray": {
-    "spacing": 10
+    "icon-size": 14,
+    "spacing": 8
+  },
+
+  "privacy": {
+    "icon-spacing": 8,
+    "icon-size": 14,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      //{
+      //  "type": "audio-out",
+      //  "tooltip": true,
+      //  "tooltip-icon-size": 24
+      //},
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
   },
 
   "custom/launcher": {
@@ -376,28 +388,5 @@
     "on-click": "~/.config/waybar/scripts/dunst/dunsticon.sh",
     "signal": 10,
     "tooltip": false
-  },
-
-  "privacy": {
-    "icon-spacing": 4,
-    "icon-size": 18,
-    "transition-duration": 250,
-    "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-out",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-in",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      }
-    ]
   },
 }
