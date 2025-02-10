@@ -53,7 +53,7 @@ zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 alias ls="eza --color=always"
 alias la="eza -a --color=always"
-alias ll="eza -al --color=always --no-filesize --no-time"
+alias ll="eza -al --color=always --no-user --no-permissions --no-filesize --no-time"
 alias lll="eza -aloh --color=always --long"
 alias mv="mv -i"
 alias rm="rm -i"

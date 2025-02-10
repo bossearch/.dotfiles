@@ -12,7 +12,43 @@ exclude_apps=(
   "Steam Linux Runtime 1.0 (scout)"
   "Steam Linux Runtime 2.0 (soldier)"
   "Steam Linux Runtime 3.0 (sniper)"
+  "Waydroid"
+  "auto-cpufreq-gtk"
+  "avahi-discover"
+  "bssh"
+  "btop"
+  "bvnc"
+  "cmake-gui"
+  "electron31"
+  "electron32"
+  "gcr-prompter"
+  "gcr-viewer"
+  "geoclue-demo-agent"
+  "geoclue-where-am-i"
+  "gkbd-keyboard-display"
+  "google-maps-geo-handler"
+  "java-java17-openjdk"
+  "java-java21-openjdk"
+  "nautilus-autorun-software"
+  "nvim"
+  "openstreetmap-geo-handler"
+  "org.freedesktop.Xwayland"
+  "org.gnome.Evince"
+  "org.gnome.Evince-previewer"
+  "org.gnome.Zenity"
+  "org.gnupg.pinentry-qt"
+  "org.gnupg.pinentry-qt5"
+  "org.kde.xwaylandvideobridge"
   "org.prismlauncher.PrismLauncher"
+  "polkit-gnome-authentication-agent-1"
+  "qv4l2"
+  "qvidcap"
+  "qwant-maps-geo-handler"
+  "remote-viewer"
+  "steam"
+  "user-dirs-update-gtk"
+  "vim"
+  "waydroid.app.install"
   "waydroid.com.android.calculator2"
   "waydroid.com.android.camera2"
   "waydroid.com.android.contacts"
@@ -31,81 +67,40 @@ exclude_apps=(
   "waydroid.cu.axel.smartdock"
   "waydroid.io.github.huskydg.magisk"
   "waydroid.io.github.sds100.keymapper"
+  "waydroid.market"
   "waydroid.org.lineageos.eleven"
   "waydroid.org.lineageos.etar"
   "waydroid.org.lineageos.jelly"
   "waydroid.org.lineageos.recorder"
   "waydroid.org.mozilla.firefox"
-  "waydroid.app.install"
-  "waydroid.market"
-  "Waydroid"
-  "auto-cpufreq-gtk"
-  "avahi-discover"
-  "bssh"
-  "btop"
-  "bvnc"
-  "cmake-gui"
-  "electron31"
-  "electron32"
-  "org.gnome.Evince"
-  "org.gnome.Evince-previewer"
-  "gcr-prompter"
-  "gcr-viewer"
-  "geoclue-demo-agent"
-  "geoclue-where-am-i"
-  "gkbd-keyboard-display"
-  "google-maps-geo-handler"
-  "java-java17-openjdk"
-  "java-java21-openjdk"
-  "nautilus-autorun-software"
-  "nvim"
-  "openstreetmap-geo-handler"
-  "org.gnupg.pinentry-qt"
-  "org.gnupg.pinentry-qt5"
-  "polkit-gnome-authentication-agent-1"
-  "qv4l2"
-  "qvidcap"
-  "qwant-maps-geo-handler"
-  "steam"
   "wheelmap-geo-handler"
-  "org.freedesktop.Xwayland"
-  "org.kde.xwaylandvideobridge"
   "yazi"
-  "org.gnome.Zenity"
-  "user-dirs-update-gtk"
-  "remote-viewer"
-  "vim"
-  # Add more apps here that you want to exclude
+  "xdg-desktop-portal-gtk"
+  "nixos-manual"
+  "cups"
+  "mpv"
+  "umpv"
+  "userapp-transmission-gtk-UN5M12"
 )
 
 custom_apps=(
-  "userapp-alacritty -e nvim-Q1L9T2:nvim"
+  "Alacritty:alacritty"
+  "io.github.mpobaschnig.Vaults:vaults"
   "org.cryptomator.Cryptomator:cryptomator"
-  "org.gnome.baobab:baobab"
   "org.gnome.Nautilus:nautilus"
+  "org.gnome.baobab:baobab"
   "org.pulseaudio.pavucontrol:pavucontrol"
   "org.shotcut.Shotcut:shotcut"
-  "Alacritty:alacritty"
-  # Add more apps here that you want to exclude
+  "mpvipc:mpv"
 )
 
-# Custom Exec commands for specific apps
 custom_execs=(
-  'timeshift-gtk:pkexec env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" GTK_THEME=Tokyonight-Dark timeshift-launcher'
-  "mpv:mpv --player-operation-mode=pseudo-gui --input-ipc-server=/tmp/mpv-socket"
+  "transmission-gtk:transmission-gtk"
   "spotify:spotify"
   "alacritty:alacritty -e bash -c '~/.config/hypr/scripts/assets/alacritty.sh; exec zsh'"
-  # Add more custom Exec mappings here
 )
 
-# List all .desktop files from standard and Flatpak directories
-# applications=$(ls /usr/share/applications/*.desktop \
-#   ~/.local/share/applications/*.desktop \
-#   /var/lib/flatpak/app/*/current/active/export/share/applications/*.desktop \
-#   2>/dev/null)
-
-applications=$(ls /usr/share/applications/*.desktop \
-  ~/.local/share/applications/*.desktop \
+applications=$(ls ~/.local/share/applications/*.desktop \
   /run/current-system/sw/share/applications/*.desktop \
   /etc/profiles/per-user/$USER/share/applications/*.desktop \
   2>/dev/null)
