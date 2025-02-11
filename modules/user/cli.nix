@@ -18,6 +18,7 @@
       git
       imagemagick
       jq
+      killall
       lazygit
       oh-my-posh
       ouch

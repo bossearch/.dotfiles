@@ -143,7 +143,7 @@
 
   "custom/lock": {
     "format": "",
-    "on-click": "hyprlock",
+    "on-click": "grim -l 0 -t png /tmp/hyprlock.png && hyprlock",
     "tooltip": false,
   },
 
