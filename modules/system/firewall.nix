@@ -3,10 +3,6 @@
   pkgs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    nixos-firewall-tool
-  ];
-
   networking.firewall = {
     enable = true;
     # Default policy: Drop all incoming traffic unless explicitly allowed

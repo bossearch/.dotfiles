@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/system/boot.nix
+    ./../../modules/system/displaymanager.nix
     ./../../modules/system/environtment.nix
     ./../../modules/system/firewall.nix
     ./../../modules/system/font.nix

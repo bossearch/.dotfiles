@@ -65,6 +65,4 @@ ftpanekill() {
         tmux kill-pane -t "$match[1]"
     }
   done
- 
 }
-

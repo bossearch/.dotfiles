@@ -57,7 +57,7 @@ if [[ ! "$confirm" =~ ^[yY]$ ]]; then
     git reset -q
     echo "Aborted."
     popd > /dev/null
-    exit 1
+    exit 0
 fi
 
 echo ""
