@@ -5,17 +5,17 @@
 }: {
   home.packages = with pkgs;
     [
-      waybar
-      dunst
-      libnotify
-      wttrbar
       ddcutil
-      pavucontrol
-      socat
+      dunst
       grim
+      libnotify
+      pavucontrol
       slurp
-      wl-screenrec
+      socat
       tesseract
+      waybar
+      wl-screenrec
+      wttrbar
     ]
     ++ [(pkgs.callPackage ./../custompkgs/sysboard.nix {})];
 

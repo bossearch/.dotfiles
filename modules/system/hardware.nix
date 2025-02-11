@@ -9,17 +9,15 @@
     graphics.enable = true;
     graphics.enable32Bit = true;
     graphics.extraPackages = with pkgs; [
-      rocmPackages.clr.icd
+      amdvlk
       libva
       libva-utils
+      libvdpau-va-gl
       mesa
       mesa.drivers
-      vulkan-loader
-      libva
-      libva-utils
+      rocmPackages.clr.icd
       vaapiVdpau
-      libvdpau-va-gl
-      amdvlk
+      vulkan-loader
     ];
     bluetooth = {
       enable = true;

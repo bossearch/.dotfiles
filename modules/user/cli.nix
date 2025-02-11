@@ -6,27 +6,28 @@
 }: {
   home.packages = with pkgs;
     [
-      git
-      curl
-      wget
-      fzf
-      zoxide
       bat
-      eza
-      oh-my-posh
-      btop-rocm
-      fastfetch
-      tealdeer
-      jq
       bc
+      btop-rocm
+      curl
+      eza
+      fastfetch
       fd
       ffmpeg
-      ripgrep
-      poppler
-      ouch
-      lazygit
-      unzip
+      fzf
+      gnupg
+      git
       imagemagick
+      jq
+      lazygit
+      oh-my-posh
+      ouch
+      poppler
+      ripgrep
+      tealdeer
+      unzip
+      wget
+      zoxide
     ]
     ++ (with inputs.nixpkgs-unstable.legacyPackages.x86_64-linux; [
       yazi

@@ -29,7 +29,7 @@ to run the previous configuration until the next reboot.\n"
          (i.e. the configuration resulting from the last call to nixos-rebuild switch or nixos-rebuild boot).\n"
     echo -e "by default this scripts will go to my dotfile directory, which is ~/.dotfiles"
     popd > /dev/null
-    exit 1
+    exit 0
 fi
 
 # Early return if no changes were detected (thanks @singiamtel!)
@@ -61,7 +61,8 @@ if [[ ! "$confirm" =~ ^[yY]$ ]]; then
     exit 1
 fi
 
-echo "NixOS Rebuilding for host: $HOSTNAME (mode: $REBUILD_CMD)"
+echo ""
+echo -e "NixOS Rebuilding for host: \e[1m$HOSTNAME\e[0m (mode: \e[33m$REBUILD_CMD\e[0m)"
 
 # Option to see log or not (thanks @JustCoderDev)
 if sudo nixos-rebuild "$REBUILD_CMD" --flake ".#$HOSTNAME" &>.nixos.log; then

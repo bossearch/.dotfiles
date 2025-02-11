@@ -48,15 +48,15 @@
   };
 
   home.packages = with pkgs; [
-    hyprpaper
-    hyprlock
-    hypridle
-    hyprsunset
-    hyprpicker
     cliphist
+    hypridle
+    hyprlock
+    hyprpaper
+    hyprpicker
+    hyprsunset
     wl-clipboard
-    zenity
     xdg-desktop-portal-hyprland
+    zenity
   ];
 
   services.hypridle.enable = true;

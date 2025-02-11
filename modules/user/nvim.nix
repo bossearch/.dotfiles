@@ -4,14 +4,14 @@
   ...
 }: {
   home.packages = with pkgs; [
-    libgcc
-    llvmPackages_19.libcxxClang
-    nodejs_23
-    python39
     cmake
     gnumake42
+    libgcc
+    llvmPackages_19.libcxxClang
     lua51Packages.lua
     lua51Packages.luarocks
+    nodejs_23
+    python39
   ];
 
   programs.neovim = {
