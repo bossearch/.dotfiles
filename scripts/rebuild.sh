@@ -4,7 +4,6 @@
 #
 set -e
 
-echo ""
 # Get the hostname
 HOSTNAME=$(hostname)
 
@@ -40,11 +39,11 @@ if git diff --quiet '*.nix'; then
 fi
 
 # Show your changes
-#
 git diff -U0 --no-prefix '*.nix' | rg '^(?:diff --git |(?:\+[^+]|-[^-]))' | sed -E \
-  -e 's/^(diff --git .*)/\x1b[1m\1\x1b[0m/' \
+  -e 's/^(diff --git .*)/\n\x1b[1m\1\x1b[0m/' \
   -e 's/^(\+)(.*)/\x1b[32m+\2\x1b[0m/' \
   -e 's/^(-)(.*)/\x1b[31m-\2\x1b[0m/'
+
 echo ""
 git status --short '*.nix'
 # Stage all changes

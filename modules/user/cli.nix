@@ -15,7 +15,6 @@
       fd
       ffmpeg
       fzf
-      gnupg
       git
       imagemagick
       jq

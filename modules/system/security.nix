@@ -23,4 +23,11 @@
       TimeoutStopSec = 10;
     };
   };
+
+  programs.gnupg = {
+    agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-gnome3;
+    };
+  };
 }

@@ -12,9 +12,9 @@
     ./../../modules/system/font.nix
     ./../../modules/system/hardware.nix
     ./../../modules/system/locale.nix
+    ./../../modules/system/misc.nix
     ./../../modules/system/network.nix
     ./../../modules/system/security.nix
-    ./../../modules/system/services.nix
     ./../../modules/system/sound.nix
     ./../../modules/system/virtualization.nix
     ./../../modules/system/waydroid.nix
