@@ -21,7 +21,7 @@
   ];
 
   networking = {
-    hostName = "desktop";
+    hostName = "vm";
     networkmanager.enable = true;
   };
 
