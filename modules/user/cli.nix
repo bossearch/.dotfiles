@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
+  # pkgs-unstable,
   ...
 }: {
   home.packages = with pkgs; [
@@ -29,7 +29,6 @@
     zoxide
     ueberzugpp
     yazi
-    mediainfo
   ];
   # ++ (with pkgs-unstable; [
   #   yazi

@@ -65,12 +65,41 @@ fi
 echo ""
 echo -e "NixOS Rebuilding for host: \e[1m$HOSTNAME\e[0m (mode: \e[33m$REBUILD_CMD\e[0m)"
 
-# Option to see log or not (thanks @JustCoderDev)
-if sudo nixos-rebuild "$REBUILD_CMD" --flake ".#$HOSTNAME" &>.nixos.log; then
+# Ensure sudo doesn't ask for a password mid-way
+sudo -v
+
+# Function to show a spinner
+spinner() {
+    local pid=$1
+    local delay=0.1
+    local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+    tput civis
+
+    while ps -p $pid &>/dev/null; do
+        local last_log=$(tail -n 1 .nixos.log)  # Get the last line from the log file
+        for i in $(seq 0 $((${#spin} - 1))); do
+            echo -ne "\r\e[33m[${spin:$i:1}]\e[0m $last_log     "  # Show spinner + last log message
+            sleep $delay
+        done
+    done
+
+    echo -ne "\r\033[K"  # Clear the spinner line after finishing
+}
+
+# Run nixos-rebuild in the background
+sudo nixos-rebuild "$REBUILD_CMD" --flake ".#$HOSTNAME" &> .nixos.log &
+rebuild_pid=$!
+
+# Start spinner animation
+spinner $rebuild_pid
+tput cnorm
+
+# Check exit status
+if wait $rebuild_pid; then
+    echo -e "\e[32mSuccess\e[0m"
     notify-send -e "NixOS Rebuild ($REBUILD_CMD)" "Done" --icon=software-update-available
 else
     notify-send -e "NixOS Rebuild ($REBUILD_CMD)" "Error" --icon=software-update-urgent --urgency=critical
-
     git reset -q
 
     echo ""
