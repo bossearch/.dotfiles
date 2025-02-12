@@ -5,5 +5,6 @@ WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 WALLPAPER=$(find -L "$WALLPAPER_DIR" -type f | shuf -n 1)
 
 ln -sf "$WALLPAPER" /tmp/hyprpaper.png
+ln -sf "$WALLPAPER" /tmp/hyprlock.png
 
 hyprpaper
