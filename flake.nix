@@ -51,8 +51,8 @@
       desktop = lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/desktop/configuration.nix # Load system config
-          home-manager.nixosModules.home-manager # Enable Home Manager as a NixOS module
+          ./hosts/desktop/configuration.nix
+          home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -61,7 +61,7 @@
               inherit pkgs;
               inherit pkgs-unstable;
             };
-            home-manager.users.bosse = import ./hosts/desktop/home.nix; # User config
+            home-manager.users.bosse = import ./hosts/desktop/home.nix;
           }
         ];
       };

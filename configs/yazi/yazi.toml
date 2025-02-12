@@ -24,8 +24,6 @@ extract = [
 
 [plugin]
 prepend_previewers = [
-  # { mime = "{image,audio,video}/*",       run = "mediainfo"},
-  { mime = "application/x-subrip",        run = "mediainfo"},
 	{ mime = "application/*zip",            run = "ouch" },
 	{ mime = "application/x-tar",           run = "ouch" },
 	{ mime = "application/x-bzip2",         run = "ouch" },
