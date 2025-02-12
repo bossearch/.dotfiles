@@ -17,6 +17,8 @@ elif [[ "$1" == "-boot" ]]; then
     REBUILD_CMD="boot"
 elif [[ "$1" == "-test" ]]; then
     REBUILD_CMD="test"
+elif [[ "$1" == "-update" ]]; then
+  nix flake update
 else
     echo -e "rebuild -<\e[1;33moptions\e[0m> = nixos-rebuild <\e[1;33moptions\e[0m> --flake .#hostname\n"
     echo -e "-\e[1;33mswitch\e[0m  Build and activate the new configuration, and make it the boot default.\n"

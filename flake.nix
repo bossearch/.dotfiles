@@ -25,8 +25,26 @@
     home-manager,
     ...
   } @ inputs: let
+    system = "x86_64-linux";
     lib = nixpkgs.lib;
-    system = "x86_64-linux"; # Change this if you're using ARM (e.g., a Raspberry Pi)
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+      };
+      overlays = [
+        (final: prev: {
+          yazi-unwrapped = prev.callPackage ./modules/custompkgs/yazi/yazi-unwrapped.nix {
+            Foundation = null;
+          };
+          yazi = prev.callPackage ./modules/custompkgs/yazi/yazi.nix {
+            yazi-unwrapped = final.yazi-unwrapped;
+          };
+        })
+      ];
+    };
+    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
     # Define configurations for each host
     nixosConfigurations = {
@@ -38,24 +56,15 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit pkgs;
+              inherit pkgs-unstable;
+            };
             home-manager.users.bosse = import ./hosts/desktop/home.nix; # User config
           }
         ];
       };
-
-      # laptop = lib.nixosSystem {
-      #   inherit system;
-      #   modules = [
-      #     ./hosts/laptop/configuration.nix
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.users.bosse = import ./hosts/laptop/home.nix;
-      #     }
-      #   ];
-      # };
 
       vm = lib.nixosSystem {
         inherit system;
@@ -65,6 +74,11 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit pkgs;
+              inherit pkgs-unstable;
+            };
             home-manager.users.bosse = import ./hosts/vm/home.nix;
           }
         ];

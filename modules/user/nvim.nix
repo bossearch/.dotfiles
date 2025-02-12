@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -12,18 +13,21 @@
     lua51Packages.luarocks
     nodejs_23
     python39
+
+    # lsp
+    lua-language-server
+    nixd
+    # formatter
+    alejandra # nix
+    # linter
   ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-  };
-
-  home.sessionVariables = {
-    LUA_PATH = "${pkgs.luajit}/share/lua/5.1/?.lua;;";
-    LUA_CPATH = "${pkgs.luajit}/lib/lua/5.1/?.so;;";
   };
 
   home.file.".config/nvim" = {

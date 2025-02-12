@@ -1,37 +1,39 @@
 {
   config,
   pkgs,
-  inputs,
+  pkgs-unstable,
   ...
 }: {
-  home.packages = with pkgs;
-    [
-      bat
-      bc
-      btop-rocm
-      curl
-      eza
-      fastfetch
-      fd
-      ffmpeg
-      fzf
-      git
-      imagemagick
-      jq
-      killall
-      lazygit
-      oh-my-posh
-      ouch
-      poppler
-      ripgrep
-      tealdeer
-      unzip
-      wget
-      zoxide
-    ]
-    ++ (with inputs.nixpkgs-unstable.legacyPackages.x86_64-linux; [
-      yazi
-    ]);
+  home.packages = with pkgs; [
+    bat
+    bc
+    btop-rocm
+    curl
+    eza
+    fastfetch
+    fd
+    ffmpeg
+    fzf
+    git
+    imagemagick
+    jq
+    killall
+    lazygit
+    oh-my-posh
+    ouch
+    poppler
+    ripgrep
+    tealdeer
+    unzip
+    wget
+    zoxide
+    ueberzugpp
+    yazi
+    mediainfo
+  ];
+  # ++ (with pkgs-unstable; [
+  #   yazi
+  # ]);
 
   home.file.".config/ohmypost.toml" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/ohmypost.toml";

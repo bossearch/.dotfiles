@@ -1,10 +1,9 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: {
-  home.packages = with pkgs; [
+  home.packages = [
     (pkgs.callPackage ./../custompkgs/alacritty.nix {})
   ];
 

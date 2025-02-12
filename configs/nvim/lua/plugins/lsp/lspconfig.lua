@@ -13,9 +13,33 @@ return {
     },
   },
   config = function()
-    -- local capabilities = require("blink-cmp").get_lsp_capabilities(config.capabilities)
-    --     require
+    local lspconfig = require("lspconfig")
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+    lspconfig.lua_ls.setup { capabilities = capabilities }
+
+    lspconfig.nixd.setup({
+      capabilities = capabilities,
+      cmd = { "nixd" },
+      settings = {
+        nixd = {
+          nixpkgs = {
+            expr = "import <nixpkgs> { }",
+          },
+          formatting = {
+            command = { "alejandra" },
+          },
+          options = {
+            nixos = {
+              expr = '(builtins.getFlake "/home/bosse/.dotfiles").nixosConfigurations.desktop.options',
+            },
+            home_manager = {
+              expr = '(builtins.getFlake "/home/bosse/.dotfiles").homeConfigurations."bosse@desktop".options',
+            },
+          },
+        },
+      },
+    })
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type

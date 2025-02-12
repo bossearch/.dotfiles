@@ -38,8 +38,6 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  nixpkgs.config.allowUnfree = true;
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Do not change these future me !

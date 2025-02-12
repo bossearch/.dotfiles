@@ -1,8 +1,6 @@
 {
-  config,
   pkgs,
   inputs,
-  lib,
   ...
 }: {
   imports = [
@@ -17,14 +15,6 @@
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
     ];
-    # enabledCustomApps = with spicePkgs.apps; [
-    #   newReleases
-    #   ncsVisualizer
-    # ];
-    # enabledSnippets = with spicePkgs.snippets; [
-    #   rotatingCoverart
-    #   pointer
-    # ];
 
     theme = spicePkgs.themes.text;
     colorScheme = "TokyoNight";
