@@ -1,23 +1,34 @@
-## Bosse's dotfiles
+# Bosse's dotfiles for nixos
+Hi, this is my dotfiles repo for nixos, it wont work on your computer!
+I suggest you to use main branch instead.
 
-This repo uses [stow](https://www.gnu.org/software/stow/) to manage the symlinks, but you don't **have** to, you can also just individually symlink the contents of each directory directly into your home.
+## Setup Guide
+- Format the USB drive with the latest nixOS minimal setup.
+- You should restart the computer, enter the BIOS/UEFI, and boot from the USB.
+- and do this.
+```sh
+sudo -i
 
-If you want to use stow, clone this repository to your home directory and do
+#partitioning
+cfdisk
 
-```zsh
-cd ~/.dotfiles
-stow --restow */
-```
+#formatting
+mkfs.ext4 -L nixos /dev/...
+mkfs.fat -F 32 -n boot /dev/...
+mkswap /dev/...
 
-or use these command to symlink a specific application config file, for example is neovim.
+#mounting
+mount /dev/disk/by-label/nixos /mnt
+mkdir -p /mnt/boot
+mount -o umask=077 /dev/.../boot /mnt/boot
+swapon /dev/...
 
-```zsh
-stow --restow nvim
-```
+#installing
+nixos-generate-config --root /mnt
+nano /mnt/etc/nixos/configuration.nix #IMPORTANT set boot, hostname & user
 
-stow will automatically symlink the contents of each "package" into the parent directory from where it is invoked (i.e. your home directory), that's why it is important to clone this repository directly into your home directory. If you cloned the repository somewhere else, you can use the `--target` parameter.
-
-```shell
-cd ~/path/to/dotfiles
-stow --target=$HOME --restow */
+nixos-install
+#reboot
+#login
+nix-shell -p git --command "nix run --experimental-features='nix-command flakes' github:bossearch/.dotfiles?ref=nixos"
 ```

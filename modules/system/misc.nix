@@ -1,16 +1,24 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
-  services =
+  services = lib.mkMerge [
     {
       blueman.enable = true;
-      gvfs.enable = true;
-      udisks2.enable = true;
+      gvfs = {
+        enable = true;
+        package = pkgs.gnome.gvfs;
+      };
+      udisks2 = {
+        enable = true;
+        package = pkgs.udisks2;
+      };
     }
-    // (lib.mkIf (config.networking.hostName == "vm") {
-      spice-vdagentd.enable = true; # Enable copy/paste in VM
+    (lib.mkIf (config.networking.hostName == "vm") {
+      spice-vdagentd.enable = true;
       qemuGuest.enable = true;
-    });
+    })
+  ];
 }
