@@ -1,13 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   imports = [
-    ./hardware-configuration.nix
+    ./../../modules/hardware-configuration.nix
     ./../../modules/system/boot.nix
     ./../../modules/system/displaymanager.nix
-    ./../../modules/system/environtment.nix
     ./../../modules/system/firewall.nix
     ./../../modules/system/font.nix
     ./../../modules/system/hardware.nix
@@ -40,9 +35,6 @@
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager" "audio" "video" "libvirtd"];
   };
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 

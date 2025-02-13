@@ -7,7 +7,6 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
     xwayland.enable = true;
     settings = lib.mkMerge [
       (lib.mkIf hostName.desktop {
@@ -18,11 +17,11 @@
       })
     ];
     extraConfig = ''
-      # AUTOSTART
-      source = ~/.config/hypr/conf/autostart.conf
-
       # ENVIRONMENT
       source = ~/.config/hypr/conf/environtment.conf
+
+      # AUTOSTART
+      source = ~/.config/hypr/conf/autostart.conf
 
       # GENERAL
       source = ~/.config/hypr/conf/general.conf
@@ -61,7 +60,6 @@
     hyprpicker
     hyprsunset
     wl-clipboard
-    xdg-desktop-portal-hyprland
     zenity
   ];
 
@@ -75,10 +73,6 @@
   home.file.".config/hypr/scripts" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/scripts";
     recursive = true;
-  };
-
-  home.file.".config/hypr/colors.conf" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/colors.conf";
   };
 
   home.file.".config/hypr/hypridle.conf" = {

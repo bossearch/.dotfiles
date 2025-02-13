@@ -38,19 +38,13 @@ in {
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
+    platformTheme.name = "gtk3";
     style.name = "kvantum";
   };
 
   home.file.".config/Kvantum" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/Kvantum";
     recursive = true;
-  };
-
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "gtk2";
-    XCURSOR_THEME = "Adwaita";
-    XCURSOR_SIZE = "24";
   };
 
   home.activation.linkPapirusIcons = lib.hm.dag.entryAfter ["writeBoundary"] ''

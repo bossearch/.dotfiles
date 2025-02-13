@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: {
+  programs.hyprland.enable = true;
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   services = lib.mkMerge [
     {
       blueman.enable = true;

@@ -35,6 +35,14 @@
     ${config.home.homeDirectory}/.dotfiles/scripts/drun-scan.sh
   '';
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    PAGER = "less";
+    BROWSER = "firefox";
+    TERMINAL = "alacritty";
+  };
+
   # Do not change these future me !
   home.stateVersion = "24.11"; # Please read the comment before changing.
 }
