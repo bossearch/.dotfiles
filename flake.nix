@@ -83,24 +83,24 @@
           }
         ];
       };
+    };
 
-      # run install.sh
-      packages.${system} = {
-        default = self.packages.${system}.install;
+    # run install.sh for laziness
+    packages.${system} = {
+      default = self.packages.${system}.install;
 
-        install = pkgs.writeShellApplication {
-          name = "install";
-          runtimeInputs = with pkgs; [git];
-          text = ''${./scripts/install.sh} "$@"'';
-        };
+      install = pkgs.writeShellApplication {
+        name = "install";
+        runtimeInputs = with pkgs; [git];
+        text = ''${./scripts/install.sh} "$@"'';
       };
-      apps.${system} = {
-        default = self.apps.${system}.install;
+    };
+    apps.${system} = {
+      default = self.apps.${system}.install;
 
-        install = {
-          type = "app";
-          program = "${self.packages.${system}.install}/bin/install";
-        };
+      install = {
+        type = "app";
+        program = "${self.packages.${system}.install}/bin/install";
       };
     };
   };
