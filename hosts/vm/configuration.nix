@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -25,6 +24,13 @@
     networkmanager.enable = true;
   };
 
+  home-manager.extraSpecialArgs = {
+    hostName = {
+      vm = config.networking.hostName == "vm";
+      desktop = config.networking.hostName == "desktop";
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Asia/Singapore";
 
@@ -42,6 +48,3 @@
   # Do not change these future me !
   system.stateVersion = "24.11"; # Did you read the comment?
 }
-# services.spice-vdagentd.enable = true; # enable copy and paste between host and guest
-# services.qemuGuest.enable = true;
-

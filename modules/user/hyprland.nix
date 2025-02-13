@@ -2,15 +2,21 @@
   config,
   pkgs,
   lib,
+  hostName,
   ...
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
-    settings = {
-      monitor = ["DP-3, 2560x1440@165, 0x0, 1"];
-    };
+    settings = lib.mkMerge [
+      (lib.mkIf hostName.desktop {
+        monitor = ["DP-3, 2560x1440@165, 0x0, 1"];
+      })
+      (lib.mkIf hostName.vm {
+        monitor = ["Virtual-1, 1920x1080@165, 0x0, 1"];
+      })
+    ];
     extraConfig = ''
       # AUTOSTART
       source = ~/.config/hypr/conf/autostart.conf
@@ -83,7 +89,12 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprlock.conf";
   };
 
-  home.file.".config/hypr/hyprpaper.conf" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper.conf";
-  };
+  home.file.".config/hypr/hyprpaper.conf" = lib.mkMerge [
+    (lib.mkIf hostName.desktop {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper.conf";
+    })
+    (lib.mkIf hostName.vm {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper-vm.conf";
+    })
+  ];
 }

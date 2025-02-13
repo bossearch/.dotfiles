@@ -12,7 +12,7 @@ if [ $# -gt 0 ]
   else
     DOTFILES=~/.dotfiles
 fi
-nix-shell -p git --command "git clone --branch=nixos --single-branch https://gitlab.com/bossearch/.dotfiles $DOTFILES"
+nix-shell -p git --command "git clone --branch=nixos --single-branch https://github.com/bossearch/.dotfiles $DOTFILES"
 
 # Generate hardware config for new system
 sudo nixos-generate-config --show-hardware-config > $DOTFILES/hosts/$HOSTNAME/hardware-configuration.nix
