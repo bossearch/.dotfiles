@@ -23,16 +23,16 @@
     # ./../../modules/user/qmk.nix
     # ./../../modules/user/spotify.nix
     ./../../modules/user/term.nix
-    # ./../../modules/user/theme.nix
-    # ./../../modules/user/tmux.nix
+    ./../../modules/user/theme.nix
+    ./../../modules/user/tmux.nix
     # ./../../modules/user/vesktop.nix
-    # ./../../modules/user/wallpaper.nix
-    # ./../../modules/user/waybar.nix
+    ./../../modules/user/wallpaper.nix
+    ./../../modules/user/waybar.nix
     ./../../modules/user/zsh.nix
   ];
 
   home.activation.drunScan = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ${config.home.homeDirectory}/.config/fzf/extra/drun-scan.sh
+    ${config.home.homeDirectory}/.dotfiles/scripts/drun-scan.sh
   '';
 
   # Do not change these future me !

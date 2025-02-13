@@ -33,7 +33,7 @@
   ];
 
   home.activation.drunScan = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ${config.home.homeDirectory}/.config/fzf/extra/drun-scan.sh
+    ${config.home.homeDirectory}/.dotfiles/scripts/drun-scan.sh
   '';
 
   # Do not change these future me !

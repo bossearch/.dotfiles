@@ -6,14 +6,10 @@
 
   :root {
     --uc-navbar-transform: -40px;
-    --uc-autohide-toolbar-delay: 1ms;
+    --uc-autohide-toolbar-delay: 100ms;
     --uc-autohide-toolbar-duration: 200ms;
   }
-
-  /*:root[uidensity="compact"] {*/
-  /*  --uc-navbar-transform: -34px --uc-autohide-toolbar-delay: 1ms;*/
-  /*  --uc-autohide-toolbar-duration: 200ms;*/
-  /*}*/
+  :root[uidensity="compact"]{ --uc-navbar-transform: -34px }
 
   #navigator-toolbox > div {
     display: contents;

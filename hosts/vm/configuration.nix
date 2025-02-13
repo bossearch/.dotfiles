@@ -16,8 +16,8 @@
     ./../../modules/system/network.nix
     ./../../modules/system/security.nix
     ./../../modules/system/sound.nix
-    ./../../modules/system/virtualization.nix
-    ./../../modules/system/waydroid.nix
+    # ./../../modules/system/virtualization.nix
+    # ./../../modules/system/waydroid.nix
   ];
 
   networking = {

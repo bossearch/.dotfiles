@@ -233,7 +233,6 @@ user_pref("browser.theme.content-theme", 0);
 user_pref("browser.theme.toolbar-theme", 0);
 user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[\"sponsorblocker_ajay_app-browser-action\",\"newtaboverride_agenedia_com-browser-action\",\"side-view_mozilla_org-browser-action\",\"_84c8edb0-65ca-43a5-bc53-0e80f41486e1_-browser-action\",\"addon_fastforward_team-browser-action\",\"extension_one-tab_com-browser-action\",\"_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-browser-action\"],\"nav-bar\":[\"back-button\",\"stop-reload-button\",\"forward-button\",\"urlbar-container\",\"save-to-pocket-button\",\"downloads-button\",\"fxa-toolbar-menu-button\",\"unified-extensions-button\",\"addon_darkreader_org-browser-action\",\"78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"alltabs-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"side-view_mozilla_org-browser-action\",\"_84c8edb0-65ca-43a5-bc53-0e80f41486e1_-browser-action\",\"78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action\",\"addon_darkreader_org-browser-action\",\"addon_fastforward_team-browser-action\",\"extension_one-tab_com-browser-action\",\"newtaboverride_agenedia_com-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"sponsorblocker_ajay_app-browser-action\",\"_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\",\"unified-extensions-area\"],\"currentVersion\":20,\"newElementCount\":5}");
-//user_pref("browser.uiCustomization.state",'{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","stop-reload-button","forward-button","urlbar-container","save-to-pocket-button","downloads-button","fxa-toolbar-menu-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","alltabs-button"],"vertical-tabs":[],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","toolbar-menubar","TabsToolbar"],"currentVersion":20,"newElementCount":4}');
 user_pref("devtools.chrome.enabled", false);
 user_pref("devtools.debugger.remote-enabled", false);
 
@@ -261,10 +260,7 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
 user_pref("network.cookie.cookieBehavior.optInPartitioning", true);
-user_pref(
-  "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation",
-  true,
-);
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
 user_pref("privacy.annotate_channels.strict_list.enabled", true);
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("privacy.fingerprintingProtection", true);
@@ -276,14 +272,8 @@ user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.userContext.enabled", false);
 user_pref("signon.rememberSignons", false);
-user_pref(
-  "toolkit.telemetry.cachedClientID",
-  "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0",
-);
-user_pref(
-  "toolkit.telemetry.cachedProfileGroupID",
-  "decafdec-afde-cafd-ecaf-decafdecafde",
-);
+user_pref("toolkit.telemetry.cachedClientID", "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0");
+user_pref("toolkit.telemetry.cachedProfileGroupID", "decafdec-afde-cafd-ecaf-decafdecafde");
 
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] Pocket > Sponsored Stories
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
@@ -293,10 +283,7 @@ user_pref("browser.vpn_promo.enabled", false);
 user_pref("media.webspeech.synth.dont_notify_on_error", true);
 user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
 user_pref("toolkit.telemetry.shutdownPingSender.enabledFirstsession", false);
-user_pref(
-  "geo.provider.network.url",
-  "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%",
-);
+user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
