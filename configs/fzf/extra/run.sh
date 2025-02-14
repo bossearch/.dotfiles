@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # List all executables from PATH
-executables=$(find -L $(echo $PATH | tr ':' ' ') -type f -executable -printf "%f\n" | sort -u)
+executables=$(find -L $(echo "$PATH" | tr ':' ' ') -maxdepth 1 -type f -executable 2>/dev/null | awk -F'/' '{print $NF}' | sort -u)
 
 # Use fzf to select multiple commands
 selected=$(echo "$executables" | fzf -m --layout=default --border=none --highlight-line --info=inline-right --prompt="❯ "\
