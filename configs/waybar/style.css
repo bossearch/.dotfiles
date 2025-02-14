@@ -95,7 +95,6 @@ window#waybar {
   padding: 0px 4px 0px 0px;
 }
 #tray {
-  background-color: rgba(22, 22, 30, 0.8);
   padding: 0 10px;
 }
 #tray > .passive {
@@ -130,7 +129,6 @@ window#waybar {
 }
 
 #network {
-  background-color: rgba(22, 22, 30, 0.8);
   color: #bb9af7;
   padding: 0 10px;
 }
