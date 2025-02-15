@@ -17,20 +17,11 @@ dynamic_title = true
 option_as_alt = "Both"
 
 [font]
-# normal.family = "CommitMono Nerd Font"
-# bold.family = "CommitMono Nerd Font"
-# italic.family = "CommitMono Nerd Font"
-# bold_italic.family = "CommitMono Nerd Font"
+normal.family = "MesloLGS Nerd Font"
+bold.family = "MesloLGS Nerd Font"
+italic.family = "MesloLGS Nerd Font"
+bold_italic.family = "MesloLGS Nerd Font"
 
-normal.family = "MesloLGSNerdFont"
-bold.family = "MesloLGSNerdFont"
-italic.family = "MesloLGSNerdFont"
-bold_italic.family = "MesloLGSNerdFont"
-#
-#normal.family = "Hack Nerd Font"
-#bold.family = "Hack Nerd Font"
-#italic.family = "Hack Nerd Font"
-#bold_italic.family = "Hack Nerd Font"
 offset.x = 0
 offset.y = 0
 size = 12
@@ -39,9 +30,12 @@ builtin_box_drawing = true
 [cursor]
 style = "beam"
 
+[terminal]
+osc52 = "CopyPaste"
+
 [keyboard]
 bindings = [
-{ key = "+", mods = "Control", action = "IncreaseFontSize" },
-{ key = "-", mods = "Control", action = "DecreaseFontSize" },
-{ key = "=", mods = "Control", action = "ResetFontSize" },
+  { key = "+", mods = "Control", action = "IncreaseFontSize" },
+  { key = "-", mods = "Control", action = "DecreaseFontSize" },
+  { key = "=", mods = "Control", action = "ResetFontSize" },
 ]

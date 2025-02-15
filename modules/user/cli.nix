@@ -29,6 +29,7 @@
     zoxide
     ueberzugpp
     yazi
+    moreutils
   ];
   # ++ (with pkgs-unstable; [
   #   yazi

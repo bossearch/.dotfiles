@@ -26,6 +26,13 @@ return {
           padding = 1,
         },
         {
+          icon = " ",
+          key = "s",
+          desc = "Restore Session",
+          section = "session",
+          padding = 1,
+        },
+        {
           pane = 1,
           section = "keys",
           padding = 1,

@@ -17,7 +17,6 @@ set("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc 
 set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 -- buffers
---
 set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
@@ -50,7 +49,6 @@ set("i", ",", ",<c-g>u")
 set("i", ".", ".<c-g>u")
 set("i", ";", ";<c-g>u")
 
---
 --keywordprg
 set("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
 
@@ -130,13 +128,6 @@ set(
   "<cmd>Telescope find_files cwd=~/.dotfiles/configs/nvim<cr>",
   { desc = "Fuzzy find files in config directory" }
 )
-
--- set(
---   "n",
---   "<leader>fn",
---   "<cmd>Telescope find_files cwd=" .. vim.fn.stdpath("config") .. "<cr>",
---   { desc = "Fuzzy find files in config directory" }
--- )
 set("n", "<space>fb", "<cmd>Telescope buffers<cr>", { desc = "Find available buffers" })
 
 -- LSPCONFIG
@@ -220,9 +211,9 @@ end, { desc = "Open Terminal On Split" })
 set({ "n", "t" }, "<leader>f<CR>", function()
   snacks.terminal.toggle("zsh", {
     win = {
-      width = 0.5, -- Width of the terminal
-      height = 0.5, -- Height of the terminal
-      border = "rounded", -- Sharp border style (use "double" if preferred)
+      width = 0.5,         -- Width of the terminal
+      height = 0.5,        -- Height of the terminal
+      border = "rounded",  -- Sharp border style (use "double" if preferred)
     },
     cwd = vim.fn.getcwd(), -- Set the current working directory
   })
@@ -254,9 +245,15 @@ set("n", "ss", substitute.line, { desc = "Substitute line" })
 set("n", "S", substitute.eol, { desc = "Substitute to end of line" })
 set("x", "s", substitute.visual, { desc = "Substitute in visual mode" })
 
--- vim-tmux-navigator
+-- VIM-TMUX-NAVIGATOR
 set({ "n", "i" }, "<c-h>", "<cmd>tmuxnavigateleft<cr>")
 set({ "n", "i" }, "<c-j>", "<cmd>tmuxnavigatedown<cr>")
 set({ "n", "i" }, "<c-k>", "<cmd>TmuxNavigateUp<cr>")
 set({ "n", "i" }, "<c-l>", "<cmd>TmuxNavigateRight<cr>")
 set({ "n", "i" }, "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>")
+
+-- MINI SESSIONS
+vim.keymap.set({ "n", "v", "i" }, "<C-s>", function()
+  require("mini.sessions").write("global-session")
+  print("Session saved!")
+end, { noremap = true, silent = true })
