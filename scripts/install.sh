@@ -18,7 +18,7 @@ fi
 nix-shell -p git --command "git clone --branch=nixos --single-branch https://github.com/bossearch/.dotfiles $DOTFILES"
 
 # Generate hardware config for new system
-sudo nixos-generate-config --show-hardware-config > $DOTFILES/modules/hardware-configuration.nix
+sudo cp /etc/nixos/hardware-configuration.nix $DOTFILES/modules/hardware-configuration.nix
 
 # Rebuild system
 sudo nixos-rebuild switch --flake $DOTFILES#$HOSTNAME;
