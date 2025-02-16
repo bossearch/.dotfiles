@@ -13,7 +13,7 @@
         monitor = ["DP-3, 2560x1440@165, 0x0, 1"];
       })
       (lib.mkIf hostName.vm {
-        monitor = ["Virtual-1, 1920x1080@165, 0x0, 1"];
+        monitor = ["Virtual-1, 1920x1080@60, 0x0, 1"];
       })
     ];
     extraConfig = ''
