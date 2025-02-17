@@ -1,7 +1,9 @@
-{...}: {
+{lib, ...}: {
   services.openssh = {
-    enable = true;
-    passwordAuthentication = false; # Disable password authentication (recommended for security)
-    permitRootLogin = "prohibit-password"; # Disallow root login over SSH
+    enable = lib.mkForce true;
+    settings = {
+      PasswordAuthentication = false; # Disable password authentication (recommended for security)
+      PermitRootLogin = "prohibit-password"; # Disallow root login over SSH
+    };
   };
 }
