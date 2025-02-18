@@ -5,12 +5,15 @@
     ./../../modules/system/displaymanager.nix
     ./../../modules/system/firewall.nix
     ./../../modules/system/font.nix
+    ./../../modules/system/hardware.nix
     ./../../modules/system/locale.nix
     ./../../modules/system/misc.nix
     ./../../modules/system/network.nix
     ./../../modules/system/security.nix
     ./../../modules/system/sound.nix
     ./../../modules/system/ssh.nix
+    ./../../modules/system/udev.nix
+    ./../../modules/system/usbguard.nix
     # ./../../modules/system/virtualization.nix
     # ./../../modules/system/waydroid.nix
   ];
