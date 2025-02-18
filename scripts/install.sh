@@ -7,15 +7,15 @@ set -e
 
 HOSTNAME=$(hostname)
 
-# Clone dotfiles
-if [ $# -gt 0 ]
-  then
-    DOTFILES=$1
-  else
-    DOTFILES=~/.dotfiles
-fi
+# Set dotfiles directory
+DOTFILES=~/.dotfiles
 
-nix-shell -p git --command "git clone --branch=nixos --single-branch https://github.com/bossearch/.dotfiles $DOTFILES"
+# Clone dotfiles if the directory does not exist
+if [ ! -d "$DOTFILES" ]; then
+    nix-shell -p git --command "git clone --branch=nixos --single-branch https://github.com/bossearch/.dotfiles $DOTFILES"
+else
+    echo "Dotfiles directory already exists. Skipping clone."
+fi
 
 # Generate hardware config for new system
 sudo cp /etc/nixos/hardware-configuration.nix $DOTFILES/modules/hardware-configuration.nix
