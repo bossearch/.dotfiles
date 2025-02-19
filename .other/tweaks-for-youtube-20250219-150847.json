@@ -193,7 +193,7 @@
   "initialPlaybackRateLevel": 1,
   "initialPlaybackRatePerGenre": false,
   "initialSubtitles": "on",
-  "initialTheatreMode": false,
+  "initialTheatreMode": "default-view",
   "initialTheme": false,
   "initialVolume": false,
   "initialVolumeLevel": 50,
@@ -817,14 +817,14 @@
       "payload": -5
     },
     {
+      "key": "75:k",
       "action": "adjustVolumeBy",
-      "payload": 1,
-      "key": "75:k"
+      "payload": 5
     },
     {
+      "key": "74:j",
       "action": "adjustVolumeBy",
-      "payload": -1,
-      "key": "74:j"
+      "payload": -5
     },
     {
       "action": "adjustPlaybackRateBy",
@@ -906,7 +906,7 @@
   "subscriptionsPageWatchLater": false,
   "subtitlesDisabled": false,
   "subtitlesDisabledWhenPaused": false,
-  "subtitlesOffsetY": 0,
+  "subtitlesOffsetY": 1,
   "subtitlesPosition": "top",
   "subtitlesPositioningEnabled": false,
   "themeType": "system",
@@ -917,7 +917,7 @@
   "transcriptAutoShow": false,
   "transparentButtonsAndDescription": false,
   "upNextVideo": false,
-  "videoDescription": false,
+  "videoDescription": true,
   "videoDescriptionExactDate": true,
   "videoDescriptionExactViewCount": true,
   "videoDescriptionInSidebar": false,
@@ -951,15 +951,15 @@
   "watchedVideosDimThumbnail": false,
   "ytElementAuxActions": false,
   "ytElementAuxActionsDelay": 100,
-  "ytpAutohideDelay": 3000,
+  "ytpAutohideDelay": 500,
   "ytpBezelTextDurationActionSeek": 750,
   "ytpBezelTextDurationShort": 750,
   "ytpBezelTextPosition": false,
   "ytpBezelTextPositionOffset": 10,
-  "ytpControlsHidden": false,
-  "ytpControlsHiddenPaused": true,
+  "ytpControlsHidden": true,
+  "ytpControlsHiddenPaused": false,
   "ytpControlsHiddenPlaying": true,
-  "ytpControlsHiddenShowOnHover": false,
+  "ytpControlsHiddenShowOnHover": true,
   "ytpControlsMiniRefreshRate": 1000,
   "ytpControlsMode": "combined",
   "ytpControlsModeAvailableForCycle": [
@@ -971,8 +971,8 @@
   ],
   "ytpGradientBottom": false,
   "ytpMuteButtonShowVolume": false,
-  "ytpPreferredQuality": false,
-  "ytpPreferredQualityBackground": "tiny",
+  "ytpPreferredQuality": "hd1440",
+  "ytpPreferredQualityBackground": false,
   "ytpPreferredQualityEmbedded": false,
   "ytpPreferredQualityFullscreen": "hd1440",
   "ytpPreferredQualityRevert": false,
@@ -992,5 +992,5 @@
   "zenModeStylesGrayscale": 0,
   "zenModeStylesOpacity": 16,
   "_version": "3.74.1-firefox",
-  "_timestamp": 1739890863863
+  "_timestamp": 1739948927709
 }
