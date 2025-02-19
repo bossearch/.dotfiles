@@ -115,7 +115,7 @@
   "contentFiltersUpcomingHomePage": false,
   "contentFiltersUpcomingSubscriptionsPage": false,
   "contentFiltersWatchedVideosChannelPage": false,
-  "contentFiltersWatchedVideosHomePage": false,
+  "contentFiltersWatchedVideosHomePage": true,
   "contentFiltersWatchedVideosRelatedVideos": false,
   "contentFiltersWatchedVideosSearchPage": false,
   "contentFiltersWatchedVideosSubscriptionsPage": false,
@@ -917,7 +917,7 @@
   "transcriptAutoShow": false,
   "transparentButtonsAndDescription": false,
   "upNextVideo": false,
-  "videoDescription": true,
+  "videoDescription": "minimalist",
   "videoDescriptionExactDate": true,
   "videoDescriptionExactViewCount": true,
   "videoDescriptionInSidebar": false,
@@ -956,10 +956,10 @@
   "ytpBezelTextDurationShort": 750,
   "ytpBezelTextPosition": false,
   "ytpBezelTextPositionOffset": 10,
-  "ytpControlsHidden": true,
+  "ytpControlsHidden": false,
   "ytpControlsHiddenPaused": false,
-  "ytpControlsHiddenPlaying": true,
-  "ytpControlsHiddenShowOnHover": true,
+  "ytpControlsHiddenPlaying": false,
+  "ytpControlsHiddenShowOnHover": false,
   "ytpControlsMiniRefreshRate": 1000,
   "ytpControlsMode": "combined",
   "ytpControlsModeAvailableForCycle": [
@@ -992,5 +992,5 @@
   "zenModeStylesGrayscale": 0,
   "zenModeStylesOpacity": 16,
   "_version": "3.74.1-firefox",
-  "_timestamp": 1739948927709
+  "_timestamp": 1739957848201
 }
