@@ -10,8 +10,12 @@ if command -v tmux >/dev/null 2>&1; then
     :
   else
     if ! tmux has-session 2>/dev/null; then
-      # Start a new tmux session
-      tm 0
+      # Ask for a session name
+      SESSION_NAME=$(zenity --entry --title="Tmux Session" --text="Enter tmux session name:" 2>/dev/null)
+      # Use "0" as default if no input is given
+      SESSION_NAME=${SESSION_NAME:-0}
+      # Start a new tmux session with the given name
+      tm "$SESSION_NAME"
     else
       if tmux list-sessions -F '#{session_attached}' | grep -q '^1$'; then
         # Do nothing explicitly
