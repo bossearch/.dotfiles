@@ -14,7 +14,7 @@
     dbus.enable = true;
 
     # Default policies
-    presentDevicePolicy = "allow"; # Allow existing devices
+    presentDevicePolicy = "apply-policy"; # Allow existing devices
     insertedDevicePolicy = "apply-policy"; # New devices require approval
 
     rules = lib.mkMerge [
