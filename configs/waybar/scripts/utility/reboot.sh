@@ -7,6 +7,7 @@ zenity --question \
   --icon-name=system-restart
 
 if [ $? -eq 0 ]; then
+  umount -R /media
   systemctl --quiet --no-warn reboot
 #else
 #  echo "Restart canceled."

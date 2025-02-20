@@ -7,6 +7,7 @@ zenity --question \
   --icon-name=system-shutdown
 
 if [ $? -eq 0 ]; then
+  umount -R /media
   systemctl --quiet --no-warn poweroff
 #else
 #  echo "Shutdown canceled."
