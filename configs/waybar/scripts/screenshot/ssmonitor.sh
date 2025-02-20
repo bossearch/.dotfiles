@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Ensure the screenshots directory exists
 mkdir -p ~/Pictures/Screenshots
 
@@ -13,4 +15,4 @@ FILENAME="$HOME/Pictures/Screenshots/$OUTPUT-$(date +%F_%T).png"
 grim - | wl-copy && wl-paste > $FILENAME
 
 # Notify the user that the screenshot has done
-notify-send -a screenshot "Screenshot of Monitor: $OUTPUT Taken" -t 3000
+notify-send -a screenshot "Screenshot saved to $FILENAME" -t 3000

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Ensure the screenshots directory exists
 mkdir -p ~/Pictures/Screenshots
 
@@ -13,4 +15,5 @@ GEOMETRY=$(slurp)
 grim -g "$GEOMETRY" - | wl-copy && wl-paste > $FILENAME
 
 # Notify the user that the Screenshot has done
-notify-send -a screenshot "Screenshot of Area: $GEOMETRY Taken" -t 3000
+
+notify-send -a screenshot "Screenshot saved to $FILENAME" -t 3000

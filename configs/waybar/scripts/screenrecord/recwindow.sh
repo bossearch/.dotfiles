@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Ensure the screenshots directory exists
 mkdir -p ~/Videos//Screenrecords
 
@@ -37,4 +39,4 @@ sleep 3
 wl-screenrec --audio --low-power=off --no-damage -g "$GEOMETRY" -f "$FILENAME"
 
 # When the script finishes (e.g., with CTRL+C), notify the user
-trap 'dunstify "Screenrecord saved to $filename" -t 3000' EXIT
+trap 'dunstify "Screenrecord saved to $FILENAME" -t 3000' EXIT

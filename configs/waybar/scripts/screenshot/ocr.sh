@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-# Dependencies: tesseract-ocr imagemagick wl-clipboard grim slurp
+set -e
 
+# Dependencies: tesseract-ocr imagemagick wl-clipboard grim slurp
 die() {
   notify-send "$1"
   exit 1
