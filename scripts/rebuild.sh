@@ -85,8 +85,8 @@ spinner() {
     tput civis
 
     while ps -p $pid &>/dev/null; do
-        local last_log=$(tail -n 1 .nixos.log)  # Get the last line from the log file
         for i in $(seq 0 $((${#spin} - 1))); do
+            local last_log=$(tail -n 1 .nixos.log)  # Get the last line from the log file
             echo -ne "\r\e[33m[${spin:$i:1}]\e[0m $last_log"  # Show spinner + last log message
             sleep $delay
         done
