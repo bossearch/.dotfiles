@@ -15,6 +15,7 @@
 
     # Default policies
     presentDevicePolicy = "apply-policy"; # Allow existing devices
+    presentControllerPolicy = "apply-policy"; # Allow existing devices
     insertedDevicePolicy = "apply-policy"; # New devices require approval
 
     rules = lib.mkMerge [
