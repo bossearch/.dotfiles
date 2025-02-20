@@ -10,6 +10,7 @@
 
   services = lib.mkMerge [
     {
+      fstrim.enable = true;
       blueman.enable = true;
       gvfs = {
         enable = true;
@@ -30,5 +31,6 @@
   # Ensure /media exists with the correct permissions
   systemd.tmpfiles.rules = [
     "d /media 0755 root root -"
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
 }
