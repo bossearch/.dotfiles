@@ -839,7 +839,7 @@
   ],
   "maxMouseControlArea": false,
   "mmbToggleFullscreen": false,
-  "mouseControlActive": "fullscreen",
+  "mouseControlActive": true,
   "mouseControlDisableDoubleClick": false,
   "mouseControlElement": "player",
   "mouseControlInactiveWheelWhilePaused": true,
@@ -992,5 +992,5 @@
   "zenModeStylesGrayscale": 0,
   "zenModeStylesOpacity": 16,
   "_version": "3.74.1-firefox",
-  "_timestamp": 1739957848201
+  "_timestamp": 1740050122229
 }
