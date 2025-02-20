@@ -22,4 +22,11 @@
   home.file.".config/nchat/usercolor.conf" = {
     source = ./../../configs/nchat/usercolor.conf;
   };
+
+  xdg.desktopEntries.nchat = {
+    type = "Application";
+    name = "nchat";
+    exec = "alacritty -t nchat -e nchat %f";
+    comment = "Custom definition for alacritty -e nchat";
+  };
 }

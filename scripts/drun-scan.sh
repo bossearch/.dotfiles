@@ -78,7 +78,6 @@ exclude_apps=(
   "xdg-desktop-portal-gtk"
   "nixos-manual"
   "cups"
-  "mpv"
   "umpv"
   "userapp-transmission-gtk-UN5M12"
 )
@@ -91,7 +90,6 @@ custom_apps=(
   "org.gnome.baobab:baobab"
   "org.pulseaudio.pavucontrol:pavucontrol"
   "org.shotcut.Shotcut:shotcut"
-  "mpvipc:mpv"
 )
 
 custom_execs=(
