@@ -29,6 +29,7 @@ export BAT_THEME="tokyonight_night"
 # Load fzf and its related configurations
 export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/.fzfrc
 export FZF_{CTRL_T,ALT_C}_OPTS="--preview='~/.config/fzf/extra/fzf-preview.sh {}'"
+export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents "/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/nix-support/dynamic-linker"; in NIX_LD')
 
 # ----------------------------
 # History Configuration
