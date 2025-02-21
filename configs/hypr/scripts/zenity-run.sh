@@ -2,8 +2,8 @@
 
 # Show a dialog to choose an application
 choice=$(zenity --list --title="App Selector" \
-  --column="App" "Steam" "PrismLauncher" "Waydroid" \
-  --width=480 --height=360)
+  --column="App" "Steam" "PrismLauncher" "Waydroid" "VirtManager"\
+  --width=480 --height=385)
 
 # Check the user's choice and launch the selected app
 case $choice in
@@ -20,6 +20,9 @@ case $choice in
   else
     :
   fi
+  ;;
+"VirtManager")
+  virt-manager
   ;;
 *)
   # Do nothing if no selection is made
