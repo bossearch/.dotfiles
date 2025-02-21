@@ -15,6 +15,8 @@
     alejandra
     # c & cpp
     libclang
+    # python
+    python39
   ];
 
   programs.neovim = {
@@ -26,7 +28,6 @@
       lua51Packages.lua
       lua51Packages.luarocks
       nodejs_23
-      python39
       cmake
       gnumake
       gcc
