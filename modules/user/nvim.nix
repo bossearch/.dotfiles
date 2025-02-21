@@ -1,33 +1,37 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }: {
   home.packages = with pkgs; [
-    cmake
-    gnumake42
-    libgcc
-    llvmPackages_19.libcxxClang
-    lua51Packages.lua
-    lua51Packages.luarocks
-    nodejs_23
-    python39
-
-    # lsp
+    # lua
     lua-language-server
+    stylua
+    # shell
+    bash-language-server
+    shfmt
+    # nix
     nixd
-    # formatter
-    alejandra # nix
-    # linter
+    alejandra
+    # c & cpp
+    libclang
   ];
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    extraPackages = with pkgs; [
+      lua51Packages.lua
+      lua51Packages.luarocks
+      nodejs_23
+      python39
+      cmake
+      gnumake
+      gcc
+      glibc
+    ];
   };
 
   home.file.".config/nvim" = {

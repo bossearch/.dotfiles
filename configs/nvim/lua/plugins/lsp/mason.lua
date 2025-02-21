@@ -32,7 +32,7 @@ return {
 		mason_tool_installer.setup({
 			ensure_installed = {
 				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
+				-- "stylua", -- lua formatter
 				"shfmt", -- bash formatter
 				"clang-format", -- c,c#,c++,json,java,js formatter
 				"cpplint", -- c,c++ formatter
