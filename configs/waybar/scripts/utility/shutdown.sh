@@ -8,6 +8,7 @@ zenity --question \
 
 if [ $? -eq 0 ]; then
   umount -R /media
+  ddcutil setvcp D6 05
   systemctl --quiet --no-warn poweroff
 #else
 #  echo "Shutdown canceled."
