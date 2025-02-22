@@ -26,6 +26,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    hostName = builtins.getEnv "HOSTNAME";
     lib = nixpkgs.lib;
     pkgs = import nixpkgs {
       inherit system;
@@ -50,38 +51,33 @@
     nixosConfigurations = {
       desktop = lib.nixosSystem {
         inherit system;
-        modules = [
-          ./hosts/desktop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit pkgs;
-              inherit pkgs-unstable;
-            };
-            home-manager.users.bosse = import ./hosts/desktop/home.nix;
-          }
-        ];
+        modules = [./hosts/desktop/configuration.nix];
       };
 
       vm = lib.nixosSystem {
         inherit system;
-        modules = [
-          ./hosts/vm/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit pkgs;
-              inherit pkgs-unstable;
-            };
-            home-manager.users.bosse = import ./hosts/vm/home.nix;
-          }
-        ];
+        modules = [./hosts/vm/configuration.nix];
+      };
+    };
+
+    # Standalone Home Manager Configurations
+    homeConfigurations = {
+      "bosse@desktop" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs pkgs-unstable;
+          hostName = "desktop";
+        };
+        modules = [./hosts/desktop/home.nix];
+      };
+
+      "bosse@vm" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs pkgs-unstable;
+          hostName = "vm";
+        };
+        modules = [./hosts/vm/home.nix];
       };
     };
 

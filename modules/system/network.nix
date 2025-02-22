@@ -13,7 +13,7 @@
     # https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
     settings = {
       ipv4_servers = true;
-      ipv6_servers = true;
+      ipv6_servers = false;
       dnscrypt_servers = true;
       require_dnssec = false;
       require_nolog = true;

@@ -18,6 +18,7 @@ elif [[ "$1" == "--test" ]]; then
   REBUILD_CMD="test"
 elif [[ "$1" == "--update" ]]; then
   nix flake update
+  exit 0
 else
   echo -e "rebuild -<\e[1;33moptions\e[0m> = nixos-rebuild <\e[1;33moptions\e[0m> --flake .#hostname\n"
   echo -e "-\e[1;33mswitch\e[0m  Build and activate the new configuration, and make it the boot default.\n"
@@ -85,8 +86,8 @@ spinner() {
 
   while ps -p $pid &>/dev/null; do
     for i in $(seq 0 $((${#spin} - 1))); do
-      local last_log=$(tail -n 1 .nixos.log)           # Get the last line from the log file
-      echo -ne "\r\e[33m[${spin:$i:1}]\e[0m $last_log" # Show spinner + last log message
+      local last_log=$(tail -n 1 .nixos.log) # Get the last line from the log file
+      echo -ne "\r\033[K\e[33m[${spin:$i:1}]\e[0m $last_log"
       sleep $delay
     done
   done

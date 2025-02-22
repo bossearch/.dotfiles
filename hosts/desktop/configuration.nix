@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   imports = [
     ./../../modules/hardware-configuration.nix
     ./../../modules/system/boot.nix
@@ -20,13 +20,6 @@
   networking = {
     hostName = "desktop";
     networkmanager.enable = true;
-  };
-
-  home-manager.extraSpecialArgs = {
-    hostName = {
-      vm = config.networking.hostName == "vm";
-      desktop = config.networking.hostName == "desktop";
-    };
   };
 
   # Set your time zone.

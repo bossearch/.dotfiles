@@ -9,10 +9,10 @@
     enable = true;
     xwayland.enable = true;
     settings = lib.mkMerge [
-      (lib.mkIf hostName.desktop {
+      (lib.mkIf (hostName == "desktop") {
         monitor = ["DP-3, 2560x1440@165, 0x0, 1"];
       })
-      (lib.mkIf hostName.vm {
+      (lib.mkIf (hostName == "vm") {
         monitor = ["Virtual-1, 1920x1080@60, 0x0, 1"];
       })
     ];
@@ -84,10 +84,11 @@
   };
 
   home.file.".config/hypr/hyprpaper.conf" = lib.mkMerge [
-    (lib.mkIf hostName.desktop {
+    (lib.mkIf (hostName == "desktop") {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper.conf";
     })
-    (lib.mkIf hostName.vm {
+
+    (lib.mkIf (hostName == "vm") {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper-vm.conf";
     })
   ];

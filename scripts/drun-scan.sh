@@ -99,6 +99,7 @@ custom_execs=(
 )
 
 applications=$(ls ~/.local/share/applications/*.desktop \
+  ~/.nix-profile/share/applications/*.desktop \
   /run/current-system/sw/share/applications/*.desktop \
   /etc/profiles/per-user/$USER/share/applications/*.desktop \
   2>/dev/null)

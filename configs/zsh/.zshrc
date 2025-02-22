@@ -67,7 +67,9 @@ alias ..="cd .."
 rb() {
   ~/.dotfiles/scripts/rebuild.sh "$@"
 }
-
+hm() {
+  ~/.dotfiles/scripts/homemanager.sh "$@"
+}
 # ----------------------------
 # Keybindings
 # ----------------------------
@@ -185,7 +187,7 @@ _comp_options+=(globdots)
 export AUTO_NOTIFY_THRESHOLD=30 # Set threshold to 30 seconds
 export AUTO_NOTIFY_IGNORE=(
   "nyaa"
-  "rb"
+  "rb" "hm"
   "fh" "fkill" "fif" "fzf"
   "yy" "sy" "yazi"
   "man" "nvim" "tmux" "tm"
