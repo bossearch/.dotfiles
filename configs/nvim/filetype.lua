@@ -15,6 +15,7 @@ vim.filetype.add {
     [".flake8"] = "dosini",
     [".stignore"] = "gitignore",
     [".nixos.log"] = "sh",
+    [".hm.log"] = "sh",
   },
   pattern = {
     [".env.*"] = "sh",

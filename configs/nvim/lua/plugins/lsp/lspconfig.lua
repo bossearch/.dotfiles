@@ -50,7 +50,7 @@ return {
 							expr = '(builtins.getFlake "/home/bosse/.dotfiles").nixosConfigurations.desktop.options',
 						},
 						home_manager = {
-						  expr = '(builtins.getFlake "/home/bosse/.dotfiles").homeConfigurations."bosse@desktop".options',
+							expr = '(builtins.getFlake "/home/bosse/.dotfiles").homeConfigurations."bosse@desktop".options',
 						},
 					},
 				},
