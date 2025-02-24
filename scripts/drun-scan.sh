@@ -2,7 +2,9 @@
 
 # Output file for the app names and Exec commands
 output_file="$HOME/.cache/bosse/drun.txt"
-rm "$output_file"
+
+mkdir -p "$(dirname "$output_file")"
+# rm "$output_file"
 touch "$output_file"
 
 # List of apps to exclude (add full .desktop filenames here)
@@ -146,5 +148,3 @@ echo "$applications" | while IFS= read -r path; do
     fi
   fi
 done
-
-echo "App names and Exec commands saved to $output_file."
