@@ -26,7 +26,6 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    hostName = builtins.getEnv "HOSTNAME";
     lib = nixpkgs.lib;
     pkgs = import nixpkgs {
       inherit system;
@@ -56,7 +55,16 @@
 
       vm = lib.nixosSystem {
         inherit system;
-        modules = [./hosts/vm/configuration.nix];
+        modules = [
+          ./hosts/vm/configuration.nix
+          # Change binary cache mirror
+          {
+            nix.settings = {
+              trusted-users = ["bosse"];
+              substituters = ["https://mirror.sjtu.edu.cn/nix-channels/store"];
+            };
+          }
+        ];
       };
     };
 

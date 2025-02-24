@@ -19,6 +19,9 @@ elif [[ "$1" == "--test" ]]; then
 elif [[ "$1" == "--update" ]]; then
   nix flake update
   exit 0
+elif [[ "$1" == "--delete" ]]; then
+  sudo nix-collect-garbage -d
+  exit 0
 else
   echo -e "rebuild -<\e[1;33moptions\e[0m> = nixos-rebuild <\e[1;33moptions\e[0m> --flake .#hostname\n"
   echo -e "-\e[1;33mswitch\e[0m  Build and activate the new configuration, and make it the boot default.\n"

@@ -16,7 +16,7 @@ OPTIONS=""
 case "$1" in
   "--switch") OPTIONS="switch --flake ." ;;
   "--delete") OPTIONS="expire-generations -d" ;;
-  "--gen") home-manager generations; exit 0 ;;
+  "--list") home-manager generations; exit 0 ;;
   *) echo -e "\e[31mError:\e[0m Invalid option"; exit 1 ;;
 esac
 

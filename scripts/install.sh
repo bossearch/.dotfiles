@@ -6,6 +6,7 @@
 set -e
 
 HOSTNAME=$(hostname)
+USERNAME=$(whoami)
 
 # Set dotfiles directory
 DOTFILES=~/.dotfiles
@@ -24,4 +25,4 @@ sudo cp /etc/nixos/hardware-configuration.nix $DOTFILES/modules/hardware-configu
 sudo nixos-rebuild switch --flake $DOTFILES#$HOSTNAME
 
 # Install and build home-manager configuration
-nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake $DOTFILES
+nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake $DOTFILES#$USERNAME@$HOSTNAME
