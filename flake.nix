@@ -55,16 +55,7 @@
 
       vm = lib.nixosSystem {
         inherit system;
-        modules = [
-          ./hosts/vm/configuration.nix
-          # Change binary cache mirror
-          {
-            nix.settings = {
-              trusted-users = ["bosse"];
-              substituters = ["https://mirror.sjtu.edu.cn/nix-channels/store"];
-            };
-          }
-        ];
+        modules = [./hosts/vm/configuration.nix];
       };
     };
 
