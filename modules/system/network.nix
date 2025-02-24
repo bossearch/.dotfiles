@@ -13,7 +13,7 @@
       ipv4_servers = true;
       ipv6_servers = true;
       dnscrypt_servers = true;
-      doh_servers = false;
+      doh_servers = true;
       require_dnssec = true;
       require_nolog = true;
       cert_refresh_delay = 240;
@@ -43,14 +43,20 @@
         minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
       };
       listen_addresses = ["127.0.0.1:53" "[::1]:53"];
-      # server_names = ["cloudflare-security-ipv4" "cloudflare-security-ipv6"];
-      anonymized_dns = {
-        routes = [
-          { server_name = "dnscry.pt-jakarta-ipv4"; via = [ "dnscry.pt-anon-jakarta-ipv4" ]; }
-          { server_name = "dnscry.pt-jakarta-ipv6"; via = [ "dnscry.pt-anon-jakarta-ipv6" ]; }
-        ];
-        skip_incompatible = true;
-      };
+      server_names = ["cloudflare-security" "cloudflare-security-ipv6"];
+      # anonymized_dns = {
+      #   routes = [
+      #     { server_name = "dnscry.pt-jakarta-ipv4"; via = [ "dnscry.pt-anon-jakarta-ipv4" ]; }
+      #     { server_name = "dnscry.pt-jakarta-ipv6"; via = [ "dnscry.pt-anon-jakarta-ipv6" ]; }
+      #   ];
+      #   skip_incompatible = true;
+      # };
     };
+  };
+
+  # Make sure to load dnscrypt-proxy2 after network
+  systemd.services.dnscrypt-proxy2 = {
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
   };
 }
