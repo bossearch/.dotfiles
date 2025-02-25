@@ -5,11 +5,8 @@
 }: {
   programs.firefox = {
     enable = true;
-    profiles.test = {
-      id = 1;
-      isDefault = false;
-    };
     profiles.bosse = {
+      id = 0;
       isDefault = true;
       search = {
         default = "DuckDuckGo";
@@ -98,14 +95,28 @@
         force = true;
       };
       extensions = with pkgs.firefox-addons; [
-        proton-pass
-        ublock-origin
-        new-tab-override
-        side-view
-        video-downloadhelper
-        onetab
         darkreader
+        new-tab-override
+        onetab
+        proton-pass
+        side-view
         sponsorblock
+        ublock-origin
+        video-downloadhelper
+      ];
+    };
+    profiles.anonymous = {
+      id = 1;
+      isDefault = false;
+      search = {
+        default = "DuckDuckGo";
+        privateDefault = "DuckDuckGo";
+      };
+      extensions = with pkgs.firefox-addons; [
+        darkreader
+        new-tab-override
+        ublock-origin
+        video-downloadhelper
       ];
     };
   };
@@ -114,6 +125,13 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/user.js";
   };
   home.file.".mozilla/firefox/bosse/chrome" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/chrome";
+  };
+
+  home.file.".mozilla/firefox/anonymous/user.js" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/user.js";
+  };
+  home.file.".mozilla/firefox/anonymous/chrome" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/chrome";
   };
 }

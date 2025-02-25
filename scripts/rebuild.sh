@@ -85,7 +85,7 @@ spinner() {
   local pid=$1
   local delay=0.1
   local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
-  local max_width=60
+  local max_width=120
   tput civis
 
   while ps -p $pid &>/dev/null; do
