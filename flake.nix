@@ -16,6 +16,10 @@
       url = "github:Beastwick18/nyaa";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -27,22 +31,14 @@
   } @ inputs: let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
+    overlays = import ./modules/overlays.nix { inherit inputs; };
     pkgs = import nixpkgs {
       inherit system;
       config = {
         allowUnfree = true;
         allowUnfreePredicate = _: true;
       };
-      overlays = [
-        (final: prev: {
-          yazi-unwrapped = prev.callPackage ./modules/custompkgs/yazi/yazi-unwrapped.nix {
-            Foundation = null;
-          };
-          yazi = prev.callPackage ./modules/custompkgs/yazi/yazi.nix {
-            yazi-unwrapped = final.yazi-unwrapped;
-          };
-        })
-      ];
+      overlays = overlays.overlays;
     };
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
   in {

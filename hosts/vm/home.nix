@@ -12,7 +12,7 @@
   imports = [
     ./../../modules/user/cli.nix
     ./../../modules/user/firefox.nix
-    # ./../../modules/user/git.nix
+    ./../../modules/user/git.nix
     ./../../modules/user/hyprland.nix
     # ./../../modules/user/mpv.nix
     # ./../../modules/user/nautilus.nix
