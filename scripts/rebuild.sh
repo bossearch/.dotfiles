@@ -85,11 +85,12 @@ spinner() {
   local pid=$1
   local delay=0.1
   local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+  local max_width=60
   tput civis
 
   while ps -p $pid &>/dev/null; do
     for i in $(seq 0 $((${#spin} - 1))); do
-      local last_log=$(tail -n 1 .nixos.log) # Get the last line from the log file
+      local last_log=$(tail -n 1 .nixos.log | cut -c 1-$max_width) # Get the last line from the log file
       echo -ne "\r\033[K\e[33m[${spin:$i:1}]\e[0m $last_log"
       sleep $delay
     done

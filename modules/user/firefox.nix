@@ -107,10 +107,10 @@
     };
   };
 
-  # home.file.".mozilla/firefox/bosse/extensions" = {
-  #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/extensions";
-  #   recursive = true;
-  # };
+  home.file.".mozilla/firefox/bosse/extensions" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/extensions";
+    recursive = true;
+  };
 
   home.file.".mozilla/firefox/bosse/user.js" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/user.js";

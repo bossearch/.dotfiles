@@ -1,5 +1,5 @@
 {
-  "_timestamp": 1740156662933,
+  "_timestamp": 1740476313460,
   "_version": "3.74.1-firefox",
   "actionIndicatorActionSeek": false,
   "actionIndicatorActionSeekBasedOnPlaybackRate": false,
@@ -33,7 +33,7 @@
   "channelPageBanner": false,
   "channelTrailerAutoplay": true,
   "channelTrailerHidden": false,
-  "chaptersAutoShowList": false,
+  "chaptersAutoShowList": true,
   "chatVisibility": false,
   "cinemaMode": "mastheadFixed",
   "cinemaModeHiddenMasthead": true,
@@ -148,7 +148,7 @@
   "fullVideoTitleChannelsPages": true,
   "fullVideoTitleOtherPages": true,
   "fullVideoTitleWatchPage": true,
-  "gotoChapterStart": "mousedown1",
+  "gotoChapterStart": "mousedown2",
   "hotkeys": {
     "adjustAudioPanLeft": null,
     "adjustAudioPanRight": null,
@@ -924,7 +924,7 @@
   "videoDescriptionExactViewCount": true,
   "videoDescriptionInSidebar": false,
   "videoDimmer": true,
-  "videoDimmerBrightness": 1,
+  "videoDimmerBrightness": 0.75,
   "videoDimmerContrast": 100,
   "videoDownloadLinkMode": "copy",
   "videoDownloadLinkQuery": "yt-dlp https://youtu.be/%s",
