@@ -5,6 +5,10 @@
 }: {
   programs.firefox = {
     enable = true;
+    profiles.test = {
+      id = 1;
+      isDefault = false;
+    };
     profiles.bosse = {
       isDefault = true;
       search = {
@@ -102,14 +106,8 @@
         onetab
         darkreader
         sponsorblock
-        unpaywall
       ];
     };
-  };
-
-  home.file.".mozilla/firefox/bosse/extensions" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/extensions";
-    recursive = true;
   };
 
   home.file.".mozilla/firefox/bosse/user.js" = {
