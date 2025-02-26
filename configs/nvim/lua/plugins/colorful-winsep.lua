@@ -11,10 +11,11 @@ return { "nvim-zh/colorful-winsep.nvim",
       -- Symbols for separator lines, the order: horizontal, vertical, top left, top right, bottom left, bottom right.
       symbols = { "━", "┃", "", "", "", "" },
       -- #70: https://github.com/nvim-zh/colorful-winsep.nvim/discussions/70
-      only_line_seq = true,
+      only_line_seq = false,
       -- Smooth moving switch
-      smooth = true,
-      exponential_smoothing = true,
+      smooth = false,
+      exponential_smoothing = false,
+
       anchor = {
         left = { height = 1, x = -1, y = -1 },
         right = { height = 1, x = -1, y = 0 },

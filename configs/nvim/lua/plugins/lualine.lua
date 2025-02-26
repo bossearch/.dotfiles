@@ -110,7 +110,6 @@ return {
             end,
             color = { fg = "#f7768e" },
           },
-          -- { _G.lsp_status, icon = " ", color = { fg = "#ffffff", bg = "#2E3440" } },
         },
         lualine_y = { "%l/%L:%c│%p%%" },
         lualine_z = { { _G.lsp_status, icon = " " } },
