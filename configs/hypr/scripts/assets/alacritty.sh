@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SESSION_FILE="$HOME/.cache/bosse/session-name"
+
 # Check if tmux is installed
 if command -v tmux >/dev/null 2>&1; then
   source ~/.config/fzf/extra/tmux
@@ -12,10 +14,17 @@ if command -v tmux >/dev/null 2>&1; then
     if ! tmux has-session 2>/dev/null; then
       # Ask for a session name
       SESSION_NAME=$(zenity --entry --title="Tmux Session" --text="Enter tmux session name:" 2>/dev/null)
-      # Use "0" as default if no input is given
-      SESSION_NAME=${SESSION_NAME:-0}
+
+      if [ -z "$SESSION_NAME" ] && [ -f "$SESSION_FILE" ]; then
+        SESSION_NAME=$(cat "$SESSION_FILE")
+      else
+        SESSION_NAME=${SESSION_NAME:-default}
+      fi
+
       # Start a new tmux session with the given name
       tm "$SESSION_NAME"
+
+      echo "$SESSION_NAME" >"$SESSION_FILE"
     else
       if tmux list-sessions -F '#{session_attached}' | grep -q '^1$'; then
         # Do nothing explicitly

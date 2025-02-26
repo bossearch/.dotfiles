@@ -196,7 +196,7 @@ export AUTO_NOTIFY_THRESHOLD=30 # Set threshold to 30 seconds
 export AUTO_NOTIFY_IGNORE=(
   "nyaa"
   "rb" "hm"
-  "fh" "fkill" "fif" "fzf"
+  "fh" "fkill" "fif" "fzf" "fsys"
   "yy" "sy" "yazi"
   "man" "nvim" "tmux" "tm"
   "lazygit"

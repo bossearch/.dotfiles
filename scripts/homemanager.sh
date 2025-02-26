@@ -42,11 +42,12 @@ spinner() {
   local pid=$1
   local delay=0.1
   local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+  local max_width=120
   tput civis
 
   while ps -p $pid &>/dev/null; do
     for ((i=0; i<${#spin}; i++)); do
-      local last_log=$(tail -n 1 .hm.log) # Get the last log line
+      local last_log=$(tail -n 1 .hm.log | cut -c 1-$max_width) # Get the last line from the log file
       echo -ne "\r\033[K\e[33m[${spin:$i:1}]\e[0m $last_log"
       sleep $delay
     done
