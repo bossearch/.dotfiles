@@ -19,7 +19,6 @@
     jq
     killall
     lazygit
-    oh-my-posh
     ouch
     poppler
     ripgrep
@@ -34,10 +33,6 @@
   # ++ (with pkgs-unstable; [
   #   yazi
   # ]);
-
-  home.file.".config/ohmypost.toml" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/ohmypost.toml";
-  };
 
   home.file.".config/fzf" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/fzf";

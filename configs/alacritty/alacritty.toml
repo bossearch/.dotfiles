@@ -28,7 +28,7 @@ size = 12
 builtin_box_drawing = true
 
 [cursor]
-style = "beam"
+style = "block"
 
 [terminal]
 osc52 = "CopyPaste"

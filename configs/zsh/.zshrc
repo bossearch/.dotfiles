@@ -1,18 +1,22 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # ----------------------------
 # Initialization
 # ----------------------------
 
 PROMPT_EOL_MARK=""
 
-# Initialize Oh My Posh
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmypost.toml)"
-
 # Initialize Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
 # Source additional fzf extras
 source <(fzf --zsh)
-source ~/.config/fzf/extra/other
+source ~/.config/fzf/extra/{fsys,other}
 
 # Check if tmux is installed and load fzf scripts
 if command -v tmux >/dev/null 2>&1; then
@@ -51,12 +55,13 @@ zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 # Aliases
 # ----------------------------
 
-alias ls="eza --color=always"
+alias l="eza --color=always"
 alias la="eza -a --color=always"
 alias ll="eza -al --color=always --no-user --no-permissions --no-filesize --no-time"
 alias lll="eza -aloh --color=always --long"
 alias mv="mv -i"
 alias rm="rm -i"
+alias cp="cp -i"
 alias editzsh="nvim ~/.config/zsh/.zshrc"
 alias v="nvim"
 alias c="clear"
@@ -168,11 +173,13 @@ repos=(
 	zsh-users/zsh-history-substring-search
   zsh-users/zsh-syntax-highlighting
 	MichaelAquilina/zsh-auto-notify
+  romkatv/powerlevel10k
 )
 plugin-load $repos
 
 # fzf-tab settings for preview and completion
-zstyle ':fzf-tab:*' fzf-flags --height=~40
+# custom fzf flags
+zstyle ':fzf-tab:*' fzf-flags --height=50% --min-height=20
 zstyle ':fzf-tab:complete:*' fzf-preview \
 '[[ -d $realpath ]] && eza -1 --tree --level=2 --all --icons=always --color=always $realpath || \
 ([[ -f $realpath ]] && bat --color=always $realpath || \
@@ -193,3 +200,6 @@ export AUTO_NOTIFY_IGNORE=(
   "man" "nvim" "tmux" "tm"
   "lazygit"
 )
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

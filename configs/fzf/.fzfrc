@@ -1,10 +1,11 @@
 --layout=reverse
---height=~30
+--height=50%
+--min-height=20
 --border=rounded
 --info=inline-right
 --prompt="❯ "
 --highlight-line
---preview-window=bottom
+--preview-window=right
 --color=fg:#c0caf5
 --color=fg+:#B1BAE4
 --color=bg:#1a1b26
