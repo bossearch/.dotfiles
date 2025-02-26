@@ -12,5 +12,4 @@ emoji=$(echo "$selected" | awk '{print $1}')
 # Copy the selected emoji to the clipboard (using xclip for X11 or wl-copy for Wayland)
 echo -n "$emoji" | wl-copy # Use xclip if you're on X11
 
-# Insert the emoji using wtype
-#echo "$emoji" | xargs -r -I {} sh -c 'nohup wtype "{}" >/dev/null 2>&1 & disown'
+sleep 0.001
