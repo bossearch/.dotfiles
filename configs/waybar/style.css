@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-  background-color: rgba(26, 27, 38, 0.6);
+  background-color: rgba(26, 27, 38, 0.8);
   border-radius: 8px;
 }
 
@@ -37,12 +37,14 @@ window#waybar {
   padding: 0 5px;
 }
 #cpu,
-#temperature {
+#temperature,
+#custom-cputemp {
   color: #f7768e;
   padding: 0 5px;
 }
 #custom-gpu,
-#temperature.gpu {
+#temperature.gpu,
+#custom-gputemp {
   color: #e0af68;
   padding: 0 5px;
 }

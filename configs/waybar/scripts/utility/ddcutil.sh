@@ -3,10 +3,12 @@
 receive_pipe="/tmp/waybar-ddc-module-rx"
 step=5
 
+BUS=$(ddcutil detect | awk '/I2C bus:/ {gsub("/dev/i2c-", "", $3); print $3; exit}')
+
 ddcutil_fast() {
   # adjust the bus number and the multiplier for your display
   # multiplier should be chosen so that it both works reliably and fast enough
-  ddcutil --noverify --bus 8 --sleep-multiplier .03 "$@" 2>/dev/null
+  ddcutil --noverify --bus "$BUS" --sleep-multiplier .03 "$@" 2>/dev/null
 }
 
 ddcutil_slow() {

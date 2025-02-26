@@ -41,9 +41,11 @@
     "orientation": "inherit",
     "modules": [
       "cpu",
-      "temperature",
+      //"temperature",
+      "custom/cputemp",
       "custom/gpu",
-      "temperature#gpu",
+      //"temperature#gpu",
+      "custom/gputemp",
       "memory"
     ]
   },
@@ -166,29 +168,43 @@
     "on-click": "alacritty -t btop -e btop",
   },
 
-  "temperature": {
-    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
-    "input-filename": "temp3_input",
+  //"temperature": {
+  //  "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+  //  "interval": 5,
+  //  "format": "{temperatureC}°C",
+  //  "on-click": "alacritty -t btop -e btop",
+  //},
+
+  "custom/cputemp": {
+    "exec": "echo $(cat $(for i in /sys/class/hwmon/hwmon*/temp1_input; do name=$(cat $(dirname \"$i\")/name 2>/dev/null); [ \"$name\" = \"k10temp\" ] && echo \"$i\" && break; done) | awk '{printf \"%d\", $1/1000}')",
     "interval": 5,
-    "format": "{temperatureC}°C",
+    "format": "{}°C",
     "on-click": "alacritty -t btop -e btop",
   },
 
   "custom/gpu": {
-    "exec": "cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
+    "exec": "cat $(fd gpu_busy_percent /sys/class/hwmon/hwmon*/device/)",
     "interval": 5,
     "format": " {}%",
     "max-length": 15,
     "on-click": "alacritty -t btop -e btop",
   },
 
-  "temperature#gpu": {
-    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:00.0/0000:03:00.0/hwmon/",
-    "input-filename": "temp1_input",
+  //"temperature#gpu": {
+  //  "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:00.0/0000:03:00.0/hwmon/",
+  //  "input-filename": "temp1_input",
+  //  "interval": 5,
+  //  "format": "{temperatureC}°C",
+  //  "on-click": "alacritty -t btop -e btop",
+  //},
+
+  "custom/gputemp": {
+    "exec": "echo $(cat $(for i in /sys/class/hwmon/hwmon*/temp1_input; do name=$(cat $(dirname \"$i\")/name 2>/dev/null); [ \"$name\" = \"amdgpu\" ] && echo \"$i\" && break; done) | awk '{printf \"%d\", $1/1000}')",
     "interval": 5,
-    "format": "{temperatureC}°C",
+    "format": "{}°C",
     "on-click": "alacritty -t btop -e btop",
   },
+
   "memory": {
     "interval": 5,
     "format":" {used}GiB",
