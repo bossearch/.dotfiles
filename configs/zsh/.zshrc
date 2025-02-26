@@ -16,7 +16,8 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Source additional fzf extras
 source <(fzf --zsh)
-source ~/.config/fzf/extra/{fsys,other}
+source ~/.config/fzf/extra/other
+source ~/.config/fzf/extra/fsys
 
 # Check if tmux is installed and load fzf scripts
 if command -v tmux >/dev/null 2>&1; then
