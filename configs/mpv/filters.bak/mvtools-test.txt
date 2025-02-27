@@ -1,4 +1,3 @@
-# vim: set ft=python:
 Your VapourSynth script for motion interpolation using MVTools seems well-structured, but there are several factors that can lead to differences in results when compared to SVP (Smooth Video Project). Here are a few suggestions and considerations that might help you achieve results closer to SVP:
 1. Parameters Tuning
 * Block Size: The blksize parameter in your core.mv.Analyse calls is set to 32. Depending on the content of the video, you might want to experiment with smaller or larger block sizes (e.g., 16 or 64) to see if it improves quality.

@@ -25,10 +25,61 @@ in {
     };
   };
 
-  home.file.".config/mpv" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/mpv";
+  home.file.".config/mpv/fonts" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/mpv/fonts";
     recursive = true;
   };
+
+  home.file.".config/mpv/script-modules" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/mpv/script-modules";
+    recursive = true;
+  };
+
+  home.file.".config/mpv/script-opts" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/mpv/script-opts";
+    recursive = true;
+  };
+
+  home.file.".config/mpv/scripts" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/mpv/scripts";
+    recursive = true;
+  };
+
+  home.file.".config/mpv/shaders" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/mpv/shaders";
+    recursive = true;
+  };
+
+  home.file.".config/mpv/input.conf" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/mpv/input.conf";
+  };
+
+  home.file.".config/mpv/mpv.conf" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/mpv/mpv.conf";
+  };
+
+  home.file.".config/mpv/filters/mvtools.vpy".text = ''
+    import vapoursynth as vs
+    core = vs.core
+    core.std.LoadPlugin("${pkgs.vapoursynth-mvtools}/lib/vapoursynth/libmvtools.so")
+
+    clip = video_in
+    dst_fps = display_fps
+    while (dst_fps > 60):
+        dst_fps = 60
+
+    src_fps_num = int(container_fps * 1e8)
+    src_fps_den = int(1e8)
+    dst_fps_num = int(dst_fps * 1e4)
+    dst_fps_den = int(1e4)
+
+    clip = core.std.AssumeFPS(clip, fpsnum=src_fps_num, fpsden=src_fps_den)
+    super = core.mv.Super(clip, pel=2, sharp=0, rfilter=2)
+    mvfw = core.mv.Analyse(super, blksize=32, isb=False, search=3, dct=5)
+    mvbw = core.mv.Analyse(super, blksize=32, isb=True,  search=3, dct=5)
+    clip = core.mv.FlowFPS(clip, super, mvbw, mvfw, num=dst_fps_num, den=dst_fps_den, mask=1)
+    clip.set_output()
+  '';
 
   xdg.desktopEntries.mpv = {
     type = "Application";

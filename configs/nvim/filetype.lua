@@ -4,9 +4,7 @@ end
 
 vim.filetype.add {
   extension = {
-    -- lock = "yaml",
-    -- gotmpl = "gotmpl",
-    -- org_archive = "org",
+    vpy = "python",
   },
   filename = {
     [".eslintrc"] = "jsonc",
@@ -14,12 +12,11 @@ vim.filetype.add {
     [".babelrc"] = "jsonc",
     [".flake8"] = "dosini",
     [".stignore"] = "gitignore",
+    [".vpy"] = "python",
     [".nixos.log"] = "sh",
     [".hm.log"] = "sh",
   },
   pattern = {
     [".env.*"] = "sh",
-    ["*.Dockerfile.*"] = "dockerfile",
-    ["*/templates/**/*.html"] = "htmldjango",
   },
 }

@@ -1,5 +1,3 @@
-# vim: set ft=python:
-
 # see the README at https://gist.github.com/phiresky/4bfcfbbd05b3c2ed8645
 # source: https://github.com/mpv-player/mpv/issues/2149
 # source: https://github.com/mpv-player/mpv/issues/566
@@ -63,12 +61,12 @@ if not (mpix > 2.5 or clip.fps_num/clip.fps_den > 59):
     dst_fps_num = int(dst_fps * 1e4)
     dst_fps_den = int(1e4)
     print("Reflowing from {} fps to {} fps (quality={})".format(clip.fps_num/clip.fps_den,dst_fps_num/dst_fps_den,quality))
-    
+
     sup  = core.mv.Super(clip, pel=2)
     bvec = core.mv.Analyse(sup, isb=True, **analParams)
     fvec = core.mv.Analyse(sup, isb=False, **analParams)
-    clip = core.mv.BlockFPS(clip, sup, bvec, fvec, 
-            num=dst_fps_num, den=dst_fps_den, 
+    clip = core.mv.BlockFPS(clip, sup, bvec, fvec,
+            num=dst_fps_num, den=dst_fps_den,
             **blockParams)
 
 clip.set_output()
