@@ -5,6 +5,7 @@
   ...
 }: {
   programs.hyprland.enable = true;
+  programs.nix-ld.enable = true;
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
@@ -21,6 +22,7 @@
         package = pkgs.udisks2;
         mountOnMedia = true;
       };
+      envfs.enable = true;
     }
     (lib.mkIf (config.networking.hostName == "vm") {
       spice-vdagentd.enable = true;

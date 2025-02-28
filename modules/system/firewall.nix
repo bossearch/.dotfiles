@@ -18,7 +18,7 @@
       ''
         iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m limit --limit 3/min --limit-burst 3 -j ACCEPT
       ''
-      (lib.mkIf (config.networking.hostName == "desktop") ''
+      (lib.mkIf (config.networking.hostName == "pc") ''
         iptables -A INPUT -p tcp --dport 22 -j DROP
       '')
     ];

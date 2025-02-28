@@ -19,7 +19,7 @@
     insertedDevicePolicy = "apply-policy"; # New devices require approval
 
     rules = lib.mkMerge [
-      (lib.mkIf (config.networking.hostName == "desktop") ''
+      (lib.mkIf (config.networking.hostName == "pc") ''
         allow id 1d6b:0002 serial "0000:08:00.3" name "xHCI Host Controller" with-interface 09:00:00 with-connect-type ""
         allow id 1d6b:0003 serial "0000:08:00.3" name "xHCI Host Controller" with-interface 09:00:00 with-connect-type ""
         allow id 1d6b:0002 serial "0000:08:00.4" name "xHCI Host Controller" with-interface 09:00:00 with-connect-type ""

@@ -44,9 +44,9 @@
   in {
     # Define configurations for each host
     nixosConfigurations = {
-      desktop = lib.nixosSystem {
+      pc = lib.nixosSystem {
         inherit system;
-        modules = [./hosts/desktop/configuration.nix];
+        modules = [./hosts/pc/configuration.nix];
       };
 
       vm = lib.nixosSystem {
@@ -57,13 +57,13 @@
 
     # Standalone Home Manager Configurations
     homeConfigurations = {
-      "bosse@desktop" = home-manager.lib.homeManagerConfiguration {
+      "bosse@pc" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
           inherit inputs pkgs-unstable;
-          hostName = "desktop";
+          hostName = "pc";
         };
-        modules = [./hosts/desktop/home.nix];
+        modules = [./hosts/pc/home.nix];
       };
 
       "bosse@vm" = home-manager.lib.homeManagerConfiguration {

@@ -20,7 +20,7 @@
   ];
 
   networking = {
-    hostName = "desktop";
+    hostName = "pc";
     networkmanager.enable = true;
   };
 

@@ -9,7 +9,7 @@
     enable = true;
     xwayland.enable = true;
     settings = lib.mkMerge [
-      (lib.mkIf (hostName == "desktop") {
+      (lib.mkIf (hostName == "pc") {
         monitor = ["DP-3, 2560x1440@165, 0x0, 1"];
       })
       (lib.mkIf (hostName == "vm") {
@@ -84,7 +84,7 @@
   };
 
   home.file.".config/hypr/hyprpaper.conf" = lib.mkMerge [
-    (lib.mkIf (hostName == "desktop") {
+    (lib.mkIf (hostName == "pc") {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper.conf";
     })
 
