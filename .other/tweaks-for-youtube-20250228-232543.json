@@ -1,5 +1,5 @@
 {
-  "_timestamp": 1740476313460,
+  "_timestamp": 1740756343021,
   "_version": "3.74.1-firefox",
   "actionIndicatorActionSeek": false,
   "actionIndicatorActionSeekBasedOnPlaybackRate": false,
@@ -33,7 +33,7 @@
   "channelPageBanner": false,
   "channelTrailerAutoplay": true,
   "channelTrailerHidden": false,
-  "chaptersAutoShowList": true,
+  "chaptersAutoShowList": false,
   "chatVisibility": false,
   "cinemaMode": "mastheadFixed",
   "cinemaModeHiddenMasthead": true,
@@ -55,7 +55,7 @@
   "cleanPlayerMuteButton": false,
   "cleanPlayerNextButton": false,
   "cleanPlayerPaidContentOverlay": true,
-  "cleanPlayerPipButton": false,
+  "cleanPlayerPipButton": true,
   "cleanPlayerPlayButton": false,
   "cleanPlayerPreviousButton": false,
   "cleanPlayerProgressBarHeatmap": false,
@@ -132,7 +132,7 @@
   "customJSCode": "",
   "cvfFilename": "",
   "cvfIncludeSubtitles": false,
-  "cvfQuality": 0.92,
+  "cvfQuality": 1,
   "cvfType": "JPEG",
   "downloadButton": false,
   "downloadButtonBackgroundMode": "site",
@@ -148,7 +148,7 @@
   "fullVideoTitleChannelsPages": true,
   "fullVideoTitleOtherPages": true,
   "fullVideoTitleWatchPage": true,
-  "gotoChapterStart": "mousedown2",
+  "gotoChapterStart": false,
   "hotkeys": {
     "adjustAudioPanLeft": null,
     "adjustAudioPanRight": null,
@@ -198,14 +198,14 @@
   "initialTheatreMode": "default-view",
   "initialTheme": false,
   "initialVolume": "session",
-  "initialVolumeLevel": 50,
+  "initialVolumeLevel": 100,
   "inlinePlayback": "enabled",
   "inlinePlaybackRoundCorners": true,
   "instantFullscreen": false,
   "instantFullscreenDelay": 150,
   "instantFullscreenSmooth": false,
   "instantTogglePlay": false,
-  "interactionZonesMouseButton": 4,
+  "interactionZonesMouseButton": 1,
   "interactionZonesMouseButtonPresets": [
     {
       "name": "Default",
@@ -241,6 +241,26 @@
       ]
     },
     {
+      "actionMap": [
+        {
+          "key": "mousedown0+g9B0B",
+          "action": "nextChapterOrVideo"
+        },
+        {
+          "key": "mousedown2+g9B0B",
+          "action": "adjustVideoDimmerBrightness",
+          "payload": 10
+        },
+        {
+          "key": "mousedown0+g020B",
+          "action": "previousChapterOrVideo"
+        },
+        {
+          "key": "mousedown2+g020B",
+          "action": "adjustVideoDimmerBrightness",
+          "payload": -10
+        }
+      ],
       "name": "3x1 Grid",
       "type": "mouseButton",
       "gridColumns": 3,
@@ -252,25 +272,6 @@
       ],
       "gridRowsRatios": [
         12
-      ],
-      "actionMap": [
-        {
-          "key": "mousedown0+g020B",
-          "action": "setPlaybackRate",
-          "payload": 1
-        },
-        {
-          "key": "mousedown2+g020B",
-          "action": "captureVideoFrame"
-        },
-        {
-          "key": "mousedown0+g9B0B",
-          "action": "toggleMute"
-        },
-        {
-          "key": "mousedown2+g9B0B",
-          "action": "save"
-        }
       ]
     },
     {
@@ -924,7 +925,7 @@
   "videoDescriptionExactViewCount": true,
   "videoDescriptionInSidebar": false,
   "videoDimmer": true,
-  "videoDimmerBrightness": 0.75,
+  "videoDimmerBrightness": 1.0000000000000002,
   "videoDimmerContrast": 100,
   "videoDownloadLinkMode": "copy",
   "videoDownloadLinkQuery": "yt-dlp https://youtu.be/%s",
