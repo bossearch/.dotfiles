@@ -176,7 +176,7 @@
   //},
 
   "custom/cputemp": {
-    "exec": "echo $(cat $(for i in /sys/class/hwmon/hwmon*/temp1_input; do name=$(cat $(dirname \"$i\")/name 2>/dev/null); [ \"$name\" = \"k10temp\" ] && echo \"$i\" && break; done) | awk '{printf \"%d\", $1/1000}')",
+    "exec": "echo $(cat $(for i in /sys/class/hwmon/hwmon*/temp3_input; do name=$(cat $(dirname \"$i\")/name 2>/dev/null); [ \"$name\" = \"k10temp\" ] && echo \"$i\" && break; done) | awk '{printf \"%d\", $1/1000}')",
     "interval": 5,
     "format": "{}°C",
     "on-click": "alacritty -t btop -e btop",

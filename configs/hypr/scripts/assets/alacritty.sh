@@ -21,10 +21,10 @@ if command -v tmux >/dev/null 2>&1; then
         SESSION_NAME=${SESSION_NAME:-default}
       fi
 
+      echo "$SESSION_NAME" >"$SESSION_FILE"
       # Start a new tmux session with the given name
       tm "$SESSION_NAME"
 
-      echo "$SESSION_NAME" >"$SESSION_FILE"
     else
       if tmux list-sessions -F '#{session_attached}' | grep -q '^1$'; then
         # Do nothing explicitly

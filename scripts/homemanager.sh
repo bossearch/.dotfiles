@@ -73,11 +73,7 @@ else
   notify-send -e "Home Manager" "Error" --icon=software-update-urgent --urgency=critical
   git reset -q
 
-  echo ""
-  cat .hm.log | grep --color error
-  echo ""
-
-  if read -p "Open log? (y/N): " confirm && [[ $confirm =~ ^[yY]$ ]]; then
+  if read -p "Open log? (y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     nvim .hm.log
   fi
 
