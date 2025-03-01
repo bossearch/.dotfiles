@@ -28,6 +28,3 @@ sudo nixos-rebuild switch --flake $DOTFILES#$HOSTNAME
 nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake $DOTFILES#$USERNAME@$HOSTNAME
 
 home-manager news --flake $DOTFILES#$USERNAME@$HOSTNAME
-
-# Clone tpm plugins for tmux
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
