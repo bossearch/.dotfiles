@@ -88,6 +88,26 @@
             definedAliases = ["@nw"];
           };
 
+          "Home Manager Option Search" = {
+            urls = [
+              {
+                template = "https://home-manager-options.extranix.com";
+                params = [
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                  {
+                    name = "release";
+                    value = "release-24.11";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
+            definedAliases = ["@ho"];
+          };
+
           "Bing".metaData.hidden = true;
           "Google".metaData.hidden = true;
           "Wikipedia (en)".metaData.hidden = true;

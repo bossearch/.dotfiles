@@ -208,10 +208,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
 
-user_pref("userchrome.custom-compact-alt", false);
-user_pref("userchrome.custom-tabbar-alt", false);
-user_pref("userchrome.custom-urlbar-alt", false);
-
+user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", false);
 // trim url
 user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.urlbar.trimURLs", true);
