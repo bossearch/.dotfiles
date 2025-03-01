@@ -46,11 +46,13 @@
     nixosConfigurations = {
       pc = lib.nixosSystem {
         inherit system;
+        inherit pkgs;
         modules = [./hosts/pc/configuration.nix];
       };
 
       vm = lib.nixosSystem {
         inherit system;
+        inherit pkgs;
         modules = [./hosts/vm/configuration.nix];
       };
     };

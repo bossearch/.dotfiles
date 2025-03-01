@@ -1,3 +1,2 @@
 .nixos.log
 .hm.log
-modules/hardware-configuration.nix

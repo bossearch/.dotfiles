@@ -13,6 +13,7 @@
     ./../../modules/system/security.nix
     ./../../modules/system/sound.nix
     #./../../modules/system/ssh.nix
+    ./../../modules/system/steam.nix
     ./../../modules/system/udev.nix
     ./../../modules/system/usbguard.nix
     ./../../modules/system/virtualization.nix
