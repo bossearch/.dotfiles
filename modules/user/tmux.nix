@@ -15,7 +15,7 @@ in {
 
   home.activation.clonetpm = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -d "${tpmpath}" ];  then
-      git clone https://github.com/tmux-plugins/tpm "${tpmpath}"
+      ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm "${tpmpath}"
     fi
   '';
 }

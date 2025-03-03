@@ -3,8 +3,8 @@
 # Output file for the app names and Exec commands
 output_file="$HOME/.cache/bosse/drun.txt"
 
+rm "$output_file"
 mkdir -p "$(dirname "$output_file")"
-# rm "$output_file"
 touch "$output_file"
 
 # List of apps to exclude (add full .desktop filenames here)
@@ -69,6 +69,7 @@ exclude_apps=(
   "waydroid.cu.axel.smartdock"
   "waydroid.io.github.huskydg.magisk"
   "waydroid.io.github.sds100.keymapper"
+  "waydroid.io.github.sds100.keymapper.inputmethod.latin"
   "waydroid.market"
   "waydroid.org.lineageos.eleven"
   "waydroid.org.lineageos.etar"
@@ -81,7 +82,7 @@ exclude_apps=(
   "nixos-manual"
   "cups"
   "umpv"
-  "userapp-transmission-gtk-UN5M12"
+  "userapp-transmission-gtk-*"
 )
 
 custom_apps=(
@@ -111,11 +112,18 @@ echo "$applications" | while IFS= read -r path; do
   # Extract the base name and remove the .desktop extension
   name=$(basename "$path" .desktop)
 
-  # Skip apps in the exclude list
-  if [[ " ${exclude_apps[*]} " =~ " $name " ]]; then
+  # Skip apps in the exclude list (using pattern matching)
+  exclude=false
+  for pattern in "${exclude_apps[@]}"; do
+    if [[ "$name" == $pattern ]]; then
+      exclude=true
+      break
+    fi
+  done
+
+  if [ "$exclude" = true ]; then
     continue
   fi
-
   # Change the name for specific apps
   for app in "${custom_apps[@]}"; do
     old_name=$(echo "$app" | cut -d ':' -f 1)
@@ -144,7 +152,7 @@ echo "$applications" | while IFS= read -r path; do
 
     if ! grep -q "^$name|" "$output_file"; then
       # Save the name and Exec command to the output file
-      echo "$name|$exec_command" >> "$output_file"
+      echo "$name|$exec_command" >>"$output_file"
     fi
   fi
 done

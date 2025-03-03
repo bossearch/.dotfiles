@@ -2,8 +2,12 @@
   config,
   pkgs,
   # pkgs-unstable,
+  lib,
   ...
-}: {
+}: let
+  bat_cache= "${config.home.homeDirectory}/.cache/bat";
+  tealdeer_cache = "${config.home.homeDirectory}/.cache/tealdeer";
+in {
   home.packages = with pkgs; [
     bat
     bc
@@ -62,4 +66,16 @@
   home.file.".config/btop/btop.conf" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/btop/btop.conf";
   };
+
+  home.activation.updatebat = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ ! -d "${bat_cache}" ];  then
+      ${pkgs.bat}/bin/bat cache --build
+    fi
+  '';
+
+  home.activation.updatetldr = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ ! -d "${tealdeer_cache}" ];  then
+      ${pkgs.tealdeer}/bin/tldr --update
+    fi
+  '';
 }
