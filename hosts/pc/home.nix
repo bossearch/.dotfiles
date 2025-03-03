@@ -18,6 +18,7 @@
     ./../../modules/user/mpv.nix
     ./../../modules/user/nautilus.nix
     ./../../modules/user/nchat.nix
+    ./../../modules/user/newsboat.nix
     ./../../modules/user/nvim.nix
     ./../../modules/user/nyaa.nix
     ./../../modules/user/obsidian.nix

@@ -199,7 +199,7 @@ export AUTO_NOTIFY_IGNORE=(
   "fh" "fkill" "fif" "fzf" "fsys" "fgrep"
   "yy" "sy" "yazi"
   "man" "nvim" "tmux" "tm" "fg"
-  "lazygit"
+  "lazygit" "newsboat"
 )
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
