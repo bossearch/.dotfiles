@@ -11,7 +11,9 @@ in {
     nautilus
     sushi
     vaults
+    (pkgs.callPackage ./../custompkgs/varia.nix {})
   ];
+
   dconf.settings = {
     "org/gnome/nautilus/preferences" = {
       default-folder-viewer = "list-view";
@@ -49,5 +51,14 @@ in {
     file:///home/bosse/Pictures Pictures
     file:///home/bosse/Videos Videos
     file:///home/bosse/Vaults Vaults
+  '';
+
+  home.file.".config/user-dirs.dirs".text = ''
+    XDG_DESKTOP_DIR="$HOME/Desktop"
+    XDG_DOCUMENTS_DIR="$HOME/Documents"
+    XDG_DOWNLOAD_DIR="$HOME/Downloads"
+    XDG_MUSIC_DIR="$HOME/Music"
+    XDG_PICTURES_DIR="$HOME/Pictures"
+    XDG_VIDEOS_DIR="$HOME/Videos"
   '';
 }
