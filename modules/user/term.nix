@@ -3,7 +3,9 @@
   pkgs,
   ...
 }: {
-  home.packages = [
+  home.packages = with pkgs; [
+    kitty
+    ghostty
     (pkgs.callPackage ./../custompkgs/alacritty.nix {})
   ];
 

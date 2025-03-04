@@ -131,6 +131,7 @@
       search = {
         default = "DuckDuckGo";
         privateDefault = "DuckDuckGo";
+        force = true;
       };
       extensions = with pkgs.firefox-addons; [
         darkreader
