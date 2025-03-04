@@ -4,32 +4,77 @@
     browser = "${pkgs.xdg-utils}/bin/xdg-open";
     urls = [
       {
+        title = "r/linux";
+        tags = ["Reddit" "Interest"];
+        url = "https://www.reddit.com/r/linux.rss";
+      }
+      {
         title = "r/unixporn";
+        tags = ["Reddit" "Interest"];
         url = "https://www.reddit.com/r/unixporn.rss";
       }
       {
         title = "r/neovim";
-        url = "https://www.reddit.com/r/neovim.rss";
+        tags = ["Reddit" "Interest"];
+        url = "https://www.reddit.com/r/neovim.rss ! ";
       }
       {
-        title = "r/linux";
-        url = "https://www.reddit.com/r/linux.rss";
+        title = "r/NixOS";
+        tags = ["Reddit" "Interest"];
+        url = "https://www.reddit.com/r/NixOS.rss";
+      }
+      {
+        title = "r/gaming";
+        tags = ["Reddit" "Games"];
+        url = "https://www.reddit.com/r/gaming.rss";
+      }
+      {
+        title = "r/DotA2";
+        tags = ["Reddit" "Games"];
+        url = "https://www.reddit.com/r/DotA2.rss";
+      }
+      {
+        title = "r/Minecraft";
+        tags = ["Reddit" "Games"];
+        url = "https://www.reddit.com/r/Minecraft.rss";
+      }
+      {
+        title = "r/MinecraftMemes";
+        tags = ["Reddit" "Games" "Memes"];
+        url = "https://www.reddit.com/r/MinecraftMemes.rss";
       }
       {
         title = "r/indonesia";
+        tags = ["Reddit" "Local"];
         url = "https://www.reddit.com/r/indonesia.rss";
+      }
+      {
+        url = "\"query:Reddit:tags # \\\"Reddit\\\"\"";
+      }
+      {
+        url = "\"query:Interest:tags # \\\"Interest\\\"\"";
+      }
+      {
+        url = "\"query:Games:tags # \\\"Games\\\"\"";
+      }
+      {
+        url = "\"query:Memes:tags # \\\"Memes\\\"\"";
+      }
+      {
+        url = "\"query:Local:tags # \\\"Local\\\"\"";
       }
     ];
     extraConfig = ''
+      show-title-bar no
       refresh-on-startup yes
-      ignore-mode "display"
+      prepopulate-query-feeds yes
 
+      ignore-mode "download"
+      ignore-article "*" "age > 30"
       ignore-article "https://www.reddit.com/r/unixporn.rss" \
         "title !~ \"OC\" and \
         title !~ \"Hyprland\" and \
         title !~ \"Awesome\""
-
-      ignore-article "*" "age > 30"
 
       bind-key ESC quit
       bind-key h quit
@@ -39,18 +84,29 @@
       bind-key H prev-feed
       bind-key L next-feed
 
-      color background         default   default
-      color listnormal         default   default
-      color listnormal_unread  default   default
-      color listfocus          black     yellow
-      color listfocus_unread   black     yellow
-      color info               default   black
-      color article            default   default
+      color listnormal         color15 default
+      color listnormal_unread  color2  default
+      color listfocus_unread   color2  color0
+      color listfocus          default color0
+      color background         default default
+      color article            default default
+      color end-of-text-marker color8  default
+      color info               color4  color8
+      color hint-separator     default color8
+      color hint-description   default color8
+      color title              color14 color8
 
       # highlights
-      highlight article "^(Title):.*$" blue default
-      highlight article "https?://[^ ]+" red default
-      highlight article "\\[image\\ [0-9]+\\]" green default
+      highlight all "---.*---" yellow
+      highlight feedlist ".*(0/0))" black
+      highlight article "(^Feed:|^Title:|^Date:|^Link:|^Author:)" cyan default bold
+      highlight article "https?://[^ ]+" yellow default
+      highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+      highlight article "\\[image\\ [0-9]+\\]" green default bold
+      highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
+      highlight article ":.*\\(link\\)$" cyan default
+      highlight article ":.*\\(image\\)$" blue default
+      highlight article ":.*\\(embedded flash\\)$" magenta default
     '';
   };
 }
