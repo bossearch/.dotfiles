@@ -12,7 +12,7 @@
 --color=bg+:#16161e
 --color=hl:#92BE67
 --color=hl+:#93d84e
---color=info:#7296E6
+--color=info:#545c7e
 --color=marker:#E26E87
 --color=prompt:#AC8FE6
 --color=spinner:#E26E87
@@ -20,9 +20,9 @@
 --color=header:#CEA265
 --color=gutter:#1a1b26
 --color=border:#27a1b9
---color=separator:#27a1b9
+--color=separator:#ff9e64
 --color=scrollbar:#27a1b9
 --color=label:#aeaeae
 --color=query:#B1BAE4
---color=preview-border:#CEA265
---color=preview-scrollbar:#CEA265
+--color=preview-border:#ff9e64
+--color=preview-scrollbar:#ff9e64

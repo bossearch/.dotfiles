@@ -28,7 +28,7 @@ fi
 # Environment Variables
 # ----------------------------
 
-export EDITOR='nvim'
+export EDITOR="nvim"
 export BAT_THEME="tokyonight_night"
 
 # Load fzf and its related configurations
