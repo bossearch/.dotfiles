@@ -123,6 +123,7 @@
         sponsorblock
         ublock-origin
         video-downloadhelper
+        vimium
       ];
     };
     profiles.anonymous = {
