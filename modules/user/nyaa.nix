@@ -13,6 +13,7 @@
 
   programs.nyaa = {
     enable = true;
+    default_theme = "TokyoNight";
     default_source = "Nyaa";
     download_client = "Transmission";
     timeout = 30;
@@ -26,4 +27,20 @@
       download_dir = "/home/bosse/Videos/Anime/";
     };
   };
+
+  home.file.".config/nyaa/themes/TokyoNight.toml".text = ''
+    name = "TokyoNight"
+    bg = "Reset"
+    fg = "White"
+    border = "Rounded"
+    border_color = "Blue"
+    border_focused_color = "Cyan"
+    hl_bg = "#292e42"
+    solid_bg = "White"
+    solid_fg = "Black"
+    success = "Green"
+    error = "Red"
+    info = "Green"
+    warning = "Yellow"
+  '';
 }
