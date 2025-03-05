@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Get the microphone source ID
 MIC_SOURCE=$(pactl list short sources | grep -m 1 input | awk '{print $1}')
 
