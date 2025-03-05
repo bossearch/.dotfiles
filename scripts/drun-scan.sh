@@ -82,12 +82,15 @@ exclude_apps=(
   "nixos-manual"
   "cups"
   "umpv"
+  "kitty-open"
   "userapp-transmission-gtk-*"
 )
 
 custom_apps=(
   "Alacritty:alacritty"
+  "com.mitchellh.ghostty:ghostty"
   "io.github.mpobaschnig.Vaults:vaults"
+  "io.github.giantpinkrobots.varia:varia"
   "org.cryptomator.Cryptomator:cryptomator"
   "org.gnome.Nautilus:nautilus"
   "org.gnome.baobab:baobab"
