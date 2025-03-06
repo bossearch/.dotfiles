@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  home.packages = [ pkgs.chafa pkgs.libsixel pkgs.w3m ];
   programs.newsboat = {
     enable = true;
     browser = "${pkgs.xdg-utils}/bin/xdg-open";
@@ -6,65 +7,58 @@
       {
         title = "r/linux";
         tags = ["Reddit" "Interest"];
-        url = "https://www.reddit.com/r/linux.rss";
+        url = "https://www.reddit.com/r/linux.rss !";
       }
       {
         title = "r/unixporn";
         tags = ["Reddit" "Interest"];
-        url = "https://www.reddit.com/r/unixporn.rss";
+        url = "https://www.reddit.com/r/unixporn.rss !";
       }
       {
         title = "r/neovim";
         tags = ["Reddit" "Interest"];
-        url = "https://www.reddit.com/r/neovim.rss ! ";
+        url = "https://www.reddit.com/r/neovim.rss !";
       }
       {
         title = "r/NixOS";
         tags = ["Reddit" "Interest"];
-        url = "https://www.reddit.com/r/NixOS.rss";
+        url = "https://www.reddit.com/r/NixOS.rss !";
       }
       {
         title = "r/gaming";
         tags = ["Reddit" "Games"];
-        url = "https://www.reddit.com/r/gaming.rss";
+        url = "https://www.reddit.com/r/gaming.rss !";
       }
       {
         title = "r/DotA2";
         tags = ["Reddit" "Games"];
-        url = "https://www.reddit.com/r/DotA2.rss";
+        url = "https://www.reddit.com/r/DotA2.rss !";
       }
       {
         title = "r/Minecraft";
         tags = ["Reddit" "Games"];
-        url = "https://www.reddit.com/r/Minecraft.rss";
+        url = "https://www.reddit.com/r/Minecraft.rss !";
       }
       {
         title = "r/MinecraftMemes";
         tags = ["Reddit" "Games" "Memes"];
-        url = "https://www.reddit.com/r/MinecraftMemes.rss";
+        url = "https://www.reddit.com/r/MinecraftMemes.rss !";
       }
       {
         title = "r/indonesia";
         tags = ["Reddit" "Local"];
-        url = "https://www.reddit.com/r/indonesia.rss";
-      }
-      {
-        url = "\"query:Reddit:tags # \\\"Reddit\\\"\"";
-      }
-      {
-        url = "\"query:Interest:tags # \\\"Interest\\\"\"";
-      }
-      {
-        url = "\"query:Games:tags # \\\"Games\\\"\"";
-      }
-      {
-        url = "\"query:Memes:tags # \\\"Memes\\\"\"";
-      }
-      {
-        url = "\"query:Local:tags # \\\"Local\\\"\"";
+        url = "https://www.reddit.com/r/indonesia.rss !";
       }
     ];
+    queries = {
+      Reddit = "tags =~ \"Reddit\"";
+      Interest = "tags =~ \"Interest\"";
+      Games = "tags =~ \"Games\"";
+      Memes = "tags =~ \"Memes\"";
+      Local = "tags =~ \"Local\"";
+    };
     extraConfig = ''
+      macro i set browser "~/.config/newsboat/preview.sh %u"
       show-title-bar no
       refresh-on-startup yes
       prepopulate-query-feeds yes
