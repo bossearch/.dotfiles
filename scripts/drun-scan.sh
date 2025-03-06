@@ -101,7 +101,8 @@ custom_apps=(
 custom_execs=(
   "transmission-gtk:transmission-gtk"
   "spotify:spotify"
-  "alacritty:alacritty -e bash -c '~/.config/hypr/scripts/assets/alacritty.sh; exec zsh'"
+  "alacritty:alacritty -e bash -c '~/.config/hypr/scripts/assets/tty.sh; exec zsh'"
+  "kitty:kitty sh -c '~/.config/hypr/scripts/assets/tty.sh; exec zsh'"
 )
 
 applications=$(ls ~/.local/share/applications/*.desktop \

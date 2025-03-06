@@ -40,7 +40,7 @@
     VISUAL = "nvim";
     PAGER = "less";
     BROWSER = "firefox";
-    TERMINAL = "alacritty";
+    TERMINAL = "kitty";
   };
 
   # Do not change these future me !

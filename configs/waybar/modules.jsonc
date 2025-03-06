@@ -165,21 +165,21 @@
     "interval": 5,
     "format": " {usage}%",
     "max-length": 15,
-    "on-click": "alacritty -t btop -e btop",
+    "on-click": "kitty -T btop btop",
   },
 
   //"temperature": {
   //  "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
   //  "interval": 5,
   //  "format": "{temperatureC}°C",
-  //  "on-click": "alacritty -t btop -e btop",
+  //  "on-click": "kitty -T btop btop",
   //},
 
   "custom/cputemp": {
     "exec": "echo $(cat $(for i in /sys/class/hwmon/hwmon*/temp3_input; do name=$(cat $(dirname \"$i\")/name 2>/dev/null); [ \"$name\" = \"k10temp\" ] && echo \"$i\" && break; done) | awk '{printf \"%d\", $1/1000}')",
     "interval": 5,
     "format": "{}°C",
-    "on-click": "alacritty -t btop -e btop",
+    "on-click": "kitty -T btop btop",
   },
 
   "custom/gpu": {
@@ -187,7 +187,7 @@
     "interval": 5,
     "format": " {}%",
     "max-length": 15,
-    "on-click": "alacritty -t btop -e btop",
+    "on-click": "kitty -T btop btop",
   },
 
   //"temperature#gpu": {
@@ -195,21 +195,21 @@
   //  "input-filename": "temp1_input",
   //  "interval": 5,
   //  "format": "{temperatureC}°C",
-  //  "on-click": "alacritty -t btop -e btop",
+  //  "on-click": "kitty -T btop btop",
   //},
 
   "custom/gputemp": {
     "exec": "echo $(cat $(for i in /sys/class/hwmon/hwmon*/temp1_input; do name=$(cat $(dirname \"$i\")/name 2>/dev/null); [ \"$name\" = \"amdgpu\" ] && echo \"$i\" && break; done) | awk '{printf \"%d\", $1/1000}')",
     "interval": 5,
     "format": "{}°C",
-    "on-click": "alacritty -t btop -e btop",
+    "on-click": "kitty -T btop btop",
   },
 
   "memory": {
     "interval": 5,
     "format":" {used}GiB",
     "max-length": 15,
-    "on-click": "alacritty -t btop -e btop",
+    "on-click": "kitty -T btop btop",
   },
 
   "backlight": {
@@ -243,7 +243,7 @@
     "format-wifi": "󰖩 {signalStrength}%",
     "format-ethernet": " ",
     "format-disconnected": "󰖪 ",
-    "on-click": "alacritty -t nmtui -e nmtui",
+    "on-click": "kitty -T nmtui nmtui",
     "format-disconnected": "Disconnected  ",
     "tooltip": false,
   },

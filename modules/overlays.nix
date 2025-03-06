@@ -1,14 +1,14 @@
 { inputs, ... }: {
   overlays = [
-    # Yazi overlay
-    (final: prev: {
-      yazi-unwrapped = prev.callPackage ./custompkgs/yazi/yazi-unwrapped.nix {
-        Foundation = null;
-      };
-      yazi = prev.callPackage ./custompkgs/yazi/yazi.nix {
-        yazi-unwrapped = final.yazi-unwrapped;
-      };
-    })
+    # # Yazi overlay
+    # (final: prev: {
+    #   yazi-unwrapped = prev.callPackage ./custompkgs/yazi/yazi-unwrapped.nix {
+    #     Foundation = null;
+    #   };
+    #   yazi = prev.callPackage ./custompkgs/yazi/yazi.nix {
+    #     yazi-unwrapped = final.yazi-unwrapped;
+    #   };
+    # })
 
     # Firefox Addons overlay
     (final: prev: {

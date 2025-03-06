@@ -45,7 +45,7 @@
     name = "Neovim";
     genericName = "Text Editor";
     icon = "nvim";
-    exec = "alacritty -t nvim -e nvim %F";
+    exec = "kitty -T nvim nvim";
     comment = "Edit text files";
     categories = ["Utility" "TextEditor"];
     mimeType = [

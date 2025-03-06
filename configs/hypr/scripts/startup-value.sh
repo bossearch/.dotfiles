@@ -18,5 +18,7 @@ if [ -f "$GAMEMODE_FILE" ]; then
   rm "$GAMEMODE_FILE"
 fi
 
-
-
+SCREENRECORD_TOOLTIP=$(cat "$HOME/.cache/bosse/screenrecord-tooltip")
+if [ ! -f "$SCREENRECORD_TOOLTIP" ]; then
+  mkdir -p "$GAMEMODE_FILE"
+fi

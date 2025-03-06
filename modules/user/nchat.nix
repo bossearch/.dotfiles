@@ -26,7 +26,7 @@
   xdg.desktopEntries.nchat = {
     type = "Application";
     name = "nchat";
-    exec = "alacritty -t nchat -e nchat %f";
-    comment = "Custom definition for alacritty -e nchat";
+    exec = "kitty -T nchat nchat";
+    comment = "Open nchat with kitty";
   };
 }
