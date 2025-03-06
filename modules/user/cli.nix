@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  # pkgs-unstable,
+  pkgs-unstable,
   lib,
   ...
 }: let
@@ -30,13 +30,12 @@ in {
     unzip
     wget
     zoxide
-    ueberzugpp
-    yazi
     moreutils
-  ];
-  # ++ (with pkgs-unstable; [
-  #   yazi
-  # ]);
+    mediainfo
+  ]
+  ++ (with pkgs-unstable; [
+    yazi
+  ]);
 
   home.file.".config/fzf" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/fzf";
