@@ -24,6 +24,8 @@ return {
           gap = 1,
           indent = 2,
           padding = 1,
+          pick = true,
+          session = false,
         },
         {
           icon = " ",
