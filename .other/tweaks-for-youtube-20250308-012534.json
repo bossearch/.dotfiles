@@ -1,9 +1,9 @@
 {
-  "_timestamp": 1740756343021,
-  "_version": "3.74.1-firefox",
   "actionIndicatorActionSeek": false,
   "actionIndicatorActionSeekBasedOnPlaybackRate": false,
   "actionIndicatorIconHidden": false,
+  "actionIndicatorTextBackground": "",
+  "actionIndicatorTextColor": "",
   "actionIndicatorTextHidden": false,
   "actionIndicatorTextOffsetX": "",
   "actionIndicatorTextOffsetY": "",
@@ -26,6 +26,7 @@
   "audioMonoMix": false,
   "audioMonoMixSource": "left+right",
   "audioPan": 0,
+  "autoPip": false,
   "autoclickAdSkipButton": false,
   "backToTop": "red",
   "backToTopPosition": "center",
@@ -94,6 +95,7 @@
   "cleanSiteWatchRelatedVideosChips": false,
   "cleanSiteWatchSubscribe": false,
   "cleanSiteWatchTitleHashtag": false,
+  "commentsAutoReadMore": false,
   "commentsInSidebar": false,
   "commentsInSidebarDisableMainComments": true,
   "commentsInSidebarPermanent": false,
@@ -106,6 +108,7 @@
   "contentFiltersLiveHomePage": false,
   "contentFiltersLiveRelatedVideos": false,
   "contentFiltersLiveSubscriptionsPage": false,
+  "contentFiltersMembersOnlyChannelPage": false,
   "contentFiltersMixHomePage": false,
   "contentFiltersMixRelatedVideos": false,
   "contentFiltersMixSearchPage": false,
@@ -134,6 +137,8 @@
   "cvfIncludeSubtitles": false,
   "cvfQuality": 1,
   "cvfType": "JPEG",
+  "documentPipHeight": 240,
+  "documentPipPreferInitialWindowPlacement": false,
   "downloadButton": false,
   "downloadButtonBackgroundMode": "site",
   "downloadButtonKey1Url": "",
@@ -141,6 +146,7 @@
   "downloadButtonKey3Url": "",
   "embedModeWindow": "current",
   "extensionOptionsPageLayout": "horizontal",
+  "extensionSettingsPushedToSupabase": 0,
   "extensionShortcutsAdjustPlaybackRateByValue": 0.25,
   "extensionShortcutsAdjustVolumeByValue": 5,
   "extensionShortcutsSeekByValue": 5,
@@ -259,6 +265,14 @@
           "key": "mousedown2+g020B",
           "action": "adjustVideoDimmerBrightness",
           "payload": -10
+        },
+        {
+          "key": "mousedown0+g380B",
+          "action": "togglePlay"
+        },
+        {
+          "key": "mousedown2+g380B",
+          "action": "toggleSubtitlesDisabled"
         }
       ],
       "name": "3x1 Grid",
@@ -800,44 +814,24 @@
       "key": "32: "
     },
     {
-      "action": "seekBy",
-      "payload": "1c",
-      "key": "79:o"
-    },
-    {
-      "action": "seekBy",
-      "payload": "-1c",
-      "key": "89:y"
-    },
-    {
-      "key": "76:l",
+      "key": "39:arrowright",
       "action": "seekBy",
       "payload": 5
     },
     {
-      "key": "72:h",
+      "key": "37:arrowleft",
       "action": "seekBy",
       "payload": -5
     },
     {
-      "key": "75:k",
+      "key": "38:arrowup",
       "action": "adjustVolumeBy",
       "payload": 5
     },
     {
-      "key": "74:j",
+      "key": "40:arrowdown",
       "action": "adjustVolumeBy",
       "payload": -5
-    },
-    {
-      "action": "adjustPlaybackRateBy",
-      "payload": 0.1,
-      "key": "73:i"
-    },
-    {
-      "action": "adjustPlaybackRateBy",
-      "payload": -0.1,
-      "key": "85:u"
     }
   ],
   "maxMouseControlArea": false,
@@ -960,6 +954,7 @@
   "ytpBezelTextPosition": false,
   "ytpBezelTextPositionOffset": 10,
   "ytpControlsHidden": false,
+  "ytpControlsHiddenElements": "bottom+top",
   "ytpControlsHiddenPaused": false,
   "ytpControlsHiddenPlaying": false,
   "ytpControlsHiddenShowOnHover": false,
