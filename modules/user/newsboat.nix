@@ -64,7 +64,7 @@
       prepopulate-query-feeds yes
 
       ignore-mode "download"
-      ignore-article "*" "age > 30"
+      ignore-article "*" "age > 7"
       ignore-article "https://www.reddit.com/r/unixporn.rss" \
         "title !~ \"OC\" and \
         title !~ \"Hyprland\" and \
