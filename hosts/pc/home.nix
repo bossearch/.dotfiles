@@ -10,8 +10,8 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./../../modules/user/browser.nix
     ./../../modules/user/cli.nix
-    ./../../modules/user/firefox.nix
     ./../../modules/user/git.nix
     ./../../modules/user/hyprland.nix
     ./../../modules/user/minecraft.nix

@@ -9,9 +9,11 @@
     ./../../modules/system/locale.nix
     ./../../modules/system/misc.nix
     ./../../modules/system/network.nix
+    ./../../modules/system/proxy.nix
     ./../../modules/system/security.nix
     ./../../modules/system/sound.nix
     ./../../modules/system/ssh.nix
+    # ./../../modules/system/steam.nix
     ./../../modules/system/udev.nix
     ./../../modules/system/usbguard.nix
     # ./../../modules/system/virtualization.nix

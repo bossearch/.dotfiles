@@ -10,13 +10,15 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./../../modules/user/browser.nix
     ./../../modules/user/cli.nix
-    ./../../modules/user/firefox.nix
     ./../../modules/user/git.nix
     ./../../modules/user/hyprland.nix
+    # ./../../modules/user/minecraft.nix
     # ./../../modules/user/mpv.nix
     # ./../../modules/user/nautilus.nix
     # ./../../modules/user/nchat.nix
+    # ./../../modules/user/newsboat.nix
     ./../../modules/user/nvim.nix
     # ./../../modules/user/nyaa.nix
     # ./../../modules/user/obsidian.nix

@@ -87,7 +87,6 @@
     (lib.mkIf (hostName == "pc") {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper.conf";
     })
-
     (lib.mkIf (hostName == "vm") {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper-vm.conf";
     })

@@ -126,34 +126,12 @@
         vimium
       ];
     };
-    profiles.anonymous = {
-      id = 1;
-      isDefault = false;
-      search = {
-        default = "DuckDuckGo";
-        privateDefault = "DuckDuckGo";
-        force = true;
-      };
-      extensions = with pkgs.firefox-addons; [
-        darkreader
-        new-tab-override
-        ublock-origin
-        video-downloadhelper
-      ];
-    };
   };
 
   home.file.".mozilla/firefox/bosse/user.js" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/user.js";
   };
   home.file.".mozilla/firefox/bosse/chrome" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/chrome";
-  };
-
-  home.file.".mozilla/firefox/anonymous/user.js" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/user.js";
-  };
-  home.file.".mozilla/firefox/anonymous/chrome" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/chrome";
   };
 }
