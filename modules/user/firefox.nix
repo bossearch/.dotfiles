@@ -116,13 +116,14 @@
       };
       extensions = with pkgs.firefox-addons; [
         darkreader
+        new-tab-override
         onetab
         proton-pass
         side-view
         sponsorblock
         ublock-origin
         video-downloadhelper
-        tridactyl
+        vimium
       ];
     };
     profiles.anonymous = {
