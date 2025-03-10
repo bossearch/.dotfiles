@@ -6,7 +6,7 @@ return {
   },
   opts = {
     cmdline = {
-      view = "cmdline_popup", -- cmdline_popup, cmdline
+      view = "cmdline", -- cmdline_popup, cmdline
       format = {
         conceal = false,
       },
