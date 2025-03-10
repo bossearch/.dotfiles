@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  home.packages = [ pkgs.chafa pkgs.libsixel pkgs.w3m ];
   programs.newsboat = {
     enable = true;
     browser = "${pkgs.xdg-utils}/bin/xdg-open";
@@ -102,5 +101,11 @@
       highlight article ":.*\\(image\\)$" blue default
       highlight article ":.*\\(embedded flash\\)$" magenta default
     '';
+  };
+  xdg.desktopEntries.newsboat = {
+    type = "Application";
+    name = "newsboat";
+    exec = "kitty -T newsboat newsboat";
+    comment = "Open newsboat with kitty";
   };
 }

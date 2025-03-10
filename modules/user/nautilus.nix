@@ -5,7 +5,7 @@
   ...
 }: let
   Vaults_dir = "${config.home.homeDirectory}/.local/share/Vaults/{Secrets,Lofi}";
-  Home_dir = "${config.home.homeDirectory}/{Desktop,Downloads,Documents,Pictures,Videos,Vaults}";
+  Home_dir = "${config.home.homeDirectory}/{Desktop,Downloads,Documents,Pictures,Videos}";
 in {
   home.packages = with pkgs; [
     nautilus
