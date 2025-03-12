@@ -27,6 +27,8 @@ in {
     poppler
     ripgrep
     tealdeer
+    toipe
+    uair
     unzip
     wget
     zoxide
@@ -64,6 +66,10 @@ in {
 
   home.file.".config/btop/btop.conf" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/btop/btop.conf";
+  };
+
+  home.file.".config/uair/uair.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/uair/uair.toml";
   };
 
   home.activation.updatebat = lib.hm.dag.entryAfter ["writeBoundary"] ''
