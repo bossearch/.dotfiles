@@ -40,7 +40,7 @@
       }
       {
         title = "r/MinecraftMemes";
-        tags = ["Reddit" "Games" "Memes"];
+        tags = ["Reddit" "Memes"];
         url = "https://www.reddit.com/r/MinecraftMemes.rss !";
       }
       {
@@ -76,6 +76,7 @@
       bind-key l open
       bind-key H prev-feed
       bind-key L next-feed
+      bind-key o open-in-browser-and-mark-read
 
       color listnormal         color15 default
       color listnormal_unread  color2  default
