@@ -9,8 +9,6 @@ fi
 # Initialization
 # ----------------------------
 
-PROMPT_EOL_MARK=""
-
 # Initialize Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -86,19 +84,20 @@ bindkey "^?" backward-delete-char
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
-# Vi mode cursor indicator
 export KEYTIMEOUT=1
-zle-keymap-select () {
-    if [[ $KEYMAP == vicmd ]]; then
-        # the command mode for vi
-        echo -ne "\e[2 q"
-    else
-        # the insert mode for vi
-        echo -ne "\e[5 q"
-    fi
-}
-precmd_functions+=(zle-keymap-select)
-zle -N zle-keymap-select
+## Vi mode cursor indicator
+# zle-keymap-select () {
+#     if [[ $KEYMAP == vicmd ]]; then
+#         # the command mode for vi
+#         echo -ne "\e[2 q"
+#     else
+#         # the insert mode for vi
+#         echo -ne "\e[5 q"
+#     fi
+# }
+# precmd_functions+=(zle-keymap-select)
+# zle -N zle-keymap-select
+
 # Yank on vicmd
 function vi-yank-xclip {
     zle vi-yank
@@ -140,6 +139,19 @@ function sy() {
   sudo rm -f -- "$tmp"
 }
 
+# Show Nix Development Shell Name
+function prompt_nix_dev_shell_name() {
+  if [[ -n $IN_NIX_SHELL ]]; then
+    p10k segment -f grey -t "[nix-shell]"
+  fi
+}
+
+# Show if Direnv Active
+function prompt_in_direnv() {
+  if [[ -n $DIRENV_ACTIVE ]]; then
+    p10k segment -f grey -t "[direnv]"
+  fi
+}
 # ----------------------------
 # Plugins and Settings
 # ----------------------------
@@ -175,6 +187,7 @@ repos=(
   zsh-users/zsh-syntax-highlighting
 	MichaelAquilina/zsh-auto-notify
   romkatv/powerlevel10k
+  chisui/zsh-nix-shell
 )
 plugin-load $repos
 
@@ -195,11 +208,11 @@ _comp_options+=(globdots)
 export AUTO_NOTIFY_THRESHOLD=30 # Set threshold to 30 seconds
 export AUTO_NOTIFY_IGNORE=(
   "nyaa"
-  "rb" "hm"
+  "rb" "hm" "nix-shell"
   "fh" "fkill" "fif" "fzf" "fsys" "fgrep"
   "yy" "sy" "yazi"
   "man" "nvim" "tmux" "tm" "fg"
-  "lazygit" "newsboat"
+  "lazygit" "newsboat" "toipe" "neomutt"
 )
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
