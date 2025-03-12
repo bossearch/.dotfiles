@@ -18,5 +18,7 @@ vim.filetype.add {
   },
   pattern = {
     [".env.*"] = "sh",
+    ['.*/hypr/.*%.conf'] = 'hyprlang',
+    ['.*/kitty/.*%.conf'] = 'sh',
   },
 }
