@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, pkgs-unstable, ...}: let
   automatedusbguard = pkgs.writeScript "automatedusbguard.sh" ''
     #!${pkgs.bash}/bin/bash
     export DISPLAY=:0
@@ -40,6 +40,7 @@
 in {
   services.udev = {
     enable = true;
+    packages = [ pkgs-unstable.qmk-udev-rules ];
     extraRules = ''
       ACTION=="add", SUBSYSTEM=="usb", ENV{DEVNAME}!="", \
       ENV{ID_VENDOR_ID}!="1b1c", ENV{ID_MODEL_ID}!="1b3e", \

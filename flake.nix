@@ -47,6 +47,9 @@
       pc = lib.nixosSystem {
         inherit system;
         inherit pkgs;
+        specialArgs = {
+          inherit pkgs-unstable;
+        };
         modules = [./hosts/pc/configuration.nix];
       };
 
