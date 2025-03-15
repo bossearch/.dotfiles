@@ -7,10 +7,13 @@
 }: let
   bat_cache= "${config.home.homeDirectory}/.cache/bat";
   tealdeer_cache = "${config.home.homeDirectory}/.cache/tealdeer";
+  bukubrow_file = "${config.home.homeDirectory}/.mozilla/native-messaging-hosts/com.samhh.bukubrow.json";
 in {
   home.packages = with pkgs; [
     bat
     bc
+    buku
+    bukubrow
     btop-rocm
     curl
     eza
@@ -64,6 +67,11 @@ in {
     recursive = true;
   };
 
+  home.file.".local/share/buku" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/buku";
+    recursive = true;
+  };
+
   home.file.".config/btop/btop.conf" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/btop/btop.conf";
   };
@@ -81,6 +89,13 @@ in {
   home.activation.updatetldr = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -d "${tealdeer_cache}" ];  then
       ${pkgs.tealdeer}/bin/tldr --update
+    fi
+  '';
+
+  home.activation.bukubrow = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ ! -f "${bukubrow_file}" ];  then
+      ${pkgs.buku}/bin/buku -k
+      ${pkgs.bukubrow}/bin/bukubrow --install-firefox
     fi
   '';
 }

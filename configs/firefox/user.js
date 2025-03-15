@@ -159,11 +159,10 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.aboutwelcome.enabled", false);
-user_pref("browser.profiles.enabled", true);
+user_pref("browser.profiles.enabled", false);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("browser.compactmode.show", true);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 
@@ -208,14 +207,12 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
 
-user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", false);
 // trim url
-user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.urlbar.trimURLs", true);
 // disable new sidebar
 user_pref("sidebar.revamp", false);
 // show profile management in hamburger menu
-user_pref("browser.profiles.enabled", true);
+
 // show compact mode
 user_pref("browser.compactmode.show", true);
 user_pref("browser.uidensity", 1);
@@ -229,7 +226,7 @@ user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.theme.content-theme", 0);
 user_pref("browser.theme.toolbar-theme", 0);
 user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
-user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[\"_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action\",\"sponsorblocker_ajay_app-browser-action\",\"newtaboverride_agenedia_com-browser-action\",\"side-view_mozilla_org-browser-action\",\"_84c8edb0-65ca-43a5-bc53-0e80f41486e1_-browser-action\",\"addon_fastforward_team-browser-action\",\"extension_one-tab_com-browser-action\",\"_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-browser-action\",\"giantpinkrobots_protonmail_com-browser-action\",\"canvasblocker_kkapsner_de-browser-action\"],\"nav-bar\":[\"back-button\",\"stop-reload-button\",\"vertical-spacer\",\"forward-button\",\"urlbar-container\",\"save-to-pocket-button\",\"downloads-button\",\"fxa-toolbar-menu-button\",\"unified-extensions-button\",\"addon_darkreader_org-browser-action\",\"78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"alltabs-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"side-view_mozilla_org-browser-action\",\"_84c8edb0-65ca-43a5-bc53-0e80f41486e1_-browser-action\",\"78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action\",\"addon_darkreader_org-browser-action\",\"addon_fastforward_team-browser-action\",\"extension_one-tab_com-browser-action\",\"newtaboverride_agenedia_com-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"sponsorblocker_ajay_app-browser-action\",\"_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-browser-action\",\"giantpinkrobots_protonmail_com-browser-action\",\"canvasblocker_kkapsner_de-browser-action\",\"_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\",\"unified-extensions-area\"],\"currentVersion\":21,\"newElementCount\":5}");
+user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[\"_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action\",\"sponsorblocker_ajay_app-browser-action\",\"newtaboverride_agenedia_com-browser-action\",\"side-view_mozilla_org-browser-action\",\"_84c8edb0-65ca-43a5-bc53-0e80f41486e1_-browser-action\",\"addon_fastforward_team-browser-action\",\"extension_one-tab_com-browser-action\",\"_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-browser-action\",\"giantpinkrobots_protonmail_com-browser-action\",\"canvasblocker_kkapsner_de-browser-action\"],\"nav-bar\":[\"back-button\",\"stop-reload-button\",\"vertical-spacer\",\"forward-button\",\"urlbar-container\",\"save-to-pocket-button\",\"downloads-button\",\"fxa-toolbar-menu-button\",\"unified-extensions-button\",\"bukubrow_samhh_com-browser-action\",\"addon_darkreader_org-browser-action\",\"78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"alltabs-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"side-view_mozilla_org-browser-action\",\"_84c8edb0-65ca-43a5-bc53-0e80f41486e1_-browser-action\",\"78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action\",\"addon_darkreader_org-browser-action\",\"addon_fastforward_team-browser-action\",\"extension_one-tab_com-browser-action\",\"newtaboverride_agenedia_com-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"sponsorblocker_ajay_app-browser-action\",\"_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-browser-action\",\"giantpinkrobots_protonmail_com-browser-action\",\"canvasblocker_kkapsner_de-browser-action\",\"_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action\",\"bukubrow_samhh_com-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\",\"unified-extensions-area\"],\"currentVersion\":21,\"newElementCount\":7}");
 user_pref("devtools.chrome.enabled", false);
 user_pref("devtools.debugger.remote-enabled", false);
 
@@ -255,7 +252,7 @@ user_pref("browser.warnOnQuitShortcut", false);
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
-user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
+user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", false);
 user_pref("network.cookie.cookieBehavior.optInPartitioning", true);
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
 user_pref("privacy.annotate_channels.strict_list.enabled", true);

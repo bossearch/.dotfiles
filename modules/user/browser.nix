@@ -115,6 +115,7 @@
         force = true;
       };
       extensions = with pkgs.firefox-addons; [
+        bukubrow
         darkreader
         new-tab-override
         onetab
