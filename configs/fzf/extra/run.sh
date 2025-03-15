@@ -14,7 +14,9 @@ selected=$(echo "$executables" | fzf -m --layout=default --border=none --highlig
 while IFS= read -r command; do
   if [ -n "$command" ]; then
     # Run the selected command
-    echo "$command" | xargs -r -I {} bash -c 'nohup {} >/dev/null 2>&1 & disown'
+
+    setsid bash -c "$command" >/dev/null 2>&1 & disown
+    # echo "$command" | xargs -r -I {} bash -c 'nohup {} >/dev/null 2>&1 & disown'
   fi
 done <<< "$selected"
 

@@ -10,7 +10,7 @@
 }: let
   # Replace with the actual UUIDs from `lsblk -f`
   USB_PARTITION_UUID = "DA30-0796";
-  LUKS_UUID = "4bcef0a9-85cf-4180-a86a-951c5050bc32";
+  LUKS_UUID = "7171bf80-5c07-4f3c-ae14-69430f337d90";
   KEYFILE_PATH = "/key/pc.key";
 in {
   imports = [
@@ -34,7 +34,6 @@ in {
   boot.initrd.kernelModules = ["dm-snapshot"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-
   boot.initrd.postDeviceCommands = pkgs.lib.mkBefore ''
     mkdir -m 0755 -p /key
     sleep 2 # Give the USB device time to initialize
@@ -52,23 +51,23 @@ in {
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/63860bad-2599-4624-9bbb-2952170418ba";
+    device = "/dev/disk/by-uuid/90e22273-8eca-49d7-ac10-92c1097f50de";
     fsType = "ext4";
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/bd69ca6c-793c-4397-a34c-105289f74f87";
+    device = "/dev/disk/by-uuid/586e3680-ea77-4c34-bb74-835710b2f6cf";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D3B7-EB68";
+    device = "/dev/disk/by-uuid/A51E-A6C8";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/2c158939-a36e-4fda-9b4d-98bd1ccf0416";}
+    {device = "/dev/disk/by-uuid/dcbe2c96-799f-406f-b8a3-a28b0c18ff65";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
