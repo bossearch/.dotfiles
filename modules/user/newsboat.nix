@@ -6,68 +6,97 @@
       {
         title = "r/linux";
         tags = ["Reddit" "Interest"];
-        url = "https://www.reddit.com/r/linux.rss !";
+        url = "https://reddit.com/r/linux.rss !";
       }
       {
         title = "r/unixporn";
         tags = ["Reddit" "Interest"];
-        url = "https://www.reddit.com/r/unixporn.rss !";
+        url = "https://reddit.com/r/unixporn.rss !";
       }
       {
         title = "r/neovim";
         tags = ["Reddit" "Interest"];
-        url = "https://www.reddit.com/r/neovim.rss !";
+        url = "https://reddit.com/r/neovim.rss !";
       }
       {
         title = "r/NixOS";
         tags = ["Reddit" "Interest"];
-        url = "https://www.reddit.com/r/NixOS.rss !";
+        url = "https://reddit.com/r/NixOS.rss !";
       }
       {
         title = "r/gaming";
         tags = ["Reddit" "Games"];
-        url = "https://www.reddit.com/r/gaming.rss !";
+        url = "https://reddit.com/r/gaming.rss !";
       }
       {
         title = "r/DotA2";
         tags = ["Reddit" "Games"];
-        url = "https://www.reddit.com/r/DotA2.rss !";
+        url = "https://reddit.com/r/DotA2.rss !";
       }
       {
         title = "r/Minecraft";
         tags = ["Reddit" "Games"];
-        url = "https://www.reddit.com/r/Minecraft.rss !";
+        url = "https://reddit.com/r/Minecraft.rss !";
       }
       {
         title = "r/MinecraftMemes";
         tags = ["Reddit" "Memes"];
-        url = "https://www.reddit.com/r/MinecraftMemes.rss !";
+        url = "https://reddit.com/r/MinecraftMemes.rss !";
       }
       {
         title = "r/indonesia";
         tags = ["Reddit" "Local"];
-        url = "https://www.reddit.com/r/indonesia.rss !";
+        url = "https://reddit.com/r/indonesia.rss !";
+      }
+      {
+        title = "NixOS/nixpkgs";
+        tags = ["GitHub"];
+        url = "https://github.com/NixOS/nixpkgs/commits/master.atom !";
+      }
+      {
+        title = "DistroTube";
+        tags = ["YouTube"];
+        url = "https://youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg !";
+      }
+      {
+        title = "BrodieRobertson";
+        tags = ["YouTube"];
+        url = "https://youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA !";
+      }
+      {
+        title = "LukeSmith";
+        tags = ["YouTube"];
+        url = "https://youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA !";
+      }
+      {
+        title = "JagatReview";
+        tags = ["YouTube"];
+        url = "https://youtube.com/feeds/videos.xml?channel_id=UCbyVnlQdFIcdViuoPIPK68A !";
       }
     ];
     queries = {
       Reddit = "tags =~ \"Reddit\"";
+      YouTube = "tags =~ \"YouTube\"";
+      GitHub = "tags =~ \"GitHub\"";
       Interest = "tags =~ \"Interest\"";
       Games = "tags =~ \"Games\"";
       Memes = "tags =~ \"Memes\"";
       Local = "tags =~ \"Local\"";
     };
     extraConfig = ''
-      macro i set browser "~/.config/newsboat/preview.sh %u"
+      macro f set browser "${pkgs.firefox}/bin/firefox %u"
+      macro p set browser "${pkgs.firefox}/bin/firefox --private-window %u"
+      macro m set browser "${pkgs.mpv}/bin/mpv --player-operation-mode=pseudo-gui --input-ipc-server=/tmp/mpv-socket %u"
       show-title-bar no
       refresh-on-startup yes
       prepopulate-query-feeds yes
 
       ignore-mode "display"
       ignore-article "*" "age > 7"
-      ignore-article "https://www.reddit.com/r/unixporn.rss" \
-        "title !~ \"OC\" and \
-        title !~ \"Hyprland\" and \
-        title !~ \"Awesome\""
+      ignore-article "https://reddit.com/r/unixporn.rss" \
+        "title !# \"[OC]\" and \
+        title !# \"[Hyprland]\" and \
+        title !# \"[Awesome]\""
 
       bind-key ESC quit
       bind-key h quit
@@ -77,6 +106,7 @@
       bind-key H prev-feed
       bind-key L next-feed
       bind-key o open-in-browser-and-mark-read
+      bind-key ; macro-prefix
 
       color listnormal         color15 default
       color listnormal_unread  color2  default
