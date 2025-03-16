@@ -206,7 +206,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
-
+user_pref("webgl.disabled", true);
 // trim url
 user_pref("browser.urlbar.trimURLs", true);
 // disable new sidebar
@@ -232,6 +232,7 @@ user_pref("devtools.debugger.remote-enabled", false);
 
 user_pref("browser.engagement.home-button.has-removed", true);
 user_pref("browser.engagement.home-button.has-used", true);
+user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);

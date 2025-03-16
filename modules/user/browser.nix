@@ -116,14 +116,15 @@
       };
       extensions = with pkgs.firefox-addons; [
         bukubrow
+        cookie-autodelete
         darkreader
         new-tab-override
         onetab
         proton-pass
         side-view
         sponsorblock
+        tweaks-for-youtube
         ublock-origin
-        video-downloadhelper
         vimium
       ];
     };
@@ -131,6 +132,9 @@
 
   home.file.".mozilla/firefox/bosse/user.js" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/user.js";
+  };
+  home.file.".mozilla/firefox/bosse/extension-settings.json" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/extension-settings.json";
   };
   home.file.".mozilla/firefox/bosse/chrome" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/chrome";

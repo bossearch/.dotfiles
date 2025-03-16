@@ -1,0 +1,92 @@
+{
+  "default": [
+    {
+      "expression": "_Default:WHITE",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "4onrbRAJf"
+    },
+    {
+      "expression": "*.duckduckgo.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "7qcD4IVCC"
+    },
+    {
+      "expression": "*.github.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "sw2rK8WIY"
+    },
+    {
+      "expression": "*.gitlab.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "oSh3aFKk5"
+    },
+    {
+      "expression": "*.proton.me",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "v7yJciui5"
+    },
+    {
+      "expression": "*.reddit.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "myuYD6O6a"
+    },
+    {
+      "expression": "*.twitch.tv",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "V95SAH8BI"
+    },
+    {
+      "expression": "*.youtube.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "E0U805aHI"
+    },
+    {
+      "expression": "bossearch.github.io",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "5Olsp2Mi-"
+    },
+    {
+      "expression": "mail.google.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "OAtdS4JqN"
+    },
+    {
+      "expression": "_Default:GREY",
+      "listType": "GREY",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "xf3enqZrL"
+    }
+  ]
+}
