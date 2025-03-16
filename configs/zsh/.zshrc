@@ -83,6 +83,9 @@ bindkey -v
 bindkey "^?" backward-delete-char
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey '^V' edit-command-line
 
 export KEYTIMEOUT=1
 ## Vi mode cursor indicator
