@@ -7,7 +7,6 @@
 }: let
   bat_cache= "${config.home.homeDirectory}/.cache/bat";
   tealdeer_cache = "${config.home.homeDirectory}/.cache/tealdeer";
-  bukubrow_file = "${config.home.homeDirectory}/.mozilla/native-messaging-hosts/com.samhh.bukubrow.json";
 in {
   home.packages = with pkgs; [
     bat
@@ -89,13 +88,6 @@ in {
   home.activation.updatetldr = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -d "${tealdeer_cache}" ];  then
       ${pkgs.tealdeer}/bin/tldr --update
-    fi
-  '';
-
-  home.activation.bukubrow = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    if [ ! -f "${bukubrow_file}" ];  then
-      ${pkgs.buku}/bin/buku -k
-      ${pkgs.bukubrow}/bin/bukubrow --install-firefox
     fi
   '';
 }

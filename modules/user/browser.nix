@@ -128,6 +128,7 @@
         vimium
       ];
     };
+    nativeMessagingHosts = [ pkgs.bukubrow ];
   };
 
   home.file.".mozilla/firefox/bosse/user.js" = {
@@ -135,6 +136,7 @@
   };
   home.file.".mozilla/firefox/bosse/extension-settings.json" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/extension-settings.json";
+    force = true;
   };
   home.file.".mozilla/firefox/bosse/chrome" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/firefox/chrome";
