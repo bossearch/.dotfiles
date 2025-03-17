@@ -261,6 +261,8 @@
     "on-click": "pavucontrol",
     "on-click-right": "~/.config/waybar/scripts/utility/cycle-output.sh",
     "on-click-middle": "~/.config/waybar/scripts/utility/toggle-mic.sh",
+    "scroll-step": 5,
+    "smooth-scrolling-threshold": 2,
     "tooltip": false,
     "signal": 13,
   },
