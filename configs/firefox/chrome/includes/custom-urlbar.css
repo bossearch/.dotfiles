@@ -1,132 +1,61 @@
-@media not (-moz-bool-pref: "userchrome.custom-urlbar-alt") {
-  /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_main_toolbar.css made available under Mozilla Public License v. 2.0
-  See the above repository for updates as well as full license text. */
+/* work but you need to hover on correct place which is on urlbar box area */
+:root {
+  --uc-toolbox-height: 43px;
+  --uc-browser-height: -26px;
+}
+:root[uidensity="compact"]{
+  --uc-toolbox-height: 38px;
+  --uc-browser-height: -23px;
+}
 
-  /* This style hides the main toolbar and shows it when the cursor is over the tabs toolbar as well as whenever the focus is inside nav-bar, such as when urlbar is focused. */
+#urlbar{
+  margin-top: -100px !important;
+}
 
-  :root {
-    --uc-navbar-transform: -40px;
-    --uc-autohide-toolbar-delay: 100ms;
-    --uc-autohide-toolbar-duration: 200ms;
-  }
-  :root[uidensity="compact"]{ --uc-navbar-transform: -34px }
+#navigator-toolbox {
+  transition: margin-top 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  margin-top: calc(-1 * var(--uc-toolbox-height));
+  opacity: 0;
+}
 
-  #navigator-toolbox > div {
-    display: contents;
-  }
-  :root[sessionrestored]
-    :where(
-      #nav-bar,
-      #PersonalToolbar,
-      #tab-notification-deck,
-      .global-notificationbox
-    ) {
-    transform: translateY(var(--uc-navbar-transform));
-  }
-  :root:is([customizing], [chromehidden*="toolbar"])
-    :where(
-      #nav-bar,
-      #PersonalToolbar,
-      #tab-notification-deck,
-      .global-notificationbox
-    ) {
-    transform: none !important;
-    opacity: 1 !important;
-  }
+/* Shift the web content up when the toolbox is hidden */
+#browser {
+  transition: margin-top 0.2s ease-in-out;
+  margin-top: var(--uc-browser-height);
+  margin-bottom: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-  #nav-bar:not([customizing]) {
-    opacity: 0;
-    transition:
-      transform var(--uc-autohide-toolbar-duration) ease
-        var(--uc-autohide-toolbar-delay),
-      opacity var(--uc-autohide-toolbar-duration) ease
-        var(--uc-autohide-toolbar-delay) !important;
-    position: relative;
-    z-index: 2;
-  }
-  #titlebar {
-    position: relative;
-    z-index: 3;
-  }
+/* Show toolbars when hovered or focused */
+#navigator-toolbox:hover,
+#navigator-toolbox:focus-within {
+  margin-top: 0 !important;
+  opacity: 1 !important;
+  transition: margin-top 0.2s ease-in-out;
+}
+#navigator-toolbox:hover #urlbar,
+#navigator-toolbox:focus-within #urlbar,
+#nav-bar:hover #urlbar,
+#nav-bar:focus-within #urlbar {
+  margin-top: 0 !important;
+  transition: margin-top 0.1s ease-in-out;
+}
 
-  #navigator-toolbox,
-  #sidebar-box,
-  #sidebar-main,
-  #sidebar-splitter,
-  #tabbrowser-tabbox {
-    z-index: auto !important;
-  }
-  /* Show when toolbox is focused, like when urlbar has received focus */
-  #navigator-toolbox:focus-within > .browser-toolbar {
-    transform: translateY(0);
-    opacity: 1;
-    transition-duration: var(--uc-autohide-toolbar-duration),
-      var(--uc-autohide-toolbar-duration) !important;
-    transition-delay: 0s !important;
-  }
-  /* Show when toolbox is hovered */
-  #titlebar:hover ~ .browser-toolbar,
-  .browser-titlebar:hover ~ :is(#nav-bar, #PersonalToolbar),
-  #nav-bar:hover,
-  #nav-bar:hover + #PersonalToolbar {
-    transform: translateY(0);
-    opacity: 1;
-    transition-duration: var(--uc-autohide-toolbar-duration),
-      var(--uc-autohide-toolbar-duration) !important;
-    transition-delay: 0s !important;
-  }
+#navigator-toolbox:hover ~ #browser,
+#navigator-toolbox:focus-within ~ #browser,
+#navigator-toolbox:hover #urlbar ~ #browser,
+#navigator-toolbox:focus-within #urlbar ~ #browser,
+#nav-bar:hover #urlbar ~ #browser,
+#nav-bar:focus-within #urlbar ~ #browser {
+  margin-top: 0 !important;
+}
 
-  :root[sessionrestored] #urlbar[popover] {
-    opacity: 0;
-    pointer-events: none;
-    transition:
-      transform var(--uc-autohide-toolbar-duration) ease
-        var(--uc-autohide-toolbar-delay),
-      opacity var(--uc-autohide-toolbar-duration) ease
-        var(--uc-autohide-toolbar-delay);
-    transform: translateY(var(--uc-navbar-transform));
-  }
-  #mainPopupSet:has(> [role="group"][panelopen]) ~ toolbox #urlbar[popover],
-  .browser-titlebar:is(:hover, :focus-within) ~ #nav-bar #urlbar[popover],
-  #nav-bar:is(:hover, :focus-within) #urlbar[popover],
-  #urlbar-container > #urlbar[popover]:is([focused], [open]) {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0ms;
-    transform: translateY(0);
-  }
-  #urlbar-container > #urlbar[popover]:is([focused], [open]) {
-    transition-duration: 100ms; /* Faster when focused */
-  }
-  /* This ruleset is separate, because not having :has support breaks other selectors as well */
-  #mainPopupSet:has(> [role="group"][panelopen])
-    ~ #navigator-toolbox
-    > .browser-toolbar {
-    transition-delay: 33ms !important;
-    transform: translateY(0);
-    opacity: 1;
-  }
-  /* If tabs are in sidebar then nav-bar doesn't normally have its own background - so we nee to add it back */
-  #nav-bar.browser-titlebar {
-    background: inherit;
-  }
-  #toolbar-menubar:not([autohide="true"]) ~ #nav-bar.browser-titlebar {
-    background-position-y: -28px; /* best guess, could vary */
-    border-top: none !important;
-  }
-
-  /* Bookmarks toolbar needs so extra rules */
-  #PersonalToolbar {
-    transition: transform var(--uc-autohide-toolbar-duration) ease
-      var(--uc-autohide-toolbar-delay) !important;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Move up the content view */
-  :root[sessionrestored]:not([inFullscreen], [chromehidden~="toolbar"])
-    > body
-    > #browser {
-    margin-top: var(--uc-navbar-transform);
-  }
+/* Ensure everything is visible while customizing */
+:root[customizing] #navigator-toolbox,
+:root[customizing] #urlbar {
+  margin-top: 0 !important;
+  opacity: 1 !important;
 }

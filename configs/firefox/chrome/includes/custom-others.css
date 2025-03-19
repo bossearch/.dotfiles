@@ -15,11 +15,13 @@ See the above repository for updates as well as full license text. */
 #sidebar-header::before{
   visibility: visible;
   content: "";
-  margin-top: -27px;
-  margin-inline-start: -8px;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 20px;
   height: 20px;
-  background: linear-gradient(to top left, transparent 0%, transparent 50%, #27a1b9 50%, #27a1b9 100%);
+  background: #27a1b9; /* Cyan color */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 }
 #sidebar-switcher-target.active{
   pointer-events: none;

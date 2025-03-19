@@ -206,6 +206,10 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
+
+// move sidebar to the right
+user_pref("sidebar.position_start", false);
+// disable webgl
 user_pref("webgl.disabled", true);
 // trim url
 user_pref("browser.urlbar.trimURLs", true);
