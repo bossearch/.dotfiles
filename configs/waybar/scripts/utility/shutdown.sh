@@ -7,7 +7,7 @@ zenity --question \
   --icon-name=system-shutdown
 
 if [ $? -eq 0 ]; then
-  umount -R /media
+  sleep 1
   ddcutil setvcp D6 05
   systemctl --quiet --no-warn poweroff
 #else
