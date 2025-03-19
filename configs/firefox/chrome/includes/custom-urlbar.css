@@ -9,13 +9,48 @@
 }
 
 #urlbar{
-  margin-top: -100px !important;
+  margin-top: -100px;
 }
 
 #navigator-toolbox {
   transition: margin-top 0.2s ease-in-out, opacity 0.2s ease-in-out;
   margin-top: calc(-1 * var(--uc-toolbox-height));
   opacity: 0;
+}
+
+/* Prevent only navigator-toolbox hidden when moving tabs sadly not work on multiple windows */
+#navigator-toolbox:not(:hover):not(:focus-within):has(#tabbrowser-tabs[movingtab]) {
+  margin-top: 0 !important;
+  transition: margin-top 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  opacity: 1 !important;
+}
+#navigator-toolbox:not(:hover):not(:focus-within):has(#tabbrowser-tabs[movingtab]) #nav-bar,
+#navigator-toolbox:not(:hover):not(:focus-within):has(#tabbrowser-tabs[movingtab]) #urlbar {
+  opacity: 0 !important;
+}
+
+/* Prevent toolbox from showing when opening a new tab */
+#navigator-toolbox:hover:has(#urlbar:focus-within),
+#navigator-toolbox:focus-within:has(#urlbar:focus-within) {
+/*#navigator-toolbox:has(#urlbar:focus-within) {*/
+  margin-top: calc(-1 * var(--uc-toolbox-height)) !important;
+  opacity: 0 !important;
+}
+
+/* Show toolbars when hovered or focused */
+#navigator-toolbox:hover,
+#navigator-toolbox:focus-within {
+  margin-top: 0 !important;
+  opacity: 1 !important;
+}
+
+/* show url bar when hovering or focus on navigator-toolbox and nav-bar*/
+#navigator-toolbox:hover #urlbar,
+#navigator-toolbox:focus-within #urlbar,
+#nav-bar:hover #urlbar,
+#nav-bar:focus-within #urlbar {
+  margin-top: 0 !important;
+  transition: margin-top 0.1s ease-in-out;
 }
 
 /* Shift the web content up when the toolbox is hidden */
@@ -27,21 +62,6 @@
   margin-right: 8px;
   border-radius: 8px;
   overflow: hidden;
-}
-
-/* Show toolbars when hovered or focused */
-#navigator-toolbox:hover,
-#navigator-toolbox:focus-within {
-  margin-top: 0 !important;
-  opacity: 1 !important;
-  transition: margin-top 0.2s ease-in-out;
-}
-#navigator-toolbox:hover #urlbar,
-#navigator-toolbox:focus-within #urlbar,
-#nav-bar:hover #urlbar,
-#nav-bar:focus-within #urlbar {
-  margin-top: 0 !important;
-  transition: margin-top 0.1s ease-in-out;
 }
 
 #navigator-toolbox:hover ~ #browser,
