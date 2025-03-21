@@ -53,12 +53,12 @@
     # context                 # user@host
     dir                       # current directory
     vcs                       # git status
+    nix_dev_shell_name
+    in_direnv
     # command_execution_time  # previous command duration
     # =========================[ Line #2 ]=========================
     newline                   # \n
     # virtualenv              # python virtual environment
-    nix_dev_shell_name
-    in_direnv
     prompt_char               # prompt symbol
   )
 
