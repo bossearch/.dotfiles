@@ -12,7 +12,6 @@ in {
     bat
     bc
     buku
-    bukubrow
     btop-rocm
     curl
     eza
