@@ -13,7 +13,7 @@ DOTFILES=~/.dotfiles
 
 # Clone dotfiles if the directory does not exist
 if [ ! -d "$DOTFILES" ]; then
-    nix-shell -p git --command "git clone https://github.com/bossearch/.dotfiles $DOTFILES"
+    nix-shell -p git --command "git clone --branch=nixos --single-branch --depth 1 https://github.com/bossearch/.dotfiles $DOTFILES"
 else
     echo "Dotfiles directory already exists. Skipping clone."
 fi
