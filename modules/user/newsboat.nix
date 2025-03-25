@@ -5,22 +5,22 @@
     urls = [
       {
         title = "r/linux";
-        tags = ["Reddit" "Interest"];
+        tags = ["Reddit" "Linux"];
         url = "https://reddit.com/r/linux.rss !";
       }
       {
         title = "r/unixporn";
-        tags = ["Reddit" "Interest"];
+        tags = ["Reddit" "Linux"];
         url = "https://reddit.com/r/unixporn.rss !";
       }
       {
         title = "r/neovim";
-        tags = ["Reddit" "Interest"];
+        tags = ["Reddit"];
         url = "https://reddit.com/r/neovim.rss !";
       }
       {
         title = "r/NixOS";
-        tags = ["Reddit" "Interest"];
+        tags = ["Reddit" "Linux"];
         url = "https://reddit.com/r/NixOS.rss !";
       }
       {
@@ -73,15 +73,22 @@
         tags = ["YouTube"];
         url = "https://youtube.com/feeds/videos.xml?channel_id=UCbyVnlQdFIcdViuoPIPK68A !";
       }
+      {
+        title = "DistroWatch";
+        tags = ["Linux" "News"];
+        url = "https://distrowatch.com/news/dw.xml !";
+      }
+
     ];
     queries = {
       Reddit = "tags =~ \"Reddit\"";
       YouTube = "tags =~ \"YouTube\"";
       GitHub = "tags =~ \"GitHub\"";
-      Interest = "tags =~ \"Interest\"";
+      Linux = "tags =~ \"Linux\"";
       Games = "tags =~ \"Games\"";
       Memes = "tags =~ \"Memes\"";
       Local = "tags =~ \"Local\"";
+      News = "tags =~ \"News\"";
     };
     extraConfig = ''
       macro f set browser "${pkgs.firefox}/bin/firefox %u"
