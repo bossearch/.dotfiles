@@ -9,6 +9,30 @@ HOSTNAME=$(hostname)
 # cd to your config dir
 pushd ~/.dotfiles >/dev/null
 
+man="\
+rebuild --<\e[1;33moperations\e[0m> --\e[1;31mforce\e[0m = nixos-rebuild <\e[1;33moperations\e[0m> --flake .#$HOSTNAME
+
+\e[1;33mswitch\e[0m  Build and activate the new configuration, and make it the boot default.
+
+\e[1;33mboot\e[0m    Build the new configuration and make it the boot default (as with nixos-rebuild switch),
+        but do not activate it. That is, the system continues to run the previous configuration until the next reboot.
+
+\e[1;33mtest\e[0m    Build and activate the new configuration, but do not add it to the GRUB boot menu.
+        Thus, if you reboot the system (or if it crashes), you will automatically revert to the default configuration
+        (i.e. the configuration resulting from the last call to nixos-rebuild switch or nixos-rebuild boot).
+
+\e[1;33mlist\e[0m    List the available generations in a similar manner to the boot loader menu. It shows the  generation number,
+        build  date and time, NixOS version, kernel version and the configuration revision.
+
+\e[1;33mupdate\e[0m  Is an alias of 'nix flake update' command updates the inputs specified in the 'flake.nix' file
+        and refreshes the 'flake.lock' file to ensure that the latest versions of dependencies are used.
+
+\e[1;33mdelete\e[0m  Is an alias of 'nix-collect-garbage --delete-old'. That is, it deletes all unreachable
+        store objects ⟨@docroot@/store/store-object.md⟩ in the Nix store to clean up your system.
+
+\e[1;31mforce\e[0m   An options for \e[1;33mswitch\e[0m, \e[1;33mboot\e[0m, and \e[1;33mtest\e[0m operations to override if there is no changes detected.
+"
+
 # Check for arguments
 if [[ "$1" == "--switch" ]]; then
   REBUILD_CMD="switch"
@@ -16,6 +40,9 @@ elif [[ "$1" == "--boot" ]]; then
   REBUILD_CMD="boot"
 elif [[ "$1" == "--test" ]]; then
   REBUILD_CMD="test"
+elif [[ "$1" == "--list" ]]; then
+  nixos-rebuild list-generations
+  exit 0
 elif [[ "$1" == "--update" ]]; then
   nix flake update
   exit 0
@@ -23,16 +50,7 @@ elif [[ "$1" == "--delete" ]]; then
   sudo nix-collect-garbage -d
   exit 0
 else
-  echo -e "rebuild -<\e[1;33moptions\e[0m> = nixos-rebuild <\e[1;33moptions\e[0m> --flake .#hostname\n"
-  echo -e "-\e[1;33mswitch\e[0m  Build and activate the new configuration, and make it the boot default.\n"
-  echo -e "-\e[1;33mboot\e[0m    Build the new configuration and make it the boot default \
-(as with nixos-rebuild switch),\n         but do not activate it. That is, the system continues \
-to run the previous configuration until the next reboot.\n"
-  echo -e "-\e[1;33mtest\e[0m    Build and activate the new configuration, but do not add it to the GRUB boot menu.\n\
-         Thus, if you reboot the system  (or if it crashes), you will automatically revert to the default configuration \n\
-         (i.e. the configuration resulting from the last call to nixos-rebuild switch or nixos-rebuild boot).\n"
-  echo -e "by default this scripts will go to my dotfile directory, which is ~/.dotfiles"
-  popd >/dev/null
+  printf "$man"
   exit 0
 fi
 
@@ -85,7 +103,7 @@ spinner() {
   local pid=$1
   local delay=0.1
   local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
-  local max_width=120
+  local max_width=$(($(tput cols) - 6))
   tput civis
 
   while ps -p $pid &>/dev/null; do

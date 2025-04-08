@@ -89,6 +89,7 @@ exclude_apps=(
 custom_apps=(
   "Alacritty:alacritty"
   "com.mitchellh.ghostty:ghostty"
+  "LocalSend:localsend"
   "io.github.mpobaschnig.Vaults:vaults"
   "io.github.giantpinkrobots.varia:varia"
   "org.cryptomator.Cryptomator:cryptomator"

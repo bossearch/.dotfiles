@@ -9,15 +9,30 @@ USERNAME=$(whoami)
 # Change to config directory
 pushd ~/.dotfiles >/dev/null
 
+man="\
+hm --<\e[1;33moperations\e[0m> = home-manager <\e[1;33moperations\e[0m> --flake .#$HOSTNAME@$USERNAME
+
+\e[1;33mswitch\e[0m  Build and activate the new home-manager configuration.
+
+\e[1;33mnews\e[0m    Show news entries in a pager.
+
+\e[1;33mlist\e[0m    List the available home-manager generations. It shows the  generation number,
+        build  date and time, NixOS version, kernel version and the configuration revision.
+
+\e[1;33mdelete\e[0m  Remove generations that are older than a specified timestamp. The timestamp should be interpreted
+        as a duration, with the default being one day.
+"
+
 # Default OPTIONS (Prevent empty execution)
 OPTIONS=""
 
 # Check for arguments
 case "$1" in
   "--switch") OPTIONS="switch --flake ." ;;
-  "--delete") OPTIONS="expire-generations -d" ;;
+  "--news") OPTIONS="news --flake ." ;;
   "--list") home-manager generations; exit 0 ;;
-  *) echo -e "\e[31mError:\e[0m Invalid option"; exit 1 ;;
+  "--delete") OPTIONS="expire-generations -d" ;;
+  *) printf "$man"; exit 0 ;;
 esac
 
 # Stage all changes
@@ -42,7 +57,7 @@ spinner() {
   local pid=$1
   local delay=0.1
   local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
-  local max_width=120
+  local max_width=$(($(tput cols) - 6))
   tput civis
 
   while ps -p $pid &>/dev/null; do
