@@ -41,11 +41,13 @@ in {
   services.udev = {
     enable = true;
     packages = [ pkgs-unstable.qmk-udev-rules ];
+    # mouse, keyboard, hub, monitor hub.
     extraRules = ''
       ACTION=="add", SUBSYSTEM=="usb", ENV{DEVNAME}!="", \
       ENV{ID_VENDOR_ID}!="1b1c", ENV{ID_MODEL_ID}!="1b3e", \
       ENV{ID_VENDOR_ID}!="4653", ENV{ID_MODEL_ID}!="0001", \
       ENV{ID_VENDOR_ID}!="2109", ENV{ID_MODEL_ID}!="2815", \
+      ENV{ID_VENDOR_ID}!="05e3", ENV{ID_MODEL_ID}!="0610", \
       RUN+="${automatedusbguard} $env{DEVNAME}"
     '';
   };
