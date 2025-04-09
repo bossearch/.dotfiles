@@ -110,7 +110,8 @@
 
   "tray": {
     "icon-size": 14,
-    "spacing": 8
+    "spacing": 8,
+    "reverse-direction": true,
   },
 
   "privacy": {
@@ -287,11 +288,11 @@
   },
 
   "custom/weather": {
-    "format": "{}",
-    "tooltip": true,
-    "interval": 3600,
-    "exec": "wttrbar  --location samarinda --custom-indicator '{ICON} {FeelsLikeC}°'",
-    "return-type": "json"
+      "format": "{}",
+      "tooltip": true,
+      "interval": 3600,
+      "exec": "~/.config/waybar/scripts/utility/wttr.py",
+      "return-type": "json"
   },
 
   "custom/virtualkeyboard": {

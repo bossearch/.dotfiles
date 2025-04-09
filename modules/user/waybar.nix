@@ -15,7 +15,6 @@
       tesseract
       waybar
       wl-screenrec
-      wttrbar
     ]
     ++ [(pkgs.callPackage ./../custompkgs/sysboard.nix {})];
 
