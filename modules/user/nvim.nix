@@ -16,7 +16,7 @@
     # c & cpp
     libclang
     # python
-    python39
+    (python39.withPackages (ps: with ps; [ requests ]))
   ];
 
   programs.neovim = {
