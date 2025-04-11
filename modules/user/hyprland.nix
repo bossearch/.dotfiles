@@ -52,16 +52,19 @@
     '';
   };
 
-  home.packages = with pkgs; [
-    cliphist
-    hypridle
-    hyprlock
-    hyprpaper
-    hyprpicker
-    hyprsunset
-    wl-clipboard
-    zenity
-  ];
+  home.packages = with pkgs;
+    [
+      cliphist
+      hypridle
+      hyprlock
+      hyprpaper
+      hyprpicker
+      hyprsunset
+      localsend
+      wev
+      wl-clipboard
+      zenity
+    ];
 
   services.hypridle.enable = true;
 
