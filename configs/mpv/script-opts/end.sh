@@ -9,9 +9,9 @@ if [[ ! -e "$MPV_SOCKET" ]]; then
   exit 1
 fi
 
-#echo '{ "command": ["script-message", "playlist-view-toggle"] }' | ncat -U /tmp/mpv-socket
+#echo '{ "command": ["script-message", "playlist-view-toggle"] }' | socat - UNIX-CONNECT:"$MPV_SOCKET"
 # Seek to the last second of the video
-echo '{ "command": ["seek", "99999", "absolute"] }' | ncat -U "$MPV_SOCKET"
+echo '{ "command": ["seek", "99999", "absolute"] }' | socat - UNIX-CONNECT:"$MPV_SOCKET"
 
 # Resume playback if paused
-echo '{ "command": ["set_property", "pause", false] }' | ncat -U "$MPV_SOCKET"
+echo '{ "command": ["set_property", "pause", false] }' | socat - UNIX-CONNECT:"$MPV_SOCKET"
