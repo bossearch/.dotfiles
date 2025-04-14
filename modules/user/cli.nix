@@ -74,6 +74,10 @@ in {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/btop/btop.conf";
   };
 
+  home.file.".config/btop/themes" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/btop/themes";
+  };
+
   home.file.".config/uair/uair.toml" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/uair/uair.toml";
   };
