@@ -60,8 +60,8 @@ in {
     recursive = true;
   };
 
-  home.file.".config/bat" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/bat";
+  home.file.".config/bat/themes" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/bat/themes/";
     recursive = true;
   };
 
