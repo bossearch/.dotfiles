@@ -30,14 +30,12 @@
 }
 
 /* Prevent toolbox from showing when opening a new tab */
-#navigator-toolbox:hover:has(#urlbar:focus-within),
-#navigator-toolbox:focus-within:has(#urlbar:focus-within) {
 /*#navigator-toolbox:has(#urlbar:focus-within) {*/
-  margin-top: calc(-1 * var(--uc-toolbox-height)) !important;
-  opacity: 0 !important;
-}
+/*  margin-top: calc(-1 * var(--uc-toolbox-height)) !important;*/
+/*  opacity: 0 !important;*/
+/*}*/
 
-/* Show toolbars when hovered or focused */
+/* Show toolbox when hovered or focused */
 #navigator-toolbox:hover,
 #navigator-toolbox:focus-within {
   margin-top: 0 !important;
@@ -66,8 +64,6 @@
 
 #navigator-toolbox:hover ~ #browser,
 #navigator-toolbox:focus-within ~ #browser,
-#navigator-toolbox:hover #urlbar ~ #browser,
-#navigator-toolbox:focus-within #urlbar ~ #browser,
 #nav-bar:hover #urlbar ~ #browser,
 #nav-bar:focus-within #urlbar ~ #browser {
   margin-top: 0 !important;
