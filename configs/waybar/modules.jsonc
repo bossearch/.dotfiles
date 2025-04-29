@@ -56,6 +56,7 @@
       "custom/ddcutil",
       "custom/hyprsunset",
       "pulseaudio",
+      "custom/mic",
       "network"
     ]
   },
@@ -250,22 +251,35 @@
   },
 
   "pulseaudio": {
-    "format": "{icon} {volume}% {format_source}",
-    "format-muted": "  {format_source}",
-    "format-source": "",
-    "format-source-muted": " ",
+    "format": "{icon}{volume}%",
     "max-volume": 150,
     "format-icons": {
-      "alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo": "󰋍",
-      "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra3": ["", "", " "]
+      "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra3": [" ", " ", "  "],
+      "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra3-muted": "  ",
+      "alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo": "󰋋 ",
+      "alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo-muted": "󰟎 ",
+      "bluez_output.00_A4_1C_F9_15_84.1": "󰂰 ",
+      "bluez_output.00_A4_1C_F9_15_84.1-muted": "󰂲 "
     },
     "on-click": "pavucontrol",
-    "on-click-right": "~/.config/waybar/scripts/utility/cycle-output.sh",
-    "on-click-middle": "~/.config/waybar/scripts/utility/toggle-mic.sh",
+    "on-click-right": "~/.config/waybar/scripts/pavucontrol/cycle-output.sh",
+    "on-click-middle": "~/.config/waybar/scripts/pavucontrol/toggle-output.sh",
     "scroll-step": 5,
     "smooth-scrolling-threshold": 2,
     "tooltip": false,
     "signal": 13,
+  },
+
+  "custom/mic": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/pavucontrol/mic-status.sh",
+    "on-click": "pavucontrol",
+    "on-click-right": "~/.config/waybar/scripts/pavucontrol/cycle-input.sh",
+    "on-click-middle": "~/.config/waybar/scripts/pavucontrol/toggle-input.sh",
+    "return-type": "json",
+    "interval": 10,
+    "signal": 14,
+    "tooltip": false
   },
 
   "battery": {
