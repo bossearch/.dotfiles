@@ -13,6 +13,17 @@
       [80 443 53317] # HTTP, HTTPS, Localsend
       (lib.mkIf (config.networking.hostName == "vm") [22]) # Add SSH (22) for "vm"
     ];
+    # kdeconnect
+    allowedTCPPortRanges = [
+      {
+        from = 1714; to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 1714; to = 1764;
+      }
+    ];
     # SSH with rate limiting (equivalent to iptables rules)
     extraCommands = lib.mkMerge [
       ''
