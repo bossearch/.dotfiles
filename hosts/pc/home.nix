@@ -14,6 +14,7 @@
     ./../../modules/user/cli.nix
     ./../../modules/user/git.nix
     ./../../modules/user/hyprland.nix
+    ./../../modules/user/kdeconnect.nix
     ./../../modules/user/minecraft.nix
     ./../../modules/user/mpv.nix
     ./../../modules/user/nautilus.nix
