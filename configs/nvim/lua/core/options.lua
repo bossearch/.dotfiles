@@ -2,9 +2,6 @@
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
--- only set clipboard if not in ssh, to make sure the OSC 52
--- integration works automatically. Requires Neovim >= 0.10.0
-opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 2                                    -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true                                      -- Confirm to save changes before exiting modified buffer
@@ -61,3 +58,19 @@ opt.smoothscroll = true
 opt.swapfile = false
 
 vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
+
+if vim.env.SSH_CONNECTION then
+  vim.g.clipboard = {
+    name = 'OSC52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy,
+      ['*'] = require('vim.ui.clipboard.osc52').copy,
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste,
+      ['*'] = require('vim.ui.clipboard.osc52').paste,
+    },
+  }
+else
+  vim.o.clipboard = 'unnamedplus'
+end
