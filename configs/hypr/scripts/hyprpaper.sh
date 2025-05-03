@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 
-WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+pushd ~/Pictures/gowall >/dev/null || exit
 
-WALLPAPER=$(find -L "$WALLPAPER_DIR" -type f | shuf -n 1)
+DATE=$(date +%Y%m%d)
+TODAY_WALL="/home/bosse/Pictures/gowall/wall-${DATE}.jpeg"
+OUTPUT_WALL="/tmp/hyprpaper.png"
+THEME="tokyo-dark"
 
-ln -sf "$WALLPAPER" /tmp/hyprpaper.png
-ln -sf "$WALLPAPER" /tmp/hyprlock.png
+if [ ! -f "$TODAY_WALL" ]; then
+  yes y | gowall -w
+  mv wall-"$DATE"-*.jpeg wall-"$DATE".jpeg
+fi
+
+if [ ! -f "$OUTPUT_WALL" ]; then
+  gowall convert "$TODAY_WALL" -t "$THEME" --output "$OUTPUT_WALL"
+  cp "$OUTPUT_WALL" /tmp/hyprlock.png
+fi
+
+popd >/dev/null || exit
 
 hyprpaper

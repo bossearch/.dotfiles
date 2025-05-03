@@ -37,6 +37,7 @@ in {
     mediainfo
   ]
   ++ (with pkgs-unstable; [
+    gowall
     yazi
   ]);
 
