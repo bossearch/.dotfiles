@@ -3,7 +3,8 @@
 pushd ~/Pictures/gowall >/dev/null || exit
 
 DATE=$(date +%Y%m%d)
-TODAY_WALL="/home/bosse/Pictures/gowall/wall-${DATE}.jpeg"
+
+INPUT_WALL=$(find /home/bosse/Pictures/gowall -maxdepth 1 -type f -name "wall-${DATE}.*" -printf "%f\n" | head -n 1)
 OUTPUT_WALL="/tmp/hyprpaper.png"
 THEME="tokyo-dark"
 
@@ -22,12 +23,27 @@ if [[ "$TODAY_WALL" =~ wall-([0-9]{8})-[0-9]{6}\.([a-zA-Z0-9]+)$ ]]; then
   ext="${BASH_REMATCH[2]}"
   dir=$(dirname "$TODAY_WALL")
   RENAMED_WALL="$dir/wall-${date_part}.${ext}"
+
+  mv "$TODAY_WALL" "$RENAMED_WALL"
+fi
+
+if [ ! -f "$INPUT_WALL" ]; then
+  yes y | gowall -w
+fi
+
+TODAY_WALL=$(find /home/bosse/Pictures/gowall -maxdepth 1 -type f -name "wall-${DATE}-*" -printf "%f\n" | head -n 1)
+# Extract components using regex
+if [[ "$TODAY_WALL" =~ wall-([0-9]{8})-[0-9]{6}\.([a-zA-Z0-9]+)$ ]]; then
+  date_part="${BASH_REMATCH[1]}"
+  ext="${BASH_REMATCH[2]}"
+  dir=$(dirname "$TODAY_WALL")
+  RENAMED_WALL="$dir/wall-${date_part}.${ext}"
   mv "$TODAY_WALL" "$RENAMED_WALL"
 fi
 
 INPUT_WALL=$(find /home/bosse/Pictures/gowall -maxdepth 1 -type f -name "wall-${DATE}.*" -printf "%f\n" | head -n 1)
 if [ ! -f "$OUTPUT_WALL" ]; then
-  gowall convert "$TODAY_WALL" -t "$THEME" --output "$OUTPUT_WALL"
+  gowall convert "$INPUT_WALL" -t "$THEME" --output "$OUTPUT_WALL"
   cp "$OUTPUT_WALL" /tmp/hyprlock.png
 fi
 
