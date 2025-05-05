@@ -14,12 +14,7 @@ case $choice in
   prismlauncher
   ;;
 "Waydroid")
-  if pkexec ~/.config/hypr/scripts/assets/waydroid-run.sh; then
-    # Only show the Waydroid UI if the run script succeeded
-    waydroid show-full-ui
-  else
-    :
-  fi
+  ~/.config/hypr/scripts/assets/waydroid-run.sh
   ;;
 "VirtManager")
   virt-manager

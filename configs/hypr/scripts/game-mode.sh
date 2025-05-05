@@ -19,7 +19,6 @@ else
       keyword decoration:blur:enabled 0;\
       keyword decoration:active_opacity 1;\
       keyword decoration:inactive_opacity 1;\
-      keyword general:border_size 0;\
       keyword decoration:rounding 0"
     touch ~/.cache/gamemode
     notify-send -a game-on "Game Mode" "Activated" -i "$game_on"
@@ -32,7 +31,6 @@ else
       keyword decoration:blur:enabled 0;\
       keyword decoration:active_opacity 1;\
       keyword decoration:inactive_opacity 1;\
-      keyword general:border_size 0;\
       keyword decoration:rounding 0"
     touch ~/.cache/gamemode
     notify-send -a game-on "Game Mode" "Activated" -i "$game_on"
