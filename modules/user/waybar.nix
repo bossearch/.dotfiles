@@ -15,8 +15,9 @@
       tesseract
       waybar
       wl-screenrec
-    ]
-    ++ [(pkgs.callPackage ./../custompkgs/sysboard.nix {})];
+      sysboard
+    ];
+    # ++ [(pkgs.callPackage ./../custompkgs/sysboard.nix {})];
 
   home.file.".config/waybar" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/waybar";

@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   lib,
   ...
 }: let
@@ -36,8 +35,7 @@ in {
     moreutils
     mediainfo
   ]
-  ++ (with pkgs-unstable; [
-    gowall
+  ++ (with pkgs.unstable; [
     yazi
   ]);
 

@@ -18,7 +18,7 @@
         };
         force = true;
       };
-      extensions = with pkgs.firefox-addons; [
+      extensions = with pkgs.inputs.firefox-addons; [
         cookie-autodelete
         darkreader
         new-tab-override

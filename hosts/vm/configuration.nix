@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./common.nix
     ./../../modules/hardware-configuration.nix
     ./../../modules/system/boot.nix
     ./../../modules/system/displaymanager.nix

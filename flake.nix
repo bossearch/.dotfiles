@@ -2,12 +2,14 @@
   description = "A very basic flake";
 
   inputs = {
+    # Nix ecosystem
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Third party programs, packaged with nix
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,81 +27,59 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
+    systems,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
-    lib = nixpkgs.lib;
-    overlays = import ./modules/overlays.nix { inherit inputs; };
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = _: true;
-      };
-      overlays = overlays.overlays;
-    };
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
+    forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
+    pkgsFor = lib.genAttrs (import systems) (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+    );
   in {
-    # Define configurations for each host
+    inherit lib;
+    overlays = import ./overlays {inherit inputs outputs;};
+    packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
+
     nixosConfigurations = {
+      # Main Desktop
       pc = lib.nixosSystem {
-        inherit system;
-        inherit pkgs;
-        specialArgs = {
-          inherit pkgs-unstable;
-        };
         modules = [./hosts/pc/configuration.nix];
-      };
-
-      vm = lib.nixosSystem {
-        inherit system;
-        inherit pkgs;
         specialArgs = {
-          inherit pkgs-unstable;
+          inherit inputs outputs;
         };
+      };
+      # Virtual Machine
+      vm = lib.nixosSystem {
         modules = [./hosts/vm/configuration.nix];
+        specialArgs = {
+          inherit inputs outputs;
+        };
       };
     };
 
-    # Standalone Home Manager Configurations
     homeConfigurations = {
+      # Main Desktop
       "bosse@pc" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs pkgs-unstable;
-          hostName = "pc";
-        };
+        pkgs = pkgsFor.x86_64-linux;
         modules = [./hosts/pc/home.nix];
-      };
-
-      "bosse@vm" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
         extraSpecialArgs = {
-          inherit inputs pkgs-unstable;
-          hostName = "vm";
+          inherit inputs outputs;
         };
-        modules = [./hosts/vm/home.nix];
       };
-    };
 
-    # run install.sh for laziness
-    packages.${system} = {
-      default = self.packages.${system}.install;
-
-      install = pkgs.writeShellApplication {
-        name = "install";
-        runtimeInputs = with pkgs; [git];
-        text = ''${./scripts/install.sh} "$@"'';
-      };
-    };
-    apps.${system} = {
-      default = self.apps.${system}.install;
-
-      install = {
-        type = "app";
-        program = "${self.packages.${system}.install}/bin/install";
+      # Virtual Machine
+      "bosse@vm" = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgsFor.x86_64-linux;
+        modules = [./hosts/vm/home.nix ./hosts/vm/nixpkgs.nix];
+        extraSpecialArgs = {
+          inherit inputs outputs;
+        };
       };
     };
   };

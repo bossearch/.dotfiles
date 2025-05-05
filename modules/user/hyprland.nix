@@ -2,19 +2,20 @@
   config,
   pkgs,
   lib,
-  hostName,
   ...
-}: {
+}:{
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     settings = lib.mkMerge [
-      (lib.mkIf (hostName == "pc") {
-        monitor = ["DP-3, 2560x1440@165, 0x0, 1"];
-      })
-      (lib.mkIf (hostName == "vm") {
-        monitor = ["Virtual-1, 1920x1080@60, 0x0, 1"];
-      })
+      # Directly use the monitors from home.nix
+      {
+        monitor =
+          map (
+            m: "${m.name},${toString m.width}x${toString m.height}@60,0x0,1"
+          )
+          config.monitors;
+      }
     ];
     extraConfig = ''
       # ENVIRONMENT
@@ -52,19 +53,18 @@
     '';
   };
 
-  home.packages = with pkgs;
-    [
-      cliphist
-      hypridle
-      hyprlock
-      hyprpaper
-      hyprpicker
-      hyprsunset
-      localsend
-      wev
-      wl-clipboard
-      zenity
-    ];
+  home.packages = with pkgs; [
+    cliphist
+    hypridle
+    hyprlock
+    hyprpaper
+    hyprpicker
+    hyprsunset
+    localsend
+    wev
+    wl-clipboard
+    zenity
+  ];
 
   services.hypridle.enable = true;
 
@@ -86,12 +86,12 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprlock.conf";
   };
 
-  home.file.".config/hypr/hyprpaper.conf" = lib.mkMerge [
-    (lib.mkIf (hostName == "pc") {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper.conf";
-    })
-    (lib.mkIf (hostName == "vm") {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper-vm.conf";
-    })
-  ];
+  # home.file.".config/hypr/hyprpaper.conf" = lib.mkMerge [
+  #   (lib.mkIf (hostname == "pc") {
+  #     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper.conf";
+  #   })
+  #   (lib.mkIf (hostname == "vm") {
+  #     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper-vm.conf";
+  #   })
+  # ];
 }

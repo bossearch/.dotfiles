@@ -11,7 +11,8 @@ in {
     nautilus
     sushi
     vaults
-    (pkgs.callPackage ./../custompkgs/varia.nix {})
+    varia
+    # (pkgs.callPackage ./../custompkgs/varia.nix {})
   ];
 
   dconf.settings = {

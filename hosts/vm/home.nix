@@ -5,30 +5,40 @@
 }: {
   home.username = "bosse";
   home.homeDirectory = "/home/bosse";
-
+  monitors = [
+    {
+      name = "Virtual-1";
+      width = 1920;
+      height = 1080;
+      primary = true;
+    }
+  ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   imports = [
+    ./../../modules/home-manager/monitors.nix
+
     ./../../modules/user/browser.nix
     ./../../modules/user/cli.nix
     ./../../modules/user/git.nix
+    # TODO:Look at the bottom of the file
     ./../../modules/user/hyprland.nix
-    # ./../../modules/user/minecraft.nix
-    # ./../../modules/user/mpv.nix
-    # ./../../modules/user/nautilus.nix
-    # ./../../modules/user/nchat.nix
-    # ./../../modules/user/neomutt.nix
-    # ./../../modules/user/newsboat.nix
+    ## ./../../modules/user/minecraft.nix
+    ## ./../../modules/user/mpv.nix
+    ## ./../../modules/user/nautilus.nix
+    ## ./../../modules/user/nchat.nix
+    ## ./../../modules/user/neomutt.nix
+    ## ./../../modules/user/newsboat.nix
     ./../../modules/user/nvim.nix
-    # ./../../modules/user/nyaa.nix
-    # ./../../modules/user/obsidian.nix
-    # ./../../modules/user/qmk.nix
-    # ./../../modules/user/spotify.nix
+    ## ./../../modules/user/nyaa.nix
+    ./../../modules/user/obsidian.nix
+    ## ./../../modules/user/qmk.nix
+    ./../../modules/user/spotify.nix
     ./../../modules/user/term.nix
     ./../../modules/user/theme.nix
     ./../../modules/user/tmux.nix
-    # ./../../modules/user/vesktop.nix
+    ## ./../../modules/user/vesktop.nix
     ./../../modules/user/wallpaper.nix
     ./../../modules/user/waybar.nix
     ./../../modules/user/zsh.nix
