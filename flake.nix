@@ -43,20 +43,22 @@
     );
   in {
     inherit lib;
+    homeManagerModules = import ./modules/home-manager;
+
     overlays = import ./overlays {inherit inputs outputs;};
     packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
 
     nixosConfigurations = {
       # Main Desktop
       pc = lib.nixosSystem {
-        modules = [./hosts/pc/configuration.nix];
+        modules = [./hosts/pc];
         specialArgs = {
           inherit inputs outputs;
         };
       };
       # Virtual Machine
       vm = lib.nixosSystem {
-        modules = [./hosts/vm/configuration.nix];
+        modules = [./hosts/vm];
         specialArgs = {
           inherit inputs outputs;
         };
@@ -67,7 +69,7 @@
       # Main Desktop
       "bosse@pc" = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsFor.x86_64-linux;
-        modules = [./hosts/pc/home.nix];
+        modules = [./home/bosse/pc.nix];
         extraSpecialArgs = {
           inherit inputs outputs;
         };
@@ -76,7 +78,7 @@
       # Virtual Machine
       "bosse@vm" = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsFor.x86_64-linux;
-        modules = [./hosts/vm/home.nix ./hosts/vm/nixpkgs.nix];
+        modules = [./home/bosse/vm.nix];
         extraSpecialArgs = {
           inherit inputs outputs;
         };

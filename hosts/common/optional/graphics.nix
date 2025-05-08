@@ -16,17 +16,5 @@
     ];
     amdgpu.opencl.enable = true;
     amdgpu.amdvlk.enable = true;
-
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-          Experimental = true;
-        };
-      };
-    };
-    i2c.enable = true;
   };
 }

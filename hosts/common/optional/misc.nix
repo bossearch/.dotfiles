@@ -4,15 +4,9 @@
   pkgs,
   ...
 }: {
-  programs.hyprland.enable = true;
-  programs.nix-ld.enable = true;
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
   services = lib.mkMerge [
     {
       fstrim.enable = true;
-      blueman.enable = true;
       gvfs = {
         enable = true;
         package = pkgs.gnome.gvfs;

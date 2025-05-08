@@ -7,7 +7,14 @@
   imports =
     [
       inputs.home-manager.nixosModules.home-manager
+      ./firewall.nix
+      ./keyring.nix
+      ./locale.nix
+      ./network.nix
       ./nix.nix
+      # ./proxy.nix
+      ./ssh.nix
+      ./zsh.nix
     ];
     # ++ (builtins.attrValues outputs.nixosModules);
 
