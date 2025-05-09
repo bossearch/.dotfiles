@@ -86,12 +86,18 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprlock.conf";
   };
 
-  # home.file.".config/hypr/hyprpaper.conf" = lib.mkMerge [
-  #   (lib.mkIf (hostname == "pc") {
-  #     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper.conf";
-  #   })
-  #   (lib.mkIf (hostname == "vm") {
-  #     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/hypr/hyprpaper-vm.conf";
-  #   })
-  # ];
+  home.file.".config/hypr/hyprpaper.conf" = {
+    text = let
+      imagePath = "/tmp/hyprpaper.png"; # or pull from an option if needed
+      baseConfig = ''
+      preload = ${imagePath}
+      splash = false
+      ipc = off
+      '';
+      wallpaperLines = lib.concatStringsSep "\n" (map (m:
+        "wallpaper = ${m.name}, ${imagePath}"
+      ) config.monitors);
+    in
+      baseConfig + wallpaperLines;
+  };
 }
