@@ -19,12 +19,12 @@ else
 fi
 
 # Generate hardware config for new system
-sudo cp /etc/nixos/hardware-configuration.nix $DOTFILES/modules/hardware-configuration.nix
+sudo cp /etc/nixos/hardware-configuration.nix $DOTFILES/hosts/$HOSTNAME/hardware-configuration.nix
 
 # Rebuild system
 sudo nixos-rebuild switch --flake $DOTFILES#$HOSTNAME
 
 # Install and build home-manager configuration
-nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake $DOTFILES#$USERNAME@$HOSTNAME
+nix run home-manager --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake $DOTFILES#$USERNAME@$HOSTNAME
 
 home-manager news --flake $DOTFILES#$USERNAME@$HOSTNAME
