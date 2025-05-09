@@ -1,9 +1,12 @@
-{pkgs, ...}: {
+{pkgs,...}: {
+  environment.systemPackages = with pkgs.unstable; [
+    gowall
+  ];
   services.greetd = {
     enable = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland >/dev/null";
+        command = ".dotfiles/configs/hypr/scripts/hyprpaper.sh >/dev/null";
         user = "bosse";
       };
       default_session = initial_session;
