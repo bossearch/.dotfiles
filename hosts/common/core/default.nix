@@ -15,8 +15,8 @@
       # ./proxy.nix
       ./ssh.nix
       ./zsh.nix
-    ];
-    # ++ (builtins.attrValues outputs.nixosModules);
+    ]
+    ++ (builtins.attrValues outputs.nixosModules);
 
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = {

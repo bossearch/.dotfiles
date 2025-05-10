@@ -9,30 +9,22 @@
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.initrd.luks.devices.lukslvm.device = "/dev/disk/by-uuid/377dbff4-909f-4fc5-8716-06907e8d7fcb";
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/aac28f84-056f-4665-a3af-98b5d3925f90";
+    { device = "/dev/disk/by-uuid/a69396c8-5a12-4c29-aed9-e52cc172f40b";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A12E-36D0";
+    { device = "/dev/disk/by-uuid/0296-1BA2";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/cdeb6b1d-a184-46d4-a0b1-d34afbfeed8c";
-      fsType = "ext4";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/d469d1a7-0f6d-442f-a266-58df8f454a20"; }
-    ];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

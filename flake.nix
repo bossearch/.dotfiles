@@ -43,6 +43,7 @@
     );
   in {
     inherit lib;
+    nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
     overlays = import ./overlays {inherit inputs outputs;};
