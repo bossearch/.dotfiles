@@ -6,7 +6,7 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = ".dotfiles/configs/hypr/scripts/hyprpaper.sh >/dev/null";
+        command = ".config/hypr/scripts/hyprpaper.sh >/dev/null";
         user = "bosse";
       };
       default_session = initial_session;

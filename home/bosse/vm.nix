@@ -3,7 +3,7 @@
     ./common/core
     ./common/optional/browser.nix
     ./common/optional/gowall.nix
-    ./common/optional/hyprland.nix
+    ./common/optional/hyprland
     # ./common/optional/kdeconnect.nix
     # ./common/optional/minecraft.nix
     # ./common/optional/mpv.nix
@@ -12,9 +12,9 @@
     # ./common/optional/neomutt.nix
     # ./common/optional/newsboat.nix
     # ./common/optional/nyaa.nix
-    ./common/optional/obsidian.nix
+    # ./common/optional/obsidian.nix
     # ./common/optional/qmk.nix
-    ./common/optional/spotify.nix
+    # ./common/optional/spotify.nix
     ./common/optional/term.nix
     ./common/optional/theme.nix
     # ./common/optional/vesktop.nix
@@ -26,6 +26,7 @@
       name = "Virtual-1";
       width = 1920;
       height = 1080;
+      refreshRate = 60;
       primary = true;
     }
   ];
