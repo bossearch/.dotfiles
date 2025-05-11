@@ -21,8 +21,6 @@
   port = [
     {
       TCPPorts = [80 443];
-      TCPPortsRanges = [{ from = 1714; to = 1764; }];
-      UDPPortsRanges = [{ from = 1714; to = 1764; }];
     }
   ];
 
