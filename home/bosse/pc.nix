@@ -3,7 +3,7 @@
     ./common/core
     ./common/optional/browser.nix
     ./common/optional/gowall.nix
-    ./common/optional/hyprland.nix
+    ./common/optional/hyprland
     ./common/optional/kdeconnect.nix
     ./common/optional/minecraft.nix
     ./common/optional/mpv.nix
@@ -18,7 +18,7 @@
     ./common/optional/term.nix
     ./common/optional/theme.nix
     ./common/optional/vesktop.nix
-    ./common/optional/waybar.nix
+    ./common/optional/waybar
   ];
 
   monitors = [

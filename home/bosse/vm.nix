@@ -18,7 +18,7 @@
     ./common/optional/term.nix
     ./common/optional/theme.nix
     # ./common/optional/vesktop.nix
-    ./common/optional/waybar.nix
+    ./common/optional/waybar
   ];
 
   monitors = [

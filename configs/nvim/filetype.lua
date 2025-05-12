@@ -20,5 +20,6 @@ vim.filetype.add {
     [".env.*"] = "sh",
     ['.*/hypr/.*%.conf'] = 'hyprlang',
     ['.*/kitty/.*%.conf'] = 'sh',
+    ['.*/waybar/config'] = 'jsonc',
   },
 }

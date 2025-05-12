@@ -9,7 +9,6 @@
     # exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     # exec-once = systemctl --user start xdg-desktop-portal-hyprland.service
     # exec-once = systemctl --user start polkit-gnome-authentication-agent-1.service
-    exec-once = waybar
     exec-once = blueman-applet
     exec-once = cliphist wipe
     exec-once = wl-paste --watch cliphist store
