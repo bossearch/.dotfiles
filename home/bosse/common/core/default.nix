@@ -6,7 +6,7 @@
 }: {
   imports =
     [
-      ./cli.nix
+      ./cli
       ./git.nix
       ./nixpkgs.nix
       ./nvim.nix
