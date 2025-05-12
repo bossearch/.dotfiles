@@ -10,6 +10,7 @@
     ./fzf
     ./lazygit
     ./tealdeer
+    ./tmux
     # ./uair
     ./yazi
   ];

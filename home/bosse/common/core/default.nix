@@ -10,7 +10,6 @@
       ./git.nix
       ./nixpkgs.nix
       ./nvim.nix
-      ./tmux.nix
       ./zsh.nix
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
