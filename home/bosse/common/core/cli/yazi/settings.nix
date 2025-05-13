@@ -62,7 +62,7 @@
           run = "mediainfo";
         }
       ];
-      preprend_previewers = [
+      prepend_previewers = [
         {
           mime = "{audio,video,image}/*";
           run = "mediainfo";
