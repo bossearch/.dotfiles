@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }: {
@@ -11,7 +10,6 @@
 
   home.packages = with pkgs; [
     ddcutil
-    dunst
     grim
     libnotify
     pavucontrol
@@ -60,10 +58,5 @@
         ];
       };
     };
-  };
-
-  home.file.".config/dunst" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/dunst";
-    recursive = true;
   };
 }
