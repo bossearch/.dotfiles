@@ -5,6 +5,7 @@
     ./common/optional/gowall.nix
     ./common/optional/hyprland
     # ./common/optional/kdeconnect.nix
+    ./common/optional/kitty.nix
     # ./common/optional/minecraft.nix
     # ./common/optional/mpv.nix
     ./common/optional/nautilus.nix
@@ -15,7 +16,6 @@
     # ./common/optional/obsidian.nix
     # ./common/optional/qmk.nix
     # ./common/optional/spotify.nix
-    ./common/optional/term.nix
     ./common/optional/theme.nix
     # ./common/optional/vesktop.nix
     ./common/optional/waybar
