@@ -4,15 +4,12 @@
   pkgs,
   ...
 }: let
-  Vaults_dir = "${config.home.homeDirectory}/.local/share/Vaults/{Secrets,Lofi}";
   Home_dir = "${config.home.homeDirectory}/{Desktop,Downloads,Documents,Pictures,Videos}";
 in {
   home.packages = with pkgs; [
     nautilus
     sushi
-    vaults
     varia
-    # (pkgs.callPackage ./../custompkgs/varia.nix {})
   ];
 
   dconf.settings = {
@@ -29,21 +26,11 @@ in {
     };
   };
 
-  home.activation.vaultdir = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    if [ ! -d "${Vaults_dir}" ];  then
-      ${pkgs.coreutils}/bin/mkdir -p ${Vaults_dir}
-    fi
-  '';
-
   home.activation.homedir = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -d "${Home_dir}" ];  then
       ${pkgs.coreutils}/bin/mkdir -p ${Home_dir}
     fi
   '';
-
-  home.file.".config/user_config.toml" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/configs/vaults/user_config.toml";
-  };
 
   home.file.".config/gtk-3.0/bookmarks".text = ''
     file:///home/bosse/Desktop Desktop

@@ -10,15 +10,16 @@
     ./common/optional/minecraft.nix
     ./common/optional/mpv.nix
     ./common/optional/nautilus.nix
-    ./common/optional/nchat.nix
+    ./common/optional/nchat
     ./common/optional/neomutt.nix
     ./common/optional/newsboat.nix
     ./common/optional/nyaa.nix
     ./common/optional/obsidian.nix
     ./common/optional/qmk.nix
     ./common/optional/spotify.nix
-    ./common/optional/theme.nix
-    ./common/optional/vesktop.nix
+    ./common/optional/theme
+    ./common/optional/vaults.nix
+    ./common/optional/vesktop
     ./common/optional/waybar
   ];
 
