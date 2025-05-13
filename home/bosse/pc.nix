@@ -1,9 +1,9 @@
 {...}: {
   imports = [
     ./common/core
-    ./common/optional/browser.nix
-    ./common/optional/gowall.nix
     ./common/optional/dunst
+    ./common/optional/firefox
+    ./common/optional/gowall.nix
     ./common/optional/hyprland
     ./common/optional/kdeconnect.nix
     ./common/optional/kitty.nix
