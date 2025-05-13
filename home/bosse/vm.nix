@@ -8,7 +8,7 @@
     # ./common/optional/kdeconnect.nix
     ./common/optional/kitty.nix
     # ./common/optional/minecraft.nix
-    # ./common/optional/mpv.nix
+    ./common/optional/mpv
     ./common/optional/nautilus.nix
     # ./common/optional/nchat
     # ./common/optional/neomutt.nix
