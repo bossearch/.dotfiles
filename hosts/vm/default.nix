@@ -18,11 +18,9 @@
     # ./../common/optional/waydroid.nix
   ];
 
-  port = [
-    {
-      TCPPorts = [80 443];
-    }
-  ];
+  port = {
+    TCPPorts = [80 443];
+  };
 
   networking = {
     hostName = "vm";
