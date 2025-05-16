@@ -21,6 +21,7 @@
     ./common/optional/vaults.nix
     # ./common/optional/vesktop
     ./common/optional/waybar
+    ./common/optional/zzz.nix
   ];
 
   monitors = [
@@ -32,6 +33,11 @@
       primary = true;
     }
   ];
+
+  spec = {
+    hostName = "vm";
+    userName = "bosse";
+  };
 
   # Do not change these future me !
   home.stateVersion = "24.11"; # Please read the comment before changing.

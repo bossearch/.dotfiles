@@ -33,6 +33,11 @@
     }
   ];
 
+  spec = {
+    hostName = "pc";
+    userName = "bosse";
+  };
+
   # Do not change these future me !
   home.stateVersion = "24.11"; # Please read the comment before changing.
 }

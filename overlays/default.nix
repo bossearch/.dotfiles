@@ -1,4 +1,9 @@
-{inputs, ...}: {
+{inputs, ...}:let
+  addPatches = pkg: patches:
+    pkg.overrideAttrs (oldAttrs: {
+      patches = (oldAttrs.patches or []) ++ patches;
+    });
+in {
   flake-inputs = final: _: {
     inputs =
       builtins.mapAttrs (
@@ -27,4 +32,15 @@
 
   additions = final: prev:
     import ../pkgs {pkgs = final;};
+
+  modifications = final: prev: {
+    vimPlugins =
+      prev.vimPlugins
+      // {
+        nui-nvim = addPatches prev.vimPlugins.nui-nvim [
+          # ./nui-nvim-tbl-islist.diff
+        ];
+      };
+  };
+
 }

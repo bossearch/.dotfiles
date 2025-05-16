@@ -9,14 +9,15 @@
       ./cli
       ./git.nix
       ./nixpkgs.nix
-      ./nvim.nix
+      ./nvim
+      # ./nvim.nix
       ./zsh
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
   home = {
-    username = "bosse";
-    homeDirectory = "/home/bosse";
+    username = "${config.spec.userName}";
+    homeDirectory = "/home/${config.spec.userName}";
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
