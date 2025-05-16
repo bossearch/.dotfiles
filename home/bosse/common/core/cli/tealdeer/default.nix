@@ -1,9 +1,11 @@
 {
+  config,
+  pkgs,
+  lib,
   ...
-}:# let
-  # tealdeer_cache = "${config.home.homeDirectory}/.cache/tealdeer";
-#in
-{
+}: let
+  tealdeer_cache = "${config.home.homeDirectory}/.cache/tealdeer";
+in {
   programs.tealdeer = {
     enable = true;
     settings = {
@@ -17,9 +19,9 @@
     };
   };
 
-  # home.activation.updatetldr = lib.hm.dag.entryAfter ["writeBoundary"] ''
-  #   if [ ! -d "${tealdeer_cache}" ];  then
-  #     ${pkgs.tealdeer}/bin/tldr --update
-  #   fi
-  # '';
+  home.activation.updatetldr = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ ! -d "${tealdeer_cache}" ];  then
+      ${pkgs.tealdeer}/bin/tldr --update
+    fi
+  '';
 }

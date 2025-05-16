@@ -30,7 +30,6 @@
       # ----------------------------
 
       export EDITOR="nvim"
-      export BAT_THEME="tokyonight_night"
 
       # Load fzf and its related configurations
       export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/.fzfrc
