@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix/24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nyaa = {
