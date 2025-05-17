@@ -4,13 +4,13 @@
       "lua/lib/util.lua".text = ''
         local util = {}
 
-        -- usercmd
+        -- usercmd --
         util.copy_to_clipboard = function(content)
           vim.fn.setreg("+", content)
           vim.notify('Copied "' .. content .. '" to the clipboard!', vim.log.levels.INFO)
         end
 
-        -- usercmd
+        -- usercmd --
         util.get_root_dir = function()
             local bufname = vim.fn.expand('%:p')
             if vim.fn.filereadable(bufname) == 0 then
@@ -26,32 +26,73 @@
             end
         end
 
-        -- lualine
-        util.root_dir = function()
+        -- lualine --
+        util.get_cwd = function()
           local cwd = vim.fn.getcwd()
           local folder_name = vim.fn.fnamemodify(cwd, ":t")
           return "%#None#" .. folder_name
         end
 
-        -- lualine
-        util.lsp_status = function()
-          -- Get the current buffer
-          local current_buf = vim.api.nvim_get_current_buf()
+        -- lualine --
+        local spinner_symbols = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
+        local client_progress = {}
 
-          -- Get all active LSP clients
-          local clients = vim.lsp.get_clients()
+        -- Configurable options
+        local opts = {
+          show_default_progress = true, -- Set to false to hide Neovim's default LSP progress UI
+        }
 
-          -- Loop through the active clients and check if the current buffer is attached
-          for _, client in ipairs(clients) do
-            if client.attached_buffers[current_buf] then
-              return "" .. client.name -- LSP is active for this buffer
-            end
+        -- Save the original handler so we can optionally call it
+        local orig_progress_handler = vim.lsp.handlers["$/progress"]
+
+        -- Hook into $/progress notifications to track status per client
+        vim.lsp.handlers["$/progress"] = function(err, msg, ctx)
+          local client_id = ctx.client_id
+          local token = msg.token
+          local value = msg.value
+
+          if not client_progress[client_id] then
+            client_progress[client_id] = {}
           end
 
-          return "No LSP" -- LSP is not attached to this buffer
+          if value.kind == "begin" then
+            client_progress[client_id][token] = true
+          elseif value.kind == "end" then
+            client_progress[client_id][token] = nil
+          end
+
+          -- Clean up empty tables
+          if next(client_progress[client_id]) == nil then
+            client_progress[client_id] = nil
+          end
+
+          -- Conditionally call the original handler
+          if opts.show_default_progress and orig_progress_handler then
+            orig_progress_handler(err, msg, ctx)
+          end
         end
 
-        -- oil
+        -- Status function with proper spinner
+        util.lsp_status = function()
+          local clients = vim.lsp.get_clients { bufnr = vim.api.nvim_get_current_buf() }
+          if #clients == 0 then
+            return "No LSP"
+          end
+
+          local hrtime = (vim.uv or vim.loop).hrtime
+          local frame = spinner_symbols[(math.floor(hrtime() / (1e6 * 100)) % #spinner_symbols) + 1]
+
+          local results = {}
+          for _, client in ipairs(clients) do
+            local show_spinner = client_progress[client.id] ~= nil
+            local icon = show_spinner and frame or "✓"
+            table.insert(results, client.name .. " " .. icon)
+          end
+
+          return table.concat(results, " ")
+        end
+
+        -- oil --
         util.get_oil_winbar = function()
           -- Check if oil is opened in a new buffer
           if vim.g.oil_open_in_buffer then
@@ -67,7 +108,7 @@
           return "" -- Return an empty string for floating windows
         end
 
-        -- telescope
+        -- telescope --
         util.live_multigrep = function(opts)
           opts = opts or {}
           opts.cwd = opts.cwd or vim.uv.cwd()
