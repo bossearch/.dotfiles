@@ -1,5 +1,9 @@
-{...}:
-{
+{config, ...}: let
+  timeout =
+    if config.spec.hostName == "vm"
+    then 86400
+    else 3600;
+in {
   services.hypridle = {
     enable = true;
     settings = {
@@ -17,11 +21,10 @@
         }
         # SUSPEND TIMEOUT
         {
-          timeout = 3600;
+          timeout = timeout;
           on-timeout = "(playerctl -a status | grep -q 'Playing' || systemctl suspend)";
         }
       ];
-    }
-    ;
+    };
   };
 }
