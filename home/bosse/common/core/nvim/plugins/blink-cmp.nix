@@ -8,10 +8,10 @@
     #   enable = true;
     #   autoLoad = true;
     # };
-    blink-copilot = {
-      enable = true;
-      autoLoad = true;
-    };
+    # blink-copilot = {
+    #   enable = true;
+    #   autoLoad = true;
+    # };
     blink-ripgrep = {
       enable = true;
       autoLoad = true;
@@ -88,7 +88,7 @@
         sources = {
           default = [
             "buffer"
-            "copilot"
+            # "copilot"
             "dictionary"
             # "git"
             "lazydev"
@@ -135,23 +135,23 @@
               module = "blink.cmp.sources.buffer";
               score_offset = 0;
             };
-            copilot = {
-              name = "copilot";
-              module = "blink-copilot";
-              score_offset = 5;
-              async = true;
-
-              opts = {
-                max_completions = 3;
-                max_attempts = 4;
-                kind = "Copilot";
-                debounce = 750;
-                auto_refresh = {
-                  backward = true;
-                  forward = true;
-                };
-              };
-            };
+            # copilot = {
+            #   name = "copilot";
+            #   module = "blink-copilot";
+            #   score_offset = 5;
+            #   async = true;
+            #
+            #   opts = {
+            #     max_completions = 3;
+            #     max_attempts = 4;
+            #     kind = "Copilot";
+            #     debounce = 750;
+            #     auto_refresh = {
+            #       backward = true;
+            #       forward = true;
+            #     };
+            #   };
+            # };
             dictionary = {
               module = "blink-cmp-dictionary";
               name = "Dict";

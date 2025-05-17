@@ -3,7 +3,7 @@
     enable = true;
     lazyLoad = {
       settings = {
-        event = [ "BufReadPre" "BufNewFile" ];
+        event = [ "UIEnter" ];
       };
     };
   };

@@ -1,8 +1,18 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   host = config.spec.hostName;
   user = config.spec.userName;
 in {
   programs.nixvim = {
+    extraPackages = with pkgs; [
+      alejandra
+      shfmt
+      stylua
+      clang-tools
+    ];
     diagnostic.settings = {
       virtual_text = true;
       underline = false;
