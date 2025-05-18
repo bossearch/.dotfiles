@@ -21,7 +21,6 @@
     ./common/optional/vaults.nix
     # ./common/optional/vesktop
     ./common/optional/waybar
-    ./common/optional/zzz.nix
   ];
 
   monitors = [
