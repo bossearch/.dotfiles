@@ -1,18 +1,10 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: let
-  host = config.spec.hostName;
-  user = config.spec.userName;
-in {
+}: {
   programs.nixvim = {
-    extraPackages = with pkgs; [
-      alejandra
-      shfmt
-      stylua
-      clang-tools
-    ];
     diagnostic.settings = {
       virtual_text = true;
       underline = false;
@@ -36,31 +28,36 @@ in {
       servers = {
         nixd = {
           enable = true;
-          settings = {
-            formatting.command = ["alejandra"];
+          settings = let
+            host = config.spec.hostName;
+            user = config.spec.userName;
+            flake = ''(builtins.getFlake "github:bossearch/.dotfiles)""'';
+          in {
+            formatting.command = ["${lib.getExe pkgs.alejandra}"];
             nixpkgs.expr = "import <nixpkgs> {}";
             options = {
-              nixos.expr = ''(builtins.getFlake "/home/${user}/.dotfiles").nixosConfigurations.${host}.options'';
-              home_manager.expr = ''(builtins.getFlake "/home/${user}/.dotfiles").homeConfigurations."${user}@${host}".options'';
+              nixos.expr = ''${flake}.nixosConfigurations.${host}.options'';
+              home_manager.expr = ''${flake}.homeConfigurations."${user}@${host}".options'';
             };
           };
         };
         bashls = {
           enable = true;
           settings = {
-            formatting.command = ["shfmt"];
+            formatting.command = ["${lib.getExe pkgs.shfmt}"];
           };
         };
         clangd = {
           enable = true;
           settings = {
-            formatting.command = ["clang-format"];
+            # formatting.command = ["${lib.getExe pkgs.clang-tools.clangFormat}"];
+            formatting.command = [ "${pkgs.clang-tools}/bin/clang-format" ];
           };
         };
         lua_ls = {
           enable = true;
           settings = {
-            formatting.command = ["stylua"];
+            formatting.command = ["${lib.getExe pkgs.stylua}"];
           };
         };
       };
