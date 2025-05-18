@@ -2,6 +2,8 @@
   imports = [
     ./blink-cmp.nix
     # ./colorful-winsep.nix
+    ./copilot-lua.nix
+    ./gitsigns.nix
     ./highlight-colors.nix
     ./lazydev.nix
     ./lualine.nix
