@@ -205,7 +205,7 @@
         {
           __unkeyed = "<leader>qt";
           __unkeyed-1 = "<cmd>TodoQuickFix<cr>";
-          desc = "Edit Quickfix Todo";
+          desc = "Open Todo in Quickfix";
           mode = "n";
         }
         {
