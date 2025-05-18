@@ -53,7 +53,21 @@
           ];
         };
       };
-      indent = { enabled = true; };
+      indent = {
+        indent = {
+          enabled = false;
+        };
+        chunk = {
+          enabled = true;
+          only_current = true;
+          char = {
+            arrow = "─";
+            corner_top = "╭";
+            corner_bottom = "╰";
+          };
+          hl = "SnacksIndentScope";
+        };
+      };
       input = { enabled = true; };
       lazygit = { enabled = true; configure = true; };
       notifier = { enabled = true; };
