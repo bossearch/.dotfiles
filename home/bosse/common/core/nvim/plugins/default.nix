@@ -1,6 +1,6 @@
 {
   imports = [
-    ./blink-cmp.nix
+    ./blink-cmp
     ./colorful-winsep.nix
     ./copilot-lua.nix
     ./gitsigns.nix
