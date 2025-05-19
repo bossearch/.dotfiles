@@ -1,6 +1,6 @@
 {
   inputs,
-  # pkgs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -25,26 +25,14 @@
       };
       combinePlugins = {
         enable = true;
-        pathsToLink = ["/plugins"];
+        # extraPlugins needs to add to this list
         standalonePlugins = [
           "copilot.lua"
           "blink.cmp"
-          "nvim-treesitter"
+          "colorful-winsep"
         ];
       };
     };
-    # extraPlugins = let
-    #   colorful-winsep = pkgs.vimUtils.buildVimPlugin {
-    #     name = "colorful-winsep";
-    #     src = pkgs.fetchFromGitHub {
-    #       owner = "nvim-zh";
-    #       repo = "colorful-winsep.nvim";
-    #       rev = "7bbe4e1353c0fe37c98bad2758aafc410280f6b3";
-    #       sha256 = "sha256-3ZXbpUNZqLHaUWgb2wHnfQfcGkMpcRtAt8q7z0tmo1o=";
-    #     };
-    #   };
-    # in [
-    #   colorful-winsep
-    # ];
+    extraPlugins = [pkgs.vimPlugins.colorful-winsep];
   };
 }

@@ -1,4 +1,4 @@
-{inputs, ...}:let
+{inputs, ...}: let
   addPatches = pkg: patches:
     pkg.overrideAttrs (oldAttrs: {
       patches = (oldAttrs.patches or []) ++ patches;
@@ -31,7 +31,10 @@ in {
   };
 
   additions = final: prev:
-    import ../pkgs {pkgs = final;};
+    import ../pkgs {pkgs = final;}
+    // {
+      vimPlugins = (prev.vimPlugins or {}) // import ../pkgs/nvim-plugins {pkgs = final;};
+    };
 
   modifications = final: prev: {
     vimPlugins =
@@ -42,5 +45,4 @@ in {
         ];
       };
   };
-
 }
