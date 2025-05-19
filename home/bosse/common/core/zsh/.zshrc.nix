@@ -56,6 +56,10 @@
       # Aliases
       # ----------------------------
 
+      alias v="nvim --startuptime /tmp/nvim-startup.log"
+      alias vi="nvim --startuptime /tmp/nvim-startup.log"
+      alias vim="nvim --startuptime /tmp/nvim-startup.log"
+      alias nvim="nvim --startuptime /tmp/nvim-startup.log"
       alias l="eza --color=always"
       alias la="eza -a --color=always"
       alias ll="eza -al --color=always --no-user --no-permissions --no-filesize --no-time"
@@ -64,7 +68,6 @@
       alias rm="rm -i"
       alias cp="cp -i"
       alias editzsh="nvim ~/.config/zsh/.zshrc"
-      alias v="nvim"
       alias c="clear"
       alias cat=bat
       alias cat-og='\cat'

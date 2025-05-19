@@ -26,6 +26,8 @@
       if [ ! -f "$SCREENRECORD_TOOLTIP" ]; then
         touch "$SCREENRECORD_TOOLTIP"
       fi
+
+      rm -f /tmp/nvim-startup.log
     '';
   };
 }
