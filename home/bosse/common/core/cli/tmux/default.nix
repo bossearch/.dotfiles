@@ -1,4 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  iface =
+    if config.spec.hostName == "pc"
+    then "enp5s0"
+    else "enp1s0";
+in {
   imports = [
     ./theme
   ];
@@ -34,7 +43,7 @@
       set -g @tokyo-night-tmux_show_music 0
       # Net
       set -g @tokyo-night-tmux_show_netspeed 1
-      set -g @tokyo-night-tmux_netspeed_iface "enp5s0" # Detected via default route
+      set -g @tokyo-night-tmux_netspeed_iface "${iface}" # Detected via default route
       set -g @tokyo-night-tmux_netspeed_showip 0
       set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
       # Hostname
@@ -45,16 +54,12 @@
       unbind Down
       unbind Left
       unbind Right
-      bind -r h select-pane -L
-      bind -r j select-pane -D
-      bind -r k select-pane -U
-      bind -r l select-pane -R
       bind -r Left resize-pane -L    # Resize pane to the left
       bind -r Down resize-pane -D    # Resize pane downward
       bind -r Up resize-pane -U      # Resize pane upward
       bind -r Right resize-pane -R   # Resize pane to the right
-      bind -n M-h previous-window
-      bind -n M-l next-window
+      bind -r h previous-window
+      bind -r l next-window
 
       # Split
       unbind %
