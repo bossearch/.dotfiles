@@ -8,7 +8,7 @@
     ./lazydev.nix
     ./lualine.nix
     ./luasnip.nix
-    ./lsp.nix
+    ./lsp
     ./lz-n.nix
     ./mini.nix
     ./noice.nix
