@@ -11,7 +11,7 @@
       delay = 200;
       expand = 1;
       notify = true;
-      preset = "helix";
+      preset = "classic"; # classic, modern, or helix
       spec = [
         # Window
         {

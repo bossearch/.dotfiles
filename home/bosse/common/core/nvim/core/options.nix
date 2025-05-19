@@ -1,9 +1,24 @@
 {
   programs.nixvim = {
-    clipboard = {
-      register = "unnamedplus";
-      providers.wl-copy.enable = true;
-    };
+    # clipboard settings
+    extraConfigLua = ''
+      if vim.env.SSH_CONNECTION then
+        vim.g.clipboard = {
+          name = "OSC 52",
+          copy = {
+            ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+            ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+          },
+          paste = {
+            ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+            ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+          },
+        }
+        vim.keymap.set({"n","v"}, "y", "\"+y", { noremap = true, silent = true })
+      else
+        vim.o.clipboard = "unnamedplus"
+      end
+    '';
     opts = {
       completeopt = "menu,menuone,noselect";
       confirm = true; # Confirm to save changes before exiting modified buffer
