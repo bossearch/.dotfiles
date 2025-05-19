@@ -13,7 +13,7 @@
     ./mini.nix
     ./noice.nix
     ./oil.nix
-    ./snacks.nix
+    ./snacks
     ./telescope.nix
     ./tmux-navigator.nix
     ./todo-comments.nix
