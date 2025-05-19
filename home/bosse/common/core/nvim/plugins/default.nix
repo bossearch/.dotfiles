@@ -1,25 +1,25 @@
 {
   imports = [
     ./blink-cmp
-    ./colorful-winsep.nix
-    ./copilot-lua.nix
-    ./gitsigns.nix
-    ./highlight-colors.nix
-    ./lazydev.nix
-    ./lualine.nix
-    ./luasnip.nix
+    ./colorful-winsep
+    ./copilot-lua
+    ./gitsigns
+    ./highlight-colors
+    ./lazydev
+    ./lualine
+    ./luasnip
     ./lsp
-    ./lz-n.nix
-    ./mini.nix
-    ./noice.nix
-    ./oil.nix
+    ./lz-n
+    ./mini
+    ./noice
+    ./oil
     ./snacks
-    ./telescope.nix
-    ./tmux-navigator.nix
-    ./todo-comments.nix
-    ./tokyonight.nix
-    ./treesitter.nix
-    ./which-key.nix
+    ./telescope
+    ./tmux-navigator
+    ./todo-comments
+    ./tokyonight
+    ./treesitter
+    ./which-key
     # TODO: Do i need trouble, treesj, substitute, gitsigns, comment, typr
   ];
 }
