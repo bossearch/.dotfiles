@@ -4,7 +4,7 @@
     lazyLoad = {
       settings = {
         cmd = "WhichKey";
-        event = "DeferredUIEnter";
+        event = "UIEnter";
       };
     };
     settings = {

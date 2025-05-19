@@ -1,6 +1,11 @@
 {
   programs.nixvim.plugins.mini = {
     enable = true;
+    lazyLoad = {
+      settings = {
+        event = ["BufReadPre" "BufNewFile"];
+      };
+    };
     mockDevIcons = true;
     modules = {
       ai = {};
@@ -17,11 +22,11 @@
         };
       };
       sessions = {
-        autoread = false;  # Auto-load session if no file is given
-        autowrite = true;  # Auto-save session before exiting
+        autoread = false; # Auto-load session if no file is given
+        autowrite = true; # Auto-save session before exiting
 
-        directory.__raw = ''vim.fn.stdpath ("state") .. "/session"'';  # ~/.local/state/nvim/session
-        file = "Session.vim";  # Save session as 'Session.vim' inside the directory
+        directory.__raw = ''vim.fn.stdpath ("state") .. "/session"''; # ~/.local/state/nvim/session
+        file = "Session.vim"; # Save session as 'Session.vim' inside the directory
 
         force = {
           read = true;

@@ -11,6 +11,11 @@
       blink-ripgrep.enable = true;
       blink-cmp = {
         enable = true;
+        lazyLoad = {
+          settings = {
+            cmp = "BlinkCmp";
+          };
+        };
         setupLspCapabilities = true;
         settings = {
           keymap = {
