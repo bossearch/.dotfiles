@@ -3,7 +3,7 @@
     enable = true;
     lazyLoad = {
       settings = {
-        event = ["BufReadPre" "BufNewFile"];
+        event = ["VimEnter"];
       };
     };
     mockDevIcons = true;
@@ -26,7 +26,7 @@
         autowrite = true; # Auto-save session before exiting
 
         directory.__raw = ''vim.fn.stdpath ("state") .. "/session"''; # ~/.local/state/nvim/session
-        file = "Session.vim"; # Save session as 'Session.vim' inside the directory
+        file = ""; # Save session as 'Session.vim' inside the directory
 
         force = {
           read = true;
@@ -41,7 +41,11 @@
             delete = null;
           };
           post = {
-            read = null;
+            read.__raw = ''
+              function ()
+                vim.notify("Session restored!")
+              end
+            '';
             write = null;
             delete = null;
           };
