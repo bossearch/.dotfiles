@@ -1,6 +1,7 @@
 {
   default = [
     "buffer"
+    "cmdline"
     "copilot"
     "dictionary"
     # "git"
@@ -9,41 +10,9 @@
     "path"
     "ripgrep"
     "snippets"
-    "cmdline"
   ];
 
   providers = {
-    lsp = {
-      name = "LSP";
-      module = "blink.cmp.sources.lsp";
-      async = false;
-      enabled = true;
-      max_items = null;
-      min_keyword_length = 0;
-      override = null;
-      score_offset = 4;
-      should_show_items = true;
-      timeout_ms = 2000;
-
-      fallbacks = [
-        "buffer"
-      ];
-    };
-    path = {
-      name = "Path";
-      module = "blink.cmp.sources.path";
-      score_offset = 0;
-
-      fallbacks = [
-        "buffer"
-      ];
-
-      opts = {
-        label_trailing_slash = true;
-        show_hidden_files_by_default = false;
-        trailing_slash = false;
-      };
-    };
     buffer = {
       name = "Buffer";
       module = "blink.cmp.sources.buffer";
@@ -54,7 +23,6 @@
       module = "blink-copilot";
       score_offset = 5;
       async = true;
-
       opts = {
         max_completions = 3;
         max_attempts = 4;
@@ -81,6 +49,35 @@
     #     git_centers = {github = {};};
     #   };
     # };
+    lsp = {
+      name = "LSP";
+      module = "blink.cmp.sources.lsp";
+      async = false;
+      enabled = true;
+      max_items = null;
+      min_keyword_length = 0;
+      override = null;
+      score_offset = 4;
+      should_show_items = true;
+      timeout_ms = 2000;
+      fallbacks = [
+        "buffer"
+      ];
+    };
+    path = {
+      name = "Path";
+      module = "blink.cmp.sources.path";
+      score_offset = 6;
+
+      fallbacks = [
+        "buffer"
+      ];
+      opts = {
+        label_trailing_slash = true;
+        show_hidden_files_by_default = false;
+        trailing_slash = false;
+      };
+    };
     ripgrep = {
       async = true;
       module = "blink-ripgrep";
@@ -99,11 +96,6 @@
         additional_paths = {};
         debug = false;
       };
-    };
-    lazydev = {
-      name = "LazyDev";
-      module = "lazydev.integrations.blink";
-      score_offset = 10;
     };
   };
 }
