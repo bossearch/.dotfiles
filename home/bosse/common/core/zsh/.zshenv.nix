@@ -6,6 +6,7 @@
       export EDITOR="nvim"
       export BAT_THEME="tokyonight_night"
       export FZF_DEFAULT_OPTS="$(< ~/.config/fzf/.fzfrc)"
+      export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/.fzfrc
       export FZF_{CTRL_T,ALT_C}_OPTS="--preview='~/.config/fzf/extra/fzf-preview.sh {}'"
       export KEYTIMEOUT=1
       export AUTO_NOTIFY_THRESHOLD=30 # Set threshold to 30 seconds
