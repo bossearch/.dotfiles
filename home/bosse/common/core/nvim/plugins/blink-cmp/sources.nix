@@ -5,7 +5,6 @@
     "copilot"
     "dictionary"
     # "git"
-    "lazydev"
     "lsp"
     "path"
     "ripgrep"

@@ -1,3 +1,4 @@
+# TODO: add mini.snippets and compare it with luasnip
 {
   programs.nixvim.plugins.mini = {
     enable = true;
