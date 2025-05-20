@@ -17,23 +17,7 @@
           };
         };
         setupLspCapabilities = true;
-        settings = {
-          keymap = {
-            preset = "super-tab";
-          };
-          snippets = {
-            preset = "luasnip";
-          };
-          signature = {
-            enabled = true;
-            window = {
-              border = "rounded";
-            };
-          };
-          appearance = import ./appearance.nix;
-          sources = import ./sources.nix;
-          completion = import ./completion.nix;
-        };
+        settings = import ./settings.nix;
       };
     };
   };
