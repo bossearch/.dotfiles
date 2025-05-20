@@ -26,18 +26,17 @@
       session = false;
     }
     {
-      pane = 1;
       section = "keys";
-      padding = 1;
+      padding = 2;
     }
     {
-      pane = 1;
       align = "center";
       text.__raw = ''
         {
-          {"  ", hl = "header"},
+          { require("lib.util").get_tips(), hl = "header"},
+          {"\n\n  ", hl = "desc"},
           {"Nixvim started in ", hl = "footer"},
-          { require("lib.util").get_nvim_startup_time(), hl = "special"},
+          { require("lib.util").get_nvim_startup_time(), hl = "key"},
         }
       '';
     }

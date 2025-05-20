@@ -180,6 +180,45 @@
           end
         end
 
+        -- tips --
+        util.get_tips = function ()
+          local function wrap_text(text, max_width)
+            local lines, current = {}, ""
+            for line in text:gmatch("[^\n]+") do
+              for word in line:gmatch("%S+") do
+                if #current == 0 then
+                  current = word
+                elseif #current + #word + 1 <= max_width then
+                  current = current .. " " .. word
+                else
+                  table.insert(lines, current)
+                  current = word
+                end
+              end
+              if #current > 0 then
+                table.insert(lines, current)
+                current = ""
+              end
+            end
+            return table.concat(lines, "\n")
+          end
+
+          -- Path to your tips file
+          local tips_file = vim.fn.stdpath('config') .. '/lua/lib/tips.lua'
+
+          -- Try to load the tips list
+          local ok, tips = pcall(dofile, tips_file)
+          if not ok or type(tips) ~= "table" or #tips == 0 then
+            return "No tips available!"
+          end
+
+          -- Randomly select a tip
+          math.randomseed(os.time() + math.random(1000000))
+          local tip = tips[math.random(1, #tips)]
+
+          return wrap_text(tip, 60)
+        end
+
         return util
       '';
     };
