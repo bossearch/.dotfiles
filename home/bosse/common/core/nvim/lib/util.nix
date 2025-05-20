@@ -176,7 +176,7 @@
               tonumber(last_ms)
             )
           else
-            return "No NVIM STARTED entry >10ms found in /tmp/nvim-startup.log"
+            return "???"
           end
         end
 
