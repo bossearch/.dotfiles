@@ -11,9 +11,6 @@
   ];
   programs.nixvim = {
     enable = true;
-    dependencies = {
-      gh.enable = true;
-    };
     performance = {
       byteCompileLua = {
         enable = true;
