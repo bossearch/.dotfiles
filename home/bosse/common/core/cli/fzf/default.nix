@@ -23,13 +23,13 @@
       --color=pointer:#E26E87
       --color=header:#CEA265
       --color=gutter:#1a1b26
-      --color=border:#ff9e64
-      --color=separator:#27a1b9
-      --color=scrollbar:#ff9e64
+      --color=border:#27a1b9
+      --color=separator:#ff9e64
+      --color=scrollbar:#27a1b9
       --color=label:#aeaeae
       --color=query:#B1BAE4
-      --color=preview-border:#27a1b9
-      --color=preview-scrollbar:#27a1b9
+      --color=preview-border:#ff9e64
+      --color=preview-scrollbar:#ff9e64
     '';
   };
 }

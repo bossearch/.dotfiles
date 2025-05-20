@@ -26,16 +26,6 @@
       fi
 
       # ----------------------------
-      # Environment Variables
-      # ----------------------------
-
-      export EDITOR="nvim"
-
-      # Load fzf and its related configurations
-      export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/.fzfrc
-      export FZF_{CTRL_T,ALT_C}_OPTS="--preview='~/.config/fzf/extra/fzf-preview.sh {}'"
-
-      # ----------------------------
       # History Configuration
       # ----------------------------
 
@@ -91,20 +81,6 @@
       autoload -z edit-command-line
       zle -N edit-command-line
       bindkey '^V' edit-command-line
-
-      export KEYTIMEOUT=1
-      ## Vi mode cursor indicator
-      # zle-keymap-select () {
-      #     if [[ $KEYMAP == vicmd ]]; then
-      #         # the command mode for vi
-      #         echo -ne "\e[2 q"
-      #     else
-      #         # the insert mode for vi
-      #         echo -ne "\e[5 q"
-      #     fi
-      # }
-      # precmd_functions+=(zle-keymap-select)
-      # zle -N zle-keymap-select
 
       # Yank on vicmd
       function vi-yank-xclip {
@@ -211,17 +187,6 @@
       # zsh-completions matcher settings
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       _comp_options+=(globdots)
-
-      # zsh-auto-notify
-      export AUTO_NOTIFY_THRESHOLD=30 # Set threshold to 30 seconds
-      export AUTO_NOTIFY_IGNORE=(
-        "nyaa"
-        "rb" "hm" "nix-shell"
-        "fh" "fkill" "fif" "fzf" "fsys" "fgrep"
-        "yy" "sy" "yazi"
-        "man" "nvim" "tmux" "tm" "fg"
-        "lazygit" "newsboat" "toipe" "neomutt"
-      )
 
       # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
       [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
