@@ -154,6 +154,32 @@
             :find()
         end
 
+        -- startup-time --
+        util.get_nvim_startup_time = function()
+          local last_ms = nil
+          local file = io.open("/tmp/nvim-startup.log", "r")
+          if file then
+            for line in file:lines() do
+              if line:find("NVIM STARTED") then
+                local ms = line:match("([%d%.]+)")
+                if ms and tonumber(ms) > 10 then
+                  last_ms = ms
+                end
+              end
+            end
+            file:close()
+          end
+
+          if last_ms then
+            return string.format(
+              "%.2fms",
+              tonumber(last_ms)
+            )
+          else
+            return "No NVIM STARTED entry >10ms found in /tmp/nvim-startup.log"
+          end
+        end
+
         return util
       '';
     };

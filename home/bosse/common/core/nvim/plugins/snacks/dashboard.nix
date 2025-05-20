@@ -32,10 +32,14 @@
     }
     {
       pane = 1;
-      section = "terminal";
-      cmd = "~/.config/nvim/lua/lib/startup.sh";
-      indent = 16;
-      ttl = 0;
+      align = "center";
+      text.__raw = ''
+        {
+          {"  ", hl = "header"},
+          {"Nixvim started in ", hl = "footer"},
+          { require("lib.util").get_nvim_startup_time(), hl = "special"},
+        }
+      '';
     }
   ];
   preset = {
