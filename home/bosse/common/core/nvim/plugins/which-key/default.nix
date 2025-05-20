@@ -21,7 +21,8 @@
         ++ (import ./split.nix)
         ++ (import ./telescope.nix)
         ++ (import ./terminal.nix)
-        ++ (import ./window.nix);
+        ++ (import ./window.nix)
+        ++ (import ./yazi.nix);
     };
   };
 }

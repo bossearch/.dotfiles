@@ -20,6 +20,7 @@
     ./tokyonight
     ./treesitter
     ./which-key
+    ./yazi
     # TODO: Do i need trouble, treesj, substitute, gitsigns, comment, typr
   ];
 }
