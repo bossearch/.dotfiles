@@ -96,6 +96,20 @@
         };
         desc = "Remove trailing whitespace on save";
       }
+
+      # Remove ro from format options
+      {
+        event = ["FileType"];
+        pattern = ["*"];
+        callback = {
+          __raw = ''
+            function()
+              vim.opt_local.formatoptions:remove({ 'r', 'o' })
+            end
+          '';
+        };
+        desc = "Remove ro from format options";
+      }
     ];
   };
 }
