@@ -10,8 +10,9 @@
     settings = {
       dashboard = import ./dashboard.nix;
       indent = import ./indent.nix;
-      terminal = import ./terminal.nix;
       lazygit = import ./lazygit.nix;
+      picker = import ./picker.nix;
+      terminal = import ./terminal.nix;
       input = {enabled = true;};
       notifier = {enabled = true;};
       quickfile = {enabled = true;};

@@ -1,13 +1,19 @@
 [
-  # Oil
+  # File
   {
     __unkeyed = "<leader>/";
-    group = "Oil";
+    group = "File";
     icon = "󱧶 ";
     mode = "n";
   }
   {
     __unkeyed = "<leader>//";
+    __unkeyed-1 = "<cmd>lua Snacks.explorer()<cr>";
+    desc = "Open Explorer";
+    mode = "n";
+  }
+  {
+    __unkeyed = "<leader>/oo";
     __unkeyed-1.__raw = ''
       function()
         vim.g.oil_open_in_buffer = true
@@ -18,7 +24,7 @@
     mode = "n";
   }
   {
-    __unkeyed = "<leader>/f";
+    __unkeyed = "<leader>/of";
     __unkeyed-1.__raw = ''
       function()
         vim.g.oil_open_in_buffer = false
@@ -29,7 +35,7 @@
     mode = "n";
   }
   {
-    __unkeyed = "<leader>/d";
+    __unkeyed = "<leader>/od";
     __unkeyed-1.__raw = ''
       function()
         detail = not detail
@@ -41,6 +47,18 @@
       end
     '';
     desc = "Open Oil On Detail View";
+    mode = "n";
+  }
+  {
+    __unkeyed = "<leader>/yy";
+    __unkeyed-1 = "<cmd>Yazi cwd<cr>";
+    desc = "Open Yazi At Root Dir";
+    mode = "n";
+  }
+  {
+    __unkeyed = "<leader>/yf";
+    __unkeyed-1 = "<cmd>Yazi<cr>";
+    desc = "Open yazi at the current file";
     mode = "n";
   }
 ]

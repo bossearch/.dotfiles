@@ -13,17 +13,16 @@
       notify = true;
       preset = "classic"; # classic, modern, or helix
       spec =
-        (import ./lsp.nix)
+        (import ./file.nix)
+        ++ (import ./lsp.nix)
         ++ (import ./neo.nix)
-        ++ (import ./oil.nix)
         ++ (import ./other.nix)
+        ++ (import ./picker.nix)
         ++ (import ./quickfix.nix)
         ++ (import ./split.nix)
-        ++ (import ./telescope.nix)
         ++ (import ./terminal.nix)
         ++ (import ./tree.nix)
-        ++ (import ./window.nix)
-        ++ (import ./yazi.nix);
+        ++ (import ./window.nix);
     };
   };
 }
