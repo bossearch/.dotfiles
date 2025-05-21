@@ -10,13 +10,14 @@
     mockDevIcons = true;
     modules = {
       ai = {};
-      surround = {};
-      jump = {};
+      icons = {};
       jump2d = {};
       move = {};
-      icons = {};
+      surround = {};
+      jump = import ./jump.nix;
       pairs = import ./pairs.nix;
       sessions = import ./sessions.nix;
+      splitjoin = import ./splitjoin.nix;
     };
   };
 }
