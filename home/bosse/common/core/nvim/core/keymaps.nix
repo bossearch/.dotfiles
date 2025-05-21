@@ -7,8 +7,8 @@
     keymaps = [
       # buffers
       {
-        action = "<cmd>bprevious<cr>";
         key = "<S-h>";
+        action = "<cmd>bprevious<cr>";
         options = {
           silent = true;
           noremap = true;
@@ -16,8 +16,8 @@
         };
       }
       {
-        action = "<cmd>bnext<cr>";
         key = "<S-l>";
+        action = "<cmd>bnext<cr>";
         options = {
           silent = true;
           noremap = true;
@@ -26,12 +26,12 @@
       }
       # diagnostic
       {
+        key = "<S-j>";
         action.__raw = ''
           function()
             vim.diagnostic.goto_next({float=false})
           end
         '';
-        key = "<S-j>";
         options = {
           silent = true;
           noremap = true;
@@ -39,12 +39,12 @@
         };
       }
       {
+        key = "<S-k>";
         action.__raw = ''
           function()
             vim.diagnostic.goto_prev({float=false})
           end
         '';
-        key = "<S-k>";
         options = {
           silent = true;
           noremap = true;
@@ -53,29 +53,71 @@
       }
       # undo break-points
       {
-        action = ",<c-g>u";
         key = ",";
+        action = ",<c-g>u";
         mode = "i";
       }
       {
-        action = ".<c-g>u";
         key = ".";
+        action = ".<c-g>u";
         mode = "i";
       }
       {
-        action = ";<c-g>u";
         key = ";";
+        action = ";<c-g>u";
         mode = "i";
+      }
+      # move lines
+      {
+        key = "<A-j>";
+        action = "<cmd>execute 'move .+' . v:count1<cr>==";
+        mode = "n";
+      }
+      {
+        key = "<A-k>";
+        action = "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==";
+        mode = "n";
+      }
+      {
+        key = "<A-j>";
+        action = "<esc><cmd>m .+1<cr>==gi";
+        mode = "i";
+      }
+      {
+        key = "<A-k>";
+        action = "<esc><cmd>m .-2<cr>==gi";
+        mode = "i";
+      }
+      {
+        key = "<A-j>";
+        action = ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv";
+        mode = "v";
+      }
+      {
+        key = "<A-k>";
+        action = ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv";
+        mode = "v";
+      }
+      # better indent
+      {
+        key = "<";
+        action = "<gv";
+        mode = "v";
+      }
+      {
+        key = ">";
+        action = ">gv";
+        mode = "v";
       }
       # sessions
       {
+        key = "<C-s>";
         action.__raw = ''
           function()
             require("mini.sessions").write("global-session")
             print("Session saved!")
           end
         '';
-        key = "<C-s>";
         mode = ["n" "v" "i"];
         options = {
           silent = true;

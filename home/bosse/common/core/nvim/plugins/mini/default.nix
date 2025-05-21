@@ -12,7 +12,6 @@
       ai = {};
       icons = {};
       jump2d = {};
-      move = {};
       surround = {};
       jump = import ./jump.nix;
       pairs = import ./pairs.nix;

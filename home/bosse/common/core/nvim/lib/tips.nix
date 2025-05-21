@@ -4,6 +4,7 @@
       "lua/lib/tips.lua".text = ''
         -- credit to: https://github.com/rubiin/fortune.nvim
         return {
+          "use `gv` to re-select the previous visual selection",
           "<number>G goes to the line with that number",
           "`:%s/./&/gn` counts characters in a buffer",
           "`:%s/\\i\\+/&/gn` counts characters in a buffer",
