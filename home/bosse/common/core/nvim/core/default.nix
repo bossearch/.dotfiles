@@ -1,8 +1,9 @@
 {
   imports = [
-    ./options.nix
     ./autocmd.nix
-    ./usercmd.nix
+    ./filetype.nix
     ./keymaps.nix
+    ./options.nix
+    ./usercmd.nix
   ];
 }
