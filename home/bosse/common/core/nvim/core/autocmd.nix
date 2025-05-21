@@ -33,8 +33,6 @@
         event = ["FileType"];
         pattern = [
           "DressingSelect"
-          "Jaq"
-          "PlenaryTestPopup"
           "fugitive"
           "git"
           "help"
@@ -43,10 +41,9 @@
           "man"
           "notify"
           "qf"
-          "spectre_panel"
-          "startuptime"
           "telescope"
           "health"
+          "oil"
         ];
         callback = {
           __raw = ''

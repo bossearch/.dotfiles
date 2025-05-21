@@ -1,4 +1,4 @@
-{
+  {
   programs.nixvim = {
     extraFiles = {
       "lua/lib/tips.lua".text = ''
@@ -14,7 +14,6 @@
           "If text is wrapping use gk and gj to move up and down",
           "Use CTRL-A and CTRL-X to increment and decrement numbers",
           "You can use a vimscript function to replace text `%s/replace/\\=1+1`",
-          "q: opens the recent command history",
           "Use `:sort` to sort lines in a buffer",
           "Use `:grep` to search for patterns in multiple files",
           "Use `:w !sudo tee %` to save a file that requires root permission",
