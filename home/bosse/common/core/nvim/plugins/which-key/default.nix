@@ -1,4 +1,3 @@
-# TODO: consider snacks scratch
 {
   programs.nixvim.plugins.which-key = {
     enable = true;

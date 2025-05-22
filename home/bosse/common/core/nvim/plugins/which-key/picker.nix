@@ -31,7 +31,7 @@
     mode = "n";
   }
   {
-    __unkeyed = "<leader><space>g";
+    __unkeyed = "<leader><space>w";
     __unkeyed-1 = "<cmd>lua Snacks.picker.grep()<cr>";
     desc = "Find String In CWD";
     mode = "n";
