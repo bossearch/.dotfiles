@@ -1,3 +1,5 @@
+# TODO: consider snacks scratch
+# TODO: learn more about lsp keybind
 {
   programs.nixvim.plugins.which-key = {
     enable = true;
@@ -12,8 +14,14 @@
       expand = 1;
       notify = true;
       preset = "classic"; # classic, modern, or helix
+      triggers.__raw = ''
+        {
+          { "<leader>", mode = { "n", "v" } },
+        }
+      '';
       spec =
         (import ./file.nix)
+        ++ (import ./gitsigns.nix)
         ++ (import ./lsp.nix)
         ++ (import ./neo.nix)
         ++ (import ./other.nix)
