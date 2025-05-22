@@ -32,4 +32,8 @@
       --color=preview-scrollbar:#ff9e64
     '';
   };
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

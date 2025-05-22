@@ -21,7 +21,7 @@
       eza
       fd
       ffmpeg
-      fzf
+      # fzf
       imagemagick
       jq
       killall
@@ -31,8 +31,11 @@
       toipe
       unzip
       wget
-      zoxide
       moreutils
       mediainfo
     ];
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

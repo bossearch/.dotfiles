@@ -1,3 +1,4 @@
+# TODO: show hidden files
 {
   formatters = {
     file = {
