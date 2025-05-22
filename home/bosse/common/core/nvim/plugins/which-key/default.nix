@@ -1,5 +1,4 @@
 # TODO: consider snacks scratch
-# TODO: learn more about lsp keybind
 {
   programs.nixvim.plugins.which-key = {
     enable = true;

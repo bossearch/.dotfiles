@@ -1,4 +1,6 @@
-# TODO: Do i need trouble, treesj, substitute, gitsigns, comment, typr
+# TODO: plugin to consider trouble, substitute, comment, typr
+# TODO: Add markdown plugin suite
+# TODO: Learn more about treesitter textobjects
 {lib, ...}: let
   inherit (builtins) readDir;
   inherit (lib.attrsets) foldlAttrs;

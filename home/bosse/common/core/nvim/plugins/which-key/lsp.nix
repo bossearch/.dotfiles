@@ -1,3 +1,4 @@
+# TODO: Add more LSP keymaps
 [
   # LSP
   {

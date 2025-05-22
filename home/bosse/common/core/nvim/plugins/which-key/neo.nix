@@ -6,6 +6,7 @@
     icon = " ";
     mode = "n";
   }
+  # TODO: make this to make file as the same buffer location
   {
     __unkeyed = "<leader>nf";
     __unkeyed-1 = "<cmd>enew<cr>";
@@ -20,21 +21,13 @@
   }
   {
     __unkeyed = "<leader>nn";
-    __unkeyed-1.__raw = ''
-      function()
-        require("snacks").notifier.show_history()
-      end
-    '';
+    __unkeyed-1 = "<cmd>lua Snacks.notifier.show_history()<cr>";
     desc = "Show Notification History";
     mode = "n";
   }
   {
     __unkeyed = "<leader>nh";
-    __unkeyed-1.__raw = ''
-      function()
-        require("snacks").notifier.hide()
-      end
-    '';
+    __unkeyed-1 = "<cmd>lua Snacks.notifier.hide()<cr>";
     desc = "Hide Notification";
     mode = "n";
   }

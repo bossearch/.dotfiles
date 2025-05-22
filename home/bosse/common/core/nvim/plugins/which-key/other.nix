@@ -6,4 +6,10 @@
     desc = "Clear Search";
     mode = "n";
   }
+  {
+    __unkeyed = "<leader>lg";
+    __unkeyed-1 = "<cmd>lua Snacks.lazygit()<cr>";
+    desc = "Open LazyGit";
+    mode = "n";
+  }
 ]
