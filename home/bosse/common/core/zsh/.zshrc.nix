@@ -62,6 +62,7 @@
       alias cat=bat
       alias cat-og='\cat'
       alias ..="cd .."
+      alias gh-create="gh repo create --private --source=. --remote=origin && git push -u --all && gh browse"
       # alias rb="~/.dotfiles/scripts/rebuild.sh"
       rb() {
         ~/.dotfiles/scripts/rebuild.sh "$@"
