@@ -6,5 +6,8 @@
         event = [ "UIEnter" ];
       };
     };
+    settings = {
+      signs = false;
+    };
   };
 }
