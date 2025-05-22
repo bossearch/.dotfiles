@@ -42,6 +42,8 @@
           keys.__raw = ''
             {
               ["<leader>/"] = { "close", mode = { "i", "n" } },
+              ["-"] = { "edit_split", mode = { "i", "n" } },
+              ["|"] = { "edit_vsplit", mode = { "i", "n" } },
             }
           '';
         };
