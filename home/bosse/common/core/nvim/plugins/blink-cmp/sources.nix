@@ -1,10 +1,19 @@
-{
+let
+  buffer_score = 50;
+  copilot_score = 60;
+  dictionary_score = 30;
+  git_score = 90;
+  lsp_score = 70;
+  path_score = 80;
+  ripgrep_score = 40;
+  snippets_score = 100;
+in{
   default = [
     "buffer"
     "cmdline"
     "copilot"
     "dictionary"
-    # "git"
+    "git"
     "lsp"
     "path"
     "ripgrep"
@@ -13,17 +22,23 @@
 
   providers = {
     buffer = {
-      name = "Buffer";
+      name = "buffer";
       module = "blink.cmp.sources.buffer";
-      score_offset = 0;
+      enabled = true;
+      async = true;
+      max_items = 4;
+      min_keyword_length = 2;
+      score_offset = buffer_score;
     };
     copilot = {
       name = "copilot";
       module = "blink-copilot";
-      score_offset = 5;
+      enabled = true;
       async = true;
+      min_keyword_length = 4;
+      score_offset = copilot_score;
       opts = {
-        max_completions = 3;
+        max_completions = 2;
         max_attempts = 4;
         kind = "Copilot";
         debounce = 750;
@@ -34,40 +49,63 @@
       };
     };
     dictionary = {
+      name = "dict";
       module = "blink-cmp-dictionary";
-      name = "Dict";
+      # only enable this source when filetype is gitcommit, markdown, or 'octo'
+      enabled.__raw = ''
+        function()
+          return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+        end
+      '';
+      async = true;
+      max_items = 4;
       min_keyword_length = 3;
-      opts = {};
+      score_offset = dictionary_score;
+      opts = {
+        dictionary_files.__raw = ''
+          { vim.fn.expand("~/.config/nvim/lua/lib/words.txt") }
+        '';
+      };
     };
-    # git = {
-    #   module = "blink-cmp-git";
-    #   name = "git";
-    #   score_offset = 100;
-    #   opts = {
-    #     commit = {};
-    #     git_centers = {github = {};};
-    #   };
-    # };
+    git = {
+      name = "git";
+      module = "blink-cmp-git";
+      # only enable this source when filetype is gitcommit, markdown, or 'octo'
+      enabled.__raw = ''
+        function()
+          return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+        end
+      '';
+      async = true;
+      max_items = null;
+      min_keyword_length = 1;
+      score_offset = git_score;
+      opts = {
+        commit = {};
+        git_centers = {github = {};};
+      };
+    };
     lsp = {
-      name = "LSP";
+      name = "lsp";
       module = "blink.cmp.sources.lsp";
-      async = false;
       enabled = true;
+      async = false;
       max_items = null;
       min_keyword_length = 0;
-      override = null;
-      score_offset = 4;
-      should_show_items = true;
+      score_offset = lsp_score;
       timeout_ms = 2000;
       fallbacks = [
         "buffer"
       ];
     };
     path = {
-      name = "Path";
+      name = "path";
       module = "blink.cmp.sources.path";
-      score_offset = 6;
-
+      enabled = true;
+      async = true;
+      max_items = null;
+      min_keyword_length = 0;
+      score_offset = path_score;
       fallbacks = [
         "buffer"
       ];
@@ -78,10 +116,11 @@
       };
     };
     ripgrep = {
-      async = true;
+      name = "ripgrep";
       module = "blink-ripgrep";
-      name = "Ripgrep";
-      score_offset = 1;
+      enabled = true;
+      async = true;
+      score_offset = ripgrep_score;
       opts = {
         prefix_min_len = 3;
         context_size = 5;
@@ -95,6 +134,15 @@
         additional_paths = {};
         debug = false;
       };
+    };
+    snippets = {
+      name = "snippets";
+      module = "blink.cmp.sources.snippets";
+      enabled = false;
+      async = true;
+      max_items = 15;
+      min_keyword_length = 2;
+      score_offset = snippets_score;
     };
   };
 }

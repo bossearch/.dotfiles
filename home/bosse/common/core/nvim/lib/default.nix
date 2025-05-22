@@ -1,7 +1,8 @@
 {
   imports = [
     ./desktop.nix
-    ./tips.nix
     ./util.nix
+    ./tips.nix
+    ./words.nix
   ];
 }
