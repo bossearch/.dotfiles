@@ -20,9 +20,6 @@
       osd-color = "#FFFFFFFF";
       osd-border-color = "#B3000000";
       osd-border-size = 2;
-      # osd-border-style = "opaque-box";
-      # osd-font = "Roboto-Medium";
-      # osd-font = "JetBrains Mono";
 
       # screenshot
       screenshot-sw = "yes";

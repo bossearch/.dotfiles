@@ -1,3 +1,4 @@
+# TODO: add font type options
 {
   lib,
   ...

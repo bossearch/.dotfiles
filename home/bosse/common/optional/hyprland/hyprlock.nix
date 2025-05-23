@@ -33,7 +33,7 @@
           check_color = "rgb(16161E)";
           fail_color = "rgb(F7768E)";
           font_color = "rgb(C0CAF5)";
-          font_family = "MesloLGSNerdFont";
+          font_family = "CommitMono Nerd Font";
           fade_on_empty = false;
           placeholder_text = "<span foreground=\"##C0CAF5\"><i>󰌾 Logged in as </i><span foreground=\"##7DCFFF\">$USER</span></span>";
           hide_input = false;
@@ -51,7 +51,7 @@
           text = "cmd[update:1000] echo \"$(date +'%A, %-d %B')\"";
           color = "rgb(C0CAF5)";
           font_size = 22;
-          font_family = "JetBrains Mono Extrabold";
+          font_family = "Extra Bold";
           position = "0, 400";
           halign = "center";
           valign = "center";
@@ -62,7 +62,7 @@
           text = "$TIME";
           color = "rgb(C0CAF5)";
           font_size = 95;
-          font_family =  "JetBrains Mono Extrabold";
+          font_family = "Extra Bold";
           position = "0, 300";
           halign = "center";
           valign = "center";

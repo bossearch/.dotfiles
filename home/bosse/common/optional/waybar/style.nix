@@ -1,7 +1,7 @@
 {...}: {
   programs.waybar.style = ''
     * {
-      font-family: MesloLGSNerdFont;
+      font-family: CommitMono Nerd Font;
       font-size: 16px;
       border-radius: 8px;
     }

@@ -29,7 +29,7 @@
         frame_color = "#ebdbb2";
         sort = "update";
         idle_threshold = 0;
-        font = "JetBrains Mono Nerd Font 13";
+        font = "CommitMono Nerd Font 13";
         line_height = 2;
         markup = "full";
         origin = "top-right";

@@ -14,13 +14,16 @@ in {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
+    terminal = "tmux-256color";
+    mouse = true;
+    keyMode = "vi";
+    historyLimit = 10000;
     extraConfig = ''
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf
 
       # Tmux config
       set -s set-clipboard on
-      set -g mouse on
       set -g set-titles on
       set -g allow-passthrough on
       set-option -g status-position top
@@ -28,7 +31,6 @@ in {
       # Tmux sensible
       set -g status-interval 1
       set -g status-keys vi
-      set -g history-limit 10000
       set -g focus-events on
 
       # Theme
