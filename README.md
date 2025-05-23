@@ -1,17 +1,4 @@
-# Bosse's dotfiles for nixos
-Hi, this is my dotfiles repo for nixos, it wont work on your computer!
-I suggest you to look `old` branch instead.
+# About this Repo
+This repository has grown organically over time, starting from my Arch Linux setup and gradually transitioning into a fully declarative NixOS configuration. Along the way, it picked up a lot of history, experimentation, and unused baggage — reaching around **100MB** in size.
 
-# Setup Guide
-
-## Manual Installation
-
-Do your usual [NixOS installation](https://nixos.org/manual/nixos/stable/#ch-installation) and reboot.
-
-## Post Install
-
-Magic !!
-
-```
-nix-shell -p git --command "nix run --experimental-features 'nix-command flakes' github:bossearch/.dotfiles"
-```
+To keep things more manageable and better organized, I’m starting a new [repo](https://github.com/bossearch/nix-config) with a cleaner structure and a more focused approach to maintaining my dotfiles going forward.
