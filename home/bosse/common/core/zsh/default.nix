@@ -69,6 +69,7 @@
       c = "clear";
       cat = "bat";
       cat-og = "\cat";
+      gh-create="gh repo create --private --source=. --remote=origin && git push -u --all && gh browse";
       ".." = "cd ..";
     };
     envExtra = ''
