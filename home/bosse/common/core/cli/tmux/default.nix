@@ -62,6 +62,7 @@ in {
       bind -r Right resize-pane -R   # Resize pane to the right
       bind -r h previous-window
       bind -r l next-window
+      bind -r s swap-pane -D
 
       # Split
       unbind %
@@ -82,6 +83,7 @@ in {
       bind Tab popup -E -B -w80 -h10 -xC -y38.5  "zsh -ci tm"
       bind Escape popup -E -B -w80 -h10 -xC -y38.5  "zsh -ci ftpanekill"
       bind q popup -E -B -w80 -h10 -xC -y38.5  "zsh -ci tmuxkill"
+      bind o popup -E -B -w80 -h10 -xC -y38.5  "zsh -ci furl"
       bind Enter popup -E -w100 -h50 -xC -yC
 
       run-shell ~/.config/tmux/plugins/theme/theme.tmux

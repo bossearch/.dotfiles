@@ -97,6 +97,7 @@
       # Source additional fzf files
       source ~/.config/fzf/extra/other
       source ~/.config/fzf/extra/fsys
+      source ~/.config/fzf/extra/furl
 
       # Check if tmux is installed and load fzf scripts
       if command -v tmux >/dev/null 2>&1; then
